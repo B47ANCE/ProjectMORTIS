@@ -4,7 +4,7 @@ local authority=true
 local captured,restored,changes,flushes=0,0,0,0
 local busy,failFlush,failRestore=false,false,false
 local native={walk='original',speed=0.7}
-package.loaded['Mortis/Runtime/Components']={get=function()return state end,set=function(_,_,v)state=v end,setRestored=function()error('client must not write movement state')end}
+package.loaded['Mortis/Runtime/Components']={allFor=function()return {['Mortis.ProfileState']=state}end,get=function()return state end,set=function(_,_,v)state=v end,setRestored=function()error('client must not write movement state')end}
 package.loaded['Mortis/Runtime/Authority']={canWriteCanonicalState=function()return authority end}
 package.loaded['Mortis/Runtime/Adapters/StateAdapter']={isBusy=function()return busy end}
 package.loaded['Mortis/Runtime/Persistence']={flushComponents=function()flushes=flushes+1;return not failFlush,'cache failure' end}
@@ -22,6 +22,9 @@ package.loaded['Mortis/Runtime/Adapters/LocomotionAdapter']={
 local Runtime=require 'Mortis/Runtime/ProfileRuntime'
 local z={}
 local profile={locomotion={tier='sprinter'}}
+busy=true
+assert(not Runtime.applyLocomotion(z,profile,true) and changes==0,'force must not bypass a busy native state')
+busy=false
 assert(Runtime.applyLocomotion(z,profile,true))
 assert(captured==1 and flushes>=1 and native.speed==2)
 assert(Runtime.applyLocomotion(z,{locomotion={tier='shambler'}},true))

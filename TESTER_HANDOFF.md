@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.25.0-dev.2 playtester handoff
+# Project M.O.R.T.I.S. 0.25.0-dev.3 playtester handoff
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
@@ -24,3 +24,5 @@ Active Hours is now a MORTIS subsystem in development. Its separate opt-in one-z
 M-05 changes the food-provider contract to API 1.6.0. Do not treat Nightfall effigy consumption as available until its provider has migrated; follow docs/FOOD_TRANSACTIONS.md on a disposable fixture for compensation/persistence tests.
 
 Dev.2 adds discovery/quarantine/no-effect safeguards. In a disposable migrated-provider fixture, an ignored/rounded native write or invalid quote must not remove stock; a quarantined provider must not hide a healthy source for another zombie. Confirm all 37 English sandbox option names/tooltips in the native settings UI; other-language fallback remains untested. The weighted-range experiment is offline only and supplies no new gameplay option.
+
+Dev.3: follow docs/LOCOMOTION_OVERRIDES.md with a non-default original speed modifier. Confirm higher-priority owner/ceiling composition, last release restores all five observed fields, profile writes/assignment clear refuse while owned, and coordinated release permits a clean retry. For a disposable saved journal after owner loss, load components, verify individual re-enrollment/release refuse, then coordinate explicit server clear; do not promote this to automatic session recovery. Native animation/ownership/observer/restart behavior remains NOT TESTED.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.25.0-dev.3 - observed override recovery, 2026-10-16
+
+- Restore all five observed locomotion fields on last-owner/ceiling release and explicit clear; verify requested walk/class instead of treating native method acceptance as success.
+- Checkpoint a dedicated internal version-1 baseline component before movement writes, retain failures, and refuse owner re-enrollment after stack loss until coordinated clear. No consumer leases or policy are replayed automatically.
+- Refuse busy/unknown native states and missing inverse observations. Preserve priority/ceiling composition and unchanged-request deduplication, including passive ceilings.
+- Prevent type-profile reconciliation/clearing from overwriting movement while an override journal owns it; callers must coordinate owner release before retrying profile or assignment changes.
+- Add actual-component/persistence regression coverage and update the Active Hours real-stack fixture. Public API remains 1.6.0; native disk/MP/full animation restoration is NOT TESTED. G7/stable G8 remain blocked.
+
 ## 0.25.0-dev.2 - feeding hardening and roadmap groundwork, 2026-10-16
 
 - Isolate malformed provider/native coordinates, reject nonfinite priorities and consumption distances, preserve vanilla targeting when observation fails, and skip quarantined providers during discovery. Equal scores resolve deterministically by provider ID.

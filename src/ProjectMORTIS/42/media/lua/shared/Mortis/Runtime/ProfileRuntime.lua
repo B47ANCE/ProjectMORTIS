@@ -93,6 +93,10 @@ end
 
 function ProfileRuntime.applyLocomotion(zombie, typeDef, force, retainBaseline)
     if not Authority.canWriteCanonicalState(zombie) then return true, "non-authority" end
+    local bucket=Components.allFor(zombie)
+    if bucket and bucket["Mortis.LocomotionOverrideBaseline"]~=nil then
+        return false,"locomotion override owns movement; release or coordinated clear required"
+    end
     local profile, profileIdOrError = ProfileRuntime.resolveLocomotion(typeDef)
     local state = getState(zombie)
     local movement=state.locomotion
@@ -128,7 +132,7 @@ function ProfileRuntime.applyLocomotion(zombie, typeDef, force, retainBaseline)
     end
 
     local busy, busyReason = State.isBusy(zombie)
-    if busy and not force then return true, "deferred while native state busy: " .. tostring(busyReason) end
+    if busy then return false, "deferred while native state busy: " .. tostring(busyReason) end
 
     if movement.baseline and movement.attempted and movement.signature~=signature then
         if busy then return false,"locomotion profile transition deferred while native state busy" end

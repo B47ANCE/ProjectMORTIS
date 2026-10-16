@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.25.0-dev.2. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.25.0-dev.3. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -33,8 +33,8 @@ Automatic replication handlers require their multiplayer execution side. SP stil
 Resolved from the takeover audit at the source/offline level: M-01, M-02, M-03, M-04, M-06. Remaining items:
 
 - M-05 is corrected at the framework/offline boundary with the API 1.6.0 reserve/commit/rollback contract; see [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md). Consume-only providers fail closed at consumption range; Nightfall effigies still require a consumer migration. Native durability/compensation and dedicated evidence remain gated.
-- Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Unobserved native animation/lunge bookkeeping and existing consumer override-stack persistence remain open.
-- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.14.1; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
+- Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Dev.3 also journals/restores the override service's five observed fields and excludes competing profile writes; live owner leases, unobserved native animation/lunge bookkeeping and native durability remain open. See LOCOMOTION_OVERRIDES.md.
+- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.15.0; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
 - English names/tooltips now cover all 37 sandbox options and are catalog-checked offline. Actual non-English translation quality and native fallback remain unverified. The historical `Contents/` copy remains stale; no current package was generated.
 - Native hunger/stat synchronization, corpse/save serialization, streaming/online-ID reuse, command relevance/rate behavior at high populations, headless execution, and restart/reconnect remain [RUNTIME GATE]. Fair progress under repeated permanent serializer/native failures also needs stress evidence; an unavailable provider does not become a PASS through retries.
 
@@ -46,6 +46,6 @@ After a current B47ANCEDKnowledgeAndWisdom stage-1 PASS, follow the MORTIS stage
 
 ## Absorbed Active Hours boundary
 
-The explicitly started diagnostic uses admin intent and server-only `LocomotionOverrides` calls. Its client path never applies native speed; legacy namespaces are ignored and loaded legacy diagnostics block/freeze requests. This removes the old diagnostic's client Apply route, not the engine's ownership race/overwrite uncertainty. Framework authority is not native simulation ownership, and the override stack is not in component snapshots. See [ACTIVE_HOURS.md](ACTIVE_HOURS.md) for exact limits and dedicated tests. G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
+The explicitly started diagnostic uses admin intent and server-only `LocomotionOverrides` calls. Its client path never applies native speed; legacy namespaces are ignored and loaded legacy diagnostics block/freeze requests. This removes the old diagnostic's client Apply route, not the engine's ownership race/overwrite uncertainty. Framework authority is not native simulation ownership, and live owner leases are not in component snapshots. The dedicated original-field journal is saved but never used to infer/replay an owner policy. See [ACTIVE_HOURS.md](ACTIVE_HOURS.md) for exact limits and dedicated tests. G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
 
 Active Hours diagnostic corrections: Set/Release require observed standing/non-busy native state; unavailable reads reject without replay. After owner release, the diagnostic retains raw samples but ends its own category assertion so other owners/ceilings are not falsely labeled native overwrite. No authority, public API, protocol or persistent schema changes are introduced.

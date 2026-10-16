@@ -205,3 +205,5 @@ The user-approved inclusion of all Active Hours features, while retaining the in
 ## Transactional food-provider boundary
 
 API 1.6.0 adds `FoodSources.TRANSACTION_VERSION=1` and reserve/commit/rollback provider hooks. The server stages verified hunger/cache state before committing a reserved portion, compensates failures, isolates pre-commit queries/reentrant mutators, and emits feeding events only after success. Consume-only automatic feeding fails closed; see [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md) for provider migration, quarantine and native/crash limitations. No saved schema or custom network protocol is added.
+
+The shared owner stack now saves originals in internal `Mortis.LocomotionOverrideBaseline` schema 1 (save, no replication). Effective owner changes use observed restoration/readback; lost/failed stacks require coordinated clear. Type-profile movement waits while the journal exists, and forced profile application refuses known busy native states. This is an original-field journal, not a persistent consumer-policy scheduler; see [contract and limits](LOCOMOTION_OVERRIDES.md).

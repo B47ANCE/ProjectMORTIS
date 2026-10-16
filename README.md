@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.25.0-dev.2`
+- Version: `0.25.0-dev.3`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -76,7 +76,7 @@ Install Python development dependencies with `python -m pip install -r scripts/r
 
 The authority/replication fixes and remaining limitations are described in [AUTHORITY_REPLICATION.md](docs/AUTHORITY_REPLICATION.md), with [current validation](docs/VALIDATION.md) and [GitHub onboarding provenance](docs/ONBOARDING.md). Client hunger reads no longer author state; assignment clears synchronize with stale-message protection; directed replies preserve pending broadcasts. All multiplayer peers must use the same build.
 
-Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata use B47ANCEDKnowledgeAndWisdom; current actual-source integration is tested against 0.14.1; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.
+Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata use B47ANCEDKnowledgeAndWisdom; current actual-source integration is tested against 0.15.0; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.
 
 ## Active Hours features and standalone compatibility
 
@@ -85,3 +85,5 @@ B47ANCE'd Active Hours remains maintained as a standalone mod; M.O.R.T.I.S. incl
 Food providers now use the API 1.6.0 [transaction contract](docs/FOOD_TRANSACTIONS.md). Unsafe consume-only callbacks are never called automatically; existing consumers such as Nightfall effigies require migration before automatic consumption resumes.
 
 Development checkpoint dev.2 hardens discovery/quarantine and rejects food values that produce no hunger relief. All 37 sandbox options now have English tooltips, checked with JSON catalog integrity by the normal offline runner; non-English fluency and native fallback remain unverified. Roadmap work has begun on an [offline weighted-range/CDF experiment](experiments/active-hours/README.md), outside the runtime/package source. See the [execution queue and remaining gates](docs/MASTER_ROADMAP.md#current-execution-queue).
+
+Development checkpoint dev.3 extends [observed restoration to the owner stack](docs/LOCOMOTION_OVERRIDES.md): saved five-field baselines, verified cleanup, busy-state refusal and explicit recovery after owner loss. Profile writers wait while an override owns movement; release/clear owners before retrying profile or assignment changes. Full native animation/lunge restoration and MP remain unverified. See the [current audit and roadmap gates](docs/AUDIT_2026-10-16.md).

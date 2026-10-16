@@ -1,19 +1,31 @@
 local calls={}
 local authority=true
+local zombie={}
+local native={walkType='sneakWalk',speedType=3,speedMod=.7,crawler=false,crawlerType=0,version=1}
+local journal
 local mocks={
     ["Mortis/Runtime/Adapters/LocomotionAdapter"]={
-        setTier=function(_,tier) calls[#calls+1]="tier:"..tier return true end,
-        setWalkType=function(_,walk) calls[#calls+1]="walk:"..walk return true end,
+        setTier=function(_,tier) calls[#calls+1]="tier:"..tier;native.speedType=({sprinter=1,fastShambler=2,shambler=3})[tier];native.walkType=tier;return true end,
+        setWalkType=function(_,walk) calls[#calls+1]="walk:"..walk;native.walkType=walk;return true end,
     },
     ["Mortis/Runtime/Adapters/GameAdapter"]={
-        call=function(_,method) if method=="getWalkType" then return true,"sneakWalk" end return false end,
+        call=function(_,method) if method=="isOnFloor" or method=="isGettingUp" then return true,false end return false end,
     },
     ["Mortis/Runtime/Authority"]={canWriteCanonicalState=function() return authority end},
+    ["Mortis/Runtime/Adapters/StateAdapter"]={getNativeStateKey=function()return 'Walk' end,isBusy=function()return false end},
+    ["Mortis/Runtime/LocomotionBaseline"]={
+        capture=function(z)if z~=zombie then return nil,'unknown baseline' end;local copy={};for k,v in pairs(native)do copy[k]=v end;return copy end,
+        restore=function(_,baseline)
+            if native.walkType~=baseline.walkType then calls[#calls+1]='walk:'..baseline.walkType end
+            for k,v in pairs(baseline)do native[k]=v end;return true
+        end,
+    },
+    ["Mortis/Runtime/LocomotionOverrideStore"]={read=function()return journal end,
+        write=function(_,baseline)journal={version=1,baseline=baseline};return true end,clear=function()journal=nil;return true end},
 }
 local realRequire=require
 require=function(name) return mocks[name] or realRequire(name) end
 local Overrides=dofile(arg[1])
-local zombie={}
 assert(Overrides.acquire(zombie,"uv",{tier="shambler",priority=20}))
 assert(calls[#calls]=="tier:shambler","expected UV slow")
 assert(Overrides.acquire(zombie,"sprint",{tier="sprinter",priority=40}))

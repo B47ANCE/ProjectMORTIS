@@ -38,3 +38,7 @@ The exact-version assertion introduced in the initial consumer test was a test d
 ## Current dependency integration — 0.25.0-dev.2
 
 [TESTED offline] Both actual-source consumer integrations pass against Knowledge & Wisdom 0.14.1, exact clean source commit `a8ba91c8454a0a4cac937392d227e1ba1aebcaa3`, verified against its public branch. `evidence/knowledge-dependency-0.14.1.json` binds 114 source/metadata inputs. The 0.13.0 and 0.14.0 records remain historical. This is a test-input update, not a new minimum dependency pin or a native load/save/MP claim; no dependency source was edited.
+
+## Current dependency integration — 0.25.0-dev.3
+
+[TESTED offline] Both research/history integrations pass against Knowledge & Wisdom 0.15.0, clean commit `ca5b724c63d49ab224f96b2daea3e17ad7498e44`, matching its public feature branch. `evidence/knowledge-dependency-0.15.0.json` binds all 118 current source/metadata inputs. Prior fingerprints remain historical; no new minimum-version pin, native runtime proof or dependency edits are implied.

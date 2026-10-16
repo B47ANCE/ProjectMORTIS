@@ -1,5 +1,38 @@
 # Current validation
 
+Current development version: 0.25.0-dev.3
+
+[TESTED offline] Windows bundled Python / Lupa 2.6: 125 runtime Lua files compile; all 57 host cases pass (56 Lua 5.1, one Lua 5.4) plus all 26 Active Hours diagnostic cases. Unit mode passes 55 host cases and explicitly omits two dependency integrations. All 26 diagnostics additionally pass under Lua 5.4, as do the actual-service override recovery and profile restoration cases. These results are host/native mocks, not PZ execution.
+
+The new regression reproduced missing pre-write checkpoints on the audit baseline. Separate cases reproduced profile overwrite and forced-busy bypass before those corrections. Coverage includes five-field restoration/readback, priorities/ceilings, passive leases, unchanged-request deduplication, failed serialization/deletion, ignored/partially throwing setters, unavailable/busy state, preserved unrelated components, client refusal, corrupt/newer records, and saved component/wrapper/module replacement. Consumer leases are not persisted or inferred; recovery requires explicit coordination.
+
+Actual-source dependency input: Knowledge & Wisdom 0.15.0, clean public commit `ca5b724c63d49ab224f96b2daea3e17ad7498e44`, 118 files pinned in `evidence/knowledge-dependency-0.15.0.json`. Earlier fingerprints remain historical. Installed Steam build remains 25485521; selected JAR/packaged/loose class bytes match the prior observation evidence, API helper SOURCE_HASH_MATCH / runtime NOT_TESTED. Full executed game version remains UNKNOWN.
+
+Commands from this root with the bundled interpreter `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`:
+
+```powershell
+python scripts/check_versions.py
+python scripts/validate.py --test test_locomotion_override_recovery
+python scripts/validate.py --test test_locomotion_profile_restore
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+$env:B47_PROOF_LUA='54'
+python scripts/test_active_hours.py
+Remove-Item Env:B47_PROOF_LUA
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The two additional Lua 5.4 cases explicitly execute their test files with current shared/client/server package paths. Catalog checks validate 58 JSON files and English names/tooltips for all 37 sandbox options; non-English fluency/native fallback remain unverified. The 13 current version mirrors pass. Archive/source boundary and protected-artifact SHA-256 checks are recorded with this iteration; none was packaged or deployed. Baseline audit input: clean branch fix/transactional-feeding, commit b3cd73f43526d1399bb6c4810b461cb3b774ef84, ahead 0 / behind 0 of its upstream and ahead 2 / behind 0 of origin/main. This feature branch is stacked on that pending work, not a main merge. Source, offline and native evidence remain separate.
+
+The source correction adds internal Mortis.LocomotionOverrideBaseline version 1, preserving public API 1.6.0, existing component schemas and replication protocol. It does not persist/replay consumer policy or certify native disk durability. See LOCOMOTION_OVERRIDES.md and AUDIT_2026-10-16.md for scope and open gates. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED; Active Hours G2/G6 unchanged.
+
+---
+
+## Historical record — 0.25.0-dev.2 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.25.0-dev.2
 
 [TESTED offline] Windows bundled Python / Lupa 2.6: 124 runtime Lua files compile; all 56 host cases pass (55 Lua 5.1, one Lua 5.4), plus all 26 Active Hours diagnostic cases. Unit mode passes 54 host cases plus those diagnostics and explicitly omits two dependency integrations. Food discovery, transaction and weighted-design cases additionally pass under Lua 5.4. New discovery and transaction edge-case regressions failed on dev.1 before their fixes. An additional malformed lazy-quote regression reproduced an exception after reservation before raw-field validation was added; it now verifies compensation. The catalog check found 27 missing tooltips before additions and now passes: 58 JSON catalogs, English page/name/tooltip coverage for all 37 sandbox options. No native PZ runtime evidence was produced.
