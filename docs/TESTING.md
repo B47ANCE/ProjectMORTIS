@@ -171,4 +171,8 @@ Active Hours dev.3 regressions use the real StateAdapter under native getter moc
 
 ## M-05 food-provider transactions
 
+Dev.2 adds `test_food_source_discovery.lua` for malformed scalar/native positions, nonfinite priority/radius and healthy-source preservation. Transaction regressions also reject string/tiny/native-rounded quotes, unknown vanilla targets and invalid consume distances; a second zombie can use healthy sources after provider quarantine. `scripts/check_localization.py` validates 58 JSON catalogs and English page/name/tooltip keys for all 37 sandbox options; it does not certify non-English fluency or native fallback. The ordinary validator runs it automatically.
+
+Run `python scripts/validate.py --test test_active_hours_weighted_design` for the offline weighted-range/CDF experiment. This explicitly loads a non-runtime file and tests normalization, rejection, zero buckets, exact interval boundaries and repeated supplied rolls. No native/controller/persistence behavior is exercised.
+
 Run `python scripts/validate.py --test test_food_source_transactions`. The host fixture verifies native/cache/source compensation, rollback despite callback disablement, invalid values, legacy refusal, contention, reentrancy and observer failure. Test the real migrated provider and native persistence in disposable SP/dedicated environments using FOOD_TRANSACTIONS.md; a passing host callback does not prove game durability.

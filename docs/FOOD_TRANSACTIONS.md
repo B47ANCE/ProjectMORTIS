@@ -1,6 +1,6 @@
 # Transactional food providers — M-05
 
-Current contract: API 1.6.0, `Mortis.FoodSources.TRANSACTION_VERSION == 1`. Project iteration: 0.25.0-dev.1. The old automatic path called destructive `consume` before `Hunger.feed` verified the native hunger setter. A rejected/ignored setter could therefore remove food without feeding the zombie. MORTIS now refuses that unsafe one-step automatic path.
+Current contract: API 1.6.0, `Mortis.FoodSources.TRANSACTION_VERSION == 1`. Project iteration: 0.25.0-dev.2. The old automatic path called destructive `consume` before `Hunger.feed` verified the native hunger setter. A rejected/ignored setter could therefore remove food without feeding the zombie. MORTIS now refuses that unsafe one-step automatic path.
 
 ## Provider registration and migration
 
@@ -50,3 +50,11 @@ Reservations, guards and quarantine are transient Lua state. This is a synchrono
 [TESTED offline] The regression uses actual FoodSources registration, FaultIsolation and hunger runtime with native boundaries mocked: ignored/partially throwing setters, failed hunger advancement, reserve and commit failures after partial mutations, invalid quotes/multiplier, cache failure before/after a write, dispatcher failure, callback-breaker-independent compensation, client/vanilla-target rejection, recursive mutators, two-zombie contention, observer exceptions, unsafe legacy consumption and failed-compensation quarantine. The new test failed before implementation.
 
 [RUNTIME GATE] Validate a migrated real consumer in disposable SP and dedicated sessions. Check stock/tissue/claim identity plus hunger/starvation before and after success, rejected feed, partial commit and compensation; concurrent access; event count; observer/late-join state; native serialization; save/reload and dedicated restart. Record exact mod/API/dependency/game versions, commit and source/provider evidence. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. No deployment, packaging, launch or publication is authorized by this implementation.
+
+## Discovery hardening in dev.2
+
+Malformed/nonfinite coordinates, unavailable native coordinates and invalid priority scores are rejected without hiding other valid sources. Access to provider-owned position objects/getters is protected. Provider registration refuses nonfinite priorities, and invalid search radii use the established default. Equal scores resolve by provider ID instead of table iteration order. Quarantined providers are excluded before calling their discovery callback, so they cannot keep winning over a healthy source for another zombie; the unresolved original entity remains guarded.
+
+A missing/throwing vanilla-target observation stops food seeking rather than overriding an unknown native target. Invalid consumption distances stop before reservation. Quotes must be actual finite positive numbers. A value that rounds to no hunger reduction, either in Lua subtraction or native storage readback, is compensated before stock commit. These are validation fixes, not new gameplay tuning or durable recovery guarantees.
+
+Candidate and reservation-quote fields are plain table data, not lazy/metatable getters. A malformed lazy quote previously could throw after reservation outside callback protection; raw-field validation now rejects it and runs compensation. Native source-object position getters remain explicitly protected. The regression reproduces the former exception and verifies stock/lease/hunger restoration.

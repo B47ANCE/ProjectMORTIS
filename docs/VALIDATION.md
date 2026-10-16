@@ -1,5 +1,37 @@
 # Current validation
 
+Current development version: 0.25.0-dev.2
+
+[TESTED offline] Windows bundled Python / Lupa 2.6: 124 runtime Lua files compile; all 56 host cases pass (55 Lua 5.1, one Lua 5.4), plus all 26 Active Hours diagnostic cases. Unit mode passes 54 host cases plus those diagnostics and explicitly omits two dependency integrations. Food discovery, transaction and weighted-design cases additionally pass under Lua 5.4. New discovery and transaction edge-case regressions failed on dev.1 before their fixes. An additional malformed lazy-quote regression reproduced an exception after reservation before raw-field validation was added; it now verifies compensation. The catalog check found 27 missing tooltips before additions and now passes: 58 JSON catalogs, English page/name/tooltip coverage for all 37 sandbox options. No native PZ runtime evidence was produced.
+
+Full integration input: Knowledge & Wisdom 0.14.1, clean commit `a8ba91c8454a0a4cac937392d227e1ba1aebcaa3`, matching its public branch; 114 inputs are pinned in `evidence/knowledge-dependency-0.14.1.json`. The earlier 0.14.0 and 0.13.0 records remain historical.
+
+Commands from this root, using `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe` in place of the Store alias:
+
+```powershell
+python scripts/check_versions.py
+python scripts/check_localization.py
+python scripts/validate.py --test test_food_source_discovery
+python scripts/validate.py --test test_food_source_transactions
+python scripts/validate.py --test test_active_hours_weighted_design
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The three additional Lua 5.4 checks explicitly execute their test files with the same shared/client/server package paths. SHA-256 verification matches all 64 imported archive files and the exact archive inventory. A read-only comparison against the retained local takeover ledger matches Contents (128), dist (8811), compatibility-template (2) and examples (6) files. The 506 literal MORTIS requires resolve against the actual case-sensitive source inventory; no Java/JAR exists in source. Static case checks are not Linux runtime proof. All 13 current version mirrors pass.
+
+This checkpoint preserves API 1.6.0, replication protocol and saved component schemas. It aligns current scope with the standalone-retention policy documented in PR #4 without merging either PR. The 64-file archive and existing distribution artifacts remain historical. No runtime controller, gameplay settings, package, deployment, publication or game/server launch is introduced.
+
+G7 BLOCKED / NOT TESTED; stable G8 BLOCKED; Active Hours G2/G6 gates unchanged. Nightfall provider migration, native compensation/durability and complete locomotion/override restoration remain open. Non-English fluency and native fallback are unverified.
+
+---
+
+## Historical record — 0.25.0-dev.1 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.25.0-dev.1
 
 [TESTED offline] Windows bundled Python / Lupa 2.6. Full mode compiles 124 runtime Lua files and passes 54 Lua host cases (53 Lua 5.1, one Lua 5.4), plus the 26-case Active Hours suite under Lua 5.1. Unit mode omits two dependency integrations; native PZ/SP/dedicated behavior remains NOT TESTED. Public API is now 1.6.0; replication and saved schemas are unchanged.

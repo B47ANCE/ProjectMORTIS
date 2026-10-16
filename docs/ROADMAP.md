@@ -24,7 +24,7 @@
   verification and multiplayer transport validation remain open.
 
 - Confirm Nightfall's dependency report records Project M.O.R.T.I.S. mod version
-  from root `VERSION` separately from public API version `1.5.0` in each tested session.
+  from root `VERSION` separately from public API version `1.6.0` in each tested session.
 
 - Tune physical separation and trip probabilities under dense populations.
 - Verify shove, stomp, corpse, stair, lunge, and ragdoll capability paths.
@@ -102,8 +102,10 @@ the current Nightfall 1.0 dependency closure.
 
 ## Active Hours
 
-The entire Active Hours project is consolidated here. Follow [ACTIVE_HOURS.md](ACTIVE_HOURS.md): validate the dormant one-zombie diagnostic first; then develop optional solar, profile and weighted-range behavior with authoritative sandbox settings after the affected native gates. No standalone Core/Night/Day product remains planned.
+All Active Hours features belong in MORTIS as well as the maintained standalone project. When co-enabled, standalone execution is disabled and MORTIS takes precedence. Follow [ACTIVE_HOURS.md](ACTIVE_HOURS.md): validate the dormant one-zombie diagnostic first; then develop optional solar, profile and weighted-range behavior with authoritative sandbox settings after the affected native gates. The standalone project continues separately; future feature parity must be tested in both implementations.
 
 ## Transactional feeding follow-up
 
 M-05 coordination is implemented; [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md) defines the API 1.6.0 provider contract. The next consumer work is migrating Nightfall effigies from one-step consumption and verifying tissue/claim compensation. Preserve source IDs and authoritative sandbox rates. Actual native durability, contention, late join and restart remain G7 gates.
+
+Development has started on the [offline weighted-range experiment](../experiments/active-hours/README.md). It implements proposed validation/CDF mathematics only, outside runtime/package roots. Production weighted selection, authoritative sandbox configuration, durable life/revision rolls and native gates remain open. The [current execution queue](MASTER_ROADMAP.md#current-execution-queue) distinguishes completed source corrections from these blockers.

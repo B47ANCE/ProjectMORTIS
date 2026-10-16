@@ -8,6 +8,9 @@ function FoodSources.register(definition)
     local normalized = Util.deepCopy(definition)
     normalized.id = Util.assertString(normalized.id, "food source provider id")
     normalized.priority = tonumber(normalized.priority) or 0
+    if normalized.priority~=normalized.priority or normalized.priority==math.huge or normalized.priority==-math.huge then
+        error("food source provider priority must be finite",2)
+    end
     normalized.sourceClass = normalized.sourceClass or "registered-food-source"
     if type(normalized.findNearby) ~= "function" then
         error("food source provider findNearby must be a function", 2)

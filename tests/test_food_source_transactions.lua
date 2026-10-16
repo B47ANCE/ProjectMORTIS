@@ -39,6 +39,7 @@ local function fixture(options)
    if options.ignore then return end
    if options.partial then z.level=v;error('setter threw after writing')end
    if options.failRestore and v==.8 then return end
+   if options.rounded then v=math.floor(v*100000+.5)/100000 end
    z.level=v
  end}
  function z:getStats()return stats end
@@ -53,6 +54,7 @@ local function fixture(options)
    if food.held or food.remaining==0 then return {reserved=false}end
    food.held=true;tx.held=true
    if options.reserveError then error('reserve failed after lease')end
+   if options.quoteError then return setmetatable({reserved=true},{__index=function()error('invalid lazy quote')end})end
    if options.reenter then
     assert(Hunger.updateFoodSeeking(z)==false);assert(Hunger.feed(z,.2)==false)
     assert(Hunger.advance(z)==false);assert(Hunger.setTestState(z,0,0)==false)
@@ -90,7 +92,7 @@ assert(Hunger.updateFoodSeeking(z)==false)
 assert(food.commits==0,'failed feed must not commit food removal')
 unchanged(z,food);assert(events==0)
 
-for _,options in ipairs({{reserveError=true},{reject=true},{commitError=true},{partialReject=true},{partial=true}})do
+for _,options in ipairs({{reserveError=true},{quoteError=true},{reject=true},{commitError=true},{partialReject=true},{partial=true}})do
  z,food=fixture(options);assert(Hunger.updateFoodSeeking(z)==false)
  unchanged(z,food);assert(food.rollbacks==1 and events==0)
 end
@@ -109,14 +111,27 @@ assert(Hunger.updateFoodSeeking(z)==false);unchanged(z,food);Faults.call=dispatc
 z,food=fixture({ignore=true});states[z].lastWorldAgeHours=0
 assert(Hunger.updateFoodSeeking(z)==false and food.reserves==0,'failed advancement must stop before reservation')
 
-for _,bad in ipairs({0,-1,math.huge,0/0})do
+for _,bad in ipairs({0,-1,math.huge,0/0,1e-300,'0.25'})do
  z,food=fixture({value=bad});assert(Hunger.updateFoodSeeking(z)==false);unchanged(z,food)
  assert(food.commits==0 and events==0)
+end
+z,food=fixture({value=1e-8,rounded=true})
+assert(Hunger.updateFoodSeeking(z)==false and food.commits==0,'native rounding must not consume food for no relief')
+unchanged(z,food)
+for _,bad in ipairs({-1,math.huge,0/0,'invalid'})do
+ z,food,provider=fixture()
+ Sources.registry.entries[provider.id].findNearby=function()return {x=0,y=0,z=0,consumeDistance=bad}end
+ assert(Hunger.updateFoodSeeking(z)==false and food.reserves==0,'invalid consume distance must not reserve')
+ unchanged(z,food)
 end
 z,food=fixture();multiplier=0
 assert(Hunger.updateFoodSeeking(z)==false);unchanged(z,food);assert(food.reserves==0);multiplier=1
 z,food=fixture();z.target={}
 assert(Hunger.updateFoodSeeking(z)==false and food.reserves==0);z.target=nil
+local getTarget=z.getTarget
+z.getTarget=function()error('target unavailable')end
+assert(Hunger.updateFoodSeeking(z)==false and food.reserves==0,'unknown vanilla targeting must fail closed')
+z.getTarget=getTarget
 authority=false;assert(Hunger.updateFoodSeeking(z)==false and food.reserves==0);authority=true
 
 z,food=fixture({reenter=true})
@@ -125,7 +140,7 @@ assert(food.remaining==2 and food.commits==1 and food.rollbacks==0 and not food.
 assert(math.abs(z.level-.55)<.00001 and states[z].hunger==z.level and events==1)
 
 z,food,provider=fixture()
-local other={level=.8,getX=function()return 0 end,getY=function()return 0 end,getZ=function()return 0 end}
+local other={level=.8,getX=function()return 0 end,getY=function()return 0 end,getZ=function()return 0 end,getTarget=function()return nil end}
 function other:getStats()return {get=function()return self.level end,set=function(_,_,v)self.level=v end}end
 states[other]={hunger=.8,hungerBackend=Hunger.BACKEND,lastWorldAgeHours=100,desiccation=0}
 local reserve=provider.reserve
@@ -149,6 +164,19 @@ assert(accepted==false and why=='food-transaction-rollback-failed')
 local reserves=food.reserves
 assert(Hunger.updateFoodSeeking(z)==false and food.reserves==reserves,'quarantined provider must not retry')
 assert(Hunger.feed(z,.1)==false,'unresolved zombie transaction must remain blocked')
+
+-- Quarantine is provider-wide, but must not poison other zombies' discovery.
+local healthy={level=.8,x=0,y=0,z=0,getX=z.getX,getY=z.getY,getZ=z.getZ,getTarget=z.getTarget}
+function healthy:getStats()return {get=function()return self.level end,set=function(_,_,v)self.level=v end}end
+states[healthy]={hunger=.8,hungerBackend=Hunger.BACKEND,lastWorldAgeHours=100,desiccation=0}
+local healthyCommits=0
+Sources.register({id='Healthy.AfterQuarantine',priority=-1,transactionVersion=1,
+ findNearby=function()return {x=0,y=0,z=0}end,
+ reserve=function()return {reserved=true,foodValue=.25}end,
+ commit=function()healthyCommits=healthyCommits+1;return true end,
+ rollback=function()return true end})
+assert(Hunger.updateFoodSeeking(healthy)==true and healthyCommits==1,
+ 'quarantined provider must not starve a healthy provider on another zombie')
 
 z,food=fixture({reject=true,failRestore=true})
 accepted,why=Hunger.updateFoodSeeking(z)

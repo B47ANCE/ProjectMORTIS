@@ -132,32 +132,40 @@ local function stateFor(zombie)
 end
 
 local function hasVanillaTarget(zombie)
-    if not zombie or not zombie.getTarget then return false end
+    if not zombie or not zombie.getTarget then return nil end
     local ok, target = pcall(function() return zombie:getTarget() end)
+    if not ok then return nil end
     return ok and target ~= nil
 end
 
 local function position(candidate)
     if type(candidate) ~= "table" then return nil end
-    local x, y, z = tonumber(candidate.x), tonumber(candidate.y), tonumber(candidate.z)
-    if x and y then return x, y, z or 0 end
-    local source = candidate.source
-    if source and source.getX and source.getY then
-        local ok, sx, sy, sz = pcall(function()
-            return source:getX(), source:getY(), source.getZ and source:getZ() or 0
-        end)
-        if ok then return tonumber(sx), tonumber(sy), tonumber(sz) or 0 end
-    end
-    return nil
+    -- Provider-owned objects/getters are untrusted callback output too.
+    local ok,x,y,z=pcall(function()
+        local cx,cy,cz=rawget(candidate,"x"),rawget(candidate,"y"),rawget(candidate,"z")
+        if cx~=nil or cy~=nil then
+            return cx,cy,cz==nil and 0 or cz
+        end
+        local source=rawget(candidate,"source")
+        if source then
+            local sourceZ=0
+            if source.getZ then sourceZ=source:getZ() end
+            return source:getX(),source:getY(),sourceZ
+        end
+    end)
+    if not ok then return nil end
+    x,y,z=finite(x),finite(y),finite(z)
+    if x and y and z then return x,y,z end
 end
 
 local function distanceSquared(zombie, candidate)
     local x, y, z = position(candidate)
     if not x then return nil end
     local ok, zx, zy, zz = pcall(function() return zombie:getX(), zombie:getY(), zombie:getZ() end)
-    if not ok then return nil end
-    local dx, dy, dz = x-zx, y-zy, z-(tonumber(zz) or 0)
-    return dx*dx+dy*dy+dz*dz, x, y, z
+    zx,zy,zz=finite(zx),finite(zy),finite(zz)
+    if not ok or not zx or not zy or not zz then return nil end
+    local dx, dy, dz = x-zx, y-zy, z-zz
+    return finite(dx*dx+dy*dy+dz*dz), x, y, z
 end
 
 function Hunger.get(zombie)
@@ -315,16 +323,20 @@ function Hunger.setTestState(zombie, level, starvationHours)
 end
 
 function Hunger.findNearby(zombie, radius)
-    radius = math.max(1, tonumber(radius) or 12)
+    radius = math.max(1, finite(radius) or 12)
     local best, bestProvider, bestScore
     for id, provider in pairs(FoodSources.all()) do
-        local ok, candidate = FaultIsolation.call(
-            "food-source:" .. id, "findNearby", provider.findNearby, zombie, radius)
+        local ok,candidate
+        if not quarantinedFood[id] then
+            ok,candidate=FaultIsolation.call("food-source:" .. id, "findNearby", provider.findNearby, zombie, radius)
+        end
         if ok and type(candidate) == "table" then
             local distance = distanceSquared(zombie, candidate)
             if distance and distance <= radius*radius then
-                local score = (tonumber(candidate.priority) or provider.priority or 0) * 100000 - distance
-                if bestScore == nil or score > bestScore then
+                local priority=rawget(candidate,"priority")
+                priority=finite(priority==nil and (provider.priority or 0) or priority)
+                local score=priority and finite(priority*100000-distance)
+                if score and (bestScore == nil or score > bestScore or (score==bestScore and id<bestProvider.id)) then
                     best, bestProvider, bestScore = candidate, provider, score
                 end
             end
@@ -379,17 +391,20 @@ local function feedFromSource(zombie,candidate,provider)
     end
     local owner="food-source:"..provider.id
     local called,ok,quote=pcall(FaultIsolation.call,owner,"reserve",provider.reserve,zombie,candidate,entry.context)
-    if not called or not ok or type(quote)~="table" or quote.reserved~=true then return abort("food-reservation-rejected") end
-    local amount=finite(quote.foodValue)
+    if not called or not ok or type(quote)~="table" or rawget(quote,"reserved")~=true then return abort("food-reservation-rejected") end
+    local value=rawget(quote,"foodValue")
+    local amount=type(value)=="number" and finite(value) or nil
     amount=amount and finite(amount*multiplier)
     if not amount or amount<=0 then return abort("invalid-food-value") end
     local after=Util.deepCopy(before)
     after.hunger=clamp01(before.hunger-amount)
+    if after.hunger>=before.hunger then return abort("food-value-no-effect") end
     after.lastFedWorldAgeHours=worldAgeHours() or after.lastFedWorldAgeHours
     if after.hunger<1 then after.starvingSinceWorldAgeHours=nil end
     if before.hungerBackend==VANILLA_BACKEND then
         touchedNative=true
         if not setVanillaHunger(zombie,after.hunger) then return abort("vanilla-hunger-write-failed") end
+        if (vanillaHunger(zombie) or before.hunger)>=before.hunger then return abort("food-value-no-effect") end
     end
     touchedCache=true
     local saved,cached=pcall(Components.set,zombie,COMPONENT,after)
@@ -397,8 +412,8 @@ local function feedFromSource(zombie,candidate,provider)
     local dispatched,committed,result=pcall(FaultIsolation.call,owner,"commit",provider.commit,zombie,candidate,entry.context)
     if not dispatched or not committed or result~=true then return abort("food-commit-rejected") end
     pendingFood[zombie]=nil
-    local metadata={providerId=provider.id,sourceId=candidate.sourceId,
-        sourceClass=candidate.sourceClass or provider.sourceClass or "registered-food-source",source=candidate.source}
+    local metadata={providerId=provider.id,sourceId=rawget(candidate,"sourceId"),
+        sourceClass=rawget(candidate,"sourceClass") or provider.sourceClass or "registered-food-source",source=rawget(candidate,"source")}
     local Mortis=rawget(_G,"Mortis")
     if Mortis and Mortis.Events then
         pcall(function()Mortis.Events:emit("ZombieFed",zombie,before.hunger,after.hunger,metadata)end)
@@ -415,14 +430,19 @@ function Hunger.updateFoodSeeking(zombie, radius)
     if not Hunger.isHungry(zombie,Settings.number("FoodSeekingMinimumHunger")) then
         return false,"not-hungry"
     end
-    if hasVanillaTarget(zombie) then return false, "vanilla-target-active" end
+    local target=hasVanillaTarget(zombie)
+    if target==nil then return false,"vanilla-target-unavailable" end
+    if target then return false, "vanilla-target-active" end
 
     local candidate, provider = Hunger.findNearby(zombie, radius)
     if not candidate then return false, "no-nearby-source" end
     local distance, x, y, z = distanceSquared(zombie, candidate)
     if not distance then return false, "invalid-source-position" end
 
-    local consumeDistance = math.max(0.5, tonumber(candidate.consumeDistance) or 1.25)
+    local consumeDistance=rawget(candidate,"consumeDistance")
+    consumeDistance=finite(consumeDistance==nil and 1.25 or consumeDistance)
+    if not consumeDistance or consumeDistance<0 then return false,"invalid-consume-distance" end
+    consumeDistance=math.max(0.5,consumeDistance)
     if distance <= consumeDistance*consumeDistance and (provider.consume or provider.reserve) then
         return feedFromSource(zombie,candidate,provider)
     end

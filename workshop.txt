@@ -4,7 +4,7 @@ tags=Build 42;Framework
 visibility=public
 description=⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 description=
-description=[b]Mod Version:[/b] 0.25.0-dev.1
+description=[b]Mod Version:[/b] 0.25.0-dev.2
 description=
 description=This mod is currently under active development and is NOT in a playable or release-ready state.
 description=
@@ -134,4 +134,4 @@ description=QA Automation Developer
 description=Technical Writer and Documentation Maintainer
 
 description=[b]Development scope: Active Hours[/b]
-description=Active Hours is being absorbed into MORTIS. The source includes an explicitly started experimental speed diagnostic; seasonal policy is not enabled. Dedicated multiplayer NOT TESTED. Historical standalone test items are not this source build.
+description=Active Hours remains maintained standalone while MORTIS includes the same complete feature scope. The two implementations are incompatible; Active Hours disables its own execution when ProjectMORTIS is enabled, leaving MORTIS in control. Current MORTIS source contains an explicitly started experimental speed diagnostic; seasonal policy is not enabled. Dedicated multiplayer NOT TESTED. Published standalone test content is historical, not this source build.
