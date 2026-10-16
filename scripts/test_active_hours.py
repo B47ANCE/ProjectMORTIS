@@ -44,6 +44,21 @@ function Mortis.LocomotionOverrides.release(z,owner)
 end
 '''
 
+# Reuse the production native-state classifier rather than copying its busy
+# tokens into a permissive framework mock. Native getters remain host mocks.
+def load_state_adapter(lua):
+    lua.execute('''
+        stateModules={['Mortis/API/Capabilities']={has=function() return true end},
+                      ['Mortis/Core/ActionDiagnostics']={}}
+        function require(name) return stateModules[name] end
+    ''')
+    for name in ('Runtime/Adapters/GameAdapter', 'Runtime/Adapters/StateAdapter'):
+        module = lua.execute((LUA/'shared/Mortis'/(name+'.lua')).read_text(encoding='utf-8'))
+        lua.globals().stateModules['Mortis/'+name] = module
+    if lua.globals().Mortis is not None:
+        lua.globals().Mortis.State = lua.globals().stateModules['Mortis/Runtime/Adapters/StateAdapter']
+    lua.execute('function require(_) end')
+
 
 class Peers:
     def __init__(self, prelude='', start=True):
@@ -54,6 +69,7 @@ class Peers:
             lua.globals().mode = side
             lua.execute(MOCK)
             lua.execute(FRAMEWORK)
+            load_state_adapter(lua)
             lua.globals().Mortis.VERSION = (ROOT / 'VERSION').read_text().strip()
             lua.execute(prelude)
             lua.globals().sendServerCommand = self.from_server
@@ -190,6 +206,10 @@ class MortisProofTests(unittest.TestCase):
         lua.execute('assert(Mortis.LocomotionOverrides.acquire(Z,"other-consumer",{tier="sprinter",priority=40}))')
         self.n.request('Release')
         self.assertEqual(lua.globals().Z.category, 1)
+        self.n.update(120)
+        self.assertEqual(self.server().counts.nativeMismatch, 0,
+                         'release must stop comparing an owner it no longer controls')
+        self.assertIsNone(self.server().expectedCategory)
         lua.execute('assert(Mortis.LocomotionOverrides.release(Z,"other-consumer"))')
         self.assertEqual(lua.globals().Z.category, 3)
         self.assertEqual(lua.globals().Z.scalar, .75)  # Deliberately not full restoration.
@@ -245,6 +265,20 @@ class MortisProofTests(unittest.TestCase):
         self.assertEqual(len(server.globals().Events.OnClientCommand.handlers), 0)
         self.assertEqual(server.globals().Z.writes, 0)
 
+    def test_real_api_negotiation_requires_native_state_surface(self):
+        for missing in (None, 'isBusy', 'getNativeStateKey'):
+            with self.subTest(missing=missing):
+                n = Peers(start=False);lua = n.peers['S']
+                lua.globals().actualCompatibility = lua.execute(
+                    (LUA/'shared/Mortis/API/Compatibility.lua').read_text(encoding='utf-8'))
+                lua.execute('function Mortis.negotiateAPI(request) return actualCompatibility.negotiate(Mortis,request) end')
+                if missing:
+                    lua.globals().Mortis.State[missing] = None
+                result = lua.globals().mortisActiveHoursTestStart(True)
+                accepted = result[0] if isinstance(result, tuple) else result
+                self.assertEqual(accepted, missing is None)
+                self.assertEqual(len(lua.globals().Events.OnClientCommand.handlers), 0 if missing else 1)
+
     def test_authority_denial_stops_following_writes(self):
         self.n.peers['S'].globals().denyAuthority = True
         self.n.request('Set', 'sprinter')
@@ -289,6 +323,53 @@ class MortisProofTests(unittest.TestCase):
         self.n.update(120)
         self.assertEqual(z.writes, writes)
         self.assertGreater(self.server().counts.nativeMismatch, 0)
+
+    def test_release_keeps_observations_without_claiming_a_baseline(self):
+        self.n.request('Set', 'sprinter')
+        self.n.request('Release')
+        self.n.peers['S'].globals().Z.category = 2
+        self.n.update(120)
+        self.assertEqual(self.server().counts.nativeMismatch, 0)
+        self.assertIsNone(self.server().expectedCategory)
+        self.assertEqual(self.server().samples[len(self.server().samples)].category, 2)
+
+    def test_busy_or_unavailable_native_state_rejects_both_mutations(self):
+        cases = (
+            'Z.gettingUp=true', 'Z.onFloor=true',
+            'Z.nativeState="ZombieGetUpState"', 'Z.nativeState="ZombieAttackState"',
+            'Z.nativeState="ZombieClimbOverFenceState"', 'Z.nativeState="ZombieFallDownState"',
+            'Z.isOnFloor=nil', 'Z.isGettingUp=nil', 'Z.getCurrentState=nil',
+            'function Z:getCurrentState() error("unavailable") end',
+            'function Z:getCurrentState() return nil end',
+            'function Z:getCurrentState() return "" end',
+            'function Z:isOnFloor() return nil end',
+            'function Z:isGettingUp() return nil end',
+            'function Z:isOnFloor() error("unavailable") end',
+            'function Mortis.State.isBusy() error("unavailable") end',
+        )
+        for change in cases:
+            with self.subTest(change=change):
+                n = Peers();n.select();lua = n.peers['S']
+                n.request('Set', 'fastShambler')
+                before = len(lua.globals().frameworkCalls)
+                lua.execute(change)
+                n.request('Set', 'sprinter');n.request('Release')
+                self.assertEqual(len(lua.globals().frameworkCalls), before)
+                self.assertTrue(lua.globals().MortisActiveHoursTest.Server.active)
+
+    def test_busy_rejection_can_be_retried_by_a_new_standing_intent(self):
+        lua = self.n.peers['S']
+        lua.globals().Z.gettingUp = True
+        self.n.peers['A'].globals().MortisActiveHoursTest.request('Set', 'sprinter')
+        rejected = self.n.queue[0]
+        self.n.flush()
+        self.assertEqual(len(lua.globals().frameworkCalls), 0)
+        self.assertFalse(bool(self.server().invalid))
+        lua.globals().Z.gettingUp = False
+        self.n.queue.append(rejected);self.n.flush()
+        self.assertEqual(len(lua.globals().frameworkCalls), 0, 'busy requests must not replay after recovery')
+        self.n.request('Set', 'sprinter');self.n.request('Release')
+        self.assertEqual(len(lua.globals().frameworkCalls), 2)
 
     def test_bounded_rings_and_duplicate_registration(self):
         self.n.update(1200)

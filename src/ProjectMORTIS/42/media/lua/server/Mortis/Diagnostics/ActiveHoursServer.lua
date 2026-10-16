@@ -14,7 +14,8 @@ function mortisActiveHoursTestStart(confirmed)
     if loaded and type(M)=="table" and type(M.negotiateAPI)=="function" then
         local ok,compatible=pcall(M.negotiateAPI,{consumer=P.Owner,minimum="1.5.0",maximumExclusive="2.0.0",
             required={["LocomotionOverrides.acquire"]="function",["LocomotionOverrides.release"]="function",
-                ["Authority.canWriteCanonicalState"]="function"}})
+                ["Authority.canWriteCanonicalState"]="function",
+                ["State.getNativeStateKey"]="function",["State.isBusy"]="function"}})
         ready=ok and compatible==true
     end
     if not ready then
@@ -31,6 +32,25 @@ function mortisActiveHoursTestStart(confirmed)
     local function selected()
         local ok=pcall(sendServerCommand,P.Module,"Selected",{id=s.id,session=s.session})
         if not ok then s.counts.errors=s.counts.errors+1;P.stop(s,"selection-send-error") end
+    end
+    local function mutationReady()
+        -- Passive observations may continue during native transitions, but
+        -- neither Set nor Release may run initializers while posture is busy.
+        local ok,onFloor,gettingUp=pcall(function()
+            return s.z:isOnFloor(),s.z:isGettingUp()
+        end)
+        if not ok or type(onFloor)~="boolean" or type(gettingUp)~="boolean" then
+            return false,"native-posture-unavailable"
+        end
+        if onFloor or gettingUp then return false,"native-state-busy" end
+        local observed,key=pcall(M.State.getNativeStateKey,s.z)
+        if not observed or type(key)~="string" or key=="" or key=="unknown" then
+            return false,"native-state-unavailable"
+        end
+        local classified,busy=pcall(M.State.isBusy,s.z)
+        if not classified or type(busy)~="boolean" then return false,"native-state-unavailable" end
+        if busy then return false,"native-state-busy" end
+        return true
     end
     local function command(module,cmd,player,args)
         if module~=P.Module then return end
@@ -53,6 +73,8 @@ function mortisActiveHoursTestStart(confirmed)
         if not ready then reject("mortis-api-unavailable");return end
         local ok,authoritative=pcall(M.Authority.canWriteCanonicalState,s.z)
         if not ok or authoritative~=true then P.stop(s,"mortis-authority-unavailable");reject("non-authority");return end
+        local safe,reason=mutationReady()
+        if not safe then reject(reason);return end
         local before=P.snapshot(s.z)
         if not before or before.scalar>=10 then reject("unusable-baseline");return end
         if cmd=="Set" then
@@ -70,7 +92,10 @@ function mortisActiveHoursTestStart(confirmed)
             if not s.active then reject("no-active-override");return end
             ok,authoritative=pcall(M.LocomotionOverrides.release,s.z,P.Owner)
             if ok and authoritative==true then
-                s.active=false;s.requested="release";s.expectedCategory=s.baseline.category
+                -- This owner no longer determines locomotion. Another request
+                -- or ceiling may legitimately win; keep raw samples instead
+                -- of treating a non-baseline category as a native overwrite.
+                s.active=false;s.requested="release";s.expectedCategory=nil
                 s.counts.releaseAccepted=s.counts.releaseAccepted+1
                 P.record(s,"RELEASE_ACCEPTED","walk-type-release-not-full-restoration")
             else s.counts.errors=s.counts.errors+1;P.stop(s,"mortis-release-failed") end

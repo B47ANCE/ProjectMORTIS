@@ -26,6 +26,9 @@ function newZombie()
  function z:getOnlineID() return self.id end
  function z:isDead() return self.dead or false end
  function z:isCrawling() return self.crawling or false end
+ function z:isOnFloor() return self.onFloor or false end
+ function z:isGettingUp() return self.gettingUp or false end
+ function z:getCurrentState() return self.nativeState or 'ZombieWalkTowardState' end
  function z:getOwnerPlayer() return players[self.owner] end
  function z:isRemoteZombie() return mode=='S' or self.owner~=mode end
  function z:getWalkType() return self.walk end

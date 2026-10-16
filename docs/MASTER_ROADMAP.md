@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.24.0-dev.2; public API 1.5.0.
+Canonical version: 0.24.0-dev.3; public API 1.5.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transactions and full native animation/lunge restoration remain follow-ups; native dependency load/save/MP tests are still required.
 
@@ -46,3 +46,5 @@ Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.
 ## Absorbed Active Hours project
 
 MORTIS now owns the complete Active Hours development scope, not just a consumer adapter. [ACTIVE_HOURS.md](ACTIVE_HOURS.md) is the controlling scope/runbook. Current delivery is an explicitly started server-side one-zombie speed diagnostic plus a 64-file historical import. Seasonal solar progression, optional Night/Day/Both policy, active/inactive profiles, weighted selection, sandbox configuration and bounded population lifecycle remain planned here, not a separate mod. Native speed/owner/observer/restoration evidence is required before affected production work; G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
+
+The dev.3 audit corrections are implemented: behavior-based dependency integration on 0.14.0, standing/busy-state mutation admission, and no assumed baseline category after diagnostic owner release. Native MP and full restoration gates remain open.

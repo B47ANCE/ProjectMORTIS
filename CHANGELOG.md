@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.24.0-dev.3 - audit corrections, 2026-10-16
+
+- Compatible corrections within the unreleased 0.24.0 target; public API 1.5.0, saved schemas, provider identities and archived Active Hours bytes are unchanged.
+- Replace the exact 0.13.0 dependency test pin with identity/version-presence and behavioral contract checks; actual-source research/history tests now pass against Knowledge & Wisdom 0.14.0. Preserve earlier fingerprints as historical inputs.
+- End the diagnostic category comparison after owner release while retaining raw samples; other consumer requests/ceilings must not be mislabeled as native overwrite.
+- Reject Set/Release during getting-up, on-floor or busy native states, and when required observations are missing or fail. Consume rejected intents without auto-retry; a new standing intent may proceed.
+- Add real-StateAdapter regressions and higher-priority owner composition checks. Offline only; G7 BLOCKED / NOT TESTED and stable G8 BLOCKED.
+
 ## 0.24.0-dev.2 - Active Hours absorption, 2026-10-16
 
 - Consolidate Active Hours research, prototype, and future development ownership in MORTIS. Preserve the standalone dev.4 source as a hashed historical snapshot.

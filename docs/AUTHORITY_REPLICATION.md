@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.24.0-dev.2. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.24.0-dev.3. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -34,7 +34,7 @@ Resolved from the takeover audit at the source/offline level: M-01, M-02, M-03, 
 
 - M-05: food-provider consumption can precede a failed feed. A reservation/commit or compensation contract needs a concrete consumer and compatibility review; this task does not change that provider API.
 - Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Unobserved native animation/lunge bookkeeping and existing consumer override-stack persistence remain open.
-- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.13.0; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
+- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.14.0; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
 - Translation tooltips and actual non-English translations remain incomplete. The historical `Contents/` copy remains stale; no current package was generated.
 - Native hunger/stat synchronization, corpse/save serialization, streaming/online-ID reuse, command relevance/rate behavior at high populations, headless execution, and restart/reconnect remain [RUNTIME GATE]. Fair progress under repeated permanent serializer/native failures also needs stress evidence; an unavailable provider does not become a PASS through retries.
 
@@ -47,3 +47,5 @@ After a current B47ANCEDKnowledgeAndWisdom stage-1 PASS, follow the MORTIS stage
 ## Absorbed Active Hours boundary
 
 The explicitly started diagnostic uses admin intent and server-only `LocomotionOverrides` calls. Its client path never applies native speed; legacy namespaces are ignored and loaded legacy diagnostics block/freeze requests. This removes the old diagnostic's client Apply route, not the engine's ownership race/overwrite uncertainty. Framework authority is not native simulation ownership, and the override stack is not in component snapshots. See [ACTIVE_HOURS.md](ACTIVE_HOURS.md) for exact limits and dedicated tests. G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
+
+Active Hours diagnostic corrections: Set/Release require observed standing/non-busy native state; unavailable reads reject without replay. After owner release, the diagnostic retains raw samples but ends its own category assertion so other owners/ceilings are not falsely labeled native overwrite. No authority, public API, protocol or persistent schema changes are introduced.
