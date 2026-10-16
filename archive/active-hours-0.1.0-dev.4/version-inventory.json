@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "canonical": "VERSION",
+  "mirrors": [
+    {
+      "path": "README.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/LUA_ONLY_API_AUDIT.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/LUA_SPEED_CONTROL.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/LUA_PROFILE_ARCHITECTURE.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/LUA_MULTIPLAYER_AUTHORITY.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/SOLAR_TRANSITION_DESIGN.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/LUA_ONE_ZOMBIE_POC.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/CONFIGURATION_GUIDE.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/PERFORMANCE_DESIGN.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/TEST_PLAN.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/RELEASE_BLOCKERS.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/VERSION_POLICY.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/VERSION_INVENTORY.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/REPOSITORY_GOVERNANCE.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/BRANDING.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "proof/B47ANCEDActiveHoursMortisProof/42/mod.info",
+      "pattern": "^modversion=(?P<version>\\S+)$"
+    },
+    {
+      "path": "proof/B47ANCEDActiveHoursMortisProof/42/media/lua/shared/B47AHMortisProof.lua",
+      "pattern": "^P.Version = \"(?P<version>[^\"]+)\"$"
+    },
+    {
+      "path": "docs/MORTIS_SPEED_PROOF.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/TEAM_API_RESEARCH.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/WORKSHOP_DESCRIPTION.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    },
+    {
+      "path": "docs/WORKSHOP_CHANGELOG.md",
+      "pattern": "^Project Version: (?P<version>\\S+)$"
+    }
+  ],
+  "changelog": {
+    "path": "CHANGELOG.md",
+    "pattern": "^## \\[(?P<version>[^\\]]+)\\][^\\n]*$"
+  },
+  "packaging": {
+    "artifacts": [
+      {
+        "glob": "dist/current/*.zip",
+        "pattern": "B47ANCEDActiveHours-(?P<version>[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?)\\.zip",
+        "zip_members": [
+          {
+            "member": "mods/B47ANCEDActiveHoursMortisProof/42/mod.info",
+            "pattern": "^modversion=(?P<version>\\S+)$"
+          },
+          {
+            "member": "mods/B47ANCEDActiveHoursMortisProof/42/media/lua/shared/B47AHMortisProof.lua",
+            "pattern": "^P.Version = \"(?P<version>[^\"]+)\"$"
+          }
+        ]
+      }
+    ]
+  },
+  "other_versions": [
+    {
+      "category": "pz",
+      "reference": "README.md and retained audits: Build 42.21",
+      "reason": "Game target, not project SemVer"
+    },
+    {
+      "category": "dependency",
+      "reference": "research/ and historical Java/tool/loader references",
+      "reason": "Java 25, CFR 0.152 and pinned upstream revisions are independent"
+    },
+    {
+      "category": "framework",
+      "reference": "docs/VERSION_POLICY.md and scripts/check_versions.py adoption",
+      "reason": "Framework provenance does not set project version"
+    },
+    {
+      "category": "inventory-schema",
+      "reference": "version-inventory.json: schema",
+      "reason": "Inventory format only"
+    },
+    {
+      "category": "dependency",
+      "reference": "ProjectNightfall 0.27.3; ProjectMORTIS 0.23.2, API 1.5.0",
+      "reason": "Inspected team framework versions; independent of Active Hours project version"
+    }
+  ],
+  "historical": [
+    {
+      "reference": "docs/BRANDING.md: preserved fallback authoring record",
+      "reason": "Retains the actual 0.1.0-dev.2 artwork provenance; the current Project Version header is inventoried separately"
+    },
+    {
+      "reference": "docs/API_AUDIT.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/ATTRIBUTE_DIRECT_REFERENCE_INDEX.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/ATTRIBUTE_NETWORK_REPLICATION.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/ATTRIBUTE_READ_WRITE_CALL_GRAPH.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/DYNAMIC_ATTRIBUTES_API_AUDIT.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/MP_AUTHORITY_AUDIT.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/MULTIPLAYER_AUTHORITY.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/NATIVE_ACTIVITY_CALL_GRAPH.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/NATIVE_BRIDGE_DESIGN.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/NATIVE_BRIDGE_FEASIBILITY.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/NATIVE_OWNERSHIP_ORDERING.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "docs/ONE_ZOMBIE_POC_ARCHITECTURE.md",
+      "reason": "Preserved audit body; unassigned version describes original evidence"
+    },
+    {
+      "reference": "research/** and prior docs/VALIDATION.md body",
+      "reason": "Immutable source/hash/test observations; do not relabel as current runtime proof"
+    },
+    {
+      "reference": "docs/RELEASE_BLOCKERS.md and docs/TEST_PLAN.md historical sections",
+      "reason": "Preserved prior requirements/status narrative; current header controls version only"
+    },
+    {
+      "reference": "proof/B47ANCEDActiveHoursSpeedProof/**",
+      "reason": "Original owner-routed diagnostic frozen byte-for-byte at 0.1.0-dev.3; its known stale-owner race remains historical evidence, not the new MORTIS backend"
+    },
+    {
+      "reference": "docs/ISOLATED_SPEED_PROOF.md, docs/RUNTIME_TEST_RUNBOOK.md, docs/RUNTIME_EVIDENCE_TEMPLATE.md",
+      "reason": "Frozen dev.3 owner-routed experiment instructions/evidence template; current MORTIS experiment is docs/MORTIS_SPEED_PROOF.md"
+    },
+    {
+      "reference": "docs/publications/**",
+      "reason": "Immutable Workshop distribution provenance retains actual published project version, source commit, item ID and hashes; not new runtime evidence"
+    }
+  ]
+}

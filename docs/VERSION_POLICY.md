@@ -13,3 +13,5 @@ Run `python scripts/check_versions.py` before/after every iteration. `--release`
 Use feature branches and PRs after the imported baseline. Every intentional iteration includes docs, tests, targeted secret-reviewed staging, commit, push, and remote-SHA verification. No stable tags for unverified gameplay. Downgrading new persisted assignment-clear metadata is not certified; retain save backups and use disposable validation saves.
 
 The 0.24.0-dev.1 pre-1.0 MINOR iteration changes the required dependency identity and load configuration. It intentionally replaces the old dependency contract while retaining MORTIS public API 1.5.0 and persisted/content identifiers. It is not a drop-in package for old mod lists.
+
+The 0.24.0-dev.2 checkpoint adds an opt-in development diagnostic and consolidates Active Hours ownership within the unreleased 0.24.0 target. Existing gameplay/configuration/save/public API contracts are unchanged. The dormant harness is not an enabled production capability. The historical archive keeps its own frozen 0.1.0-dev.4 version and is never a MORTIS version mirror.

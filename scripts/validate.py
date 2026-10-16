@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import sys
+import subprocess
 sys.dont_write_bytecode = True
 from lupa.lua51 import LuaRuntime
 from check_versions import ROOT, SOURCE, check
@@ -77,6 +78,13 @@ def main():
         except Exception as error:
             failures += 1
             records.append({'test':path.name, 'status':'FAIL', 'error':str(error)})
+    if not args.test:
+        result = subprocess.run([sys.executable, 'scripts/test_active_hours.py'], cwd=ROOT,
+                                capture_output=True, text=True,
+                                env={**os.environ, 'B47_PROOF_LUA':'51'})
+        failures += int(result.returncode != 0)
+        records.append({'test':'test_active_hours.py', 'status':'PASS' if result.returncode == 0 else 'FAIL',
+                        'runtime':'Lua 5.1 / Python', 'output':result.stdout + result.stderr})
     report = {'version':(ROOT/'VERSION').read_text().strip(), 'environment':'Offline Lupa, NOT PZ runtime',
               'syntax_files':count, 'tests':records, 'G7':'BLOCKED / NOT TESTED', 'G8':'BLOCKED'}
     (ROOT / 'validation-results.json').write_text(json.dumps(report,indent=2),encoding='utf-8')

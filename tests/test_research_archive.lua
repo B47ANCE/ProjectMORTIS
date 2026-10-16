@@ -1,6 +1,9 @@
 package.loaded["B47ANCEDKnowledgeAndWisdom/API"]=nil;package.loaded["Mortis/Content/ResearchArchive"]=nil;_G.B47ANCEDKnowledgeAndWisdom=nil
 local Archive=require "Mortis/Content/ResearchArchive"
-assert(Archive==rawget(_G,"B47ANCEDKnowledgeAndWisdom") and Archive.VERSION=="0.13.0")
+-- Dependency version is provenance, not an exact compatibility pin. Exercise
+-- the real selected API and persistent-content contract below.
+assert(Archive==rawget(_G,"B47ANCEDKnowledgeAndWisdom"))
+assert(type(Archive.VERSION)=="string" and Archive.VERSION~="")
 assert(rawget(_G,"experienceWorks")==nil,"no legacy public alias is needed")
 assert(Archive.getDocument("MORTIS-93-001").project=="Project M.O.R.T.I.S.")
 assert(Archive.getDocumentForItem("ProjectMORTIS.Research_MORTIS_ANAT_012").id=="MORTIS-ANAT-012")

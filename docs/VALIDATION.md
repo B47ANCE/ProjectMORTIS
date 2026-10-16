@@ -1,5 +1,70 @@
 # Current validation
 
+Current development version: 0.24.0-dev.3
+
+[TESTED offline] Windows, bundled Python 3.12.14 / Lupa 2.6. Full mode compiles 124 runtime Lua files and passes all 53 Lua host cases (52 Lua 5.1; one Lua 5.4), plus the 26-case Active Hours Python/Lua 5.1 suite. The diagnostic separately passes 26 cases under Lua 5.4. Unit-only mode passes 51 Lua cases plus that diagnostic suite and explicitly omits two actual-source integrations. CI uses unit mode; its results are not current dependency integration or native dedicated proof.
+
+Exact commands from the MORTIS root:
+
+```powershell
+python scripts/check_versions.py
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+$env:B47_PROOF_LUA='54'
+python scripts/test_active_hours.py
+Remove-Item Env:B47_PROOF_LUA
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The verified interpreter is `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; bare python reaches the Store alias. The full integration selects Knowledge & Wisdom 0.14.0, commit `45cd856adeef45811d2c79b919494fd6f4754d29`, with clean source and matching public feature-branch SHA. `evidence/knowledge-dependency-0.14.0.json` binds the exact tested source/metadata. The prior 0.13.0 fingerprint is historical, not current proof. No dependency files are changed.
+
+The three audit findings are corrected:
+
+- The exact 0.13.0 assertion failed on actual 0.14.0 before correction. Identity, nonempty version provenance and real research/persistence behavior are now checked without an arbitrary exact-version pin; both actual-source integrations pass.
+- Successful diagnostic release clears only this owner's expected category. Raw fields/results/baseline remain available; a surviving higher-priority consumer or ceiling is not automatically counted as a native mismatch. Active diagnostic requests still observe mismatches without automatic repairs. A real owner-stack regression previously counted two false mismatches, and now counts zero while preserving the other owner's tier.
+- Both Set and Release refuse on-floor/getting-up and recognized busy states or unavailable observations. Tests use the real StateAdapter under native mocks, covering nil/missing/throwing getters, attack/climb/fall/get-up, consumed rejected intents and a fresh standing intent. New guards register no work until explicit diagnostic start. Before implementation these regressions accepted two forbidden API calls per state case. The real Compatibility API also verifies required State surface negotiation.
+
+All 13 current version mirrors pass. Public API 1.5.0, replication protocol 2 and saved schemas/content IDs are unchanged. The immutable 64-file Active Hours import and original MORTIS historical artifacts remain protected; no current package is generated. G2 BLOCKED (production Active Hours), G6 NOT TESTED, G7 BLOCKED / NOT TESTED and stable G8 BLOCKED. No game/server launch, deployment, publication or PR merge. Native API availability, state classification, owner/observer behavior, full restoration, streaming/reconnect/restart and population performance require actual human runtime evidence.
+
+---
+
+## Historical record — 0.24.0-dev.2 (unchanged original text)
+
+# Current validation
+
+Current development version: 0.24.0-dev.2
+
+[TESTED offline] 2026-10-16, Windows, bundled Python 3.12.14 / Lupa 2.6. Full validation compiles 124 current runtime Lua files and passes all 53 existing Lua host cases (52 Lua 5.1, one Lua 5.4) plus the new 22-case Python/Lua 5.1 diagnostic suite. Full mode includes both actual-source B47ANCEDKnowledgeAndWisdom research/history integrations. The diagnostic separately passes all 22 cases in Lua 5.4. The imported snapshot's 64 exact files match every pinned SHA-256. Kahlua/native PZ/SP/dedicated execution remains NOT TESTED.
+
+Exact commands, from the MORTIS root:
+
+```powershell
+python scripts/check_versions.py
+python scripts/test_active_hours.py
+$env:B47_PROOF_LUA='54'
+python scripts/test_active_hours.py
+Remove-Item Env:B47_PROOF_LUA
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The exact local interpreter is `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; bare python reaches the Windows Store alias. Unit-only mode explicitly excludes the two dependency integrations; it is not full integration proof. CI uses that mode. The runner writes ignored `validation-results.json`; source evidence and current results are recorded here without private logs.
+
+The active source now contains one canonical runtime VERSION assignment, replacing a later legacy 0.23.2 overwrite. The checker validates every runtime assignment while preserving historical changelog/note entries. A temporary-fixture regression proves a valid first assignment followed by a stale one fails. All 13 current mirrors pass; the frozen Active Hours archive has its own historical version and is excluded. No current package was built; stable `--release` remains blocked by the development prerelease and absent current package.
+
+The transferred diagnostic is dormant until a human explicitly starts it, registers once, rejects old namespaces and loaded standalone diagnostics, retains admin/session/revision validation, calls existing MORTIS locomotion only on the server and never continuously repairs native mismatches. Real MORTIS owner-stack/adapter/authority composition is tested against native mocks, including another higher-priority consumer and release without scalar restoration. These tests do not demonstrate native simulation-owner safety, engine propagation, actual sprinting/animation or faithful release.
+
+G2 BLOCKED (production Active Hours architecture), G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED. The dependency stage-1 human review, full executed Build 42.21, a verified dedicated-host Lua activation surface, native locomotion/ownership/observer/restoration, streaming/reconnect/restart and population performance remain gates. Absorption does not bypass other MORTIS blockers. No install, game/server launch, package, upload, main merge or runtime gate change occurred. See ACTIVE_HOURS.md for transferred scope and the human procedure.
+
+---
+
+## Historical record — 0.24.0-dev.1 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.24.0-dev.1
 
 Environment: Windows offline Lupa 2.6; Lua 5.1 for runtime source and most host cases, Lua 5.4 only for the existing package.searchpath-based exclusion test. PZ/Kahlua/native transport is NOT TESTED. Steam manifest build 25485521 and read-only native metadata are installation/source evidence; full executed game version remains UNKNOWN.

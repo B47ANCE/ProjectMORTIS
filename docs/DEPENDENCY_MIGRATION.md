@@ -1,6 +1,6 @@
 # Knowledge dependency migration
 
-MORTIS 0.24.0-dev.1 requires Mod ID `B47ANCEDKnowledgeAndWisdom`, tested offline against dependency 0.13.0. The old `experienceWorks` public global/imports are not aliases. MORTIS previously failed to load its research and history modules after that dependency rename; the actual-source history regression reproduced the old `experienceWorks/HistoryRecords` module-not-found failure before the fix.
+The initial MORTIS 0.24.0-dev.1 migration selected Mod ID `B47ANCEDKnowledgeAndWisdom`, tested offline against dependency 0.13.0. The old `experienceWorks` public global/imports are not aliases. MORTIS previously failed to load its research and history modules after that dependency rename; the actual-source history regression reproduced the old `experienceWorks/HistoryRecords` module-not-found failure before the fix.
 
 ## Consumer contract
 
@@ -19,7 +19,7 @@ Run `python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndW
 
 `--unit-only` explicitly omits these two integrations. Without the selected source/API the full runner reports BLOCKED and exits 1; a partial run cannot be reported as integration PASS. It never fetches, vendors, or silently substitutes another dependency.
 
-Fingerprints for the exact local dependency source, metadata and canonical VERSION are in `evidence/knowledge-dependency-0.13.0.json`. The sibling project has no Git metadata or configured public remote: these hashes bind the local test input, not a verified public commit or GitHub backup. Dependency files were inspected only. Historical MORTIS changelogs, audit records and preserved packages keep their old names and evidence status.
+Fingerprints for the exact local dependency source, metadata and canonical VERSION are in `evidence/knowledge-dependency-0.13.0.json`. At that initial migration, the sibling project had no Git metadata or configured public remote: the 0.13.0 hashes bind that historical local input, not a verified public commit or GitHub backup. Dependency files were inspected only. Historical MORTIS changelogs, audit records and preserved packages keep their old names and evidence status.
 
 ## Runtime migration gate
 
@@ -28,3 +28,9 @@ Back up a disposable test save. Replace the old dependency package and select on
 Require a current dependency stage-1 human report before MORTIS stage 2. Start a fresh `mortisTestStart(true)` session; old harness results are historical. Verify native load order, four physical research files, locked/unlocked reading, retained knowledge and item lookup on a migrated fixture, history evidence/privacy/replay, save/reload, late join/rejoin and dedicated restart. The historical Workshop/package copies are not this development source.
 
 [TESTED offline] Source/host integrations pass. [RUNTIME GATE] SP and dedicated MP NOT TESTED; G7 BLOCKED and stable G8 BLOCKED. No deployment, publication, game/server launch or main merge is included.
+
+## Current dependency integration — 0.24.0-dev.3
+
+The exact-version assertion introduced in the initial consumer test was a test defect: compatible dependency updates failed before any contract behavior was exercised. The test now checks canonical API identity, nonempty version provenance and the actual research/persistence contract, rather than requiring literal 0.13.0. Passing these behaviors does not claim compatibility with every future dependency version.
+
+[TESTED offline] Full research/history integration now passes against 0.14.0, exact source commit `45cd856adeef45811d2c79b919494fd6f4754d29` on public repository [B47ANCE/B47ANCEDKnowledgeAndWisdom](https://github.com/B47ANCE/B47ANCEDKnowledgeAndWisdom). Its current feature-branch SHA was verified remotely and its working tree was clean. `evidence/knowledge-dependency-0.14.0.json` binds all selected current source/metadata bytes; the earlier 0.13.0 fingerprint remains historical. No dependency files or saved keys were edited. Native consumer load/save and dedicated gates remain NOT TESTED.

@@ -99,7 +99,7 @@ local PileObservations = require "Mortis/Runtime/PileObservationRuntime"
 local PileTraversalLinks = require "Mortis/Runtime/PileTraversalLinks"
 
 local Mortis = rawget(_G, "Mortis") or {}
-Mortis.VERSION = "0.24.0-dev.1"
+Mortis.VERSION = "0.24.0-dev.3"
 Mortis.Types = Types
 Mortis.Traits = Traits
 Mortis.Behaviors = Behaviors
@@ -198,7 +198,6 @@ Mortis.FoodSources = FoodSources
 Mortis.ZombieHunger = ZombieHunger
 Mortis.DetachedParts = DetachedParts
 Mortis.SystemSettings = SystemSettings
-Mortis.VERSION = "0.23.2"
 Mortis.API_VERSION = Compatibility.VERSION
 Mortis.Compatibility = Compatibility
 Mortis.Events = Mortis.Events or EventBus.new()

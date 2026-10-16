@@ -1,0 +1,41 @@
+{
+  "projectVersion": "0.1.0-dev.4",
+  "sourceCommit": "eda9c865a39d9c8c3f8a784108957a96056b629c",
+  "modId": "B47ANCEDActiveHoursMortisProof",
+  "targetBuild": "42.21",
+  "workshopId": "3820693462",
+  "itemIntent": "user-authorized new item",
+  "package": "B47ANCEDActiveHours-0.1.0-dev.4.zip",
+  "sha256": "80579f3f44325e1d09c937b02bb0aaceb8af64ace6dc2ba62e6dc8cf2abcc89e",
+  "files": {
+    "mods/B47ANCEDActiveHoursMortisProof/42/icon.png": "60e2a193a6c1e1190941e6c342ec23c673a561dbed895c80067fe2b89c7f7e83",
+    "mods/B47ANCEDActiveHoursMortisProof/42/media/lua/client/B47AHMortisProofClient.lua": "5cd840e47163cdfa43301cd9288f6ad62ed5df77b5973d1413baa96f451c364f",
+    "mods/B47ANCEDActiveHoursMortisProof/42/media/lua/server/B47AHMortisProofServer.lua": "d1af62089c6b571c9df16f9abe72749a79b7a849a85ffa5466ea3d70f1da9de8",
+    "mods/B47ANCEDActiveHoursMortisProof/42/media/lua/shared/B47AHMortisProof.lua": "37735be9d006c9ada0aa2ec1af1eb6be967412804c223ede88b96a39daccb3a4",
+    "mods/B47ANCEDActiveHoursMortisProof/42/mod.info": "b98e958109d10ca814d4eb135f3f7c9a2c2a4d0ca5dc97a374b909fc744ee93f",
+    "mods/B47ANCEDActiveHoursMortisProof/42/poster.png": "0e30a776c77dbf66eeb9acfa7596c7f850cb5b334e8873ef94acbb3b071582c3",
+    "mods/B47ANCEDActiveHoursMortisProof/common/.keep": "65bad3b0db20d361f836cabd7f38e5dc993445a896e6d2ddec849297d4c79cc5"
+  },
+  "validation": "offline only; dedicated multiplayer NOT TESTED",
+  "gates": {
+    "G2": "BLOCKED",
+    "G6": "NOT TESTED",
+    "G7": "BLOCKED / NOT TESTED",
+    "G8": "BLOCKED"
+  },
+  "uploadVerified": true,
+  "previewSha256": "02aeaab02b03a929eb60dc37080744f0d482032e052548a9926039eae2fba57d",
+  "publication": {
+    "date": "2026-10-16",
+    "appId": 108600,
+    "visibility": "public",
+    "nativeConfirmation": "Committing update...Success.",
+    "steamcmdExitCode": 0,
+    "publicMetadataAndDescriptionVerified": true,
+    "descriptionComparison": "line endings normalized CRLF to LF",
+    "steamDesktopRestartVerified": true,
+    "runtimeValidation": "NOT TESTED",
+    "sourceBranch": "feature/mortis-speed-proof",
+    "pullRequest": "https://github.com/B47ANCE/B47ANCEDActiveHours/pull/11"
+  }
+}

@@ -1,0 +1,9 @@
+name=B47ANCE'd Active Hours - MORTIS Speed Test
+id=B47ANCEDActiveHoursMortisProof
+author=B47ANCE
+icon=icon.png
+poster=poster.png
+modversion=0.1.0-dev.4
+versionMin=42.21
+require=ProjectMORTIS,experienceWorks
+description=MP testing build - dedicated multiplayer NOT TESTED. Isolated one-zombie server-side MORTIS tier experiment. Do not enable the original speed proof or production modules.
