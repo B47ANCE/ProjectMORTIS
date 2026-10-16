@@ -1,0 +1,130 @@
+⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
+
+[b]Mod Version:[/b] 0.23.2
+
+This mod is currently under active development and is NOT in a playable or release-ready state.
+
+This Workshop page is currently public for development and collaboration purposes only. The mod may contain unfinished systems, missing content, placeholder assets, bugs, broken features, or other issues that make it unsuitable for normal gameplay.
+
+At this stage, the mod is only intended for people who would like to help with:
+
+- Artwork and visual assets
+
+- Item, texture, sprite, and other game assets
+
+- Testing experimental or unfinished features
+
+- Bug hunting and debugging
+
+- Compatibility and multiplayer testing
+
+- Providing technical feedback during development
+
+Please do not subscribe expecting a finished gameplay experience.
+
+Features may be incomplete, changed substantially, temporarily disabled, or removed entirely as development continues. Updates may also break existing saves or require a fresh save without warning.
+
+If you're interested in helping with development, testing, artwork, or assets, your involvement is welcome and appreciated.
+
+A proper release announcement will be made when the mod reaches a playable state.
+
+PROJECT M.O.R.T.I.S.
+More Original Reanimated Threats Injection System
+
+Project M.O.R.T.I.S. is a public infected and living-entity framework. It provides reusable identity, behavior, anatomy, trauma, movement, grouping, hunger, persistence, and diagnostics APIs for extension mods.
+
+Important: Framework, Not a Zombie Pack
+
+Project M.O.R.T.I.S. does not add custom zombie types by itself. It wraps vanilla entities and supplies the systems other mods use. For example, Project Nightfall owns its Transforming, Feral, and Smart Feral zombies and registers them through this API.
+
+Current Features
+
+- Types, traits, behaviors, components, species, and event dispatch
+
+- Persistent identity, assignment authority, replication, and reconciliation
+
+- Locomotion, durability, appearance, collision, and balance profiles
+
+- Anatomy, trauma channels, damage, consequence providers, and attachment sockets
+
+- Canonical per-region tissue capacity, viability, edibility, nutrition, and replay-safe biological-material transactions
+
+- Fair bounded decomposition scheduling for explicitly registered living and detached targets, with consumer-owned rates and no global scans
+
+- Layered clothing coverage snapshots with regional protection and local-hole transmission
+
+- Authoritative anatomical attachment install/remove state, persistence, replay protection, and neutral events
+
+- Persistent zombie hunger, continuous starvation tracking, and nearby-food providers
+
+- Deterministic initial zombie hunger between 0–75%, feeding hooks, and bounded provider queries that do not replace vanilla targeting
+
+- Sandbox-configurable years-scale desiccation and one-shot terminal withering
+
+- Weapon classification and verified compatibility providers
+
+- Canonical native zombie knockdowns, trips, shove dominoes, pile throttling, and wall-safe physical separation
+
+- Bounded geometry-based incidental/commanded pile semantics with compression, stability, and static-support composition
+
+- Same-floor bounded pile observations and a property-first support registry with verified vanilla dumpster classification
+
+- Non-executable local traversal-link proposals with capability and completion-time geometry/authority revalidation
+
+- Bounded local crowd-flow navigation
+
+- Server-authoritative logical groups with leadership, merge, pruning, and consumer ownership
+
+- Owner-prioritized locomotion overrides with restoration of captured vanilla movement state
+
+- Capability probes, bounded rejection diagnostics, registry exports, and callback profiling
+
+- Four physical prerequisite-aware infected-research files through experienceWorks
+
+Upcoming Features
+
+- Additional public API compatibility semantics when required by real consumers, plus verified weapon providers
+
+- Expanded anatomy, trauma, locomotion, balance, and crowd-flow services
+
+- In-game validation of attachment and natural-anatomy capability contributions
+
+- In-game validation of hierarchical sever-state transitions, detached-part provenance, and scheduled decomposition checkpoints
+
+- Runtime proof of the native model-dismemberment surface before exposing a safe rendering adapter
+
+- Long-duration tuning and multiplayer validation of zombie desiccation
+
+- Hosted and dedicated-server persistence, reconciliation, late-join, and attachment replication validation
+
+- Verified pile observers, static-support classification, local traversal links, and Nightfall-owned commanded-pile behavior
+
+System Boundaries
+
+Project M.O.R.T.I.S. provides the API required to model anatomy and limb state, but it does not add limb severing or medical procedures. Those belong to medWorks. Likewise, Nightfall—not Project M.O.R.T.I.S.—owns Feral gameplay and zombie-specific UV reactions.
+
+Dependencies
+
+Project M.O.R.T.I.S. requires experienceWorks (technical Mod ID: experienceWorks) for its physical infected-research files and knowledge progression. It is required by Project Nightfall.
+
+Dedicated-server multiplayer compatibility has not yet been certified.
+
+Credits
+
+B47ANCE
+Project Director
+Lead Designer
+Creative Director
+Gameplay and Systems Designer
+Producer
+Art Director
+
+OpenAI Codex
+Lead Developer
+Software Architect
+Systems Engineer
+API Researcher
+Technical Designer
+Compatibility Engineer
+QA Automation Developer
+Technical Writer and Documentation Maintainer

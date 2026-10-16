@@ -1,0 +1,27 @@
+[b]Version 0.23.2[/b]
+
+[h2]Release preparation[/h2]
+• Restricted test, inspection, export, and profiler console commands to explicit debug sessions.
+• Aligned release tests and packages with the authoritative source and added checks against stale or incomplete packages.
+• Added complete Build 42 JSON localization fallback coverage across all 29 supported language folders.
+
+[h2]EXT-32 death-provenance evidence foundation[/h2]
+[list]
+[*]Adds an explicit, bounded MORTIS corpse/death evidence provider for experienceWorks history records.
+[*]Requires matching stable subject, regional provenance, and evidence identity; malformed or mismatched requests fail closed.
+[*]Does not automatically create memorials or move gameplay/presentation authority into MORTIS.
+[*]Removes the revoked NPC-framework registry and all Project Remnants integration paths.
+[/list]
+
+[b]Previous 0.21.1 changes[/b]
+
+[list]
+[*]Updated the required experienceWorks Mod ID and research API require path to the corrected canonical spelling.
+[*]Kept infected research ownership and the public M.O.R.T.I.S. API contract unchanged.
+[/list]
+
+[h2]Roadmap[/h2]
+[list]
+[REQUIRED] Verify Project Remnants does not activate or register any M.O.R.T.I.S. adapter.
+[*]Add lifecycle or anatomy capabilities only after their ownership and event ordering are demonstrated.
+[/list]

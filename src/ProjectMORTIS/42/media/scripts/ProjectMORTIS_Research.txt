@@ -1,0 +1,43 @@
+module ProjectMORTIS
+{
+    item Research_MORTIS_93_001
+    {
+        DisplayCategory = Literature,
+        ItemType = base:literature,
+        Weight = 0.2,
+        Icon = Book6,
+        NumberOfPages = 14,
+        StaticModel = BookBrown,
+        WorldStaticModel = BookBrown_Ground,
+    }
+    item Research_MORTIS_ANAT_012
+    {
+        DisplayCategory = Literature,
+        ItemType = base:literature,
+        Weight = 0.25,
+        Icon = Book6,
+        NumberOfPages = 18,
+        StaticModel = BookBrown,
+        WorldStaticModel = BookBrown_Ground,
+    }
+    item Research_MORTIS_MET_021
+    {
+        DisplayCategory = Literature,
+        ItemType = base:literature,
+        Weight = 0.2,
+        Icon = Book6,
+        NumberOfPages = 16,
+        StaticModel = BookBrown,
+        WorldStaticModel = BookBrown_Ground,
+    }
+    item Research_MORTIS_MECH_008
+    {
+        DisplayCategory = Literature,
+        ItemType = base:literature,
+        Weight = 0.2,
+        Icon = Book6,
+        NumberOfPages = 15,
+        StaticModel = BookBrown,
+        WorldStaticModel = BookBrown_Ground,
+    }
+}

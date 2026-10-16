@@ -1,0 +1,8 @@
+name=M.O.R.T.I.S. - Target Mod Compatibility
+id=MORTIS_TargetMod_Compatibility
+author=B47ANCE
+description=Verified M.O.R.T.I.S. weapon compatibility data for Target Mod.
+modversion=1.0.0
+versionMin=42.0
+require=\ProjectMORTIS,\TARGET_MOD_ID
+loadModAfter=\ProjectMORTIS,\TARGET_MOD_ID

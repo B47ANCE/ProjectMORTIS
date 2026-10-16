@@ -1,0 +1,189 @@
+VERSION = 1,
+
+option MORTISPhysical.EnableCollisionTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableCollisionTrips,
+}
+
+option MORTISPhysical.EnableProneTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableProneTrips,
+}
+
+option MORTISPhysical.EnableCorpseTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableCorpseTrips,
+}
+
+option MORTISPhysical.EnableRandomTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableRandomTrips,
+}
+
+option MORTISPhysical.EnableStairTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableStairTrips,
+}
+
+option MORTISPhysical.EnableLungeTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableLungeTrips,
+}
+
+option MORTISPhysical.EnablePlayerCollisionTrips
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnablePlayerCollisionTrips,
+}
+
+option MORTISPhysical.EnableShoveDomino
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableShoveDomino,
+}
+
+option MORTISPhysical.EnableStompRepair
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableStompRepair,
+}
+
+option MORTISPhysical.EnableRagdollTrips
+{
+    type = boolean,
+    default = false,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableRagdollTrips,
+}
+
+option MORTISPhysical.EnableSoftSeparation
+{
+    type = boolean,
+    default = true,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_EnableSoftSeparation,
+}
+
+option MORTISPhysical.GlobalTripChanceMultiplier
+{
+    type = double,
+    min = 0.0,
+    max = 5.0,
+    default = 1.0,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_GlobalTripChanceMultiplier,
+}
+
+option MORTISPhysical.RandomTripChanceMultiplier
+{
+    type = double,
+    min = 0.0,
+    max = 5.0,
+    default = 1.0,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_RandomTripChanceMultiplier,
+}
+
+option MORTISPhysical.PlayerCollisionTripChance
+{
+    type = double,
+    min = 0.0,
+    max = 1.0,
+    default = 0.08,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_PlayerCollisionTripChance,
+}
+
+option MORTISPhysical.ShoveDominoMaxChain
+{
+    type = integer,
+    min = 0,
+    max = 12,
+    default = 3,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_ShoveDominoMaxChain,
+}
+
+option MORTISPhysical.ShoveDominoImpulseDecay
+{
+    type = double,
+    min = 0.0,
+    max = 1.0,
+    default = 0.65,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_ShoveDominoImpulseDecay,
+}
+
+option MORTISPhysical.StompRepairRange
+{
+    type = double,
+    min = 0.5,
+    max = 3.0,
+    default = 1.45,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_StompRepairRange,
+}
+
+option MORTISPhysical.SoftSeparationStrength
+{
+    type = double,
+    min = 0.0,
+    max = 1.0,
+    default = 0.35,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_SoftSeparationStrength,
+}
+
+option MORTISPhysical.SoftSeparationMaxCorrection
+{
+    type = double,
+    min = 0.01,
+    max = 0.25,
+    default = 0.08,
+    page = MORTISPhysical,
+    translation = MORTISPhysical_SoftSeparationMaxCorrection,
+}
+
+option MORTISPhysical.CollisionTripChanceMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_CollisionTripChanceMultiplier, }
+option MORTISPhysical.ProneTripChanceMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_ProneTripChanceMultiplier, }
+option MORTISPhysical.CorpseTripChanceMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_CorpseTripChanceMultiplier, }
+option MORTISPhysical.StairTripChanceMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_StairTripChanceMultiplier, }
+option MORTISPhysical.LungeTripChanceMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_LungeTripChanceMultiplier, }
+option MORTISPhysical.ShoveTripChanceMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_ShoveTripChanceMultiplier, }
+option MORTISPhysical.TripCooldownMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_TripCooldownMultiplier, }
+option MORTISPhysical.GroupPileThrottleMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISPhysical, translation = MORTISPhysical_GroupPileThrottleMultiplier, }
+
+option MORTISSystems.EnableZombieHunger { type = boolean, default = true, page = MORTISSystems, translation = MORTISSystems_EnableZombieHunger, }
+option MORTISSystems.HungerDaysToFull { type = double, min = 0.1, max = 3650.0, default = 7.0, page = MORTISSystems, translation = MORTISSystems_HungerDaysToFull, }
+option MORTISSystems.EnableZombieDesiccation { type = boolean, default = true, page = MORTISSystems, translation = MORTISSystems_EnableZombieDesiccation, }
+option MORTISSystems.DesiccationYearsToTerminal { type = double, min = 1.0, max = 100.0, default = 5.0, page = MORTISSystems, translation = MORTISSystems_DesiccationYearsToTerminal, }
+option MORTISSystems.EnableTerminalWithering { type = boolean, default = true, page = MORTISSystems, translation = MORTISSystems_EnableTerminalWithering, }
+option MORTISSystems.FoodSearchRadius { type = double, min = 1.0, max = 50.0, default = 12.0, page = MORTISSystems, translation = MORTISSystems_FoodSearchRadius, }
+option MORTISSystems.FoodSeekingMinimumHunger { type = double, min = 0.0, max = 1.0, default = 0.0, page = MORTISSystems, translation = MORTISSystems_FoodSeekingMinimumHunger, }
+option MORTISSystems.FoodValueMultiplier { type = double, min = 0.0, max = 10.0, default = 1.0, page = MORTISSystems, translation = MORTISSystems_FoodValueMultiplier, }
+option MORTISSystems.CollisionRuntimeBatchSize { type = integer, min = 16, max = 512, default = 96, page = MORTISSystems, translation = MORTISSystems_CollisionRuntimeBatchSize, }
+option MORTISSystems.MovementRuntimeBatchSize { type = integer, min = 8, max = 256, default = 48, page = MORTISSystems, translation = MORTISSystems_MovementRuntimeBatchSize, }

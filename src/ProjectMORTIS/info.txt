@@ -1,0 +1,43 @@
+PROJECT M.O.R.T.I.S. — STEAM WORKSHOP INFO
+
+Title:
+Project M.O.R.T.I.S.
+
+Expanded Name:
+More Original Reanimated Threats Injection System
+
+Description:
+Project M.O.R.T.I.S. is a public custom-zombie API and framework. It lets extension mods define, compose, persist, synchronize, and manage custom infected archetypes while retaining vanilla IsoZombie objects.
+
+Project M.O.R.T.I.S. supplies reusable identity, profile, anatomy, trauma, physical-interaction, crowd-flow, authority, persistence, replication, compatibility, and diagnostic services. It does not add zombie archetypes by itself. Extension mods own their zombies, spawning, presentation, and gameplay policy.
+
+Features:
+- Types, traits, behaviors, components, species, and event dispatch.
+- Locomotion, durability, appearance, collision, and balance profiles.
+- Anatomy, trauma channels, damage, and consequence providers.
+- Canonical biological-material transactions and bounded opt-in decomposition scheduling.
+- Topology-owned anatomical attachment sockets with authoritative persistent install/remove state.
+- Weapon catalog and reviewed compatibility providers.
+- Trips, pile throttling, shove dominoes, stomp observation, and wall-safe separation.
+- Bounded local crowd-flow navigation.
+- Capability probes, diagnostics, exports, and callback profiling.
+- Explicit single-player, server, and client authority boundaries.
+
+Requirements:
+- Project Zomboid Build 42.20.3 or later
+- experienceWorks
+
+Known limitations:
+- Multiplayer authority and replication remain under active validation.
+- Unsupported Build 42 capabilities fail closed or use conservative fallback behavior.
+
+Author:
+B47ANCE
+
+Version: 0.23.2
+
+Internal Mod ID:
+ProjectMORTIS
+
+Versioning:
+MAJOR.MINOR.PATCH; game compatibility is declared separately.

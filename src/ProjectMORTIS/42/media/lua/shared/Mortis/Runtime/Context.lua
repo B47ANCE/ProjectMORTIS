@@ -1,0 +1,90 @@
+local Identity = require "Mortis/Runtime/Identity"
+local Components = require "Mortis/Runtime/Components"
+local Authority = require "Mortis/Runtime/Authority"
+local Capabilities = require "Mortis/API/Capabilities"
+local Scheduler = require "Mortis/Core/Scheduler"
+local Logger = require "Mortis/Core/Logger"
+local Random = require "Mortis/Core/Random"
+local Profiler = require "Mortis/Core/Profiler"
+local Target = require "Mortis/Runtime/Adapters/TargetAdapter"
+local Navigation = require "Mortis/Runtime/Adapters/NavigationAdapter"
+local Locomotion = require "Mortis/Runtime/Adapters/LocomotionAdapter"
+local Combat = require "Mortis/Runtime/Adapters/CombatAdapter"
+local Durability = require "Mortis/Runtime/Adapters/DurabilityAdapter"
+local Obstacles = require "Mortis/Runtime/Adapters/ObstacleAdapter"
+local Environment = require "Mortis/Runtime/Adapters/EnvironmentAdapter"
+local Animation = require "Mortis/Runtime/Adapters/AnimationAdapter"
+local State = require "Mortis/Runtime/Adapters/StateAdapter"
+local Appearance = require "Mortis/Runtime/Adapters/AppearanceAdapter"
+local Network = require "Mortis/Runtime/Adapters/NetworkAdapter"
+local Sound = require "Mortis/Runtime/Adapters/SoundAdapter"
+local Groups = require "Mortis/Runtime/Adapters/GroupAdapter"
+local Spawn = require "Mortis/Runtime/Adapters/SpawnAdapter"
+local Profiles = require "Mortis/Runtime/ProfileRuntime"
+local DamageRuntime = require "Mortis/Runtime/DamageRuntime"
+local Collision = require "Mortis/Runtime/Adapters/CollisionAdapter"
+local Trip = require "Mortis/Runtime/Adapters/TripAdapter"
+local Anatomy = require "Mortis/Runtime/AnatomyRuntime"
+local Trauma = require "Mortis/Runtime/TraumaRuntime"
+local Entity = require "Mortis/Runtime/Adapters/EntityAdapter"
+local HitLocation = require "Mortis/Runtime/Adapters/HitLocationAdapter"
+local Weapon = require "Mortis/Runtime/Adapters/WeaponAdapter"
+local HitTrauma = require "Mortis/Runtime/HitTraumaRuntime"
+local WeaponCatalog = require "Mortis/Runtime/WeaponCatalog"
+local PhysicalInteractions = require "Mortis/Runtime/PhysicalInteractionRuntime"
+local PhysicalEnvironment = require "Mortis/Runtime/Adapters/PhysicalEnvironmentAdapter"
+local Balance = require "Mortis/Runtime/BalanceRuntime"
+local StompRuntime = require "Mortis/Runtime/StompRuntime"
+local ShoveRuntime = require "Mortis/Runtime/ShoveRuntime"
+local PhysicalSettings = require "Mortis/Runtime/PhysicalSettings"
+local Ragdoll = require "Mortis/Runtime/Adapters/RagdollAdapter"
+
+local Context = {}
+
+function Context.create(zombie, typeDef)
+    return {
+        zombie = zombie,
+        type = typeDef or Identity.getType(zombie),
+        components = Components,
+        authority = Authority,
+        capabilities = Capabilities,
+        scheduler = Scheduler,
+        random = Random,
+        profiler = Profiler,
+        log = Logger,
+        target = Target,
+        navigation = Navigation,
+        locomotion = Locomotion,
+        combat = Combat,
+        durability = Durability,
+        obstacles = Obstacles,
+        environment = Environment,
+        animation = Animation,
+        state = State,
+        appearance = Appearance,
+        network = Network,
+        sound = Sound,
+        groups = Groups,
+        spawn = Spawn,
+        profiles = Profiles,
+        damage = DamageRuntime,
+        collision = Collision,
+        trip = Trip,
+        anatomy = Anatomy,
+        trauma = Trauma,
+        entity = Entity,
+        hitLocation = HitLocation,
+        weapon = Weapon,
+        hitTrauma = HitTrauma,
+        weaponCatalog = WeaponCatalog,
+        physical = PhysicalInteractions,
+        physicalEnvironment = PhysicalEnvironment,
+        balance = Balance,
+        stomp = StompRuntime,
+        shove = ShoveRuntime,
+        physicalSettings = PhysicalSettings,
+        ragdoll = Ragdoll,
+    }
+end
+
+return Context
