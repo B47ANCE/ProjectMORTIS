@@ -1,6 +1,6 @@
 local registered
-experienceWorks={HistoryRecords={registerEvidenceProvider=function(value)registered=value return value end}}
-package.preload["experienceWorks/HistoryRecords"]=function()return experienceWorks.HistoryRecords end
+B47ANCEDKnowledgeAndWisdom={HistoryRecords={registerEvidenceProvider=function(value)registered=value return value end}}
+package.preload["B47ANCEDKnowledgeAndWisdom/HistoryRecords"]=function()return B47ANCEDKnowledgeAndWisdom.HistoryRecords end
 local corpse={};local Mortis={DetachedParts={captureCorpse=function(value,region,metadata)
     assert(value==corpse and region=="torso"and metadata.historyEvidence)
     return {sourceStableId="MORTIS-dead-1",sourceTypeId="Test.Feral",regionId="torso",capturedWorldAgeHours=12}

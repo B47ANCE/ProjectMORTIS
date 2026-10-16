@@ -79,7 +79,7 @@ For the dependency-ordered human gate, use the guided commands and report format
 in [IN_GAME_TESTING.md](IN_GAME_TESTING.md). Mocked host execution verifies the
 harness contract but is not an in-game PASS.
 
-1. Confirm the root `VERSION` value, experienceWorks dependency, both sandbox pages, and error-free load with untyped vanilla zombies.
+1. Confirm the root `VERSION` value, B47ANCEDKnowledgeAndWisdom dependency, both sandbox pages, and error-free load with untyped vanilla zombies.
 
 Host test `test_api_compatibility.lua` covers semantic comparisons, inclusive
 minimum/exclusive maximum negotiation, missing functions, type mismatches, and

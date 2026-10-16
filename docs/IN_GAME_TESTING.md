@@ -1,8 +1,8 @@
 # Project M.O.R.T.I.S. in-game validation
 
 Project M.O.R.T.I.S. is stage 2 of the progressive Nightfall dependency test and
-requires only `experienceWorks`. Begin only after the returned experienceWorks
-stage-1 report is reviewed as PASS. Enable only `experienceWorks` and
+requires only `B47ANCEDKnowledgeAndWisdom`. Begin only after the returned B47ANCEDKnowledgeAndWisdom
+stage-1 report is reviewed as PASS. Enable only `B47ANCEDKnowledgeAndWisdom` and
 `ProjectMORTIS` on a disposable test save.
 
 ## Commands
@@ -10,7 +10,7 @@ stage-1 report is reviewed as PASS. Enable only `experienceWorks` and
 | Command | Purpose |
 | --- | --- |
 | `mortisTestStart(true)` | Reset the local session, validate startup, and write the first report. |
-| `mortisTestAuto()` | Recheck canonical identity, API negotiation, experienceWorks research registration, core definitions, diagnostics, and report writing. |
+| `mortisTestAuto()` | Recheck canonical identity, API negotiation, B47ANCEDKnowledgeAndWisdom research registration, core definitions, diagnostics, and report writing. |
 | `mortisTestInspect()` | Tag and inspect the nearest loaded zombie, recording stable identity and anatomy. |
 | `mortisTestPersistence()` | After save/quit/reload, find the tagged nearby zombie and verify stable identity in a new Lua runtime. |
 | `mortisTestResearch()` | Supply the real research files and guide the tester while automatically checking premature rejection, proper unlock, and completion of all three advanced branches. |
@@ -28,5 +28,5 @@ for wrong behavior and BLOCKED only for a genuinely unavailable environment.
 
 The guided sequence covers the canonical API and dependency, ordinary untyped
 zombies, identity/anatomy inspection, combat and balance hooks, wall-safe pile
-behavior, persistence, experienceWorks-backed research, sandbox controls, and
+behavior, persistence, B47ANCEDKnowledgeAndWisdom-backed research, sandbox controls, and
 hosted/dedicated authority.

@@ -1,10 +1,10 @@
 id=ProjectMORTIS
 name=Project M.O.R.T.I.S.
 author=B47ANCE
-require=experienceWorks
+require=B47ANCEDKnowledgeAndWisdom
 description=More Original Reanimated Threats Injection System: a public infected and living-entity framework providing reusable identity, anatomy, trauma, topology-owned attachment sockets, persistence, synchronization, and extension APIs. M.O.R.T.I.S. supplies systems; it does not add zombie types or medical content by itself.
 poster=thumbnail.png
 icon=icon.png
 tags=Build 42;Framework;Zombies;API;Utilities
 versionMin=42.20.3
-modversion=0.23.3-dev.2
+modversion=0.24.0-dev.1

@@ -11,3 +11,5 @@ Current mirrors checked by `scripts/check_versions.py`: source `mod.info` modver
 Run `python scripts/check_versions.py` before/after every iteration. `--release` additionally requires a current-version ZIP, exact source hashes, CRC/path/duplicate/case checks, and stable version metadata. A static release check never grants G7/G8 PASS: dedicated gameplay G7 PASS and explicit stable release approval are still required for stable G8. Packaging, deploy, and Workshop publish need their own authorization.
 
 Use feature branches and PRs after the imported baseline. Every intentional iteration includes docs, tests, targeted secret-reviewed staging, commit, push, and remote-SHA verification. No stable tags for unverified gameplay. Downgrading new persisted assignment-clear metadata is not certified; retain save backups and use disposable validation saves.
+
+The 0.24.0-dev.1 pre-1.0 MINOR iteration changes the required dependency identity and load configuration. It intentionally replaces the old dependency contract while retaining MORTIS public API 1.5.0 and persisted/content identifiers. It is not a drop-in package for old mod lists.

@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.23.3-dev.2. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.24.0-dev.1. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -34,7 +34,7 @@ Resolved from the takeover audit at the source/offline level: M-01, M-02, M-03, 
 
 - M-05: food-provider consumption can precede a failed feed. A reservation/commit or compensation contract needs a concrete consumer and compatibility review; this task does not change that provider API.
 - Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Unobserved native animation/lunge bookkeeping and existing consumer override-stack persistence remain open.
-- Current dependency integration is BLOCKED: experienceWorks has been renamed locally to B47ANCEDKnowledgeAndWisdom without old import aliases; MORTIS still requires a separate consumer identity migration.
+- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.13.0; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
 - Translation tooltips and actual non-English translations remain incomplete. The historical `Contents/` copy remains stale; no current package was generated.
 - Native hunger/stat synchronization, corpse/save serialization, streaming/online-ID reuse, command relevance/rate behavior at high populations, headless execution, and restart/reconnect remain [RUNTIME GATE]. Fair progress under repeated permanent serializer/native failures also needs stress evidence; an unavailable provider does not become a PASS through retries.
 
@@ -42,4 +42,4 @@ G7 BLOCKED / NOT TESTED. Stable-release G8 BLOCKED. No packaging, deployment, Wo
 
 ## Dedicated test sequence
 
-After a current experienceWorks stage-1 PASS, follow the MORTIS stage-2 disposable SP sequence, then run a separately authorized dedicated session with two clients on this exact mod build. Observe assignment, clear, reassign, late join, streaming out/in, reconnect, delayed/duplicate messages, server save/restart, and native online-ID reuse. Confirm both clients leave the typed lifecycle, a directed request never suppresses the other client's update, and client queries cannot write hunger. Test request bursts and far/unknown IDs without unbounded scans, then repeat with dense populations and induced send/cache failures. Record exact game/Steam build, dependency/mod/API versions, source commit, and native logs; offline results do not substitute for this sequence.
+After a current B47ANCEDKnowledgeAndWisdom stage-1 PASS, follow the MORTIS stage-2 disposable SP sequence, then run a separately authorized dedicated session with two clients on this exact mod build. Observe assignment, clear, reassign, late join, streaming out/in, reconnect, delayed/duplicate messages, server save/restart, and native online-ID reuse. Confirm both clients leave the typed lifecycle, a directed request never suppresses the other client's update, and client queries cannot write hunger. Test request bursts and far/unknown IDs without unbounded scans, then repeat with dense populations and induced send/cache failures. Record exact game/Steam build, dependency/mod/API versions, source commit, and native logs; offline results do not substitute for this sequence.

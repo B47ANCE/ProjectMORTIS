@@ -1,7 +1,7 @@
-# Project M.O.R.T.I.S. 0.23.3-dev.2 playtester handoff
+# Project M.O.R.T.I.S. 0.24.0-dev.1 playtester handoff
 
-Begin only after the experienceWorks stage-1 report is reviewed as PASS. Enable
-only `experienceWorks` and `ProjectMORTIS` on a disposable single-player save,
+Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
+only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
 open the Lua debug console, and run `mortisTestStart(true)`.
 
 1. Observe ordinary untyped zombies; record whether vanilla movement and targeting remain normal.

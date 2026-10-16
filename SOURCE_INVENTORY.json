@@ -10,7 +10,7 @@
     "3788592827"
   ],
   "runtime_dependencies": [
-    "experienceWorks"
+    "B47ANCEDKnowledgeAndWisdom"
   ],
   "generated_outputs": [
     "Contents/",
@@ -25,7 +25,7 @@
   "notes": "Contents is a preserved stale 0.23.0 packaging copy, not a current mirror. dist includes the immutable 0.23.2 ZIP and staging backups. No current development package is declared; these local artifacts are excluded from Git, not deleted. Workshop descriptions are current authoring metadata; prior-version paragraphs are historical.",
   "validation": [
     "python scripts/check_versions.py",
-    "python scripts/validate.py --experience-works <dependency-root>"
+    "python scripts/validate.py --knowledge-and-wisdom <dependency-root>"
   ],
   "authoring_assets": [
     "src/ProjectMORTIS/info.txt",

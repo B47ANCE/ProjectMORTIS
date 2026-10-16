@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.24.0-dev.1 - knowledge dependency migration, 2026-10-16
+
+- Pre-1.0 MINOR migration: required Mod ID, imports and harness global now use B47ANCEDKnowledgeAndWisdom. Existing load lists must change; public MORTIS API 1.5.0, research/item/knowledge/evidence IDs and saved-state schemas remain unchanged.
+- Migrated the validation runner to --knowledge-and-wisdom and added actual-source archive/history regressions for existing knowledge, registration reload, provider evidence, replay binding, authority rejection and store reload. No legacy public alias is introduced.
+- Offline results and exact dependency fingerprints are recorded in docs/DEPENDENCY_MIGRATION.md and docs/VALIDATION.md. PZ runtime and dedicated G7 remain NOT TESTED / BLOCKED; stable G8 BLOCKED.
+
 ## 0.23.3-dev.2 - locomotion restoration development, 2026-10-16
 
 - Target: compatible profile baseline capture/restoration fix. Public API and component schema versions remain separate; legacy baselines are not invented.

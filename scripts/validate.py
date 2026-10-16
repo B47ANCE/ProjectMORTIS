@@ -1,4 +1,4 @@
-"""Offline host runner; --unit-only explicitly omits the unpublished dependency integration."""
+"""Offline host runner; dependency integrations use explicitly selected source."""
 from pathlib import Path
 import argparse
 import json
@@ -18,10 +18,12 @@ ARGUMENTS = {
     'state_request_stand': 'Runtime/Adapters/StateAdapter', 'system_settings': 'Runtime/SystemSettings',
     'trauma_transition_events': 'Runtime/TraumaRuntime', 'trip_adapter': 'Runtime/Adapters/TripAdapter',
 }
+DEPENDENCY = 'B47ANCEDKnowledgeAndWisdom'
+INTEGRATIONS = {'test_research_archive', 'test_history_dependency'}
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--experience-works', type=Path)
+    parser.add_argument('--knowledge-and-wisdom', type=Path, help='B47ANCEDKnowledgeAndWisdom repository root')
     parser.add_argument('--unit-only', action='store_true')
     parser.add_argument('--test', help='Run only a named test stem')
     args = parser.parse_args()
@@ -29,8 +31,12 @@ def main():
     failures = 0 if check() else 1
     lua_root = SOURCE / 'media/lua'
     search = ';'.join((lua_root / side).as_posix() + '/?.lua' for side in ('shared','client','server')) + ';'
-    if args.experience_works:
-        search += (args.experience_works.resolve() / 'src/experienceWorks/42/media/lua/shared').as_posix() + '/?.lua;'
+    dependency_root = (args.knowledge_and_wisdom.resolve() / 'src' / DEPENDENCY / '42') if args.knowledge_and_wisdom else None
+    dependency_shared = dependency_root / 'media/lua/shared' if dependency_root else None
+    dependency_ready = dependency_shared and all((dependency_shared / DEPENDENCY / file).is_file()
+                                                 for file in ('API.lua', 'HistoryRecords.lua'))
+    if dependency_shared:
+        search += dependency_shared.as_posix() + '/?.lua;'
     lua = LuaRuntime(unpack_returned_tuples=True)
     compile_lua = lua.eval('function(s,n) local f,e=loadstring(s,n); return f~=nil,e end')
     count = 0
@@ -48,13 +54,12 @@ def main():
         if not paths:
             parser.error('No matching test')
     for path in paths:
-        if path.stem == 'test_research_archive' and args.unit_only:
-            records.append({'test': path.name, 'status':'NOT TESTED', 'reason':'--unit-only excludes experienceWorks integration'})
+        if path.stem in INTEGRATIONS and args.unit_only:
+            records.append({'test': path.name, 'status':'NOT TESTED', 'reason':'--unit-only excludes '+DEPENDENCY+' integration'})
             continue
-        if path.stem == 'test_research_archive' and (not args.experience_works or not
-            (args.experience_works.resolve() / 'src/experienceWorks/42/media/lua/shared/experienceWorks/API.lua').is_file()):
+        if path.stem in INTEGRATIONS and not dependency_ready:
             failures += 1
-            records.append({'test':path.name,'status':'BLOCKED','reason':'Declared experienceWorks source/API absent; consumer dependency migration is required'})
+            records.append({'test':path.name,'status':'BLOCKED','reason':'Select the declared '+DEPENDENCY+' source/API with --knowledge-and-wisdom <repository-root>'})
             continue
         if path.stem == 'test_no_project_remnants':
             from lupa.lua54 import LuaRuntime as Factory
