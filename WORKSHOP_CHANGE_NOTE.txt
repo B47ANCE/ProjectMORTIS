@@ -1,4 +1,18 @@
-[b]Version 0.23.2[/b]
+[b]Version 0.24.0-dev.1[/b]
+Dependency migration development build: requires B47ANCEDKnowledgeAndWisdom (formerly experienceWorks). Update save/server mod lists and enable only the new identity. Research and history IDs remain unchanged. Offline integration checks only; dedicated multiplayer NOT TESTED; stable release BLOCKED.
+
+Previous development notes:
+[b]Version 0.23.3-dev.2[/b]
+
+Development locomotion restoration: checkpoints original observed movement fields before profile writes and verifies restoration on removal/clear. Legacy baselines are not guessed. Native animation/lunge restoration and dedicated multiplayer remain NOT TESTED. Current dependency identity migration is required before integration/runtime validation.
+
+[b]Previous Version 0.23.3-dev.1[/b]
+
+Development authority/replication correction. Dedicated multiplayer NOT TESTED.
+Client hunger queries remain read-only; assignment clears synchronize with revision/replay protection; directed replies preserve pending broadcasts; requests are bounded and online-ID indexes are refreshed.
+No new Workshop upload is implied by this source changenote. Food-provider transaction and complete locomotion restoration remain open.
+
+[b]Previous Version 0.23.2[/b]
 
 [h2]Release preparation[/h2]
 • Restricted test, inspection, export, and profiler console commands to explicit debug sessions.

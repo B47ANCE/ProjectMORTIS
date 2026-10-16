@@ -4,16 +4,16 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.23.2`
+- Version: `0.24.0-dev.1`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
-- Required Mod ID: `experienceWorks`
+- Required Mod ID: `B47ANCEDKnowledgeAndWisdom`
 
 Project M.O.R.T.I.S. wraps vanilla `IsoZombie` instances. It does not replace the zombie class and does not add custom zombie types by itself. Extension mods own their types, spawning, presentation, and gameplay policy.
 
 Version 0.23.0 adds the bounded `Mortis.DeathProvenance` evidence provider for
-experienceWorks history records. Callers must supply an explicit corpse, region,
+experienceWorks history records (now supplied through B47ANCEDKnowledgeAndWisdom). Callers must supply an explicit corpse, region,
 stable subject identity, and matching evidence ID. MORTIS does not automatically
 create memorials or decide history visibility or presentation.
 
@@ -52,9 +52,9 @@ adapter, registration, identity mapping, or compatibility path for it.
 - Semantic API compatibility negotiation with consumer version ranges and
   required-surface type checks.
 - Four physical, prerequisite-aware infected-research files registered through
-  experienceWorks cover foundational physiology, functional anatomy,
+  B47ANCEDKnowledgeAndWisdom cover foundational physiology, functional anatomy,
   starvation/desiccation, and physical failure modes. Project M.O.R.T.I.S. owns
-  their science content while experienceWorks owns archive/knowledge plumbing.
+  their science content while B47ANCEDKnowledgeAndWisdom owns archive/knowledge plumbing.
 
 Physical zombie separation is enabled by default for new worlds and configurable on the `M.O.R.T.I.S. Physical Interactions` sandbox page.
 
@@ -72,4 +72,8 @@ The authoritative mod source is `src/ProjectMORTIS/42/`. `Contents/mods` is a pr
 
 Root `VERSION` is canonical; see [version policy](docs/VERSION_POLICY.md) and [source inventory](SOURCE_INVENTORY.json). `Contents/` and existing `dist/` are historical local artifacts, preserved and excluded from Git.
 
-Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --experience-works <experienceWorks-repository-root>`. CI runs `--unit-only` and explicitly excludes the unpublished dependency integration. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --knowledge-and-wisdom <B47ANCEDKnowledgeAndWisdom-repository-root>`. CI runs `--unit-only` and explicitly omits both actual-source dependency integrations; run the full command locally. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+
+The authority/replication fixes and remaining limitations are described in [AUTHORITY_REPLICATION.md](docs/AUTHORITY_REPLICATION.md), with [current validation](docs/VALIDATION.md) and [GitHub onboarding provenance](docs/ONBOARDING.md). Client hunger reads no longer author state; assignment clears synchronize with stale-message protection; directed replies preserve pending broadcasts. All multiplayer peers must use the same build.
+
+Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata now use B47ANCEDKnowledgeAndWisdom 0.13.0; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.

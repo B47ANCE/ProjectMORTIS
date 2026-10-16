@@ -2,7 +2,7 @@
 if type(isDebugEnabled)=="function" and isDebugEnabled()~=true then return {} end
 
 local Mortis=require "Mortis/init"
-local Archive=require "experienceWorks/API"
+local Archive=require "B47ANCEDKnowledgeAndWisdom/API"
 local Harness={}
 local FILE="theWorks Test Results - ProjectMORTIS.txt"
 local KEY="ProjectMORTIS.TestSession.V1"
@@ -14,7 +14,7 @@ local steps={
  {id="combat",feature="Combat, shove, stomp, and balance hooks",instruction="Fight several zombies and confirm natural hits, shoves, stomps, trips, and recovery."},
  {id="separation",feature="Wall-safe collision and pile behavior",instruction="Observe a dense group near walls, stairs, and low obstacles; confirm no displacement or trip cascade."},
  {id="persistence",feature="Identity save/reload persistence",instruction="Save/quit/reload after inspection, approach the same zombie, then run mortisTestPersistence()."},
- {id="research",feature="experienceWorks research prerequisites",instruction="Run mortisTestResearch() and follow its simple console instructions until the harness verifies the locked and unlocked states."},
+ {id="research",feature="B47ANCEDKnowledgeAndWisdom research prerequisites",instruction="Run mortisTestResearch() and follow its simple console instructions until the harness verifies the locked and unlocked states."},
  {id="sandbox",feature="M.O.R.T.I.S. sandbox controls",instruction="Run mortisTestSandbox() and follow its instructions to change and verify one safe temporary setting."},
  {id="multiplayer",feature="Hosted and dedicated authority/replication",instruction="Verify state as remote client, after reconnect, and on late join; BLOCKED until available."},
 }
@@ -48,7 +48,7 @@ local function counts(s)
 end
 local function overall(s)local c=counts(s);if c.FAIL>0 then return"FAIL"elseif c.PENDING>0 then return"IN_PROGRESS"elseif c.BLOCKED>0 then return"BLOCKED"end;return"PASS"end
 local function lines(s)
- local out={"theWorks in-game test results","Mod: Project M.O.R.T.I.S.","Mod ID: ProjectMORTIS","Mod version: "..safe(s.modVersion),"API version: "..safe(s.apiVersion),"Project Zomboid version: "..safe(s.pzVersion),"Session: "..safe(s.sessionId),"Started: "..safe(s.startedAt),"Generated: "..now(),"Dependencies enabled for this stage: experienceWorks","Overall session status: "..overall(s),"","FEATURE RESULTS"}
+ local out={"theWorks in-game test results","Mod: Project M.O.R.T.I.S.","Mod ID: ProjectMORTIS","Mod version: "..safe(s.modVersion),"API version: "..safe(s.apiVersion),"Project Zomboid version: "..safe(s.pzVersion),"Session: "..safe(s.sessionId),"Started: "..safe(s.startedAt),"Generated: "..now(),"Dependencies enabled for this stage: B47ANCEDKnowledgeAndWisdom","Overall session status: "..overall(s),"","FEATURE RESULTS"}
  for i,step in ipairs(steps)do local r=s.results[step.id]or{status="PENDING",note=""};out[#out+1]=string.format("%02d. [%s] %s | %s | %s",i,r.status,step.id,step.feature,safe(r.note))end
  out[#out+1]="";out[#out+1]="COMMAND LOG";for i,e in ipairs(s.commands)do out[#out+1]=string.format("%03d. %s | %s | %s | %s | %s",i,safe(e.at),safe(e.command),safe(e.feature),safe(e.outcome),safe(e.detail))end
  out[#out+1]="";out[#out+1]="Send this file plus console.txt and screenshots for failed visual checks to development.";return out
@@ -91,7 +91,7 @@ local function giveResearch(character,current)
  end end;return true
 end
 function Harness.auto()
- local s,_,err=session(true);if not s then say(err);return false,err end;local archive=rawget(_G,"experienceWorks")
+ local s,_,err=session(true);if not s then say(err);return false,err end;local archive=rawget(_G,"B47ANCEDKnowledgeAndWisdom")
  local dependency=type(archive)=="table"and type(archive.hasDocument)=="function"and archive.hasDocument("MORTIS-93-001")==true
  local canonical=rawget(_G,"Mortis")==Mortis and Mortis.VERSION==s.modVersion
  local compatible,report=Mortis.negotiateAPI({minimum="1.0.0",required={{path="assign",kind="function"},{path="Anatomy",kind="table"}}})
@@ -101,7 +101,7 @@ function Harness.auto()
  record(s,"startup",pass and"PASS"or"FAIL",detail);return finish(s,"mortisTestAuto()","startup",pass and"PASS"or"FAIL",detail)
 end
 function Harness.start(reset)
- local s,p,err=session(true);if not s then say(err);return false,err end;if reset==true then data(p)[KEY]=nil;s=session(true)end;Harness.auto();local step=pending(s);say("Session started. Enable only experienceWorks and ProjectMORTIS.");if step then say("NEXT ["..step.id.."] "..step.instruction)end;return true,s.sessionId
+ local s,p,err=session(true);if not s then say(err);return false,err end;if reset==true then data(p)[KEY]=nil;s=session(true)end;Harness.auto();local step=pending(s);say("Session started. Enable only B47ANCEDKnowledgeAndWisdom and ProjectMORTIS.");if step then say("NEXT ["..step.id.."] "..step.instruction)end;return true,s.sessionId
 end
 function Harness.inspect()
  local s=session(false);if not s then say("No session; run mortisTestStart(true)");return false end;local z=nearest();if not z then return finish(s,"mortisTestInspect()","inspection","BLOCKED","no loaded zombie found nearby")end

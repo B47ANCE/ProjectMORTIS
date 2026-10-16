@@ -1,6 +1,8 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.23.2; public API 1.5.0.
+Canonical version: 0.24.0-dev.1; public API 1.5.0.
+
+Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transactions and full native animation/lunge restoration remain follow-ups; native dependency load/save/MP tests are still required.
 
 ## Implemented
 
@@ -13,7 +15,7 @@ Canonical version: 0.23.2; public API 1.5.0.
   systemic consequences, and decomposition/desiccation infrastructure.
 - Research archive content integration and provider-oriented API boundaries.
 - EXT-32 support through a bounded, explicit corpse/death-provenance evidence
-  provider consumed by experienceWorks history authority; no automatic memorial
+  provider consumed by B47ANCEDKnowledgeAndWisdom history authority; no automatic memorial
   creation or presentation ownership.
 - Removed the revoked EXT-29 NPC-framework registry, concrete Project Remnants
   adapter, public entry points, positive test, and compatibility documentation.

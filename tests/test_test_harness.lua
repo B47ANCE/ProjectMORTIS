@@ -18,9 +18,9 @@ Mortis.Diagnostics={snapshot=function()return{authority="singlePlayer"}end};Mort
 Mortis.Anatomy={snapshot=function()return{speciesId="Mortis.Infected",regions={}}end};Mortis.negotiateAPI=function()return true,{errors={}}end
 package.loaded["Mortis/init"]=Mortis;_G.Mortis=Mortis
 local read,known={},{}
-experienceWorks={hasDocument=function(id)return id=="MORTIS-93-001"end,hasRead=function(_,id)return read[id]==true end,hasKnowledge=function(_,id)return known[id]==true end,
+B47ANCEDKnowledgeAndWisdom={hasDocument=function(id)return id=="MORTIS-93-001"end,hasRead=function(_,id)return read[id]==true end,hasKnowledge=function(_,id)return known[id]==true end,
  canLearn=function(_,id)return id=="MORTIS-93-001"or known["Mortis.BasicInfectedPhysiology"]==true end}
-package.loaded["experienceWorks/API"]=experienceWorks
+package.loaded["B47ANCEDKnowledgeAndWisdom/API"]=B47ANCEDKnowledgeAndWisdom
 SandboxVars={MORTISSystems={EnableZombieHunger=true}}
 local Harness=require"Mortis/TestHarness";assert(Harness.start(true)==true)
 local session=player.modData["ProjectMORTIS.TestSession.V1"];assert(session.results.startup.status=="PASS");assert(Harness.inspect()==true and session.results.inspection.status=="PASS")
@@ -32,5 +32,5 @@ assert(Harness.research()==true and session.results.research.status=="PASS");ass
 assert(Harness.sandbox()==false and session.results.sandbox==nil);SandboxVars.MORTISSystems.EnableZombieHunger=false;assert(Harness.sandbox()==true and session.results.sandbox.status=="PASS")
 package.loaded["Mortis/TestHarness"]=nil;Harness=require"Mortis/TestHarness";assert(Harness.persistence()==true and session.results.persistence.status=="PASS")
 for _=1,140 do Harness.auto()end;assert(#session.commands==128);assert(Harness.report()==true)
-local joined=table.concat(report,"\n");assert(joined:find("Mod ID: ProjectMORTIS",1,true));assert(joined:find("Dependencies enabled for this stage: experienceWorks",1,true))
+local joined=table.concat(report,"\n");assert(joined:find("Mod ID: ProjectMORTIS",1,true));assert(joined:find("Dependencies enabled for this stage: B47ANCEDKnowledgeAndWisdom",1,true))
 print("Project M.O.R.T.I.S. in-game test harness/result-export checks passed")

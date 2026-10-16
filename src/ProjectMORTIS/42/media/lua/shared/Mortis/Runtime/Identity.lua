@@ -101,4 +101,9 @@ function Identity.clear(zombie)
     Components.remove(zombie, STABLE_KEY)
 end
 
+function Identity.clearReplicated(zombie)
+    Components.removeReplicated(zombie, TYPE_KEY)
+    Components.removeReplicated(zombie, STABLE_KEY)
+end
+
 return Identity

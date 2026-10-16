@@ -18,6 +18,24 @@ local lastAppliedByZombie = setmetatable({}, { __mode = "k" })
 local sessionEpoch = nil
 local epochSequence = 0
 
+function Replication.validId(value)
+    return type(value)=="string" and #value>0 and #value<=128
+end
+
+function Replication.validOnlineId(value)
+    return type(value)=="number" and value>=0 and value<=2147483647 and value==math.floor(value)
+end
+
+local function validEnvelope(snapshot)
+    if type(snapshot)~="table" then return false,"invalid snapshot" end
+    if tonumber(snapshot.protocolVersion)~=Replication.PROTOCOL_VERSION then return false,"unsupported protocol version" end
+    if not Replication.validId(snapshot.stableId) or not Replication.validId(snapshot.sessionEpoch) then return false,"snapshot identity/epoch missing" end
+    local revision=tonumber(snapshot.revision)
+    if not revision or revision~=revision or revision==math.huge or revision<0 or revision~=math.floor(revision) then return false,"invalid snapshot revision" end
+    if snapshot.onlineId~=nil and not Replication.validOnlineId(snapshot.onlineId) then return false,"invalid online ID" end
+    return true
+end
+
 local function copySerializable(value, seen)
     local t = type(value)
     if value == nil or t == "boolean" or t == "number" or t == "string" then return value end
@@ -80,11 +98,13 @@ function Replication.getSessionEpoch()
 end
 
 function Replication.getRevision(zombie)
-    return revisions[zombie] or 0
+    return math.max(revisions[zombie] or 0,Persistence.readReplicationRevision(zombie,sessionEpoch))
 end
 
 function Replication.bumpRevision(zombie, _reason)
-    local nextRevision = (revisions[zombie] or 0) + 1
+    local nextRevision = Replication.getRevision(zombie) + 1
+    local saved,err=Persistence.writeReplicationRevision(zombie,sessionEpoch,nextRevision)
+    if not saved then return nil,err end
     revisions[zombie] = nextRevision
     return nextRevision
 end
@@ -127,6 +147,16 @@ function Replication.buildSnapshot(zombie, onlineId, options)
     }
 end
 
+function Replication.buildClear(zombie, onlineId, options)
+    options=options or {}
+    if Identity.getTypeId(zombie) then return nil,"zombie is still typed" end
+    local stableId=Persistence.readAssignmentClear(zombie)
+    if not stableId then return nil,"no assignment clear" end
+    return {protocolVersion=Replication.PROTOCOL_VERSION,cleared=true,
+        sessionEpoch=options.sessionEpoch or sessionEpoch or "unknown",
+        revision=options.revision or Replication.getRevision(zombie),stableId=stableId,onlineId=onlineId}
+end
+
 function Replication.lastApplied(stableId)
     return type(stableId) == "string" and lastApplied[stableId] or nil
 end
@@ -141,7 +171,7 @@ local function checkFreshness(zombie, snapshot)
     local epoch = tostring(snapshot.sessionEpoch or "unknown")
 
     local objectPrevious = lastAppliedByZombie[zombie]
-    if objectPrevious and objectPrevious.stableId == stableId and objectPrevious.epoch == epoch and revision <= objectPrevious.revision then
+    if objectPrevious and objectPrevious.epoch == epoch and revision <= objectPrevious.revision then
         return false, "stale", objectPrevious
     end
 
@@ -155,19 +185,13 @@ end
 
 function Replication.applySnapshot(zombie, snapshot)
     if zombie == nil then return false, "zombie is required" end
-    if type(snapshot) ~= "table" then return false, "invalid snapshot" end
-    if tonumber(snapshot.protocolVersion) ~= Replication.PROTOCOL_VERSION then
-        return false, "unsupported protocol version"
-    end
-    if type(snapshot.stableId) ~= "string" or snapshot.stableId == "" or
-        type(snapshot.typeId) ~= "string" or snapshot.typeId == "" then
+    local valid, envelopeError=validEnvelope(snapshot)
+    if not valid then return false,envelopeError end
+    if snapshot.cleared~=nil then return false,"clear is not a typed snapshot" end
+    if type(snapshot.typeId) ~= "string" or snapshot.typeId == "" then
         return false, "snapshot identity missing"
     end
     if type(snapshot.components) ~= "table" then return false, "invalid snapshot components" end
-    local revision = tonumber(snapshot.revision)
-    if not revision or revision ~= revision or revision == math.huge or revision < 0 or revision ~= math.floor(revision) then
-        return false, "invalid snapshot revision"
-    end
 
     local fresh, freshnessReason, appliedRecord = checkFreshness(zombie, snapshot)
     if not fresh then return false, freshnessReason end
@@ -221,6 +245,26 @@ function Replication.applySnapshot(zombie, snapshot)
     lastApplied[snapshot.stableId] = appliedRecord
     lastAppliedByZombie[zombie] = appliedRecord
     return true, previous
+end
+
+function Replication.applyClear(zombie, snapshot, options)
+    if zombie==nil then return false,"zombie is required" end
+    local valid,err=validEnvelope(snapshot)
+    if not valid then return false,err end
+    if snapshot.cleared~=true then return false,"invalid clear" end
+    local fresh,reason,record=checkFreshness(zombie,snapshot)
+    if not fresh then return false,reason end
+    local current=Identity.getStableId(zombie)
+    if current and current~=snapshot.stableId and not (options and options.reconciledRequest==true) then return false,"clear identity mismatch" end
+    local previous=Identity.getTypeId(zombie)
+    -- Complete the fallible native-cache boundary before live mutation.
+    local mirrored,mirrorError=Persistence.writeAssignmentClear(zombie,snapshot.stableId)
+    if not mirrored then return false,mirrorError end
+    Identity.clearReplicated(zombie)
+    Components.markReplicationClean(zombie)
+    lastApplied[snapshot.stableId]=record
+    lastAppliedByZombie[zombie]=record
+    return true,previous
 end
 
 function Replication.describeSnapshot(snapshot)

@@ -25,7 +25,7 @@ Features:
 
 Requirements:
 - Project Zomboid Build 42.20.3 or later
-- experienceWorks
+- B47ANCEDKnowledgeAndWisdom
 
 Known limitations:
 - Multiplayer authority and replication remain under active validation.
@@ -34,7 +34,7 @@ Known limitations:
 Author:
 B47ANCE
 
-Version: 0.23.2
+Version: 0.24.0-dev.1
 
 Internal Mod ID:
 ProjectMORTIS

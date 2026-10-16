@@ -1,5 +1,7 @@
-package.loaded["experienceWorks/API"]=nil;package.loaded["Mortis/Content/ResearchArchive"]=nil;_G.experienceWorks=nil
+package.loaded["B47ANCEDKnowledgeAndWisdom/API"]=nil;package.loaded["Mortis/Content/ResearchArchive"]=nil;_G.B47ANCEDKnowledgeAndWisdom=nil
 local Archive=require "Mortis/Content/ResearchArchive"
+assert(Archive==rawget(_G,"B47ANCEDKnowledgeAndWisdom") and Archive.VERSION=="0.13.0")
+assert(rawget(_G,"experienceWorks")==nil,"no legacy public alias is needed")
 assert(Archive.getDocument("MORTIS-93-001").project=="Project M.O.R.T.I.S.")
 assert(Archive.getDocumentForItem("ProjectMORTIS.Research_MORTIS_ANAT_012").id=="MORTIS-ANAT-012")
 local character={modData={}};function character:getModData()return self.modData end
@@ -7,4 +9,19 @@ assert(not Archive.learn(character,"MORTIS-ANAT-012"));assert(Archive.learn(char
 assert(Archive.hasKnowledge(character,"Mortis.AnatomicalFunction")and Archive.hasKnowledge(character,"Mortis.StarvationDesiccation")and Archive.hasKnowledge(character,"Mortis.PhysicalFailureModes"))
 local distributions={list={LaboratoryBooks={items={}},TestingLab={items={}},ArmyStorageMedical={items={}},MedicalOfficeBooks={items={}}}}
 assert(Archive.applyDistributions(distributions)==13);assert(Archive.applyDistributions(distributions)==0)
+-- Existing MORTIS knowledge is retained under the dependency's immutable key.
+assert(Archive.ROOT_KEY=="EXPERIENCE_WORKS_KNOWLEDGE_V1")
+local saved={schemaVersion=1,documents={["MORTIS-93-001"]={learnedAtWorldAgeHours=7}},
+ knowledge={["Mortis.BasicInfectedPhysiology"]={sourceDocument="MORTIS-93-001",owner="Project M.O.R.T.I.S.",learnedAtWorldAgeHours=7}}}
+local prior={modData={[Archive.ROOT_KEY]=saved}};function prior:getModData()return self.modData end
+assert(Archive.hasRead(prior,"MORTIS-93-001") and Archive.canLearn(prior,"MORTIS-ANAT-012"))
+local learned,result=Archive.learn(prior,"MORTIS-93-001");assert(learned and result.duplicate==true)
+assert(prior.modData[Archive.ROOT_KEY]==saved and saved.documents["MORTIS-93-001"].learnedAtWorldAgeHours==7)
+package.loaded["Mortis/Content/ResearchArchive"]=nil
+assert(require("Mortis/Content/ResearchArchive")==Archive,"reload must reuse the canonical registry")
+local documents=0;for _ in pairs(Archive.allDocuments())do documents=documents+1 end;assert(documents==4)
+isClient=function()return true end;isServer=function()return false end
+local denied,reason=Archive.learn(prior,"MORTIS-ANAT-012")
+assert(denied==false and reason=="non-authority" and saved.documents["MORTIS-ANAT-012"]==nil)
+assert(rawget(_G,"experienceWorks")==nil)
 print("Project M.O.R.T.I.S. infected-research archive checks passed")

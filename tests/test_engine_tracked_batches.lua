@@ -34,7 +34,7 @@ stub("Mortis/Runtime/Persistence", {
 stub("Mortis/Core/Logger", { warn=function() end, rateLimited=function() end })
 stub("Mortis/Runtime/Adapters/NetworkAdapter", { getOnlineID=function(z) return z.onlineId end })
 stub("Mortis/Runtime/Replication", { release=function() end, forgetApplied=function() end })
-stub("Mortis/Runtime/ProfileRuntime", {})
+stub("Mortis/Runtime/ProfileRuntime", {hasPendingLocomotionRestore=function()return false end})
 stub("Mortis/Runtime/DamageRuntime", {})
 stub("Mortis/Runtime/Adapters/StateAdapter", {})
 stub("Mortis/Runtime/HitTraumaRuntime", { clear=function() end })
@@ -66,5 +66,11 @@ local dirty2 = Engine.collectReplicationDirty(1)
 assert(dirty[1] == zombies[2], "dirty scan should find first eligible zombie")
 assert(dirty2[1] == zombies[4], "dirty scan should resume instead of rescanning the head")
 assert(Engine.findTrackedByOnlineID(5) == zombies[5], "online index should remain valid")
+
+zombies[5].onlineId=55
+Engine.takeTrackedBatch('index-refresh',5)
+assert(Engine.findTrackedByOnlineID(5)==nil,'obsolete online ID must be removed')
+assert(Engine.findTrackedByOnlineID(55)==zombies[5])
+assert(Engine.findTrackedByOnlineID(0/0)==nil,'NaN lookup must fail closed')
 
 print("Project M.O.R.T.I.S. tracked batch tests passed")

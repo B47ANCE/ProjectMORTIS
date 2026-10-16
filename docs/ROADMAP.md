@@ -24,7 +24,7 @@
   verification and multiplayer transport validation remain open.
 
 - Confirm Nightfall's dependency report records Project M.O.R.T.I.S. mod version
-  `0.23.2` separately from public API version `1.5.0` in each tested session.
+  from root `VERSION` separately from public API version `1.5.0` in each tested session.
 
 - Tune physical separation and trip probabilities under dense populations.
 - Verify shove, stomp, corpse, stair, lunge, and ragdoll capability paths.
@@ -91,7 +91,7 @@ Zombie archetypes and game-specific AI remain the responsibility of extension mo
   identity, persistence, permission, action, and synchronization requirements.
   Specific dependent content remains separately owned.
 - **EXT-27/32 support:** provide registered entity/anatomy and death/corpse
-  provenance facts to Nightfall conditions and experienceWorks history records;
+  provenance facts to Nightfall conditions and B47ANCEDKnowledgeAndWisdom history records;
   MORTIS does not own their rules or presentation.
   Version 0.23.0 implements the EXT-32 `Mortis.DeathProvenance` evidence provider
   with explicit corpse, region, stable-subject, and evidence-ID validation.

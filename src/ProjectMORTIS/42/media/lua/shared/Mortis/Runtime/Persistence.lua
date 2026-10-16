@@ -127,6 +127,42 @@ function Persistence.clearIdentity(zombie, transmit)
     return true
 end
 
+-- An additive root field survives stream-out and dedicated restart. It is not
+-- a new gameplay identity and must not restore a typed lifecycle.
+function Persistence.writeAssignmentClear(zombie, stableId)
+    if type(stableId)~="string" or stableId=="" then return false,"stable identity required" end
+    local root, err = getRoot(zombie, true)
+    if not root then return false, err end
+    root.assignmentClear = { stableId=stableId }
+    root.identity = nil
+    return true
+end
+
+function Persistence.readAssignmentClear(zombie)
+    local root = getRoot(zombie, false)
+    local record = root and root.assignmentClear
+    if type(record)=="table" and type(record.stableId)=="string" and record.stableId~="" then
+        return record.stableId
+    end
+    return nil
+end
+
+function Persistence.readReplicationRevision(zombie, epoch)
+    local root=getRoot(zombie,false)
+    local record=root and root.replicationRevision
+    if type(record)~="table" or record.epoch~=epoch then return 0 end
+    local value=record.revision
+    if type(value)~="number" or value~=value or value<0 or value==math.huge or value~=math.floor(value) then return 0 end
+    return value
+end
+
+function Persistence.writeReplicationRevision(zombie, epoch, revision)
+    local root,err=getRoot(zombie,true)
+    if not root then return false,err end
+    root.replicationRevision={epoch=epoch,revision=revision}
+    return true
+end
+
 function Persistence.loadComponents(zombie)
     local root = getRoot(zombie, false)
     if not root or type(root.components) ~= "table" then return 0 end

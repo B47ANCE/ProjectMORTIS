@@ -1,0 +1,30 @@
+{
+  "steam_build": "25485521",
+  "game_version": "UNKNOWN",
+  "runtime_status": "NOT_TESTED",
+  "method": "Read-only metadata and selected getter/setter/initializer inspection; no game classes loaded or executed",
+  "jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "classes": {
+    "zombie/characters/IsoZombie": {
+      "packaged_sha256": "9dd82f9e5022c27d64bb3c64ebc4a061f37393e1fc865f2919a18e1d07673bb2",
+      "loose_sha256": "338b5c3b3261b7cafeac707da1b5e2fc6932dd9f00a93d07ac460b90e627ffca"
+    },
+    "zombie/characters/IsoGameCharacter": {
+      "packaged_sha256": "29040e19c3e420499f73bc0ea0d5b86d7f7d38655acdc13d0107df736eb54c0b",
+      "loose_sha256": "d8554b2a4012f381731da9c91fe605b17e3ba15cd429609607fbf496ad6bbdfa"
+    }
+  },
+  "observed_fields": [
+    "walkType",
+    "speedType",
+    "speedMod",
+    "crawler",
+    "crawlerType"
+  ],
+  "static_method": "IsoZombie.getSpeedTypeFromWalkType(String):int",
+  "limitations": [
+    "Modified loose classes differ; effective runtime is unverified",
+    "No verified complete inverse for animation/lunge/walk-variant bookkeeping",
+    "Existing public binding construction does not prove a successful invocation"
+  ]
+}

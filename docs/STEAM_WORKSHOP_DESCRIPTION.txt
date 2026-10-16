@@ -1,6 +1,6 @@
 ⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 
-[b]Mod Version:[/b] 0.23.2
+[b]Mod Version:[/b] 0.24.0-dev.1
 
 This mod is currently under active development and is NOT in a playable or release-ready state.
 
@@ -75,7 +75,7 @@ Current Features
 
 - Capability probes, bounded rejection diagnostics, registry exports, and callback profiling
 
-- Four physical prerequisite-aware infected-research files through experienceWorks
+- Four physical prerequisite-aware infected-research files through B47ANCEDKnowledgeAndWisdom
 
 Upcoming Features
 
@@ -101,7 +101,7 @@ Project M.O.R.T.I.S. provides the API required to model anatomy and limb state, 
 
 Dependencies
 
-Project M.O.R.T.I.S. has no required mod dependencies. It is required by Project Nightfall.
+Project M.O.R.T.I.S. requires B47ANCEDKnowledgeAndWisdom (technical Mod ID: B47ANCEDKnowledgeAndWisdom) for its physical infected-research files and knowledge progression. It is required by Project Nightfall.
 
 Dedicated-server multiplayer compatibility has not yet been certified.
 

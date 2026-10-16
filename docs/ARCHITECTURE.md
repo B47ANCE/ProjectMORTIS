@@ -44,7 +44,8 @@ before persisting completion. The version-3 hunger component allow-lists termina
 flags and migrates version 2 without resetting valid starvation progress.
 
 Version 0.11.10 loads the M.O.R.T.I.S.-owned research archive during bootstrap
-and supplies four physical literature items. experienceWorks remains the sole
+and supplies four physical literature items. The archive dependency (formerly
+experienceWorks, now B47ANCEDKnowledgeAndWisdom) remains the sole
 owner of document registration, prerequisite evaluation, completion-based
 knowledge, and loot insertion; M.O.R.T.I.S. owns only its infected-science
 definitions and content. The chain exposes separate knowledge for foundation,
@@ -188,3 +189,11 @@ attachment definition and anatomical compatibility.
 Rejected compatibility/state requests emit `AttachmentRejected`. Consumer mods
 remain responsible for inventory, distance, tools, skill, learned knowledge,
 procedure timing, and medical consequences before invoking these operations.
+
+## Authority and replication correction
+
+See [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md) for the current server-owned hunger observations, persisted assignment-clear/revision fields, ordered typed/clear messages, delivery accounting, request bounds, lifecycle cleanup, and compatibility limitations. Native save, restart, late-join, and transport proof remain separate runtime gates.
+
+The internal [locomotion baseline service](LOCOMOTION_RESTORATION.md) uses the existing saved ProfileState component, checkpoints before mutation, and retains pending originals across clear/detach failures. No new gameplay sandbox option or client-owned state is introduced.
+
+Dependency identity migration and retained provider/storage identifiers are documented in [DEPENDENCY_MIGRATION.md](DEPENDENCY_MIGRATION.md).
