@@ -36,3 +36,7 @@ Steam manifest build: 25485521. Full executed game version: UNKNOWN. Packaged an
 Use disposable fixtures with a newly captured baseline, an old profile without a baseline, and an interrupted/pending restore. In separately authorized SP and dedicated sessions, compare all observed values before assignment and after clear, profile replacement, native wrapper streaming, save/reload, reconnect, and server restart. Include a non-default native speed modifier and original crawler, plus concurrent consumer overrides and native busy transitions. Observe animation/lunge behavior separately; do not mark full restoration PASS from matching five-field readback. Require G7 dedicated evidence before stable G8.
 
 The dependency blocker observed during 0.23.3-dev.2 is historical. In 0.24.0-dev.1, metadata/imports migrate to B47ANCEDKnowledgeAndWisdom and actual-source archive/history integration passes offline against 0.13.0. Native dependency and locomotion runtime gates remain open; see DEPENDENCY_MIGRATION.md.
+
+## Active Hours consolidation
+
+The ported Active Hours diagnostic uses the existing `LocomotionOverrides` owner stack, not this profile-baseline service. Last-owner release there still restores walk/class only, and higher-priority consumers can determine the effective tier. The consolidation does not migrate the stack to persisted baselines or certify scalar/animation/lunge restoration. See ACTIVE_HOURS.md; full restoration remains a runtime blocker.

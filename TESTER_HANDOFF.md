@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.24.0-dev.1 playtester handoff
+# Project M.O.R.T.I.S. 0.24.0-dev.2 playtester handoff
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
@@ -17,3 +17,6 @@ open the Lua debug console, and run `mortisTestStart(true)`.
 Return `%USERPROFILE%\Zomboid\Lua\theWorks Test Results - ProjectMORTIS.txt`,
 `console.txt`, and screenshots for visual failures. Do not add medWorks or later
 Nightfall dependencies until this stage is reviewed.
+
+
+Active Hours is now a MORTIS subsystem in development. Its separate opt-in one-zombie/two-client experiment is in [docs/ACTIVE_HOURS.md](docs/ACTIVE_HOURS.md). Do not start it during the general stage-2 sequence above or enable either historical standalone proof. Native client/server activation and locomotion remain NOT TESTED.

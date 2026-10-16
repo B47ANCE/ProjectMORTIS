@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.24.0-dev.2 - Active Hours absorption, 2026-10-16
+
+- Consolidate Active Hours research, prototype, and future development ownership in MORTIS. Preserve the standalone dev.4 source as a hashed historical snapshot.
+- Add an explicitly started, dormant-by-default one-zombie dedicated diagnostic using existing server locomotion overrides; no production solar/profile controller or new public API.
+- Remove a second init.lua VERSION assignment that overwrote the current version with legacy 0.23.2; require all declared runtime assignments to match canonical.
+- Offline validation only; G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED and G8 BLOCKED. No installation, launch or upload.
+
 ## 0.24.0-dev.1 - knowledge dependency migration, 2026-10-16
 
 - Pre-1.0 MINOR migration: required Mod ID, imports and harness global now use B47ANCEDKnowledgeAndWisdom. Existing load lists must change; public MORTIS API 1.5.0, research/item/knowledge/evidence IDs and saved-state schemas remain unchanged.

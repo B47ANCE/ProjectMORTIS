@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.24.0-dev.1. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.24.0-dev.2. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -43,3 +43,7 @@ G7 BLOCKED / NOT TESTED. Stable-release G8 BLOCKED. No packaging, deployment, Wo
 ## Dedicated test sequence
 
 After a current B47ANCEDKnowledgeAndWisdom stage-1 PASS, follow the MORTIS stage-2 disposable SP sequence, then run a separately authorized dedicated session with two clients on this exact mod build. Observe assignment, clear, reassign, late join, streaming out/in, reconnect, delayed/duplicate messages, server save/restart, and native online-ID reuse. Confirm both clients leave the typed lifecycle, a directed request never suppresses the other client's update, and client queries cannot write hunger. Test request bursts and far/unknown IDs without unbounded scans, then repeat with dense populations and induced send/cache failures. Record exact game/Steam build, dependency/mod/API versions, source commit, and native logs; offline results do not substitute for this sequence.
+
+## Absorbed Active Hours boundary
+
+The explicitly started diagnostic uses admin intent and server-only `LocomotionOverrides` calls. Its client path never applies native speed; legacy namespaces are ignored and loaded legacy diagnostics block/freeze requests. This removes the old diagnostic's client Apply route, not the engine's ownership race/overwrite uncertainty. Framework authority is not native simulation ownership, and the override stack is not in component snapshots. See [ACTIVE_HOURS.md](ACTIVE_HOURS.md) for exact limits and dedicated tests. G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.

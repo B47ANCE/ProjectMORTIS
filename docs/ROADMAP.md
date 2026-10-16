@@ -99,3 +99,7 @@ Zombie archetypes and game-specific AI remain the responsibility of extension mo
 
 These are post-release research allocations unless directly required to validate
 the current Nightfall 1.0 dependency closure.
+
+## Active Hours
+
+The entire Active Hours project is consolidated here. Follow [ACTIVE_HOURS.md](ACTIVE_HOURS.md): validate the dormant one-zombie diagnostic first; then develop optional solar, profile and weighted-range behavior with authoritative sandbox settings after the affected native gates. No standalone Core/Night/Day product remains planned.

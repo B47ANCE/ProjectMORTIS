@@ -1,0 +1,336 @@
+{
+  "source_repository": "https://github.com/B47ANCE/B47ANCEDActiveHours",
+  "source_commit": "a8a600b8e0d4c7d4e1dd960378bc88ac17ad6fa6",
+  "source_version": "0.1.0-dev.4",
+  "snapshot_root": "archive/active-hours-0.1.0-dev.4",
+  "excluded_tracked": [
+    "AGENTS.md",
+    ".gitignore",
+    ".gitattributes"
+  ],
+  "exclusion_reason": "Repository control/instruction files do not become active nested governance. Original files remain in the pinned source repository.",
+  "ignored_native_evidence": "research/ game classes/decompilations/local snapshots are not tracked upstream and are not redistributed. They remain unchanged at the original local repository. Archive references to research/ resolve there; availability outside that machine is UNKNOWN.",
+  "runtime_status": "NOT TESTED; historical evidence is not current MORTIS proof",
+  "files": [
+    {
+      "source": "CHANGELOG.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/CHANGELOG.md",
+      "sha256": "9dd5c06f946efb134c277c607e2be234d763374036fc877942df4ad531b5d497"
+    },
+    {
+      "source": "README.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/README.md",
+      "sha256": "e9f781b8a2b232a51532164405e7bd06cc1bb54145b4db18b9dee497f86dd040"
+    },
+    {
+      "source": "VERSION",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/VERSION",
+      "sha256": "40fb45e29fe8409de948de467d8a237dc78416df5c59ef751d18707d742e2625"
+    },
+    {
+      "source": "WORKSHOP_ID.txt",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/WORKSHOP_ID.txt",
+      "sha256": "bed6645fce33a5a35e16bbc1a143b1afbc4b4e3dd033509b6199214110517c33"
+    },
+    {
+      "source": "assets/branding/ActiveHoursThumbnail.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/assets/branding/ActiveHoursThumbnail.png",
+      "sha256": "04cc30dd9d6a0bb5ecb404853df9756aff6f8c344b2ef3d7775ab83c6fba7849"
+    },
+    {
+      "source": "assets/branding/ActiveHoursWorkshopPreview.jpg",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/assets/branding/ActiveHoursWorkshopPreview.jpg",
+      "sha256": "02aeaab02b03a929eb60dc37080744f0d482032e052548a9926039eae2fba57d"
+    },
+    {
+      "source": "assets/branding/B47_ICON.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/assets/branding/B47_ICON.png",
+      "sha256": "0e30a776c77dbf66eeb9acfa7596c7f850cb5b334e8873ef94acbb3b071582c3"
+    },
+    {
+      "source": "assets/branding/B47_ICON_SMALL.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/assets/branding/B47_ICON_SMALL.png",
+      "sha256": "60e2a193a6c1e1190941e6c342ec23c673a561dbed895c80067fe2b89c7f7e83"
+    },
+    {
+      "source": "assets/branding/B47_THUMBNAIL.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/assets/branding/B47_THUMBNAIL.png",
+      "sha256": "f775bff1783d59af91f331652740d5279fd5603f66d431c6349f38cbd2d9915b"
+    },
+    {
+      "source": "docs/API_AUDIT.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/API_AUDIT.md",
+      "sha256": "935ef11afd789dcae5ec1cff43f533ccdc78f5b64d688113718e59a506ad4457"
+    },
+    {
+      "source": "docs/ATTRIBUTE_DIRECT_REFERENCE_INDEX.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/ATTRIBUTE_DIRECT_REFERENCE_INDEX.md",
+      "sha256": "c2e1ca3fabbf6549809d4316ecdab28c4c8b0e0b5c03e11a022554234f36f6d7"
+    },
+    {
+      "source": "docs/ATTRIBUTE_NETWORK_REPLICATION.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/ATTRIBUTE_NETWORK_REPLICATION.md",
+      "sha256": "343026bee3db891f39d1e910da4ca60b3451098b7b2dc92d7d2925c9d61c9e54"
+    },
+    {
+      "source": "docs/ATTRIBUTE_READ_WRITE_CALL_GRAPH.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/ATTRIBUTE_READ_WRITE_CALL_GRAPH.md",
+      "sha256": "b61979c82c8be94272d9060cec0a436637bacdab9114e81f73364fa3908f7c45"
+    },
+    {
+      "source": "docs/BRANDING.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/BRANDING.md",
+      "sha256": "300f65246a23bc6e233db78d7196980d95ebb1d81ef38c971bd83295233df119"
+    },
+    {
+      "source": "docs/CONFIGURATION_GUIDE.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/CONFIGURATION_GUIDE.md",
+      "sha256": "f6bc202ca79393651a6b0c7fb856b2fca56be5287b7d1cd56e2571a27af8a15f"
+    },
+    {
+      "source": "docs/DYNAMIC_ATTRIBUTES_API_AUDIT.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/DYNAMIC_ATTRIBUTES_API_AUDIT.md",
+      "sha256": "b702a4f8e0d9b995a266f061a58975faca7fc8de7fc33bccef42c35f95753c8e"
+    },
+    {
+      "source": "docs/ISOLATED_SPEED_PROOF.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/ISOLATED_SPEED_PROOF.md",
+      "sha256": "02f4c904964d548a719755683cd73c6de01dd38332aaf279f0ea9c630dc05314"
+    },
+    {
+      "source": "docs/LUA_MULTIPLAYER_AUTHORITY.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/LUA_MULTIPLAYER_AUTHORITY.md",
+      "sha256": "9d0559dddd7efafd2d15f8c71c3cf4d3cc6fb7738a32d36792e42d31714997e0"
+    },
+    {
+      "source": "docs/LUA_ONE_ZOMBIE_POC.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/LUA_ONE_ZOMBIE_POC.md",
+      "sha256": "7927dd38b21c9a415f77ce1371f0d414e033a761c85e25d735a8abc697978749"
+    },
+    {
+      "source": "docs/LUA_ONLY_API_AUDIT.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/LUA_ONLY_API_AUDIT.md",
+      "sha256": "3f93a4570ca415dabc4e433ead2f467ef1ea2013a728079285d98ad0b5d9fd3f"
+    },
+    {
+      "source": "docs/LUA_PROFILE_ARCHITECTURE.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/LUA_PROFILE_ARCHITECTURE.md",
+      "sha256": "69ec31e7a063c0fd7d6588519eae4a7595cf517a1f1ea08c900bf337ad06efd6"
+    },
+    {
+      "source": "docs/LUA_SPEED_CONTROL.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/LUA_SPEED_CONTROL.md",
+      "sha256": "0cff5e899ba5c752fa02c03856907506024dc4aeb0cd0daa2eaaccd8de57a873"
+    },
+    {
+      "source": "docs/MORTIS_SPEED_PROOF.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/MORTIS_SPEED_PROOF.md",
+      "sha256": "2ca81360370781322b029b95f8ab274831469c97eadc42485683ddc3d066ad5b"
+    },
+    {
+      "source": "docs/MP_AUTHORITY_AUDIT.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/MP_AUTHORITY_AUDIT.md",
+      "sha256": "cc3b32974759904c6d5cabcd9bae9c007802adb4334596fa9d486d42a5305eac"
+    },
+    {
+      "source": "docs/MULTIPLAYER_AUTHORITY.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/MULTIPLAYER_AUTHORITY.md",
+      "sha256": "890bcd946ff96d55d5d656f6eb531c5c10494924b6cdf86ca92e53652787c5d8"
+    },
+    {
+      "source": "docs/NATIVE_ACTIVITY_CALL_GRAPH.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/NATIVE_ACTIVITY_CALL_GRAPH.md",
+      "sha256": "d470fad06b2526ef04a5cdd8d0c366c8a11390057180ee5cf0bddf0f91c609e8"
+    },
+    {
+      "source": "docs/NATIVE_BRIDGE_DESIGN.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/NATIVE_BRIDGE_DESIGN.md",
+      "sha256": "53f5b09e94c3494fb7f858e93e380081610c1d822f079e1f1d205a378b854540"
+    },
+    {
+      "source": "docs/NATIVE_BRIDGE_FEASIBILITY.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/NATIVE_BRIDGE_FEASIBILITY.md",
+      "sha256": "df69d662047d1601753c303139468d74939bb43dd7106317dff79ebd047b600e"
+    },
+    {
+      "source": "docs/NATIVE_OWNERSHIP_ORDERING.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/NATIVE_OWNERSHIP_ORDERING.md",
+      "sha256": "574fc8432bfeea36889e3aa9aab74c50b3e48ec7bc515de765dfbb907878171d"
+    },
+    {
+      "source": "docs/ONE_ZOMBIE_POC_ARCHITECTURE.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/ONE_ZOMBIE_POC_ARCHITECTURE.md",
+      "sha256": "1eabaf32117f509d75362fa98bf7af3b856973143f0058c005fa74e196df6943"
+    },
+    {
+      "source": "docs/PERFORMANCE_DESIGN.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/PERFORMANCE_DESIGN.md",
+      "sha256": "846bcee51ada1b9179899748f9e96b3c463d4257656e503a012a9091c830a181"
+    },
+    {
+      "source": "docs/RELEASE_BLOCKERS.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/RELEASE_BLOCKERS.md",
+      "sha256": "f40d82d68830f5f632972d3900b534a5d290f7ed2bd7ac228cff38d547ebf31d"
+    },
+    {
+      "source": "docs/REPOSITORY_GOVERNANCE.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/REPOSITORY_GOVERNANCE.md",
+      "sha256": "31d11f767f79818b94c9392200e2d55573737625fc7fc64a2314b48d5dc0a281"
+    },
+    {
+      "source": "docs/RUNTIME_EVIDENCE_TEMPLATE.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/RUNTIME_EVIDENCE_TEMPLATE.md",
+      "sha256": "02289310ecbbc4f35ecd53f2fec37938326ffa26b866672c984e43b028c0c2fd"
+    },
+    {
+      "source": "docs/RUNTIME_TEST_RUNBOOK.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/RUNTIME_TEST_RUNBOOK.md",
+      "sha256": "b924d1491a144ce2461c49779bde3df94d7bfe22ebf95c9d722005d894e0f76a"
+    },
+    {
+      "source": "docs/SOLAR_TRANSITION_DESIGN.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/SOLAR_TRANSITION_DESIGN.md",
+      "sha256": "aa5d97b16600c492cce15e1f4154733b718a7abb374a7b31db927f72caa04b80"
+    },
+    {
+      "source": "docs/TEAM_API_RESEARCH.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/TEAM_API_RESEARCH.md",
+      "sha256": "d0718b94d00faefb0c1f53175dea774302f335bf4725a93df16b855426227b78"
+    },
+    {
+      "source": "docs/TEST_PLAN.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/TEST_PLAN.md",
+      "sha256": "471079705c7f43ddb02f0bd99edd47046635e780f289c1298788f2a059e1fc86"
+    },
+    {
+      "source": "docs/VALIDATION.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/VALIDATION.md",
+      "sha256": "f180a597f23cd6fe4566c1f31c8b9eceb501fd3036e22fe05062541784fa92e1"
+    },
+    {
+      "source": "docs/VERSION_INVENTORY.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/VERSION_INVENTORY.md",
+      "sha256": "96388f1c7a7e4592346f54ab050fe59b2a028b4b2bf251f2e967111ddb939800"
+    },
+    {
+      "source": "docs/VERSION_POLICY.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/VERSION_POLICY.md",
+      "sha256": "63fd384d51c06b6e98e35af347c080040a5c74f0809fb295ebd1a5fcc48ae994"
+    },
+    {
+      "source": "docs/WORKSHOP_CHANGELOG.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/WORKSHOP_CHANGELOG.md",
+      "sha256": "9fd713c9ea43308c2a76ab5d5e5dbd64db7e56f1829f05ca2e7677038c122887"
+    },
+    {
+      "source": "docs/WORKSHOP_DESCRIPTION.md",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/WORKSHOP_DESCRIPTION.md",
+      "sha256": "d167472ed3d73d6bab630795e343c8e9cb2226c6bdbea1bd4449406b89986457"
+    },
+    {
+      "source": "docs/publications/0.1.0-dev.4-workshop-3820693462.json",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/docs/publications/0.1.0-dev.4-workshop-3820693462.json",
+      "sha256": "064924dbbc7385c4caecb1ded848fbb84663db85ee4fd688133b8cf46aefdb1b"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/42/icon.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/42/icon.png",
+      "sha256": "60e2a193a6c1e1190941e6c342ec23c673a561dbed895c80067fe2b89c7f7e83"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/42/media/lua/client/B47AHMortisProofClient.lua",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/42/media/lua/client/B47AHMortisProofClient.lua",
+      "sha256": "5cd840e47163cdfa43301cd9288f6ad62ed5df77b5973d1413baa96f451c364f"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/42/media/lua/server/B47AHMortisProofServer.lua",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/42/media/lua/server/B47AHMortisProofServer.lua",
+      "sha256": "d1af62089c6b571c9df16f9abe72749a79b7a849a85ffa5466ea3d70f1da9de8"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/42/media/lua/shared/B47AHMortisProof.lua",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/42/media/lua/shared/B47AHMortisProof.lua",
+      "sha256": "37735be9d006c9ada0aa2ec1af1eb6be967412804c223ede88b96a39daccb3a4"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/42/mod.info",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/42/mod.info",
+      "sha256": "b98e958109d10ca814d4eb135f3f7c9a2c2a4d0ca5dc97a374b909fc744ee93f"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/42/poster.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/42/poster.png",
+      "sha256": "0e30a776c77dbf66eeb9acfa7596c7f850cb5b334e8873ef94acbb3b071582c3"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursMortisProof/common/.keep",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursMortisProof/common/.keep",
+      "sha256": "65bad3b0db20d361f836cabd7f38e5dc993445a896e6d2ddec849297d4c79cc5"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursSpeedProof/42/media/lua/client/B47AHProofClient.lua",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursSpeedProof/42/media/lua/client/B47AHProofClient.lua",
+      "sha256": "50823a3f2127516fd3cf3ec0e49bb0918e72fb8b7934cc62eb92b71c18f462b8"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursSpeedProof/42/media/lua/server/B47AHProofServer.lua",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursSpeedProof/42/media/lua/server/B47AHProofServer.lua",
+      "sha256": "82b6f171637dd49c5f29bd10d080adf53ea3f06686dac6a26b42b9901376dece"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursSpeedProof/42/media/lua/shared/B47AHProof.lua",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursSpeedProof/42/media/lua/shared/B47AHProof.lua",
+      "sha256": "b9374245d44a805cec8277187ccb42928a1f418745b903757463ad603579065c"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursSpeedProof/42/mod.info",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursSpeedProof/42/mod.info",
+      "sha256": "de84433f3483a2941ed81363040d839e7a1f61dc85f56daf3df156d48d4bb34f"
+    },
+    {
+      "source": "proof/B47ANCEDActiveHoursSpeedProof/common/.keep",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/proof/B47ANCEDActiveHoursSpeedProof/common/.keep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "source": "scripts/build_mortis_test_package.py",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/scripts/build_mortis_test_package.py",
+      "sha256": "54bb74e215d4643546f9b8eb0c807e95aead26899f3c64395694d586a51af39c"
+    },
+    {
+      "source": "scripts/check_versions.py",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/scripts/check_versions.py",
+      "sha256": "008834561ef6d3321d95d7b9517ad0fde94bd06ff9c1051d0abd79f61659467c"
+    },
+    {
+      "source": "scripts/test_check_versions.py",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/scripts/test_check_versions.py",
+      "sha256": "486810776ed2fbe004962a2359f4c1f2d83e622899b0877eb781184a197da3ff"
+    },
+    {
+      "source": "scripts/test_mortis_speed_proof.py",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/scripts/test_mortis_speed_proof.py",
+      "sha256": "6d9a5c85f889fa14264b20cce2c233ac3f5f3402509b215c17cacee7dec079d0"
+    },
+    {
+      "source": "scripts/test_speed_proof.py",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/scripts/test_speed_proof.py",
+      "sha256": "87aa34af4502543a8c4e8e8ed3041b903141a04c3b8fa8ce75fcfbdc18c73b7a"
+    },
+    {
+      "source": "scripts/versioning-preservation-baseline.json",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/scripts/versioning-preservation-baseline.json",
+      "sha256": "45949ebf35cd4120c4a373650fb885a7bf303664dd181e9f8c609f7a7a22d13e"
+    },
+    {
+      "source": "thumbnail.png",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/thumbnail.png",
+      "sha256": "04cc30dd9d6a0bb5ecb404853df9756aff6f8c344b2ef3d7775ab83c6fba7849"
+    },
+    {
+      "source": "version-inventory.json",
+      "snapshot": "archive/active-hours-0.1.0-dev.4/version-inventory.json",
+      "sha256": "294f13544e89ecaab589a1d1724cb431f478c92f4a7fb4c2baa42794e4992fa9"
+    }
+  ]
+}

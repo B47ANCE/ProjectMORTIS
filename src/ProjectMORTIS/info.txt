@@ -34,7 +34,7 @@ Known limitations:
 Author:
 B47ANCE
 
-Version: 0.24.0-dev.1
+Version: 0.24.0-dev.2
 
 Internal Mod ID:
 ProjectMORTIS

@@ -29,8 +29,13 @@ def check(release=False):
     if not re.fullmatch(r'(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?', version):
         errors.append('Invalid canonical SemVer')
     for path, pattern in MIRRORS.items():
-        match = re.search(pattern, (ROOT / path).read_text(encoding='utf-8-sig'))
-        if not match or match.group(1).strip() != version:
+        matches = re.findall(pattern, (ROOT / path).read_text(encoding='utf-8-sig'))
+        # Runtime VERSION may be assigned more than once: a later stale value
+        # must not escape validation because the first declaration matched.
+        # Changelogs and release notes deliberately retain older entries.
+        if path != 'src/ProjectMORTIS/42/media/lua/shared/Mortis/init.lua':
+            matches = matches[:1]
+        if not matches or any(value.strip() != version for value in matches):
             errors.append(path + ': missing or inconsistent current version')
     if release:
         if '-' in version:

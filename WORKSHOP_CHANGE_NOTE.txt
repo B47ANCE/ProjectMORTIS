@@ -1,3 +1,7 @@
+[b]Version 0.24.0-dev.2[/b]
+Active Hours development is absorbed into MORTIS. Includes an explicitly started experimental speed diagnostic, preserved research and unchanged runtime gates. Dedicated multiplayer NOT TESTED; stable release BLOCKED. No upload is implied.
+
+Previous development notes:
 [b]Version 0.24.0-dev.1[/b]
 Dependency migration development build: requires B47ANCEDKnowledgeAndWisdom (formerly experienceWorks). Update save/server mod lists and enable only the new identity. Research and history IDs remain unchanged. Offline integration checks only; dedicated multiplayer NOT TESTED; stable release BLOCKED.
 

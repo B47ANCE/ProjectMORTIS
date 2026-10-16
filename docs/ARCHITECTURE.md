@@ -197,3 +197,7 @@ See [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md) for the current server-
 The internal [locomotion baseline service](LOCOMOTION_RESTORATION.md) uses the existing saved ProfileState component, checkpoints before mutation, and retains pending originals across clear/detach failures. No new gameplay sandbox option or client-owned state is introduced.
 
 Dependency identity migration and retained provider/storage identifiers are documented in [DEPENDENCY_MIGRATION.md](DEPENDENCY_MIGRATION.md).
+
+## Internal Active Hours diagnostic and future subsystem
+
+The user-approved Active Hours consolidation is described in [ACTIVE_HOURS.md](ACTIVE_HOURS.md). Three `Mortis/Diagnostics/ActiveHours*` modules define an explicitly started internal harness; they are not exported as a new public API and do not register events on load. It invokes the existing owner-stack service on the server, with read-only clients and a separate command namespace. It does not route through typed component replication or claim native ownership safety. Future opt-in built-in policy belongs to MORTIS without adding zombie types or changing neutral defaults; no such policy/controller is implemented yet.

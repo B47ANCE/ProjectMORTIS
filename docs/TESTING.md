@@ -162,3 +162,7 @@ must reject recovery rather than acquire fresh anatomy. Player corpses remain
 outside the zombie death hook until a verified player lifecycle bridge exists.
 
 Current host commands, exact coverage/environment, and untested runtime gates are in [VALIDATION.md](VALIDATION.md). Authority/replication native scenarios are in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md).
+
+## Active Hours diagnostic
+
+Run `python scripts/test_active_hours.py` (22 host cases); repeat with `B47_PROOF_LUA=54`. The normal validation runner includes the Lua 5.1 diagnostic suite. Tests verify inert loading, explicit start, isolation from old diagnostic messages/globals, admin/session/replay boundaries, no client native writes, bounded observations, no overwrite repair, partial release, exact historical hashes, conflicting runtime version detection and real MORTIS owner-stack composition against native mocks. The human-only dedicated procedure is ACTIVE_HOURS.md; it requires a separately verified server Lua execution surface and advances no runtime gates by preparation.
