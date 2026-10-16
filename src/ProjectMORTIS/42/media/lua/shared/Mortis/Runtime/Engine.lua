@@ -187,6 +187,8 @@ local function attachType(zombie, previousTypeId)
     local typeDef = Identity.getType(zombie)
     if not typeDef then
         if previousTypeId then
+            local restored,reason=ProfileRuntime.applyLocomotion(zombie,nil,true)
+            if not restored then Logger.rateLimited("clear-locomotion",5,"WARN","Locomotion restore pending: "..tostring(reason)) end
             ProfileRuntime.applyDurability(zombie,nil,true)
             ProfileRuntime.applyAppearance(zombie,nil,true)
         end
@@ -458,7 +460,14 @@ function Engine.update(zombie)
     if Components.isDirty(zombie) then Persistence.flushComponents(zombie, false) end
 
     local typeDef = Identity.getType(zombie)
-    if not typeDef then return end
+    if not typeDef then
+        if Authority.canWriteCanonicalState(zombie) and ProfileRuntime.hasPendingLocomotionRestore(zombie)
+            and Scheduler.shouldRun(zombie,"locomotion-restore",120) then
+            local restored,reason=ProfileRuntime.applyLocomotion(zombie,nil,false)
+            if not restored then Logger.rateLimited("clear-locomotion",5,"WARN","Locomotion restore pending: "..tostring(reason)) end
+        end
+        return
+    end
 
     -- Profile reconciliation is allowed on clients so appearance can be
     -- repaired after streaming/model rebuilds. Locomotion and durability

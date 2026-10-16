@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.23.3-dev.1. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.23.3-dev.2. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -33,7 +33,8 @@ Automatic replication handlers require their multiplayer execution side. SP stil
 Resolved from the takeover audit at the source/offline level: M-01, M-02, M-03, M-04, M-06. Remaining items:
 
 - M-05: food-provider consumption can precede a failed feed. A reservation/commit or compensation contract needs a concrete consumer and compatibility review; this task does not change that provider API.
-- Complete locomotion baseline restoration was not available in the existing profile state. Clearing identity stops typed reconciliation and restores supported appearance/durability state, but does not reconstruct an uncaptured tier/walk/speed baseline. Consumers with temporary locomotion changes must use an existing verified owner/override release path. Do not claim that every native physical field returns to its original value.
+- Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Unobserved native animation/lunge bookkeeping and existing consumer override-stack persistence remain open.
+- Current dependency integration is BLOCKED: experienceWorks has been renamed locally to B47ANCEDKnowledgeAndWisdom without old import aliases; MORTIS still requires a separate consumer identity migration.
 - Translation tooltips and actual non-English translations remain incomplete. The historical `Contents/` copy remains stale; no current package was generated.
 - Native hunger/stat synchronization, corpse/save serialization, streaming/online-ID reuse, command relevance/rate behavior at high populations, headless execution, and restart/reconnect remain [RUNTIME GATE]. Fair progress under repeated permanent serializer/native failures also needs stress evidence; an unavailable provider does not become a PASS through retries.
 

@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.23.3-dev.1`
+- Version: `0.23.3-dev.2`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -75,3 +75,5 @@ Root `VERSION` is canonical; see [version policy](docs/VERSION_POLICY.md) and [s
 Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --experience-works <experienceWorks-repository-root>`. CI runs `--unit-only` and explicitly excludes the unpublished dependency integration. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
 
 The authority/replication fixes and remaining limitations are described in [AUTHORITY_REPLICATION.md](docs/AUTHORITY_REPLICATION.md), with [current validation](docs/VALIDATION.md) and [GitHub onboarding provenance](docs/ONBOARDING.md). Client hunger reads no longer author state; assignment clears synchronize with stale-message protection; directed replies preserve pending broadcasts. All multiplayer peers must use the same build.
+
+Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Current dependency integration is blocked by the external experienceWorks-to-B47ANCEDKnowledgeAndWisdom identity migration; the declared dependency/import contract still needs a separate consumer migration.

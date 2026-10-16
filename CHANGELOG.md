@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.23.3-dev.2 - locomotion restoration development, 2026-10-16
+
+- Target: compatible profile baseline capture/restoration fix. Public API and component schema versions remain separate; legacy baselines are not invented.
+- Captures an observed movement baseline and checkpoints it before profile writes; restores walk/class/modifier/crawler fields with readback on profile removal/clear, preserving originals across reconciliation and detach callbacks.
+- Refuses unavailable/legacy baselines and failed checkpoints; retries pending post-detach restoration through scheduled updates. Internal native animation/lunge bookkeeping remains unverified.
+- [TESTED offline] 121 Lua files compile; 51 host cases PASS in unit mode, one dependency integration NOT TESTED. The full integration run is BLOCKED because experienceWorks was renamed to B47ANCEDKnowledgeAndWisdom without old aliases. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+
 ## 0.23.3-dev.1 - authority and replication development, 2026-10-16
 
 - Target: compatible authority/replication bug fixes, preserving public API 1.5.0 and existing save components. Assignment-clear records are additive; peers must run the same mod build.

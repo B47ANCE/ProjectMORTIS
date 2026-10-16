@@ -114,3 +114,7 @@ handler invokes it and no sunlight/artificial policy lives in MORTIS. Nightfall
 must supply its source-specific permission; that integration is unfinished. Native
 death/corpse callbacks remain engine-owned. Health-zero readback is not proof of
 correct corpse creation, kill credit, multiplayer replication or in-game behavior.
+
+## Locomotion baseline follow-up
+
+The current [observed baseline restoration](LOCOMOTION_RESTORATION.md) rechecks the installed public method/export evidence and captures walk/class/modifier/crawler fields before type-profile writes. Source exposure is not native invocation proof. Unknown legacy originals and unobserved animation/lunge fields remain explicit limits; this does not migrate the consumer-owned LocomotionOverrides stack or enable injury policy.

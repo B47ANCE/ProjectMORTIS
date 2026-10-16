@@ -51,6 +51,11 @@ def main():
         if path.stem == 'test_research_archive' and args.unit_only:
             records.append({'test': path.name, 'status':'NOT TESTED', 'reason':'--unit-only excludes experienceWorks integration'})
             continue
+        if path.stem == 'test_research_archive' and (not args.experience_works or not
+            (args.experience_works.resolve() / 'src/experienceWorks/42/media/lua/shared/experienceWorks/API.lua').is_file()):
+            failures += 1
+            records.append({'test':path.name,'status':'BLOCKED','reason':'Declared experienceWorks source/API absent; consumer dependency migration is required'})
+            continue
         if path.stem == 'test_no_project_remnants':
             from lupa.lua54 import LuaRuntime as Factory
         else:
@@ -71,7 +76,7 @@ def main():
               'syntax_files':count, 'tests':records, 'G7':'BLOCKED / NOT TESTED', 'G8':'BLOCKED'}
     (ROOT / 'validation-results.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     for row in records:
-        print(row['status'] + ': ' + row['test'] + (' — ' + row['error'] if 'error' in row else ''))
+        print(row['status'] + ': ' + row['test'] + (' - ' + row.get('error',row.get('reason','')) if 'error' in row or 'reason' in row else ''))
     return 1 if failures else 0
 
 if __name__ == '__main__':

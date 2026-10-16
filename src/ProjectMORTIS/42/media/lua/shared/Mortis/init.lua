@@ -99,7 +99,7 @@ local PileObservations = require "Mortis/Runtime/PileObservationRuntime"
 local PileTraversalLinks = require "Mortis/Runtime/PileTraversalLinks"
 
 local Mortis = rawget(_G, "Mortis") or {}
-Mortis.VERSION = "0.23.3-dev.1"
+Mortis.VERSION = "0.23.3-dev.2"
 Mortis.Types = Types
 Mortis.Traits = Traits
 Mortis.Behaviors = Behaviors
@@ -375,6 +375,10 @@ function Mortis.clearAssignment(zombie)
     end
     local previous = Identity.getTypeId(zombie)
     if not previous then return true end
+    -- Keep the original checkpoint until detach callbacks have finished. An
+    -- owner released by onDetach may itself restore a previous movement tier.
+    local restored,restoreError=ProfileRuntime.applyLocomotion(zombie,nil,true,true)
+    if not restored then return false,restoreError end
     local stableId = Identity.getStableId(zombie)
     local recorded,recordError=Persistence.writeAssignmentClear(zombie,stableId)
     if not recorded then return false,recordError end

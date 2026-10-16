@@ -1,4 +1,8 @@
-[b]Version 0.23.3-dev.1[/b]
+[b]Version 0.23.3-dev.2[/b]
+
+Development locomotion restoration: checkpoints original observed movement fields before profile writes and verifies restoration on removal/clear. Legacy baselines are not guessed. Native animation/lunge restoration and dedicated multiplayer remain NOT TESTED. Current dependency identity migration is required before integration/runtime validation.
+
+[b]Previous Version 0.23.3-dev.1[/b]
 
 Development authority/replication correction. Dedicated multiplayer NOT TESTED.
 Client hunger queries remain read-only; assignment clears synchronize with revision/replay protection; directed replies preserve pending broadcasts; requests are bounded and online-ID indexes are refreshed.

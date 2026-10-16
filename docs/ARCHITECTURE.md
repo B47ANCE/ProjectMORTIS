@@ -192,3 +192,5 @@ procedure timing, and medical consequences before invoking these operations.
 ## Authority and replication correction
 
 See [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md) for the current server-owned hunger observations, persisted assignment-clear/revision fields, ordered typed/clear messages, delivery accounting, request bounds, lifecycle cleanup, and compatibility limitations. Native save, restart, late-join, and transport proof remain separate runtime gates.
+
+The internal [locomotion baseline service](LOCOMOTION_RESTORATION.md) uses the existing saved ProfileState component, checkpoints before mutation, and retains pending originals across clear/detach failures. No new gameplay sandbox option or client-owned state is introduced.

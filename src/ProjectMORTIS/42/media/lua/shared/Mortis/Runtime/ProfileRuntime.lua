@@ -10,6 +10,8 @@ local Authority = require "Mortis/Runtime/Authority"
 local Logger = require "Mortis/Core/Logger"
 local Scheduler = require "Mortis/Core/Scheduler"
 local State = require "Mortis/Runtime/Adapters/StateAdapter"
+local Baseline = require "Mortis/Runtime/LocomotionBaseline"
+local Persistence = require "Mortis/Runtime/Persistence"
 
 local ProfileRuntime = {}
 
@@ -78,15 +80,41 @@ function ProfileRuntime.resolveAppearance(typeDef)
     return resolve(AppearanceProfiles, typeDef and (typeDef.appearance or typeDef.appearanceProfile), "appearance")
 end
 
-function ProfileRuntime.applyLocomotion(zombie, typeDef, force)
+local function checkpoint(zombie,state)
+    saveState(zombie,state)
+    return Persistence.flushComponents(zombie,false)
+end
+
+function ProfileRuntime.hasPendingLocomotionRestore(zombie)
+    local bucket=Components.allFor(zombie)
+    local state=bucket and bucket[STATE_COMPONENT]
+    return type(state)=="table" and type(state.locomotion)=="table" and state.locomotion.restorePending==true
+end
+
+function ProfileRuntime.applyLocomotion(zombie, typeDef, force, retainBaseline)
     if not Authority.canWriteCanonicalState(zombie) then return true, "non-authority" end
     local profile, profileIdOrError = ProfileRuntime.resolveLocomotion(typeDef)
+    local state = getState(zombie)
+    local movement=state.locomotion
     if not profile then
         if profileIdOrError then return false, profileIdOrError end
+        if movement.baseline then
+            -- Force never bypasses a native attack/get-up/climb transition.
+            if State.isBusy(zombie) then return false,"locomotion restore deferred while native state busy" end
+            movement.restorePending=true
+            local saved,saveError=checkpoint(zombie,state)
+            if not saved then return false,saveError end
+            local restored,restoreError=Baseline.restore(zombie,movement.baseline)
+            if not restored then return false,restoreError end
+            if not retainBaseline then state.locomotion={} end
+            return checkpoint(zombie,state)
+        end
+        if movement.signature or movement.attempted then return false,"legacy locomotion baseline unavailable" end
         return true, "no profile"
     end
 
-    local state = getState(zombie)
+    if movement.restorePending then return false,"locomotion restoration pending" end
+    if not movement.baseline and (movement.signature or movement.attempted) then return false,"legacy locomotion baseline unavailable" end
     local signature = table.concat({
         tostring(profileIdOrError or "inline"),
         tostring(profile.tier or "inherit"),
@@ -101,6 +129,20 @@ function ProfileRuntime.applyLocomotion(zombie, typeDef, force)
 
     local busy, busyReason = State.isBusy(zombie)
     if busy and not force then return true, "deferred while native state busy: " .. tostring(busyReason) end
+
+    if movement.baseline and movement.attempted and movement.signature~=signature then
+        if busy then return false,"locomotion profile transition deferred while native state busy" end
+        local restored,restoreError=Baseline.restore(zombie,movement.baseline)
+        if not restored then return false,restoreError end
+    end
+    if not movement.baseline then
+        local original,captureError=Baseline.capture(zombie)
+        if not original then return false,captureError end
+        movement.baseline=original
+    end
+    movement.attempted=true
+    local saved,saveError=checkpoint(zombie,state)
+    if not saved then return false,saveError end
 
     if profile.walkType ~= nil then
         local ok, err = Locomotion.setWalkType(zombie, profile.walkType)

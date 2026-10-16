@@ -34,7 +34,7 @@ stub("Mortis/Runtime/Persistence", {
 stub("Mortis/Core/Logger", { warn=function() end, rateLimited=function() end })
 stub("Mortis/Runtime/Adapters/NetworkAdapter", { getOnlineID=function(z) return z.onlineId end })
 stub("Mortis/Runtime/Replication", { release=function() end, forgetApplied=function() end })
-stub("Mortis/Runtime/ProfileRuntime", {})
+stub("Mortis/Runtime/ProfileRuntime", {hasPendingLocomotionRestore=function()return false end})
 stub("Mortis/Runtime/DamageRuntime", {})
 stub("Mortis/Runtime/Adapters/StateAdapter", {})
 stub("Mortis/Runtime/HitTraumaRuntime", { clear=function() end })
