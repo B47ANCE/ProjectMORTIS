@@ -1,5 +1,5 @@
 local Compatibility = {}
-Compatibility.VERSION = "1.5.0"
+Compatibility.VERSION = "1.6.0"
 
 local function parse(value)
     if type(value)~="string" then return nil,"version must be a string" end

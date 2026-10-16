@@ -5,10 +5,14 @@ local FaultIsolation = require "Mortis/Core/FaultIsolation"
 local Settings = require "Mortis/Runtime/SystemSettings"
 local Random = require "Mortis/Core/Random"
 local Combat = require "Mortis/Runtime/Adapters/CombatAdapter"
+local Util = require "Mortis/Core/Util"
+local Logger = require "Mortis/Core/Logger"
 
 local Hunger = {}
 local COMPONENT = "Mortis.ZombieHunger"
 local VANILLA_BACKEND = "character-stat-hunger-v1"
+local pendingFood = setmetatable({}, {__mode="k"})
+local quarantinedFood = {}
 
 local function finite(value)
     value=tonumber(value)
@@ -79,6 +83,9 @@ function Hunger.deserializeState(payload)
 end
 
 local function stateFor(zombie)
+    -- Provider callbacks see the last committed state, never a provisional
+    -- native write. Failed compensation keeps the entity blocked for diagnosis.
+    if pendingFood[zombie] then return Util.deepCopy(pendingFood[zombie].before) end
     if not Authority.canWriteCanonicalState(zombie) then
         -- Observation must not instantiate schema defaults, migrate saved data,
         -- consume random state or call native setters on a client.
@@ -160,6 +167,7 @@ end
 
 function Hunger.getLevel(zombie)
     local state = stateFor(zombie)
+    if pendingFood[zombie] then return state.hunger end
     local vanilla=vanillaHunger(zombie)
     if vanilla~=nil then
         state.hunger=clamp01(vanilla)
@@ -174,6 +182,7 @@ end
 
 function Hunger.feed(zombie, amount, metadata)
     if not Authority.canWriteCanonicalState(zombie) then return false, "non-authority" end
+    if pendingFood[zombie] then return false,"food-transaction-pending" end
     local state = stateFor(zombie)
     local before = state.hunger
     local nextHunger=clamp01(before - math.max(0, finite(amount) or 0))
@@ -193,6 +202,7 @@ end
 
 function Hunger.advance(zombie)
     if not Authority.canWriteCanonicalState(zombie) then return false, "non-authority" end
+    if pendingFood[zombie] then return false,"food-transaction-pending" end
     local now = worldAgeHours()
     if not now then return false, "world age unavailable" end
     local state = stateFor(zombie)
@@ -239,6 +249,7 @@ end
 
 function Hunger.applyTerminalWithering(zombie,state)
     if not Authority.canWriteCanonicalState(zombie)then return false,"non-authority"end
+    if pendingFood[zombie] then return false,"food-transaction-pending" end
     state=state or stateFor(zombie);if not state.terminalWithering then return false,"not-terminal"end
     local Mortis=rawget(_G,"Mortis")
     if not state.terminalEventEmitted then
@@ -282,6 +293,7 @@ end
 -- This is intentionally explicit and is not used by production simulation.
 function Hunger.setTestState(zombie, level, starvationHours)
     if not Authority.canWriteCanonicalState(zombie) then return false, "non-authority" end
+    if pendingFood[zombie] then return false,"food-transaction-pending" end
     local now = worldAgeHours()
     if not now then return false, "world age unavailable" end
     local state = stateFor(zombie)
@@ -321,10 +333,85 @@ function Hunger.findNearby(zombie, radius)
     return best, bestProvider
 end
 
+local function feedFromSource(zombie,candidate,provider)
+    if provider.transactionVersion~=1 or type(provider.reserve)~="function"
+        or type(provider.commit)~="function" or type(provider.rollback)~="function" then
+        Logger.once("food-provider-upgrade:"..provider.id,"WARN",
+            "Unsafe consume skipped; provider requires food transactions: "..provider.id,"FOOD")
+        return false,"food-source-transaction-required"
+    end
+    if quarantinedFood[provider.id] then return false,"food-provider-quarantined" end
+    local multiplier=finite(Settings.number("FoodValueMultiplier"))
+    if not multiplier or multiplier<=0 then return false,"invalid-food-value-multiplier" end
+    local before=Util.deepCopy(stateFor(zombie))
+    if before.hunger<=0 then return false,"not-hungry" end
+    local entry={before=before,context={}}
+    pendingFood[zombie]=entry
+    local touchedNative,touchedCache=false,false
+    local function abort(reason)
+        -- Compensation is never skipped by the callback circuit breaker.
+        -- Rollback must be idempotent, including a reserve that threw midway.
+        local called,released=pcall(provider.rollback,zombie,candidate,entry.context)
+        local sourceRestored=called and released==true
+        local nativeRestored=true
+        if touchedNative then
+            local value=vanillaHunger(zombie)
+            if value==nil or math.abs(value-before.hunger)>0.000001 then
+                setVanillaHunger(zombie,before.hunger)
+                value=vanillaHunger(zombie)
+            end
+            nativeRestored=value~=nil and math.abs(value-before.hunger)<=0.000001
+        end
+        local cacheRestored=true
+        if touchedCache then
+            local original=Util.deepCopy(before)
+            local restored,result=pcall(Components.set,zombie,COMPONENT,original)
+            cacheRestored=restored and result==original
+        end
+        if not sourceRestored or not nativeRestored or not cacheRestored then
+            entry.failed=true;quarantinedFood[provider.id]=true
+            Logger.once("food-transaction:"..provider.id,"ERROR",
+                "Food transaction compensation failed; provider quarantined: "..provider.id,"FOOD")
+            return false,"food-transaction-rollback-failed"
+        end
+        pendingFood[zombie]=nil
+        return false,reason
+    end
+    local owner="food-source:"..provider.id
+    local called,ok,quote=pcall(FaultIsolation.call,owner,"reserve",provider.reserve,zombie,candidate,entry.context)
+    if not called or not ok or type(quote)~="table" or quote.reserved~=true then return abort("food-reservation-rejected") end
+    local amount=finite(quote.foodValue)
+    amount=amount and finite(amount*multiplier)
+    if not amount or amount<=0 then return abort("invalid-food-value") end
+    local after=Util.deepCopy(before)
+    after.hunger=clamp01(before.hunger-amount)
+    after.lastFedWorldAgeHours=worldAgeHours() or after.lastFedWorldAgeHours
+    if after.hunger<1 then after.starvingSinceWorldAgeHours=nil end
+    if before.hungerBackend==VANILLA_BACKEND then
+        touchedNative=true
+        if not setVanillaHunger(zombie,after.hunger) then return abort("vanilla-hunger-write-failed") end
+    end
+    touchedCache=true
+    local saved,cached=pcall(Components.set,zombie,COMPONENT,after)
+    if not saved or cached~=after then return abort("food-hunger-cache-failed") end
+    local dispatched,committed,result=pcall(FaultIsolation.call,owner,"commit",provider.commit,zombie,candidate,entry.context)
+    if not dispatched or not committed or result~=true then return abort("food-commit-rejected") end
+    pendingFood[zombie]=nil
+    local metadata={providerId=provider.id,sourceId=candidate.sourceId,
+        sourceClass=candidate.sourceClass or provider.sourceClass or "registered-food-source",source=candidate.source}
+    local Mortis=rawget(_G,"Mortis")
+    if Mortis and Mortis.Events then
+        pcall(function()Mortis.Events:emit("ZombieFed",zombie,before.hunger,after.hunger,metadata)end)
+    end
+    return true,after
+end
+
 function Hunger.updateFoodSeeking(zombie, radius)
     if not Settings.bool("EnableZombieHunger") then return false,"disabled" end
     if not Authority.canRunCanonicalAI(zombie) then return false, "non-authority" end
-    Hunger.advance(zombie)
+    if pendingFood[zombie] then return false,"food-transaction-pending" end
+    local advanced,advanceError=Hunger.advance(zombie)
+    if not advanced then return false,advanceError end
     if not Hunger.isHungry(zombie,Settings.number("FoodSeekingMinimumHunger")) then
         return false,"not-hungry"
     end
@@ -336,20 +423,8 @@ function Hunger.updateFoodSeeking(zombie, radius)
     if not distance then return false, "invalid-source-position" end
 
     local consumeDistance = math.max(0.5, tonumber(candidate.consumeDistance) or 1.25)
-    if distance <= consumeDistance*consumeDistance and provider.consume then
-        local ok, result = FaultIsolation.call(
-            "food-source:" .. provider.id, "consume", provider.consume, zombie, candidate)
-        if ok and type(result) == "table" and result.consumed == true then
-            local value=(tonumber(result.foodValue) or tonumber(candidate.foodValue) or 0.25)
-                * math.max(0,Settings.number("FoodValueMultiplier"))
-            return Hunger.feed(zombie, value, {
-                providerId=provider.id,
-                sourceId=candidate.sourceId,
-                sourceClass=candidate.sourceClass or provider.sourceClass or "registered-food-source",
-                source=candidate.source,
-            })
-        end
-        return false, "consume-rejected"
+    if distance <= consumeDistance*consumeDistance and (provider.consume or provider.reserve) then
+        return feedFromSource(zombie,candidate,provider)
     end
 
     if zombie.pathToLocationF then

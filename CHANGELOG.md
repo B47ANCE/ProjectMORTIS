@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.25.0-dev.1 - transactional feeding (M-05), 2026-10-16
+
+- New provider transaction contract, API 1.6.0: reserve a quoted portion, verify provisional hunger/cache state, then commit food removal. Abort invokes idempotent source compensation and restores hunger before returning failure.
+- Unsafe consume-only providers remain registered/discoverable but automatic consumption fails closed until migrated; Nightfall effigies require that consumer update. Existing provider implementations are not rewritten here.
+- Reject invalid quotes/multipliers and failed hunger advancement; guard callback reentrancy and defer ZombieFed until commit. Rollback failures quarantine the provider/entity instead of silently retrying.
+- Save schema and server authority remain unchanged. This is a synchronous Lua callback boundary, not durable cross-resource/crash atomicity; dedicated G7 and stable G8 remain BLOCKED.
+
 ## 0.24.0-dev.3 - audit corrections, 2026-10-16
 
 - Compatible corrections within the unreleased 0.24.0 target; public API 1.5.0, saved schemas, provider identities and archived Active Hours bytes are unchanged.

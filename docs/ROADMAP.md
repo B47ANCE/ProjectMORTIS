@@ -103,3 +103,7 @@ the current Nightfall 1.0 dependency closure.
 ## Active Hours
 
 The entire Active Hours project is consolidated here. Follow [ACTIVE_HOURS.md](ACTIVE_HOURS.md): validate the dormant one-zombie diagnostic first; then develop optional solar, profile and weighted-range behavior with authoritative sandbox settings after the affected native gates. No standalone Core/Night/Day product remains planned.
+
+## Transactional feeding follow-up
+
+M-05 coordination is implemented; [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md) defines the API 1.6.0 provider contract. The next consumer work is migrating Nightfall effigies from one-step consumption and verifying tissue/claim compensation. Preserve source IDs and authoritative sandbox rates. Actual native durability, contention, late join and restart remain G7 gates.

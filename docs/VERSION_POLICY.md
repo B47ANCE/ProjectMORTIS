@@ -2,7 +2,7 @@
 
 Root `VERSION` is the only canonical project version. Legacy onboarding on 2026-10-16 adopted the existing 0.23.2 source version; it did not relabel old tests or packages. The user authorized GitHub onboarding and the subsequent authority/replication fix iteration.
 
-Use SemVer: PATCH for compatible fixes, MINOR for additive public capability or provider contracts, MAJOR for incompatible contracts. Development iterations use a prerelease suffix. Public API 1.5.0, replication protocol, save/component schemas, game builds, and dependency versions are separate contracts and never substituted for the mod version.
+Use SemVer: PATCH for compatible fixes, MINOR for additive public capability or provider contracts, MAJOR for incompatible contracts. Development iterations use a prerelease suffix. Public API 1.6.0, replication protocol, save/component schemas, game builds, and dependency versions are separate contracts and never substituted for the mod version.
 
 Current mirrors checked by `scripts/check_versions.py`: source `mod.info` modversion; source `Mortis/init.lua` VERSION; source `info.txt` Version field; README Version field; master-roadmap canonical-version field; tester-handoff title; current changelog entry; AUTHORITY_REPLICATION development-iteration field; VALIDATION current-development-version field; the first Mod Version field in each Workshop description (`workshop.txt`, `WORKSHOP_DESCRIPTION.txt`, `docs/STEAM_WORKSHOP_DESCRIPTION.txt`); and the first Version heading in `WORKSHOP_CHANGE_NOTE.txt`.
 
@@ -15,3 +15,5 @@ Use feature branches and PRs after the imported baseline. Every intentional iter
 The 0.24.0-dev.1 pre-1.0 MINOR iteration changes the required dependency identity and load configuration. It intentionally replaces the old dependency contract while retaining MORTIS public API 1.5.0 and persisted/content identifiers. It is not a drop-in package for old mod lists.
 
 The 0.24.0-dev.2 checkpoint adds an opt-in development diagnostic and consolidates Active Hours ownership within the unreleased 0.24.0 target. Existing gameplay/configuration/save/public API contracts are unchanged. The dormant harness is not an enabled production capability. The historical archive keeps its own frozen 0.1.0-dev.4 version and is never a MORTIS version mirror.
+
+The 0.25.0-dev.1 MINOR iteration adds the API 1.6.0 transactional provider contract. Registration/discovery of legacy providers remains available, but unsafe one-step automatic consumption is refused until migration. This compatibility limitation is deliberate and documented; public capability negotiation can require FoodSources.TRANSACTION_VERSION. Historical API/version records remain unchanged.

@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.24.0-dev.3`
+- Version: `0.25.0-dev.1`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -81,3 +81,5 @@ Profile removal and assignment clearing now restore saved observable locomotion 
 ## Active Hours consolidation
 
 B47ANCE'd Active Hours is now developed inside M.O.R.T.I.S., including its speed diagnostic, solar/profile/configuration roadmap and research history. The integrated diagnostic is dormant until explicitly started; no production day/night behavior is enabled. See [scope, preserved evidence, blockers and manual experiment](docs/ACTIVE_HOURS.md). Do not enable the old standalone proofs alongside it. G2/G6/G7/G8 retain their existing blocked/untested statuses.
+
+Food providers now use the API 1.6.0 [transaction contract](docs/FOOD_TRANSACTIONS.md). Unsafe consume-only callbacks are never called automatically; existing consumers such as Nightfall effigies require migration before automatic consumption resumes.

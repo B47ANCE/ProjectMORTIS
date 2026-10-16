@@ -56,7 +56,7 @@ view of numeric contributions from functional natural regions and registered
 attachments. Disabled, destroyed, and missing natural regions do not contribute;
 installed attachments contribute independently with inspectable provenance.
 This surface is deliberately separate from `Mortis.Capabilities`, which probes
-whether Build 42 engine methods are available. The public API version is `1.5.0`.
+whether Build 42 engine methods are available. That milestone used API `1.5.0`; the current API is `1.6.0`.
 
 Version 0.12.1 binds the generic `OnCharacterDeath` lifecycle event for player
 sources only and freezes their anatomy/classifier provenance before corpse
@@ -112,7 +112,7 @@ actor or replace vanilla global pathfinding.
 Consumers call `Mortis.negotiateAPI` with an inclusive `minimum`, optional
 exclusive upper bound, and required dotted API paths. The returned structured
 report distinguishes malformed ranges, missing paths, and type mismatches.
-Project M.O.R.T.I.S. API version `1.5.0` is independent from the mod release
+Project M.O.R.T.I.S. API version `1.6.0` is independent from the mod release
 version so compatible implementation patches do not force consumer rewrites.
 
 Version 0.22.0 briefly contained a now-revoked EXT-29 NPC-framework boundary.
@@ -201,3 +201,7 @@ Dependency identity migration and retained provider/storage identifiers are docu
 ## Internal Active Hours diagnostic and future subsystem
 
 The user-approved Active Hours consolidation is described in [ACTIVE_HOURS.md](ACTIVE_HOURS.md). Three `Mortis/Diagnostics/ActiveHours*` modules define an explicitly started internal harness; they are not exported as a new public API and do not register events on load. It invokes the existing owner-stack service on the server, with read-only clients and a separate command namespace. It does not route through typed component replication or claim native ownership safety. Future opt-in built-in policy belongs to MORTIS without adding zombie types or changing neutral defaults; no such policy/controller is implemented yet.
+
+## Transactional food-provider boundary
+
+API 1.6.0 adds `FoodSources.TRANSACTION_VERSION=1` and reserve/commit/rollback provider hooks. The server stages verified hunger/cache state before committing a reserved portion, compensates failures, isolates pre-commit queries/reentrant mutators, and emits feeding events only after success. Consume-only automatic feeding fails closed; see [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md) for provider migration, quarantine and native/crash limitations. No saved schema or custom network protocol is added.

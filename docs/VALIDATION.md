@@ -1,5 +1,34 @@
 # Current validation
 
+Current development version: 0.25.0-dev.1
+
+[TESTED offline] Windows bundled Python / Lupa 2.6. Full mode compiles 124 runtime Lua files and passes 54 Lua host cases (53 Lua 5.1, one Lua 5.4), plus the 26-case Active Hours suite under Lua 5.1. Unit mode omits two dependency integrations; native PZ/SP/dedicated behavior remains NOT TESTED. Public API is now 1.6.0; replication and saved schemas are unchanged.
+
+Exact commands from the MORTIS root:
+
+```powershell
+python scripts/check_versions.py
+python scripts/validate.py --test test_food_source_transactions
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The exact interpreter remains `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`. Bare python is the Store alias. CI runs unit mode; its two omitted dependency integrations are not passing integration proof. Full local mode includes actual Knowledge & Wisdom source, separately from mocked native boundaries.
+
+M-05: actual FoodSources registration, FaultIsolation and Hunger runtime are exercised by the new regression. It covers ignored/partially throwing native setters; failed advancement before source callbacks; reserve/commit exceptions and partial source changes; invalid values/zero multiplier; component failure before/after writes; dispatcher failure; direct rollback despite circuit-breaker disablement; client/target preservation; recursive mutator rejection; two-zombie source contention; post-commit observer isolation; unsafe legacy callback refusal; native/source compensation failure and quarantine. The test failed before the fix. See FOOD_TRANSACTIONS.md for exact callback ownership, ordering, contract restrictions and runtime cases.
+
+All 13 current project mirrors pass. Legacy consume-only providers remain registered/discoverable but automatic consumption returns a migration requirement without calling them. Nightfall effigies are the known concrete consumer requiring a separate provider change; no consumer source was edited. No source rollback guarantee is manufactured for a nonconforming provider, irreversible external effects, permanent setter failure or process crash. Transient guards/quarantine are not a durable cross-resource journal.
+
+The 64-file Active Hours archive and prior MORTIS packages/evidence retain their original bytes and versions. No package was generated. G7 BLOCKED / NOT TESTED and stable G8 BLOCKED; Active Hours G2/G6 gates are unchanged. Verify migrated real-provider stock/tissue/claim and hunger conservation, observer state, native save/load, competing access, late join/rejoin and dedicated restart before runtime claims. No merge, deployment, publication or game/server launch is part of this iteration.
+
+---
+
+## Historical record — 0.24.0-dev.3 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.24.0-dev.3
 
 [TESTED offline] Windows, bundled Python 3.12.14 / Lupa 2.6. Full mode compiles 124 runtime Lua files and passes all 53 Lua host cases (52 Lua 5.1; one Lua 5.4), plus the 26-case Active Hours Python/Lua 5.1 suite. The diagnostic separately passes 26 cases under Lua 5.4. Unit-only mode passes 51 Lua cases plus that diagnostic suite and explicitly omits two actual-source integrations. CI uses unit mode; its results are not current dependency integration or native dedicated proof.
