@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.23.2`
+- Version: `0.23.3-dev.1`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -73,3 +73,5 @@ The authoritative mod source is `src/ProjectMORTIS/42/`. `Contents/mods` is a pr
 Root `VERSION` is canonical; see [version policy](docs/VERSION_POLICY.md) and [source inventory](SOURCE_INVENTORY.json). `Contents/` and existing `dist/` are historical local artifacts, preserved and excluded from Git.
 
 Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --experience-works <experienceWorks-repository-root>`. CI runs `--unit-only` and explicitly excludes the unpublished dependency integration. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+
+The authority/replication fixes and remaining limitations are described in [AUTHORITY_REPLICATION.md](docs/AUTHORITY_REPLICATION.md), with [current validation](docs/VALIDATION.md) and [GitHub onboarding provenance](docs/ONBOARDING.md). Client hunger reads no longer author state; assignment clears synchronize with stale-message protection; directed replies preserve pending broadcasts. All multiplayer peers must use the same build.

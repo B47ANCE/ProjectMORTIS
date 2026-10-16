@@ -188,3 +188,7 @@ attachment definition and anatomical compatibility.
 Rejected compatibility/state requests emit `AttachmentRejected`. Consumer mods
 remain responsible for inventory, distance, tools, skill, learned knowledge,
 procedure timing, and medical consequences before invoking these operations.
+
+## Authority and replication correction
+
+See [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md) for the current server-owned hunger observations, persisted assignment-clear/revision fields, ordered typed/clear messages, delivery accounting, request bounds, lifecycle cleanup, and compatibility limitations. Native save, restart, late-join, and transport proof remain separate runtime gates.

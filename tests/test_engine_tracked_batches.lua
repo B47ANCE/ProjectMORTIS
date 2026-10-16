@@ -67,4 +67,10 @@ assert(dirty[1] == zombies[2], "dirty scan should find first eligible zombie")
 assert(dirty2[1] == zombies[4], "dirty scan should resume instead of rescanning the head")
 assert(Engine.findTrackedByOnlineID(5) == zombies[5], "online index should remain valid")
 
+zombies[5].onlineId=55
+Engine.takeTrackedBatch('index-refresh',5)
+assert(Engine.findTrackedByOnlineID(5)==nil,'obsolete online ID must be removed')
+assert(Engine.findTrackedByOnlineID(55)==zombies[5])
+assert(Engine.findTrackedByOnlineID(0/0)==nil,'NaN lookup must fail closed')
+
 print("Project M.O.R.T.I.S. tracked batch tests passed")

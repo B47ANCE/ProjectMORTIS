@@ -31,18 +31,21 @@ local trackedOrderHighWater = 0
 local trackedByStableId = setmetatable({}, { __mode = "v" })
 local trackedByOnlineId = setmetatable({}, { __mode = "v" })
 local recentHit = setmetatable({}, { __mode = "k" })
+local indexedIdentity = setmetatable({}, { __mode = "k" })
 local refreshIndexes
 
 local function removeIndexes(zombie)
-    local stableId = Identity.getStableId(zombie)
+    local indexed=indexedIdentity[zombie] or {}
+    local stableId = indexed.stableId
     if stableId and trackedByStableId[stableId] == zombie then trackedByStableId[stableId] = nil end
-    local onlineId = Network.getOnlineID(zombie)
+    local onlineId = indexed.onlineId
     if type(onlineId) == "number" and trackedByOnlineId[onlineId] == zombie then trackedByOnlineId[onlineId] = nil end
     local slot = trackedSlot[zombie]
     if slot then
         trackedOrder[slot] = nil
         trackedSlot[zombie] = nil
     end
+    indexedIdentity[zombie]=nil
 end
 
 local function indexZombie(zombie)
@@ -54,6 +57,9 @@ local function indexZombie(zombie)
     end
     tracked[zombie] = true
 
+    local prior=indexedIdentity[zombie] or {}
+    if prior.stableId and trackedByStableId[prior.stableId]==zombie then trackedByStableId[prior.stableId]=nil end
+    if prior.onlineId and trackedByOnlineId[prior.onlineId]==zombie then trackedByOnlineId[prior.onlineId]=nil end
     local stableId = Identity.getStableId(zombie)
     if type(stableId) == "string" and stableId ~= "" then
         local existing = trackedByStableId[stableId]
@@ -77,6 +83,7 @@ local function indexZombie(zombie)
     if type(onlineId) == "number" and onlineId >= 0 then
         trackedByOnlineId[onlineId] = zombie
     end
+    indexedIdentity[zombie]={stableId=stableId,onlineId=onlineId}
     return stableId
 end
 
@@ -128,11 +135,13 @@ end
 
 refreshIndexes = function(zombie)
     if not tracked[zombie] then return indexZombie(zombie) end
+    local prior=indexedIdentity[zombie] or {}
     local stableId = Identity.getStableId(zombie)
+    local onlineId = Network.getOnlineID(zombie)
+    if prior.stableId~=stableId or prior.onlineId~=onlineId then return indexZombie(zombie) end
     if type(stableId) == "string" and stableId ~= "" and trackedByStableId[stableId] ~= zombie then
         indexZombie(zombie)
     end
-    local onlineId = Network.getOnlineID(zombie)
     if type(onlineId) == "number" and onlineId >= 0 and trackedByOnlineId[onlineId] ~= zombie then
         trackedByOnlineId[onlineId] = zombie
     end
@@ -176,7 +185,13 @@ local function attachType(zombie, previousTypeId)
     end
 
     local typeDef = Identity.getType(zombie)
-    if not typeDef then return end
+    if not typeDef then
+        if previousTypeId then
+            ProfileRuntime.applyDurability(zombie,nil,true)
+            ProfileRuntime.applyAppearance(zombie,nil,true)
+        end
+        return
+    end
     indexZombie(zombie)
     local ctx = Context.create(zombie, typeDef)
 
@@ -484,20 +499,24 @@ end
 function Engine.onReplicated(zombie, previousTypeId)
     indexZombie(zombie)
     local current = Identity.getTypeId(zombie)
-    if current and current ~= previousTypeId then
+    if current ~= previousTypeId then
         attachType(zombie, previousTypeId)
     end
 end
 
 function Engine.findTrackedByStableId(stableId)
     if type(stableId) ~= "string" then return nil end
+    local zombie=trackedByStableId[stableId]
+    if zombie then refreshIndexes(zombie) end
     return trackedByStableId[stableId]
 end
 
-function Engine.findTrackedByOnlineID(onlineId)
-    if type(onlineId) ~= "number" then return nil end
+function Engine.findTrackedByOnlineID(onlineId, indexedOnly)
+    if type(onlineId) ~= "number" or onlineId~=onlineId or onlineId<0 or onlineId>2147483647 or onlineId~=math.floor(onlineId) then return nil end
     local zombie = trackedByOnlineId[onlineId]
+    if zombie then refreshIndexes(zombie);zombie=trackedByOnlineId[onlineId] end
     if zombie then return zombie end
+    if indexedOnly then return nil end
     -- Online IDs may become valid after OnZombieCreate. Refresh lazily.
     for candidate in pairs(tracked) do
         refreshIndexes(candidate)

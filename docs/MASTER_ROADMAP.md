@@ -1,6 +1,8 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.23.2; public API 1.5.0.
+Canonical version: 0.23.3-dev.1; public API 1.5.0.
+
+Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Food-provider transactions and full locomotion baseline restoration remain explicit follow-ups.
 
 ## Implemented
 

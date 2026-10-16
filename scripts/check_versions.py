@@ -15,6 +15,8 @@ MIRRORS = {
     'docs/MASTER_ROADMAP.md': r'Canonical version: ([^;]+);',
     'TESTER_HANDOFF.md': r'^# Project M\.O\.R\.T\.I\.S\. (\S+) playtester handoff',
     'CHANGELOG.md': r'(?m)^## (\S+) ',
+    'docs/AUTHORITY_REPLICATION.md': r'Current development iteration: ([^.]+\.[^.]+\.[^ ]+)\.',
+    'docs/VALIDATION.md': r'Current development version: (\S+)\n',
     'workshop.txt': r'\[b\]Mod Version:\[/b\] (\S+)',
     'WORKSHOP_DESCRIPTION.txt': r'\[b\]Mod Version:\[/b\] (\S+)',
     'docs/STEAM_WORKSHOP_DESCRIPTION.txt': r'\[b\]Mod Version:\[/b\] (\S+)',
@@ -43,6 +45,15 @@ def check(release=False):
                     errors.append('Unsafe/duplicate/case-colliding package members')
                 if archive.testzip():
                     errors.append('Package CRC failure')
+                expected={'Contents/mods/ProjectMORTIS/42/'+f.relative_to(SOURCE).as_posix(): f for f in SOURCE.rglob('*') if f.is_file()}
+                expected.update({'Contents/mods/ProjectMORTIS/info.txt': SOURCE.parent/'info.txt',
+                                 'Contents/mods/ProjectMORTIS/thumbnail.png': SOURCE.parent/'thumbnail.png',
+                                 'preview.png': ROOT/'preview.png', 'workshop.txt': ROOT/'workshop.txt'})
+                if set(names)!=set(expected):
+                    errors.append('Unexpected/missing package members')
+                for member,file in expected.items():
+                    if member in names and hashlib.sha256(archive.read(member)).digest()!=hashlib.sha256(file.read_bytes()).digest():
+                        errors.append('Package authoring/source mismatch: '+member)
                 for file in SOURCE.rglob('*'):
                     if file.is_file():
                         member = 'Contents/mods/ProjectMORTIS/42/' + file.relative_to(SOURCE).as_posix()

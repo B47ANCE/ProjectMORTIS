@@ -99,7 +99,7 @@ local PileObservations = require "Mortis/Runtime/PileObservationRuntime"
 local PileTraversalLinks = require "Mortis/Runtime/PileTraversalLinks"
 
 local Mortis = rawget(_G, "Mortis") or {}
-Mortis.VERSION = "0.23.2"
+Mortis.VERSION = "0.23.3-dev.1"
 Mortis.Types = Types
 Mortis.Traits = Traits
 Mortis.Behaviors = Behaviors
@@ -376,9 +376,11 @@ function Mortis.clearAssignment(zombie)
     local previous = Identity.getTypeId(zombie)
     if not previous then return true end
     local stableId = Identity.getStableId(zombie)
+    local recorded,recordError=Persistence.writeAssignmentClear(zombie,stableId)
+    if not recorded then return false,recordError end
     Identity.clear(zombie)
     local transmit = Authority.isDedicatedServerRuntime()
-    Persistence.clearIdentity(zombie, transmit)
+    Persistence.flushComponents(zombie, transmit)
     Engine.onAssigned(zombie, previous)
     Mortis.Events:emit("ThreatCleared", zombie, previous, stableId)
     return true

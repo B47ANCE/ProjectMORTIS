@@ -79,7 +79,7 @@ For the dependency-ordered human gate, use the guided commands and report format
 in [IN_GAME_TESTING.md](IN_GAME_TESTING.md). Mocked host execution verifies the
 harness contract but is not an in-game PASS.
 
-1. Confirm version `0.23.2`, experienceWorks dependency, both sandbox pages, and error-free load with untyped vanilla zombies.
+1. Confirm the root `VERSION` value, experienceWorks dependency, both sandbox pages, and error-free load with untyped vanilla zombies.
 
 Host test `test_api_compatibility.lua` covers semantic comparisons, inclusive
 minimum/exclusive maximum negotiation, missing functions, type mismatches, and
@@ -160,3 +160,5 @@ Check final death-provider classification and verify failed capture logs at most
 once per 30 seconds without interrupting death cleanup. Unsupported old corpses
 must reject recovery rather than acquire fresh anatomy. Player corpses remain
 outside the zombie death hook until a verified player lifecycle bridge exists.
+
+Current host commands, exact coverage/environment, and untested runtime gates are in [VALIDATION.md](VALIDATION.md). Authority/replication native scenarios are in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md).

@@ -40,6 +40,7 @@ local function vanillaHunger(zombie)
 end
 
 local function setVanillaHunger(zombie,value)
+    if not Authority.canWriteCanonicalState(zombie) then return false end
     if not zombie or not zombie.getStats or not CharacterStat or not CharacterStat.HUNGER then return false end
     local target=clamp01(value)
     local written=pcall(function() zombie:getStats():set(CharacterStat.HUNGER,target) end)
@@ -78,6 +79,15 @@ function Hunger.deserializeState(payload)
 end
 
 local function stateFor(zombie)
+    if not Authority.canWriteCanonicalState(zombie) then
+        -- Observation must not instantiate schema defaults, migrate saved data,
+        -- consume random state or call native setters on a client.
+        local bucket = Components.allFor(zombie)
+        local cached = bucket and bucket[COMPONENT]
+        return Hunger.serializeState(type(cached)=="table" and cached or {
+            hunger=vanillaHunger(zombie) or -1,
+        })
+    end
     local state = Components.get(zombie, COMPONENT)
     if type(state) ~= "table" then
         state = { hunger=-1, desiccation=0.0, lastWorldAgeHours=-1, starvingSinceWorldAgeHours=nil }

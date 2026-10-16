@@ -24,7 +24,7 @@
   verification and multiplayer transport validation remain open.
 
 - Confirm Nightfall's dependency report records Project M.O.R.T.I.S. mod version
-  `0.23.2` separately from public API version `1.5.0` in each tested session.
+  from root `VERSION` separately from public API version `1.5.0` in each tested session.
 
 - Tune physical separation and trip probabilities under dense populations.
 - Verify shove, stomp, corpse, stair, lunge, and ragdoll capability paths.
