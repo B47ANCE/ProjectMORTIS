@@ -1,12 +1,20 @@
-# Active Hours is part of M.O.R.T.I.S.
+# Active Hours features in M.O.R.T.I.S.; standalone mod retained
 
-The user approved absorbing the entire B47ANCE'd Active Hours project into M.O.R.T.I.S. on 2026-10-16. MORTIS owns its diagnostic, research, configuration design, seasonal solar design, performance requirements and remaining implementation roadmap. There is no continuing standalone Core/Night/Day product plan. This is an explicit scope expansion: MORTIS may provide an optional built-in Active Hours policy, while retaining neutral defaults and adding no zombie archetypes.
+The user's clarification on 2026-10-16 supersedes the earlier retirement interpretation: B47ANCE'd Active Hours remains maintained standalone, and MORTIS includes all of its features within this mod. The implementations are incompatible. When ProjectMORTIS is enabled, Active Hours disables its own execution; MORTIS takes precedence. Neither mod requires the other. MORTIS owns its included implementation, while the independent project owns its standalone implementation. Both cover the same solar/profile/weighted/configuration/performance scope, retaining neutral defaults and no new archetypes. This is a product/compatibility requirement, not a claim that planned gameplay is complete.
+
+## Compatibility precedence
+
+Independent source `src/B47ANCEDActiveHours/42/` now begins with a read-only activated-mod-list guard. Exact ProjectMORTIS presence disables standalone execution before any future controller registration/write, independent of MORTIS Lua load order; missing/malformed/not-ready detection remains inactive. This guard currently supplies no speed/solar controller. It adds no MORTIS dependency, no mod-list edits, no client override or automatic save/config migration. Dedicated startup behavior remains NOT TESTED. See the [standalone compatibility contract](https://github.com/B47ANCE/B47ANCEDActiveHours/blob/fix/standalone-mortis-precedence/docs/MORTIS_COMPATIBILITY.md).
+
+MORTIS continues normally when that independent Core ID is selected; its present diagnostic conflict check concerns the old `B47AHProof`/`B47AHMortisProof` globals, which the new independent bootstrap never creates. Those old experimental packages are excluded from co-enabled tests. The currently published Active Hours dev.4 item is still the MORTIS-dependent diagnostic, not an automatically converted standalone build. No item is retired, uploaded, deleted or unlisted. No duplicate standalone/MORTIS gameplay effect may run.
+
+Future server-authoritative sandbox namespaces, settings and persisted state remain owned by each implementation. There is no automatic mapping or parity approval: every implemented feature needs matching behavioral acceptance coverage and actual runtime evidence in both products before compatibility claims. Missing production authority remains a blocker, not permission to copy an unsafe writer.
 
 ## What is transferred
 
 - The current server-side fixed-speed diagnostic is ported to authoritative `src/ProjectMORTIS/42/media/lua/{shared,server,client}/Mortis/Diagnostics/ActiveHours*.lua`. It uses the same public `LocomotionOverrides.acquire/release` mechanism as Nightfall's UV slow effect, not UV gameplay. Its owner key is now `ProjectMORTIS.ActiveHoursTest.Speed`, and command namespace `MortisActiveHoursTest` deliberately does not accept old proof messages.
 - `archive/active-hours-0.1.0-dev.4/` preserves 64 original tracked files byte for byte: both prototypes, all research/design/runbook documents, tests/tooling, version inventory, artwork, Workshop identity and publication record. The exact source commit and every SHA-256 are in [ACTIVE_HOURS_IMPORT.json](ACTIVE_HOURS_IMPORT.json). These are historical records, not runtime source or current MORTIS version mirrors. Do not package, autoload or run their old builders as part of MORTIS.
-- The source repository remains an intact historical source at [pinned dev.4](https://github.com/B47ANCE/B47ANCEDActiveHours/tree/a8a600b8e0d4c7d4e1dd960378bc88ac17ad6fa6). Its repository governance files were deliberately not installed as nested instructions. Ignored native decompilations/classes/local evidence remain at the original local `B47ANCEDActiveHours/research/`; they were never backed up by that Git commit and are not redistributed. Historical relative `research/` references resolve there; their availability on another machine is UNKNOWN. Existing manifests and documents retain original evidence labels and build references.
+- The source repository remains maintained independently; the historical import is anchored at [pinned dev.4](https://github.com/B47ANCE/B47ANCEDActiveHours/tree/a8a600b8e0d4c7d4e1dd960378bc88ac17ad6fa6). Its repository governance files were deliberately not installed as nested instructions. Ignored native decompilations/classes/local evidence remain at the original local `B47ANCEDActiveHours/research/`; they were never backed up by that Git commit and are not redistributed. Historical relative `research/` references resolve there; their availability on another machine is UNKNOWN. Existing manifests and documents retain original evidence labels and build references.
 - The custom Active Hours artwork is preserved in the archive for this subsystem; it does not replace MORTIS branding. Neither Workshop item changes identity. MORTIS remains Mod ID `ProjectMORTIS`, Workshop `3788592827`; the standalone experimental item `3820693462` remains a historical dev.4 distribution. No deletion, unlisting, upload, repository archival or subscriber migration is performed.
 
 ## Current implementation and authority
@@ -23,14 +31,14 @@ Release removes only this diagnostic's owner request. Existing higher-priority r
 
 No persistent Active Hours state is added. Wrapper replacement, streaming gaps, disconnect/reconnect, server restart and selection re-enrollment have no recovery guarantee. A fresh disposable session is required after a stopped session. The old stale-client race remains evidence for the historical owner-routed prototype; moving to server calls does not prove native ownership safety.
 
-## Remaining project scope, now owned by MORTIS
+## Included feature scope, also maintained standalone
 
 | Capability | Status / next requirement |
 |---|---|
 | Fixed tier switching diagnostic | IMPLEMENTED; offline tested, native behavior NOT TESTED |
 | Native persistence, owner handoff, observer locomotion, behavioral release | GATED; one-zombie/two-client experiment first |
 | Seasonal solar progression | DESIGN ONLY; verify weather-independent dawn/dusk progression and native Lua calls across seasons/endless modes |
-| Optional Night / Day / Both activity policy | DESIGN ONLY; one future MORTIS subsystem, disabled by default; no separate Core/Night/Day Mod IDs |
+| Optional Night / Day / Both activity policy | DESIGN ONLY; future built-in MORTIS subsystem, disabled by default; independent Active Hours Mod IDs remain owned by that project |
 | Active/inactive fixed profiles | DESIGN ONLY; terms mean custom profiles, never native inactivity |
 | Inclusive weighted ranges, stable per-life choices | DESIGN ONLY; server validation/CDF, durable identity and revision semantics required; no per-update rerolls |
 | Additional attributes | BLOCKED per original reader/writer audit; health is not toughness |
