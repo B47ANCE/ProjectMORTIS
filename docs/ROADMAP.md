@@ -2,6 +2,11 @@
 
 > Consolidated status: [MASTER_ROADMAP.md](MASTER_ROADMAP.md).
 
+Native tests requiring an open game are human-operated. Use the
+[current human queue](HUMAN_RUNTIME_TESTS.md) for clean-client setup, dependency
+0.16.0 review and creator/SP/dedicated sequencing; offline success is not a
+native result. Affected dependency MP APIs remain implementation-blocked.
+
 ## Canonical biological material
 
 - [x] Audit Build 42.20 corpse lifecycle, zombie corpse feeding, localized

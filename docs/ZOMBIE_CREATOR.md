@@ -43,6 +43,13 @@ English UI text and fallback are authored in 29 UI.json catalogs with identical 
 
 ## Evidence and native acceptance
 
+The user leaves tests requiring an open game to humans. Before native testing,
+follow [HUMAN_RUNTIME_TESTS.md](HUMAN_RUNTIME_TESTS.md) for the clean vanilla-client
+and isolated profile prerequisite. The normal launcher contains a custom Java
+agent/external mod JAR and differing loose classes; no native test was run with
+it. Current automated consumer input is Knowledge & Wisdom 0.16.0; this changes
+neither the editor's local-only ownership nor its unverified native UI/storage.
+
 The repository-only [reviewed export fixture](../tests/fixtures/creator_export/README.md)
 contains a trusted draft input and exact generated `Definitions.lua`. Run
 `python scripts/validate.py --test test_creator_export_fixture` to compare the

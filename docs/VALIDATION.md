@@ -1,5 +1,78 @@
 # Current validation
 
+Current development version: 0.26.0-dev.3
+
+[TESTED: offline] Human-test preparation follow-up on c7aa102cf3c6da0f175890b4fb680b870eda5660.
+PR #7 merged during preparation as 7ac2080b0210e7e52051ff91c7c76f7209df46dd;
+its tree exactly matches c7aa102. Staged changes were preserved on the latest-main
+feature branch feat/human-runtime-test-handoff before this follow-up commit.
+No PZ/server launch, native UI action, deployment or real-save write was performed.
+The user leaves testing requiring an open game to humans; see HUMAN_RUNTIME_TESTS.md.
+
+Knowledge & Wisdom input: exact public 0.16.0 candidate
+6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, extracted with Git archive into an
+isolated fixture. Dependency PR #1 merged during preparation as
+0f20ad2c070941038e274c72bd91eb4db5b82ed3; the selected test input remains that
+exact source head. All 120 source/metadata files pass the new
+exact-byte manifest, inventory SHA-256
+`83338349470cd8a9f194156dc9baffee29f947173d7e37bf5eb8db5e5e4813e0`.
+Prior 0.15.0 fingerprints and results remain historical, not current MP proof.
+
+The first full consumer run failed both dependency integrations with
+REALM_UNAVAILABLE. Those fixtures omitted native role functions. They now model
+SP explicitly, retain real source/provider/replay/reload checks and assert
+unknown/client/guarded-server refusal without writes. The dependency's intentional
+MULTIPLAYER_STORAGE_UNAVAILABLE is preserved, not bypassed. No production code
+change was needed beyond version mirrors.
+
+[TESTED: offline Windows Python 3.12.14 / Lupa 2.6] MORTIS passes all 63 Lua host
+regressions, 26 Active Hours diagnostic cases and four Python verifier cases;
+130 runtime Lua files compile; 13 current version mirrors and 87 JSON catalogs
+pass, including 37 sandbox options and 29 creator UI fallback catalogs.
+In the isolated dependency snapshot, its 34/34 Lua 5.1 regressions, 17 version
+mirrors, 58 Lua parses, exact-case imports, 87 fallback catalogs and 38-item source
+gate pass. Neither suite opens the game or proves native Kahlua/SP/MP behavior.
+
+Exact commands from MORTIS root with the configured real Python:
+
+```text
+python scripts/check_versions.py
+python scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+Exact dependency commands, run only in its isolated 6ba66c0 snapshot:
+
+```text
+python -B -X utf8 scripts/check_versions.py
+python -B -X utf8 scripts/validate_source.py
+python -B -X utf8 scripts/run_host_tests.py
+```
+
+The engine preflight is read-only, summarized in
+`evidence/native-test-preflight-25485521.json`: Steam build 25485521; packaged jar
+hash matches the dependency source audit; normal launcher includes a custom Java
+agent/external mod JAR and prioritizes loose classes. Selected loose MainScreen
+and IsoGameCharacter bytes differ. Existing version.txt says 42.21.0 4a0e9546ec,
+but no current executed build or clean vanilla integrity is established.
+No game/configuration/mod-set change was attempted. A human must establish a clean
+client and isolated profile before native acceptance.
+
+Native creator UI/storage/controller/Unicode, dependency stage-1 review, MORTIS
+SP, ownership/animation/lunge restoration, source persistence, save/rejoin/restart
+and dedicated locomotion remain NOT TESTED/BLOCKED. Affected Knowledge & Wisdom
+MP persistence is implementation-blocked, independently of missing test evidence.
+An isolated locomotion observation cannot certify its private storage or research/
+history gameplay. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. No package, deployment,
+game/server launch, Workshop upload or stable tag.
+
+---
+
+## Historical record - 0.26.0-dev.2 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.26.0-dev.2
 
 [TESTED: offline] Compatible preparation checkpoint on merged main baseline

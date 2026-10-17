@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.26.0-dev.3 - human native-test preflight, 2026-10-16
+
+- Keep tests that require opening PZ/server human-operated, as clarified by the user. Prepare the current test order, result matrix and concrete setup blockers; no game/server was opened or mod deployed.
+- Freeze Knowledge & Wisdom 0.16.0 at public candidate 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426 with exact committed-byte verification. Preserve prior 0.15.0 evidence as historical.
+- Correct both consumer host fixtures to establish explicit SP authority, and verify unknown/client/guarded-server refusal without changing the dependency or bypassing MULTIPLAYER_STORAGE_UNAVAILABLE.
+- Record contaminated launcher/loose-class provenance and distinguish the saved 42.21.0 version marker from current executed-build proof. Native UI/storage, stage-1 review, locomotion and dedicated G7/stable G8 remain unverified/blocked.
+- Compatible development checkpoint; public API 1.6.0 and runtime gameplay/schemas unchanged.
+
 ## 0.26.0-dev.2 - creator export fixture and offline roadmap, 2026-10-16
 
 - Add a reviewed repository-only creator export with a golden-output regression through real registries: missing trait/behavior providers fail before registration, successful content keeps neutral defaults, and duplicate installation preserves the original.

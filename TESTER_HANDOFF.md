@@ -1,4 +1,10 @@
-# Project M.O.R.T.I.S. 0.26.0-dev.2 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.3 playtester handoff
+
+Human-operated native queue: [docs/HUMAN_RUNTIME_TESTS.md](docs/HUMAN_RUNTIME_TESTS.md).
+Start with its clean vanilla-client prerequisite and exact Knowledge & Wisdom
+0.16.0 input. The normal launcher has custom Java/loose-class contamination.
+No game/server was opened or mod deployed during preparation. Affected dependency
+MP APIs are intentionally blocked; never bypass or downgrade them for a test.
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,

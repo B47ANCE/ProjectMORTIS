@@ -27,3 +27,16 @@ The user clarified on 2026-10-16 that Active Hours remains maintained standalone
 ## Main-menu creator boundary
 
 The 0.26.0-dev.1 creator is client-only local content authoring; see docs/ZOMBIE_CREATOR.md. Never evaluate drafts, auto-load exported Lua, install packages, register live types, add a server import command or mutate a world from this UI. Preserve fixed local filenames, alternate/checksummed checkpoints, stale/future/corrupt-data refusal, exported string quoting and duplicate/provider checks. Editor fields are draft content baselines; consumer/server authority and sandbox rules still govern activated gameplay. Native menu/file/controller proof remains open.
+
+## Human runtime-test ownership
+
+The user clarified on 2026-10-16 that runtime testing requiring an open game is
+left to humans. Unless the user changes that instruction, do not launch PZ/server
+or drive native UI tests. Agents may perform read-only setup/source preflight,
+offline validation and evidence/handoff preparation. Follow
+docs/HUMAN_RUNTIME_TESTS.md; keep unobserved native cases NOT TESTED/BLOCKED.
+Current normal launcher has a custom Java agent/external mod JAR and differing
+loose engine classes, so it is not a clean Lua-only acceptance baseline.
+Knowledge & Wisdom 0.16.0 intentionally refuses affected MP storage; never bypass
+the guard or downgrade to claim success. Native testing itself grants no deploy,
+package, Workshop upload or stable-release permission.
