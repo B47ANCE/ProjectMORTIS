@@ -4,7 +4,8 @@ Root `VERSION` is the only canonical project version. Legacy onboarding on 2026-
 
 Use SemVer: PATCH for compatible fixes, MINOR for additive public capability or provider contracts, MAJOR for incompatible contracts. Development iterations use a prerelease suffix. Public API 1.6.0, replication protocol, save/component schemas, game builds, and dependency versions are separate contracts and never substituted for the mod version.
 
-Current mirrors checked by `scripts/check_versions.py`: source `mod.info` modversion; source `Mortis/init.lua` VERSION; source `info.txt` Version field; README Version field; master-roadmap canonical-version field; tester-handoff title; current changelog entry; AUTHORITY_REPLICATION development-iteration field; VALIDATION current-development-version field; the first Mod Version field in each Workshop description (`workshop.txt`, `WORKSHOP_DESCRIPTION.txt`, `docs/STEAM_WORKSHOP_DESCRIPTION.txt`); and the first Version heading in `WORKSHOP_CHANGE_NOTE.txt`.
+Current mirrors checked by `scripts/check_versions.py`: source `mod.info` modversion; source `Mortis/init.lua` VERSION; source `info.txt` Version field; README Version field; master-roadmap canonical-version field; tester-handoff title; current changelog entry; AUTHORITY_REPLICATION development-iteration field; VALIDATION current-development-version field; the first Mod Version field in each Workshop description (`workshop.txt`, `WORKSHOP_DESCRIPTION.txt`, `docs/STEAM_WORKSHOP_DESCRIPTION.txt`); the first Version heading in `WORKSHOP_CHANGE_NOTE.txt`; and the version fields in
+`docs/MOD_OVERVIEW.json` and `docs/evidence/mortis-runtime-input.json` (15 mirrors).
 
 `Contents/` is classified as a preserved stale 0.23.0 packaging copy, not a current version mirror. `dist/ProjectMORTIS-0.23.2-workshop-ready.zip` is immutable historical distribution, SHA-256 `59f966d82a46eeb618b10bcdf0dff1857f8c8c206e0cf25ee236d2dd3a915052`. Local staging backups, dated audit records, the historical checksum ledger, old changelog entries, and narrative descriptions of earlier features retain their original versions. They are not current runtime proof. No source or artifact is moved/deleted by this classification. No development package is current until explicitly built and inventoried.
 
@@ -33,3 +34,9 @@ The selected test dependency is 0.16.0; its intentional MP refusal is not bypass
 and its version is separate from MORTIS. Runtime changes remain version mirrors
 only; public API 1.6.0, creator format and world/component/network schemas are
 unchanged. New source-only engine fingerprints do not establish runtime evidence.
+
+0.26.0-dev.4 is a compatible tooling/design checkpoint within unreleased 0.26.0.
+Runtime differences remain version mirrors only; API 1.6.0 and all runtime/save/
+network schemas are unchanged. The offline AHC1 selection-key format is not a
+production contract. Reviewed overview and exact runtime-input evidence become
+current mirrors; historical records retain their original versions.

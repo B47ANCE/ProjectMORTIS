@@ -44,8 +44,14 @@ evidence. There is no climate reader, population callback or native writer.
 
 The [configuration/lifecycle proposal](../../docs/ACTIVE_HOURS_DESIGN.md) records
 proposed options, ignored inputs, per-life identity and parity acceptance.
-Assignment IDs can be cleared/regenerated; a durable life token and canonical
-selection encoding remain unresolved integration requirements. None of these
+Assignment IDs can be cleared/regenerated; a durable life token and coordinated
+production ownership remain unresolved integration requirements. The isolated
+`configuration.lua` now normalizes all proposed fields and produces exact `AHC1`
+selection keys using reduced rational probabilities. Unknown/metatable-bearing
+inputs, bad primitive bounds and invalid selected ranges refuse. Equivalent
+distributions and fixed point ranges share keys; ignored fields and Mode/Enabled
+do not reroll choices. Outputs are detached; revision and supplied-roll admission
+stay in `life_choices.lua`. There is no sandbox reader, RNG or persistence. None of these
 experiments is a final production validator/controller or registered schema.
 
 Run from the MORTIS root:
@@ -54,8 +60,9 @@ Run from the MORTIS root:
 python scripts/validate.py --test test_active_hours_weighted_design
 python scripts/validate.py --test test_active_hours_life_design
 python scripts/validate.py --test test_active_hours_phase_design
+python scripts/validate.py --test test_active_hours_config_design
 ```
 
 Host Lua evidence is offline only. The runtime syntax inventory excludes these
 experiments; their regressions explicitly load/compile them. The normal full and
-unit-only runners discover all three regressions.
+unit-only runners discover all four regressions.

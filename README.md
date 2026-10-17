@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.3`
+- Version: `0.26.0-dev.4`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -115,3 +115,11 @@ creator UI/storage cases, current dependency review and the SP/dedicated order.
 The normal local launcher has custom Java/loose-class contamination; no game or
 server was opened, mod deployed or native PASS recorded. Knowledge & Wisdom
 0.16.0 intentionally blocks affected MP storage APIs; no bypass or downgrade.
+
+0.26.0-dev.4 adds isolated configuration normalization and exact selection keys,
+the reviewed [feature overview](docs/MOD_OVERVIEW.json), and a
+[read-only preflight command](docs/PREFLIGHT.md). Normal validation checks the
+overview version/source digest. The [Nightfall audit](docs/NIGHTFALL_INTEGRATION_AUDIT.md)
+reproduces three P1 cleanup/identity defects and a diagnostics coverage gap;
+these consumer fixes remain open. No production Active Hours options/controller
+or Nightfall gameplay changes are installed by this checkpoint.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.26.0-dev.4 - offline configuration, overview and preflight, 2026-10-17
+
+- Normalize the proposed Active Hours configuration in an isolated experiment. Encode selected probabilities as reduced rational keys; equivalent distributions, ignored fields and phase/enablement changes retain choices. No production validator, options, RNG, persistence or controller is installed.
+- Adopt the reviewed mortis feature descriptor with version/source binding and normal validation. Preserve source/foundation/planned/blocked distinctions and the historical-layout review limitation.
+- Add the read-only local preflight command: verify exact MORTIS/dependency input hashes, overview binding, launcher/environment overrides, selected engine classes and explicit Steam metadata. Emit redacted JSON only; never launch, deploy, fetch, write or claim native PASS.
+- Audit pinned Nightfall 0.30.0 against current MORTIS/Knowledge source: reproduce three P1 state/cleanup defects and an API-presence diagnostics coverage gap in a bounded host probe. Keep consumer production source unchanged and record exact evidence and fixes required.
+- Compatible 0.26.0 development checkpoint; public API 1.6.0 and world/network schemas unchanged. All runtime testing stays human-operated; G7/stable G8 BLOCKED.
+
 ## 0.26.0-dev.3 - human native-test preflight, 2026-10-16
 
 - Keep tests that require opening PZ/server human-operated, as clarified by the user. Prepare the current test order, result matrix and concrete setup blockers; no game/server was opened or mod deployed.

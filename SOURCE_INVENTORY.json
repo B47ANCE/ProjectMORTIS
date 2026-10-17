@@ -27,7 +27,9 @@
   "validation": [
     "python scripts/check_versions.py",
     "python scripts/validate.py --knowledge-and-wisdom <dependency-root>",
-    "python scripts/test_active_hours.py"
+    "python scripts/test_active_hours.py",
+    "python -B scripts/check_overview.py",
+    "python -B scripts/preflight_runtime.py --knowledge-and-wisdom <exact-dependency-root>"
   ],
   "authoring_assets": [
     "src/ProjectMORTIS/info.txt",
@@ -38,7 +40,8 @@
     "WORKSHOP_CHANGE_NOTE.txt"
   ],
   "offline_experiments": [
-    "experiments/active-hours/"
+    "experiments/active-hours/",
+    "experiments/nightfall/"
   ],
   "offline_fixtures": [
     "tests/fixtures/creator_export/"

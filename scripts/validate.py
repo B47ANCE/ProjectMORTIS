@@ -9,6 +9,7 @@ sys.dont_write_bytecode = True
 from lupa.lua51 import LuaRuntime
 from check_versions import ROOT, SOURCE, check
 from check_localization import check as check_localization
+from check_overview import check as check_overview
 
 ARGUMENTS = {
     'anatomy_attachments': 'API/AnatomyAttachments', 'anatomy_capabilities': 'API/AnatomyCapabilities',
@@ -50,6 +51,12 @@ def main():
             return 1
         print('PASS: exact dependency input; ' + str(inputs) + ' files')
     failures = 0 if check() else 1
+    try:
+        check_overview(ROOT)
+        print('PASS: reviewed overview version/source/evidence; source only')
+    except (ValueError, OSError, TypeError) as error:
+        failures += 1
+        print('FAIL: overview descriptor: ' + str(error))
     failures += 0 if check_localization() else 1
     lua_root = SOURCE / 'media/lua'
     search = ';'.join((lua_root / side).as_posix() + '/?.lua' for side in ('shared','client','server')) + ';'
@@ -100,10 +107,10 @@ def main():
             failures += 1
             records.append({'test':path.name, 'status':'FAIL', 'error':str(error)})
     if not args.test:
-        result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_dependency_input.py'],
+        result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py'],
                                 cwd=ROOT, capture_output=True, text=True)
         failures += int(result.returncode != 0)
-        records.append({'test':'test_dependency_input.py', 'status':'PASS' if result.returncode == 0 else 'FAIL',
+        records.append({'test':'test_python_tools', 'status':'PASS' if result.returncode == 0 else 'FAIL',
                         'runtime':'Python / disposable files', 'output':result.stdout + result.stderr})
         result = subprocess.run([sys.executable, 'scripts/test_active_hours.py'], cwd=ROOT,
                                 capture_output=True, text=True,

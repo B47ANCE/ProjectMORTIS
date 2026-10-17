@@ -99,7 +99,9 @@ is an experimental format, separate from project/API/world schema versions.
 The authority would draw two independent rolls in [0,1), including when the
 draws happen to match; clients never supply or redraw them. Normalize the two
 selected profile definitions into a deterministic, exact `selectionKey` before
-use. Its canonical encoding is not implemented by this experiment.
+use. `configuration.lua` now explores exact reduced-rational `AHC1` keys.
+Equivalent distributions have identical keys; enablement/mode and ignored fields
+are excluded. This is not an installed sandbox reader or persistence contract.
 
 - First confirmed new life: construct a candidate with two supplied rolls;
   checkpoint/verify before native use. Merely returning a candidate is not a
@@ -144,9 +146,9 @@ proof of standalone parity or permission to edit its repository in this slice.
 | Large population / restart | Bounded fair scheduling and cached solar input; actual throughput, persistence and headless events measured later |
 | Both mods enabled | Standalone inactive before registration/writes; no duplicate MORTIS effect; runtime load-order proof still required |
 
-Run the three experiments through `scripts/validate.py` with test stems
+Run the four experiments through `scripts/validate.py` with test stems
 `test_active_hours_weighted_design`, `test_active_hours_life_design` and
-`test_active_hours_phase_design`. Host tests execute proposed data semantics;
+`test_active_hours_phase_design`, plus `test_active_hours_config_design`. Host tests execute proposed data semantics;
 they are not the final server validator/controller, native save/restart tests or
 G2/G6/G7/G8 PASS. Integrate only after the controlling native proof and the open
 identity, solar, configuration and ownership contracts are resolved.

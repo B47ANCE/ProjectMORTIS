@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "mortis",
+  "name": "M.O.R.T.I.S.",
+  "version": "0.26.0-dev.4",
+  "source_digest": "c016ba3c62f84e4c53d46691cdc68cb41972e0e78ed10bed9e82b6ec23e24279",
+  "reviewed": true,
+  "features": [
+    {
+      "status": "Foundation",
+      "text": "Neutral native-zombie framework: type, trait, behavior, component and species registries; authoritative identity, persistence and reconciliation. Consumers own archetypes and gameplay policy."
+    },
+    {
+      "status": "Foundation",
+      "text": "Anatomy, trauma, tissue/decomposition transactions, detached-part provenance and attachment sockets, plus hunger, locomotion ownership, trips/piles, crowd flow and logical groups."
+    },
+    {
+      "status": "Source",
+      "text": "API 1.6.0 food-provider reservation, commit, compensation and quarantine. Nightfall supplies its own effigy adapter; native cross-resource durability remains unverified."
+    },
+    {
+      "status": "Source",
+      "text": "Client-only main-menu zombie definition creator: local drafts, validation, Lua preview/export and a reviewed offline export fixture. No live registration, spawning or server import."
+    },
+    {
+      "status": "Source",
+      "text": "Dormant explicit Active Hours locomotion diagnostic and isolated offline weighted, phase, life-choice and configuration/key experiments. No population controller or production options are installed."
+    },
+    {
+      "status": "Foundation",
+      "text": "Research archive and explicit death-provenance provider integrate with Knowledge & Wisdom. The selected 0.16.0 dependency refuses affected multiplayer storage; there is no bypass."
+    },
+    {
+      "status": "Planned",
+      "text": "Production Active Hours solar/profile policy, authoritative localized settings, durable life choices and bounded population lifecycle, after native authority/restoration proof and ownership contracts."
+    },
+    {
+      "status": "Blocked",
+      "text": "Human native creator UI/storage, dependency/SP review and dedicated locomotion/lifecycle evidence; full animation/lunge restoration and affected dependency private MP persistence remain open."
+    }
+  ],
+  "limits": "Source review only. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. Runtime testing requiring an open game is human-operated. Lua-only runtime; no Project Remnants integration. Standalone Active Hours remains maintained and yields when MORTIS is enabled. Digest follows the shared generator, including historical Contents/mods when present; another layout safely requires review. Nightfall audit has three open P1 state defects and a P2 readiness diagnostics gap; consumer acceptance requires fixes.",
+  "evidence": [
+    "README.md",
+    "docs/MASTER_ROADMAP.md",
+    "docs/AUTHORITY_REPLICATION.md",
+    "docs/FOOD_TRANSACTIONS.md",
+    "docs/ZOMBIE_CREATOR.md",
+    "docs/ACTIVE_HOURS.md",
+    "docs/ACTIVE_HOURS_DESIGN.md",
+    "docs/VALIDATION.md",
+    "docs/HUMAN_RUNTIME_TESTS.md",
+    "docs/NIGHTFALL_INTEGRATION_AUDIT.md",
+    "docs/PREFLIGHT.md"
+  ],
+  "relations": []
+}

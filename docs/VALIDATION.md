@@ -1,5 +1,67 @@
 # Current validation
 
+Current development version: 0.26.0-dev.4
+
+[TESTED — offline Windows Python 3.12.14 / Lupa 2.6, 2026-10-17]
+Based on merged PR #8 commit 6af5d141a2342179233db9131e749ee7b819383e.
+This iteration changes runtime version mirrors only; the new configuration
+experiment, probes and preflight are outside runtime/package roots. Final Git
+identity is recorded by the iteration PR, not invented inside a self-hashed file.
+No native test was performed; all tests requiring an open game remain human-operated.
+
+Full validation PASS: 64 Lua host regressions, 26 Active Hours diagnostic cases,
+12 Python tests, 130 runtime Lua compilations, 15 current version mirrors and
+87 JSON catalogs (37 sandbox option names/tooltips). Non-English fluency/native
+fallback is unverified. Both actual-source dependency integrations ran against
+Knowledge 0.16.0 / 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, with all 120 input
+files verified. Its intentional multiplayer guard is retained. Unit-only CI
+excludes those two integrations and cannot replace the full local run.
+
+MORTIS exact input: 224 runtime/authoring files, inventory SHA-256
+`6d760166c91b228750374af1ed247852827665f62d82402233f1ab3e8e080903`.
+The reviewed descriptor digest matches the installed shared hub fingerprint
+algorithm and passes its descriptor validator. Another preserved Contents layout
+requires review; no historical packaging copy was deleted or synchronized.
+
+[TESTED — bounded offline audit] The pinned Nightfall 0.30.0 / 6988b57 probe
+reproduces NF-M01, NF-M02, NF-M03 (P1 state/cleanup defects) and NF-M04 (P2 readiness
+coverage gap). Audit exit 1 is expected findings, not a passing consumer audit.
+See NIGHTFALL_INTEGRATION_AUDIT.md for exact lines, observations and limitations.
+Nightfall production was not changed; all four findings remain OPEN.
+
+[TESTED — read-only local file preflight] Exact MORTIS/Knowledge inputs and
+reviewed overview PASS. Packaged engine hash and explicit Steam build 25485521
+match the selected baseline. Overall BLOCKED (exit 2): custom launcher agent/
+classpath, two selected loose-class mismatches and the dependency MP contract.
+No Java injection environment variable is nonempty. This is a selected-file
+comparison, not whole-install integrity or proof of the next effective launch.
+No raw launcher arguments, local logs, credentials or player data are published.
+
+Exact commands from MORTIS root, using Python with scripts/requirements.txt:
+
+```text
+python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json
+python -B scripts/check_versions.py
+python -B scripts/check_overview.py
+python -B scripts/audit_nightfall_integration.py --nightfall ../.mortis-merge-fixtures/nightfall-6988b57 --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0
+python -B scripts/preflight_runtime.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --game-root <explicit-local-game-root> --steam-manifest <explicit-local-appmanifest_108600.acf>
+python -B scripts/check_public.py --staged
+git diff --cached --check
+```
+
+Native creator UI/storage/controller, dependency stage-1 review, MORTIS SP,
+full animation/lunge restoration, actual authority/replication, Linux,
+save/rejoin/restart and dedicated lifecycle remain NOT TESTED/BLOCKED. Affected
+Knowledge MP storage is implementation-blocked independently of missing evidence.
+Production Active Hours remains gated. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+No package, deploy, game/server launch, Workshop upload or stable tag.
+
+---
+
+## Historical 0.26.0-dev.3 validation
+
+# Current validation
+
 Current development version: 0.26.0-dev.3
 
 [TESTED: offline] Human-test preparation follow-up on c7aa102cf3c6da0f175890b4fb680b870eda5660.
