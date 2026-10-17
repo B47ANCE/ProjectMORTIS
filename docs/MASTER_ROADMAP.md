@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.25.0-dev.4; public API 1.6.0.
+Canonical version: 0.26.0-dev.1; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
@@ -67,3 +67,7 @@ Implemented offline: [observed override recovery](LOCOMOTION_OVERRIDES.md), dedi
 ## Dev.4 audit handoff
 
 The user requested preparation of the runtime tests. [RUNTIME_AUDIT_HANDOFF.md](RUNTIME_AUDIT_HANDOFF.md) specifies staged build/environment records, current Knowledge & Wisdom review, SP baseline, the dedicated two-client proof, consumer feeding and per-case acceptance/evidence forms. No affected production controller is enabled ahead of native authority/restoration proof. Live lease recovery still needs coordinated consumer policy. Non-English fluency and native/Linux evidence remain separate.
+
+## Main-menu authoring slice - 0.26.0-dev.1
+
+IMPLEMENTED / OFFLINE: [zombie definition creator](ZOMBIE_CREATOR.md), available in the main-menu client source outside debug mode. Reusable drafts, validation, existing inline profiles, appearance/trait/behavior references, Lua preview/export, local alternating checkpoints, controller/focus/discard handling and localized English fallback. This is a content-authoring tool, not a spawn manager, 3D renderer, live registry editor or server import endpoint. Native main-menu activation/layout/file behavior remain NOT TESTED; production Active Hours and existing G7/G8 gates are unchanged.

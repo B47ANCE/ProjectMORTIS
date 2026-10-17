@@ -1,5 +1,34 @@
 # Current validation
 
+Current development version: 0.26.0-dev.1
+
+[TESTED: offline] Main-menu creator development MINOR on main a3238a31f909cec63aeb12c7b7666562c94e34fe. Windows bundled Python 3.12.14 / Lupa 2.6: 130 runtime Lua files compile, all 60 host cases pass plus 26 Active Hours cases. Unit mode passes 58 host cases plus those diagnostics and explicitly omits two dependency integrations. Current 13 version mirrors and 87 JSON catalogs pass; all 29 creator UI catalogs have fallback key parity. No native PZ runtime was invoked.
+
+The three new regressions use actual creator modules. They cover bounded pure-data parsing, malformed/future/unknown fields, invalid/infinite/injected values, quoted/generated Lua through actual Types/Profile APIs, duplicate/provider refusal, exclusive fixed file names, alternating checkpoint fallback, stale/corrupt/future records, write/readback failures, export preservation, release-mode menu registration, existing UI delegation, controller entry, save/export/discard/delete flow and bounded small-viewport layout. Modeled widgets/files are not native UI/storage evidence.
+
+Commands from this root (use the configured real Python, not the Windows Store alias):
+
+```text
+python scripts/check_versions.py
+python scripts/validate.py --test test_creator_model
+python scripts/validate.py --test test_creator_store
+python scripts/validate.py --test test_creator_ui
+python scripts/validate.py --knowledge-and-wisdom <clean fixture at ca5b724c63d49ab224f96b2daea3e17ad7498e44>
+python scripts/validate.py --unit-only
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The full dependency input is the previously recorded clean 0.15.0 Knowledge & Wisdom commit ca5b724c63d49ab224f96b2daea3e17ad7498e44, extracted from that exact Git commit into an isolated read-only test fixture; no dirty live sibling input is used. Existing evidence fingerprints remain valid for that snapshot. Installed vanilla source observations are tied to Steam build 25485521 in evidence/creator-ui-25485521.json; full executed version remains UNKNOWN. Source/editor behavior does not prove native file durability, Unicode, focus, load order or menu visibility.
+
+The creator has no gameplay writer, network endpoint, spawn policy, registered custom type, 3D renderer, world persistence or automatic export activation. See ZOMBIE_CREATOR.md for ownership/format/limits and exact native acceptance. Overall G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. No package, deployment, game/server launch, upload, stable tag or main merge.
+
+---
+
+## Historical record - 0.25.0-dev.4
+
+# Current validation
+
 Current development version: 0.25.0-dev.4
 
 Documentation/metadata checkpoint on clean baseline 2f9b03a376aaecc751e6c10ffcf399916f444400, fix/locomotion-override-recovery, matching upstream and ahead 3/behind 0 of origin/main. The requested [runtime audit handoff](RUNTIME_AUDIT_HANDOFF.md) is prepared. API 1.6.0, schemas, protocol and gameplay are unchanged. The previous source correction and results are preserved below as historical evidence.

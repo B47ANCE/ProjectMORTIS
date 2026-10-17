@@ -2,6 +2,7 @@
 require "Mortis/Bootstrap"
 require "Mortis/ReplicationClient"
 require "Mortis/TestHarness"
+require "Mortis/Creator/MainMenu"
 
 -- Everything below is an operator/developer console surface. Core client
 -- bootstrap and replication above remain active in normal play.

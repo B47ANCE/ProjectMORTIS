@@ -1,0 +1,24 @@
+{
+  "steam_build": "25485521",
+  "game_semver": "UNKNOWN",
+  "runtime": "NOT_TESTED",
+  "scope": "Installed Lua call forms and UI lifecycle only; no game classes executed or copied",
+  "files": {
+    "media/lua/client/OptionScreens/MainScreen.lua": "f89d351830fcb0050cfc10bc7a7e1a216a260b4731fe0ac34da9bcd4269352e5",
+    "media/lua/client/OptionScreens/CharacterCreationMain.lua": "a058e7c6294c70f4969fffd5a7b135c4b8a3a4bb340721aa7c80ac3690d7f489",
+    "media/lua/client/ISUI/ISUIElement.lua": "2de4720f995ae35e76a1465c6690ad17fe272e33dec3b106e49c475310440f8f",
+    "media/lua/client/ISUI/ISPanelJoypad.lua": "8e7a2afbe11bb826bd3a2b8e08501790adba772171fd5e747af6cc520a60f060",
+    "media/lua/client/ISUI/ISTextEntryBox.lua": "94d10e1583f68bcba635cd93f7921df85be4d8223ca8a99c67e00c650bf5d3e1",
+    "media/lua/client/ISUI/ISComboBox.lua": "3c313fe9c30711fef341bc4358d3d66e6f38591c224f5fe92e7c77db508f2e66",
+    "media/lua/client/ISUI/ISButton.lua": "5a4101bb351f3fc5d20de884b0d15692d9048d72ceff0d8b4e0420800fac3011",
+    "media/lua/client/ISUI/ISModalDialog.lua": "084d21246c03e54f8fe2a0dd16fb19f83e9ee347aa400c2d974e536f31f692dc",
+    "media/lua/client/OptionScreens/CoopOptionsScreen.lua": "f47e2e06dfc0ba4729eb505affe26bacfb798705cf6a47b53ac8d0278386f340"
+  },
+  "observations": [
+    "MainScreen registers LoadMainScreenPanel at OnMainMenuEnter; root instance distinguishes inGame and exposes UI/focus methods.",
+    "ISUIElement instantiation creates children; ISPanelJoypad supplies focus rows, combo/button and text-entry controller dispatch.",
+    "CharacterCreationMain calls getFileReader(filename,true), readLine and close, then getFileWriter(filename,true,false), write and close. CoopOptionsScreen also calls getFileReader(filename,false).",
+    "No atomic replace/durable flush guarantee is established for native file writers. Alternating checksummed checkpoints retain a previous valid local draft library.",
+    "MORTIS creator chains MainScreen methods rather than replacing vanilla source, registers presentation lifecycle handlers only, and has no network/assignment/spawn route."
+  ]
+}
