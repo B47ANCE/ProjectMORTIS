@@ -10,7 +10,7 @@ Before testing, fetch/check each chosen branch without changing source, reconcil
 | --- | --- | --- |
 | Knowledge & Wisdom | 0.15.0, ca5b724c63d49ab224f96b2daea3e17ad7498e44 | Reviewed current stage-1 result; older handoff headings are not current proof |
 | MORTIS | 0.25.0-dev.4, API 1.6.0, protocol 2 | Record this handoff commit and artifact/input hashes; implementation baseline 2f9b03a376aaecc751e6c10ffcf399916f444400 |
-| Nightfall, only in the later consumer suite | 0.29.1-dev.1, fix/effigy-food-transactions | 9a681a1f62df87a7eccf946b9796cee92ff8a798 ([PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2)); dependency snapshot in its docs/audits/0.29.1-dev.1.dependencies.json |
+| Nightfall, only in the later consumer suite | 0.29.1 combined candidate, fix/effigy-food-transactions | 9a681a1f62df87a7eccf946b9796cee92ff8a798 ([PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2)); original provider snapshot in docs/audits/0.29.1-dev.1.dependencies.json; combined inputs in tests/dependencies.lock.json |
 | Later Nightfall dependencies | lightWorks, B47ANCEDPower, B47ANCEDHealthCare, B47ANCEDKnowledgeAndWisdom, ProjectMORTIS | Freeze their exact versions/commits/hashes. Spectrum was dirty during offline audit; its HEAD alone cannot identify tested bytes |
 | Engine | Locally inspected Steam build 25485521; executed SemVer UNKNOWN | Record actual full client and server versions/build IDs, OS and selected class/source provenance; stop on mismatch |
 
@@ -56,7 +56,7 @@ Full animation/lunge/private-helper restoration has no verified complete inverse
 
 ## Stage 4 - migrated Nightfall feeding
 
-Only after prerequisite reviews, use a separate disposable full-family world with the frozen Nightfall fix and current dependencies. Follow Nightfall docs/EFFIGIES.md and docs/VALIDATION_0.29.1-dev.1.md. Do not mix this consumer suite into the isolated speed proof.
+Only after prerequisite reviews, use a separate disposable full-family world with the frozen Nightfall fix and current dependencies. Follow Nightfall docs/EFFIGIES.md and docs/VALIDATION_0.29.1.md (the original provider report remains historical). Do not mix this consumer suite into the isolated speed proof.
 
 Record source ID/status/revision, source parts/calories/edible material, exact actor identity, native hunger/component hunger/starvation and event count before/after. Check canonical and material-less legacy sources, all source-signature reactions and the research requirement. A 600-calorie source at the default 2000 calories/full feed quotes .3 before the existing server multiplier and hunger clamp; elapsed advancement is separate. Attraction/avoidance/destruction must not grant feeding.
 

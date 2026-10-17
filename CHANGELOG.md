@@ -31,6 +31,8 @@
 
 ## 0.24.0-dev.3 - audit corrections, 2026-10-16
 
+- Documentation clarification 2026-10-16: Active Hours remains maintained standalone while all features are included in MORTIS. When both are enabled, standalone execution is disabled; MORTIS wins. No MORTIS runtime/version/API/save change or upload.
+
 - Compatible corrections within the unreleased 0.24.0 target; public API 1.5.0, saved schemas, provider identities and archived Active Hours bytes are unchanged.
 - Replace the exact 0.13.0 dependency test pin with identity/version-presence and behavioral contract checks; actual-source research/history tests now pass against Knowledge & Wisdom 0.14.0. Preserve earlier fingerprints as historical inputs.
 - End the diagnostic category comparison after owner release while retaining raw samples; other consumer requests/ceilings must not be mislabeled as native overwrite.

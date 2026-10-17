@@ -114,6 +114,8 @@ The 64-file Active Hours archive and prior MORTIS packages/evidence retain their
 
 Current development version: 0.24.0-dev.3
 
+Documentation-only relationship correction (2026-10-16): Active Hours remains maintained standalone and disables its own execution when ProjectMORTIS is enabled. MORTIS includes the same feature scope. No MORTIS runtime/API/schema/version or archived import bytes change; no new runtime result is claimed. Version/whitespace/public-file checks apply to this follow-up; prior test records retain their actual versions. G2/G6/G7/G8 are unchanged.
+
 [TESTED offline] Windows, bundled Python 3.12.14 / Lupa 2.6. Full mode compiles 124 runtime Lua files and passes all 53 Lua host cases (52 Lua 5.1; one Lua 5.4), plus the 26-case Active Hours Python/Lua 5.1 suite. The diagnostic separately passes 26 cases under Lua 5.4. Unit-only mode passes 51 Lua cases plus that diagnostic suite and explicitly omits two actual-source integrations. CI uses unit mode; its results are not current dependency integration or native dedicated proof.
 
 Exact commands from the MORTIS root:
