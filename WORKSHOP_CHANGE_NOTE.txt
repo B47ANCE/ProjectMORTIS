@@ -1,3 +1,10 @@
+[b]Version 0.25.0-dev.2[/b]
+Development source checkpoint: food-provider input/quarantine/no-effect hardening, English sandbox tooltips, and offline weighted-range design experiment. No production Active Hours controller. Dedicated multiplayer NOT TESTED; no upload performed.
+
+[b]Version 0.25.0-dev.1[/b]
+M-05 development fix: transactional food providers reserve, commit and compensate failures; unsafe legacy consumption is refused pending provider migration. API 1.6.0. Dedicated multiplayer NOT TESTED; stable release BLOCKED.
+
+Previous development notes:
 [b]Version 0.24.0-dev.3[/b]
 Development audit fixes: research integration accepts the current dependency contract; diagnostic release preserves raw observations without asserting a baseline category; movement requests reject busy or unavailable native state. Dedicated multiplayer NOT TESTED; stable release BLOCKED.
 

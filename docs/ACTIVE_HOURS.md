@@ -40,7 +40,7 @@ No persistent Active Hours state is added. Wrapper replacement, streaming gaps, 
 | Seasonal solar progression | DESIGN ONLY; verify weather-independent dawn/dusk progression and native Lua calls across seasons/endless modes |
 | Optional Night / Day / Both activity policy | DESIGN ONLY; future built-in MORTIS subsystem, disabled by default; independent Active Hours Mod IDs remain owned by that project |
 | Active/inactive fixed profiles | DESIGN ONLY; terms mean custom profiles, never native inactivity |
-| Inclusive weighted ranges, stable per-life choices | DESIGN ONLY; server validation/CDF, durable identity and revision semantics required; no per-update rerolls |
+| Inclusive weighted ranges, stable per-life choices | OFFLINE EXPERIMENT for proposed validation/CDF only, outside runtime roots; final server configuration, durable identity/revision and persisted choices remain unimplemented; no per-update rerolls |
 | Additional attributes | BLOCKED per original reader/writer audit; health is not toughness |
 | Save/load, late join/reconnect/restart | NOT TESTED; define lifecycle/persistence before population implementation |
 | Insane population performance | NOT MEASURED; cached shared solar values, bounded scheduling, event-driven writes, no per-frame population scans |
@@ -48,6 +48,8 @@ No persistent Active Hours state is added. Wrapper replacement, streaming gaps, 
 Future meaningful enablement, mode, profiles, range endpoints/weights and transition behavior belong in localized, server-authoritative MORTIS sandbox settings. Stable setting IDs/defaults/bounds and existing-save behavior need an implementation decision; historical editable-Lua configuration is superseded. No production options are functional merely because archived designs describe them. Preserve existing consumer owner keys/priorities and deliberate coexistence with Nightfall. Full native restoration and safe authority are prerequisites for affected production writers.
 
 The next milestone is manual passive loading/sampling of this integrated harness, then fixed-speed/ownership/release evidence. Solar/weighted controllers and further dynamic attributes remain deferred. G2 BLOCKED (production), G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED. Absorption advances none of them.
+
+The [dev.2 weighted-range experiment](../experiments/active-hours/README.md) starts offline design work without adding a runtime validator or bypassing the archived speed-proof prerequisite. It has no hooks, RNG, gameplay settings, native writes or persisted state; its test explicitly loads it from outside `src/`. It does not establish standalone parity or complete per-life choice semantics.
 
 ## Human-operated dedicated experiment
 

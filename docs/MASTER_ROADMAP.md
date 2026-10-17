@@ -1,8 +1,8 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.24.0-dev.3; public API 1.5.0.
+Canonical version: 0.25.0-dev.2; public API 1.6.0.
 
-Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transactions and full native animation/lunge restoration remain follow-ups; native dependency load/save/MP tests are still required.
+Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; consumer migration and full native animation/lunge restoration remain follow-ups; native dependency load/save/MP tests are still required.
 
 ## Implemented
 
@@ -48,3 +48,14 @@ Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.
 Active Hours remains maintained independently; MORTIS includes the complete feature scope in its own implementation. They are incompatible: standalone Active Hours disables its own execution whenever ProjectMORTIS is enabled, leaving MORTIS authoritative. [ACTIVE_HOURS.md](ACTIVE_HOURS.md) is the controlling scope/runbook. Current delivery is an explicitly started server-side one-zombie speed diagnostic plus a 64-file historical import. Seasonal solar progression, optional Night/Day/Both policy, active/inactive profiles, weighted selection, sandbox configuration and bounded population lifecycle remain planned for MORTIS and independently for the standalone mod; full parity is required, not yet implemented. Native speed/owner/observer/restoration evidence is required before affected production work; G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
 
 The dev.3 audit corrections are implemented: behavior-based dependency integration on 0.14.0, standing/busy-state mutation admission, and no assumed baseline category after diagnostic owner release. Native MP and full restoration gates remain open.
+
+M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md): API 1.6.0 reserve/commit/rollback, verified hunger writes, compensation and quarantine. Migrate real consume-only providers (including Nightfall effigies), then validate source durability and dedicated lifecycle; no production consumer is silently rewritten.
+
+## Current execution queue
+
+- IMPLEMENTED / OFFLINE: dev.2 rejects malformed source positions, invalid/no-effect quotes and unavailable target observations; quarantined providers cannot hide healthy providers. Native/provider compensation still needs runtime proof.
+- IMPLEMENTED / OFFLINE: all 37 sandbox options have English names/tooltips; JSON/catalog validation is part of the normal runner. Non-English translation quality and native fallback are not verified.
+- STARTED / OFFLINE EXPERIMENT: [weighted-range validation/CDF](../experiments/active-hours/README.md) covers inclusive categories, weight rules, exact sampling boundaries and stable supplied rolls. It is outside runtime/package roots, not a final validator/controller or native gate bypass.
+- NEXT / RUNTIME GATE: reviewed dependency stage-1 PASS, then the existing one-zombie/two-client passive/speed/owner/release experiment. Full animation/lunge restoration and override-stack durability remain unresolved.
+- NEXT / CONSUMER SCOPE: migrate Nightfall's real effigy reservation/commit/compensation contract in that project before claiming automatic consumption works there.
+- AFTER NATIVE PROOF: agree authoritative localized sandbox settings, solar API evidence, durable per-life/config-revision rolls, bounded lifecycle scheduling and standalone parity tests. Do not enable production policy ahead of those gates.

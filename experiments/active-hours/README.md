@@ -1,0 +1,40 @@
+# Weighted-range design experiment
+
+This starts the weighted-selection roadmap as offline Lua mathematics. It is
+outside `src/`, absent from packaging inputs, unregistered and not a public API.
+It does not implement Active Hours gameplay or advance G2/G6/G7/G8. The archived
+design deferred the final validator until speed proof; this experiment explores
+that contract without installing a validator/controller in the mod.
+
+`weighted_ranges.lua` compiles an inclusive ordered range of `shambler`,
+`fastShambler`, `sprinter` into probabilities and a cumulative distribution once.
+Both endpoint weights must be finite numbers in [0,100], including ignored
+one-category inputs. A single category receives 100%; its endpoint total is
+ignored. Two categories normalize their endpoint weights; 20/40 becomes 1/3,
+2/3, and zero/zero is rejected. Three categories allocate the remainder to the
+middle; 10/40 gives 10/50/40. Endpoint totals above 100 are rejected for multi-
+category ranges, with a 1e-9 arithmetic tolerance; roundoff above 100 normalizes
+the endpoints and leaves the middle at zero. Invalid input returns nil/reason,
+never another preset. These are proposed math semantics, not sandbox IDs/defaults.
+
+Sampling accepts a supplied roll in [0,1). Intervals are lower-inclusive and
+upper-exclusive; zero-probability buckets cannot win. Reusing a roll is
+deterministic, and the module owns no RNG. Tests exercise exact boundaries and
+a deterministic 1,000-point distribution, not merely random frequencies.
+
+Before any runtime integration: prove native speed/ownership/restoration; agree
+and localize authoritative sandbox options and ignored-input behavior; define
+stable zombie-life identity, separate Active/Inactive rolls and configuration
+revision/persistence; test replay, save/reload, reconnect and restart without
+rerolling on updates. Add bounded population scheduling only after those gates.
+The maintained standalone project needs its own parity acceptance evidence;
+this file neither changes that repository nor supplies its implementation.
+
+Run from the MORTIS root:
+
+```powershell
+python scripts/validate.py --test test_active_hours_weighted_design
+```
+
+Host Lua evidence is offline only. The runtime's 124-file syntax inventory does
+not include this experiment; its regression explicitly loads/compiles it.

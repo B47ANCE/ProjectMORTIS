@@ -1,5 +1,66 @@
 # Current validation
 
+Current development version: 0.25.0-dev.2
+
+[TESTED offline] Windows bundled Python / Lupa 2.6: 124 runtime Lua files compile; all 56 host cases pass (55 Lua 5.1, one Lua 5.4), plus all 26 Active Hours diagnostic cases. Unit mode passes 54 host cases plus those diagnostics and explicitly omits two dependency integrations. Food discovery, transaction and weighted-design cases additionally pass under Lua 5.4. New discovery and transaction edge-case regressions failed on dev.1 before their fixes. An additional malformed lazy-quote regression reproduced an exception after reservation before raw-field validation was added; it now verifies compensation. The catalog check found 27 missing tooltips before additions and now passes: 58 JSON catalogs, English page/name/tooltip coverage for all 37 sandbox options. No native PZ runtime evidence was produced.
+
+Full integration input: Knowledge & Wisdom 0.14.1, clean commit `a8ba91c8454a0a4cac937392d227e1ba1aebcaa3`, matching its public branch; 114 inputs are pinned in `evidence/knowledge-dependency-0.14.1.json`. The earlier 0.14.0 and 0.13.0 records remain historical.
+
+Commands from this root, using `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe` in place of the Store alias:
+
+```powershell
+python scripts/check_versions.py
+python scripts/check_localization.py
+python scripts/validate.py --test test_food_source_discovery
+python scripts/validate.py --test test_food_source_transactions
+python scripts/validate.py --test test_active_hours_weighted_design
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The three additional Lua 5.4 checks explicitly execute their test files with the same shared/client/server package paths. SHA-256 verification matches all 64 imported archive files and the exact archive inventory. A read-only comparison against the retained local takeover ledger matches Contents (128), dist (8811), compatibility-template (2) and examples (6) files. The 506 literal MORTIS requires resolve against the actual case-sensitive source inventory; no Java/JAR exists in source. Static case checks are not Linux runtime proof. All 13 current version mirrors pass.
+
+This checkpoint preserves API 1.6.0, replication protocol and saved component schemas. It aligns current scope with the standalone-retention policy documented in PR #4 without merging either PR. The 64-file archive and existing distribution artifacts remain historical. No runtime controller, gameplay settings, package, deployment, publication or game/server launch is introduced.
+
+G7 BLOCKED / NOT TESTED; stable G8 BLOCKED; Active Hours G2/G6 gates unchanged. Nightfall provider migration, native compensation/durability and complete locomotion/override restoration remain open. Non-English fluency and native fallback are unverified.
+
+---
+
+## Historical record — 0.25.0-dev.1 (unchanged original text)
+
+# Current validation
+
+Current development version: 0.25.0-dev.1
+
+[TESTED offline] Windows bundled Python / Lupa 2.6. Full mode compiles 124 runtime Lua files and passes 54 Lua host cases (53 Lua 5.1, one Lua 5.4), plus the 26-case Active Hours suite under Lua 5.1. Unit mode omits two dependency integrations; native PZ/SP/dedicated behavior remains NOT TESTED. Public API is now 1.6.0; replication and saved schemas are unchanged.
+
+Exact commands from the MORTIS root:
+
+```powershell
+python scripts/check_versions.py
+python scripts/validate.py --test test_food_source_transactions
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The exact interpreter remains `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`. Bare python is the Store alias. CI runs unit mode; its two omitted dependency integrations are not passing integration proof. Full local mode includes actual Knowledge & Wisdom source, separately from mocked native boundaries.
+
+M-05: actual FoodSources registration, FaultIsolation and Hunger runtime are exercised by the new regression. It covers ignored/partially throwing native setters; failed advancement before source callbacks; reserve/commit exceptions and partial source changes; invalid values/zero multiplier; component failure before/after writes; dispatcher failure; direct rollback despite circuit-breaker disablement; client/target preservation; recursive mutator rejection; two-zombie source contention; post-commit observer isolation; unsafe legacy callback refusal; native/source compensation failure and quarantine. The test failed before the fix. See FOOD_TRANSACTIONS.md for exact callback ownership, ordering, contract restrictions and runtime cases.
+
+All 13 current project mirrors pass. Legacy consume-only providers remain registered/discoverable but automatic consumption returns a migration requirement without calling them. Nightfall effigies are the known concrete consumer requiring a separate provider change; no consumer source was edited. No source rollback guarantee is manufactured for a nonconforming provider, irreversible external effects, permanent setter failure or process crash. Transient guards/quarantine are not a durable cross-resource journal.
+
+The 64-file Active Hours archive and prior MORTIS packages/evidence retain their original bytes and versions. No package was generated. G7 BLOCKED / NOT TESTED and stable G8 BLOCKED; Active Hours G2/G6 gates are unchanged. Verify migrated real-provider stock/tissue/claim and hunger conservation, observer state, native save/load, competing access, late join/rejoin and dedicated restart before runtime claims. No merge, deployment, publication or game/server launch is part of this iteration.
+
+---
+
+## Historical record — 0.24.0-dev.3 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.24.0-dev.3
 
 Documentation-only relationship correction (2026-10-16): Active Hours remains maintained standalone and disables its own execution when ProjectMORTIS is enabled. MORTIS includes the same feature scope. No MORTIS runtime/API/schema/version or archived import bytes change; no new runtime result is claimed. Version/whitespace/public-file checks apply to this follow-up; prior test records retain their actual versions. G2/G6/G7/G8 are unchanged.

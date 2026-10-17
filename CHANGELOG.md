@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.25.0-dev.2 - feeding hardening and roadmap groundwork, 2026-10-16
+
+- Isolate malformed provider/native coordinates, reject nonfinite priorities and consumption distances, preserve vanilla targeting when observation fails, and skip quarantined providers during discovery. Equal scores resolve deterministically by provider ID.
+- Reject nonnumeric/no-effect food quotes, including native rounding that leaves hunger unchanged, before consuming stock. Validate plain quote/candidate fields without invoking lazy getters that could bypass compensation. Preserve verified compensation and pending guards.
+- Complete all 37 English sandbox option tooltips (27 additions) and validate JSON/catalog integrity; non-English review and native fallback remain untested.
+- Start an offline weighted-range/CDF experiment outside runtime/package inputs; no production controller, settings, RNG or native writes.
+- Align current documentation with the retained standalone Active Hours policy from PR #4; MORTIS takes precedence when co-enabled. Public API remains 1.6.0, save schemas unchanged; native G7/stable G8 remain blocked.
+
+## 0.25.0-dev.1 - transactional feeding (M-05), 2026-10-16
+
+- New provider transaction contract, API 1.6.0: reserve a quoted portion, verify provisional hunger/cache state, then commit food removal. Abort invokes idempotent source compensation and restores hunger before returning failure.
+- Unsafe consume-only providers remain registered/discoverable but automatic consumption fails closed until migrated; Nightfall effigies require that consumer update. Existing provider implementations are not rewritten here.
+- Reject invalid quotes/multipliers and failed hunger advancement; guard callback reentrancy and defer ZombieFed until commit. Rollback failures quarantine the provider/entity instead of silently retrying.
+- Save schema and server authority remain unchanged. This is a synchronous Lua callback boundary, not durable cross-resource/crash atomicity; dedicated G7 and stable G8 remain BLOCKED.
+
 ## 0.24.0-dev.3 - audit corrections, 2026-10-16
 
 - Documentation clarification 2026-10-16: Active Hours remains maintained standalone while all features are included in MORTIS. When both are enabled, standalone execution is disabled; MORTIS wins. No MORTIS runtime/version/API/save change or upload.

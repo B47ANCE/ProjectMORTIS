@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.24.0-dev.3. Public API 1.5.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.25.0-dev.2. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -32,10 +32,10 @@ Automatic replication handlers require their multiplayer execution side. SP stil
 
 Resolved from the takeover audit at the source/offline level: M-01, M-02, M-03, M-04, M-06. Remaining items:
 
-- M-05: food-provider consumption can precede a failed feed. A reservation/commit or compensation contract needs a concrete consumer and compatibility review; this task does not change that provider API.
+- M-05 is corrected at the framework/offline boundary with the API 1.6.0 reserve/commit/rollback contract; see [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md). Consume-only providers fail closed at consumption range; Nightfall effigies still require a consumer migration. Native durability/compensation and dedicated evidence remain gated.
 - Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Unobserved native animation/lunge bookkeeping and existing consumer override-stack persistence remain open.
-- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.14.0; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
-- Translation tooltips and actual non-English translations remain incomplete. The historical `Contents/` copy remains stale; no current package was generated.
+- Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.14.1; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
+- English names/tooltips now cover all 37 sandbox options and are catalog-checked offline. Actual non-English translation quality and native fallback remain unverified. The historical `Contents/` copy remains stale; no current package was generated.
 - Native hunger/stat synchronization, corpse/save serialization, streaming/online-ID reuse, command relevance/rate behavior at high populations, headless execution, and restart/reconnect remain [RUNTIME GATE]. Fair progress under repeated permanent serializer/native failures also needs stress evidence; an unavailable provider does not become a PASS through retries.
 
 G7 BLOCKED / NOT TESTED. Stable-release G8 BLOCKED. No packaging, deployment, Workshop upload, game/server launch, or stable tag was performed.

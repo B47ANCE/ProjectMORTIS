@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.24.0-dev.3 playtester handoff
+# Project M.O.R.T.I.S. 0.25.0-dev.2 playtester handoff
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
@@ -20,3 +20,7 @@ Nightfall dependencies until this stage is reviewed.
 
 
 Active Hours is now a MORTIS subsystem in development. Its separate opt-in one-zombie/two-client experiment is in [docs/ACTIVE_HOURS.md](docs/ACTIVE_HOURS.md). Do not start it during the general stage-2 sequence above or enable either historical standalone proof. Native client/server activation and locomotion remain NOT TESTED.
+
+M-05 changes the food-provider contract to API 1.6.0. Do not treat Nightfall effigy consumption as available until its provider has migrated; follow docs/FOOD_TRANSACTIONS.md on a disposable fixture for compensation/persistence tests.
+
+Dev.2 adds discovery/quarantine/no-effect safeguards. In a disposable migrated-provider fixture, an ignored/rounded native write or invalid quote must not remove stock; a quarantined provider must not hide a healthy source for another zombie. Confirm all 37 English sandbox option names/tooltips in the native settings UI; other-language fallback remains untested. The weighted-range experiment is offline only and supplies no new gameplay option.

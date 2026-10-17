@@ -8,6 +8,7 @@ import subprocess
 sys.dont_write_bytecode = True
 from lupa.lua51 import LuaRuntime
 from check_versions import ROOT, SOURCE, check
+from check_localization import check as check_localization
 
 ARGUMENTS = {
     'anatomy_attachments': 'API/AnatomyAttachments', 'anatomy_capabilities': 'API/AnatomyCapabilities',
@@ -30,6 +31,7 @@ def main():
     args = parser.parse_args()
     os.chdir(ROOT)
     failures = 0 if check() else 1
+    failures += 0 if check_localization() else 1
     lua_root = SOURCE / 'media/lua'
     search = ';'.join((lua_root / side).as_posix() + '/?.lua' for side in ('shared','client','server')) + ';'
     dependency_root = (args.knowledge_and_wisdom.resolve() / 'src' / DEPENDENCY / '42') if args.knowledge_and_wisdom else None

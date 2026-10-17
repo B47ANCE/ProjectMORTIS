@@ -13,7 +13,7 @@ local ok,report=Compatibility.negotiate(surface,{
 assert(ok and report.compatible and report.consumer=="Nightfall")
 assert(#report.missing==0 and #report.mismatched==0 and #report.errors==0)
 
-local low,lowReport=Compatibility.negotiate(surface,{minimum="1.5.1"})
+local low,lowReport=Compatibility.negotiate(surface,{minimum="1.6.1"})
 assert(not low and #lowReport.errors==1)
 local high,highReport=Compatibility.negotiate(surface,{maximumExclusive="1.5.0"})
 assert(not high and #highReport.errors==1)

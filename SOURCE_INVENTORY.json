@@ -23,7 +23,7 @@
     "dist/",
     "archive/active-hours-0.1.0-dev.4/"
   ],
-  "notes": "Contents is a preserved stale 0.23.0 packaging copy, not a current mirror. dist includes the immutable 0.23.2 ZIP and staging backups. No current development package is declared; these local artifacts are excluded from Git, not deleted. Workshop descriptions are current authoring metadata; prior-version paragraphs are historical. Active Hours is absorbed; archive/active-hours-0.1.0-dev.4 is a frozen historical source snapshot, excluded from runtime packages and current version mirrors. ACTIVE_HOURS_IMPORT.json pins all imported bytes; ignored original native research is not redistributed.",
+  "notes": "Contents is a preserved stale 0.23.0 packaging copy, not a current mirror. dist includes the immutable 0.23.2 ZIP and staging backups. No current development package is declared; these local artifacts are excluded from Git, not deleted. Workshop descriptions are current authoring metadata; prior-version paragraphs are historical. Active Hours is absorbed; archive/active-hours-0.1.0-dev.4 is a frozen historical source snapshot, excluded from runtime packages and current version mirrors. ACTIVE_HOURS_IMPORT.json pins all imported bytes; ignored original native research is not redistributed. Active Hours remains independently maintained; MORTIS takes precedence when co-enabled. experiments/ contains offline design work, excluded from authoritative runtime roots and packaging inputs.",
   "validation": [
     "python scripts/check_versions.py",
     "python scripts/validate.py --knowledge-and-wisdom <dependency-root>",
@@ -36,5 +36,8 @@
     "workshop.txt",
     "WORKSHOP_DESCRIPTION.txt",
     "WORKSHOP_CHANGE_NOTE.txt"
+  ],
+  "offline_experiments": [
+    "experiments/active-hours/"
   ]
 }
