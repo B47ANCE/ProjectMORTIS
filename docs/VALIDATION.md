@@ -1,5 +1,74 @@
 # Current validation
 
+Current development version: 0.26.0-dev.2
+
+[TESTED: offline] Compatible preparation checkpoint on merged main baseline
+19a5f1bac7d872008cb591259d12608d4be41e74. Windows bundled Python 3.12.14 / Lupa
+2.6: 130 runtime Lua files compile; all 63 host Lua regressions, 26 Active Hours
+diagnostic cases and four disposable Python input-verifier cases pass. All 13
+version mirrors and 87 JSON catalogs pass, including 37 English sandbox options
+and 29 creator UI fallback catalogs. No native PZ process was invoked.
+
+New regressions verify reviewed creator output bytes through real registries and
+profile interpretation, missing trait/behavior refusal, neutral registration and
+duplicate preservation. The bootstrap is substituted; no native content load or
+provider behavior is proved. Isolated Active Hours data experiments cover two
+supplied rolls, repeat/module-snapshot retention, revision/life conflicts,
+malformed/future records, CDF integration, dawn/dusk boundaries, synthetic short/
+long/wrapped windows and explicit endless kinds. They do not supply RNG, actual
+storage, networking, solar observations or population execution.
+
+The pinned Knowledge & Wisdom input is 0.15.0 at exact committed source
+ca5b724c63d49ab224f96b2daea3e17ad7498e44. All 118 source/metadata files were
+compared to Git blobs and the isolated snapshot; the full command verifies the
+new evidence manifest before integrations. Inventory SHA-256:
+`c036b4d85f0667942b8d7b78ae6abbbf16428c3979e8068e1a151ebfa0bb820e`.
+The earlier 0.15.0 manifest remains historical: 72 identical files and 46 CRLF-only
+differences from the committed LF input, with no semantic difference found.
+No dependency checkout was modified. The runner records verified input separately
+from passing tests; omitting the optional evidence flag records false.
+
+The negative CLI check with the historical manifest
+(`python scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-ca5b724 --dependency-evidence docs/evidence/knowledge-dependency-0.15.0.json`)
+refuses its unsupported old format with exit 1. It replaces the prior result
+with explicit failed preflight, zero syntax files and unverified input; a stale
+PASS is not left behind. The full exact-input command was then rerun successfully.
+
+Commands from this root with the configured real Python (not the Store alias):
+
+```text
+python scripts/check_versions.py
+python scripts/validate.py --test test_creator_export_fixture
+python scripts/validate.py --test test_active_hours_life_design
+python scripts/validate.py --test test_active_hours_phase_design
+python -B -m unittest discover -s tests -p test_dependency_input.py
+python scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-ca5b724 --dependency-evidence docs/evidence/knowledge-dependency-ca5b724-git-bytes.json
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+CI retains --unit-only and omits the two dependency integrations. Disposable
+verifier tests reject changed line endings, missing/extra source, unsafe paths,
+unsupported/corrupt/duplicate-key manifests. The actual fixture absolute path is
+local and not a portable dependency location; recreate the selected input at
+that commit, or substitute its root argument. Historical evidence is preserved.
+
+Runtime-source diff from baseline is exactly the three version mirrors; fixtures,
+experiments and proposed settings remain outside runtime roots. Native creator
+menu/focus/controller/file durability/Unicode, full locomotion restoration and
+simulation ownership, solar/life-identity/consumer recovery contracts, feeding,
+Linux, save/rejoin/restart and dedicated evidence remain open. Existing assignment
+IDs can be cleared/regenerated and are not proven per-life tokens. See the
+updated RUNTIME_AUDIT_HANDOFF.md and ACTIVE_HOURS_DESIGN.md. G7 BLOCKED / NOT TESTED;
+stable G8 BLOCKED; production Active Hours G2/G6 unchanged. No package, deployment,
+game/server launch, upload or stable tag.
+
+---
+
+## Historical record - 0.26.0-dev.1 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.26.0-dev.1
 
 [TESTED: offline] Main-menu creator development MINOR on main a3238a31f909cec63aeb12c7b7666562c94e34fe. Windows bundled Python 3.12.14 / Lupa 2.6: 130 runtime Lua files compile, all 60 host cases pass plus 26 Active Hours cases. Unit mode passes 58 host cases plus those diagnostics and explicitly omits two dependency integrations. Current 13 version mirrors and 87 JSON catalogs pass; all 29 creator UI catalogs have fallback key parity. No native PZ runtime was invoked.

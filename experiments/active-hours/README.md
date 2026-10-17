@@ -1,4 +1,4 @@
-# Weighted-range design experiment
+# Active Hours offline design experiments
 
 This starts the weighted-selection roadmap as offline Lua mathematics. It is
 outside `src/`, absent from packaging inputs, unregistered and not a public API.
@@ -30,11 +30,32 @@ rerolling on updates. Add bounded population scheduling only after those gates.
 The maintained standalone project needs its own parity acceptance evidence;
 this file neither changes that repository nor supplies its implementation.
 
+`life_choices.lua` adds a detached candidate/retained-record experiment with
+supplied independent active/inactive rolls. Same life/revision/key retains both;
+stale revisions, mismatched lives, changed keys without a revision, unknown or
+future records and replacement rolls on retention refuse. It does not draw RNG,
+serialize/checkpoint, allocate identity, replay leases or mutate saved inputs.
+Tests model record/module reload only, not native persistence or networking.
+
+`phase_window.lua` classifies supplied normal/endless windows with dawn-inclusive,
+dusk-exclusive daylight, wrapped intervals and complementary Day/Night modes.
+Both needs no solar input. Synthetic short/long windows are not seasonal engine
+evidence. There is no climate reader, population callback or native writer.
+
+The [configuration/lifecycle proposal](../../docs/ACTIVE_HOURS_DESIGN.md) records
+proposed options, ignored inputs, per-life identity and parity acceptance.
+Assignment IDs can be cleared/regenerated; a durable life token and canonical
+selection encoding remain unresolved integration requirements. None of these
+experiments is a final production validator/controller or registered schema.
+
 Run from the MORTIS root:
 
 ```powershell
 python scripts/validate.py --test test_active_hours_weighted_design
+python scripts/validate.py --test test_active_hours_life_design
+python scripts/validate.py --test test_active_hours_phase_design
 ```
 
-Host Lua evidence is offline only. The runtime's 124-file syntax inventory does
-not include this experiment; its regression explicitly loads/compiles it.
+Host Lua evidence is offline only. The runtime syntax inventory excludes these
+experiments; their regressions explicitly load/compile them. The normal full and
+unit-only runners discover all three regressions.

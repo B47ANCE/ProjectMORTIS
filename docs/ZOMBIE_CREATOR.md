@@ -43,6 +43,15 @@ English UI text and fallback are authored in 29 UI.json catalogs with identical 
 
 ## Evidence and native acceptance
 
+The repository-only [reviewed export fixture](../tests/fixtures/creator_export/README.md)
+contains a trusted draft input and exact generated `Definitions.lua`. Run
+`python scripts/validate.py --test test_creator_export_fixture` to compare the
+generator and exercise missing-trait, missing-behavior, neutral registration and
+duplicate refusal through real registries/profile interpretation. The bootstrap
+is substituted; no native module load or world action is tested. These example
+provider references are deliberately absent, and no installable Mod ID, real
+provider behavior, package, spawn policy or automatic import is supplied.
+
 [VERIFIED: installed Lua source] Steam build 25485521; full executed game version UNKNOWN. MainScreen event/focus methods, ISUI child/controller lifecycle, text/combobox/button/modal controls and vanilla preset file call forms were inspected. [Portable fingerprints](evidence/creator-ui-25485521.json) record the source inputs. No game code was copied or executed; four precise call-form observations were recorded in the local API draft.
 
 [TESTED: offline Lua 5.1] Model/export, alternating library storage and modeled UI/native boundaries are covered by test_creator_model.lua, test_creator_store.lua and test_creator_ui.lua. These exercise actual editor modules and generated code against actual Types/Profile APIs. Widget/file mocks do not prove engine UI or disk behavior.

@@ -23,13 +23,32 @@ ARGUMENTS = {
 DEPENDENCY = 'B47ANCEDKnowledgeAndWisdom'
 INTEGRATIONS = {'test_research_archive', 'test_history_dependency'}
 
+def write_report(args, records, count, dependency_verified):
+    report = {'version':(ROOT/'VERSION').read_text().strip(), 'environment':'Offline Lupa, NOT PZ runtime',
+              'dependency_input_verified':dependency_verified,
+              'dependency_evidence':str(args.dependency_evidence) if args.dependency_evidence else None,
+              'syntax_files':count, 'tests':records, 'G7':'BLOCKED / NOT TESTED', 'G8':'BLOCKED'}
+    (ROOT / 'validation-results.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--knowledge-and-wisdom', type=Path, help='B47ANCEDKnowledgeAndWisdom repository root')
+    parser.add_argument('--dependency-evidence', type=Path, help='Verify selected dependency against exact-byte manifest before tests')
     parser.add_argument('--unit-only', action='store_true')
     parser.add_argument('--test', help='Run only a named test stem')
     args = parser.parse_args()
     os.chdir(ROOT)
+    if args.dependency_evidence:
+        if not args.knowledge_and_wisdom:
+            parser.error('--dependency-evidence requires --knowledge-and-wisdom')
+        from check_dependency_input import verify
+        try:
+            inputs = verify(args.knowledge_and_wisdom, args.dependency_evidence)
+        except (ValueError, OSError, TypeError) as error:
+            print('FAIL: ' + str(error))
+            write_report(args, [{'test':'dependency_input_preflight', 'status':'FAIL', 'error':str(error)}], 0, False)
+            return 1
+        print('PASS: exact dependency input; ' + str(inputs) + ' files')
     failures = 0 if check() else 1
     failures += 0 if check_localization() else 1
     lua_root = SOURCE / 'media/lua'
@@ -81,15 +100,18 @@ def main():
             failures += 1
             records.append({'test':path.name, 'status':'FAIL', 'error':str(error)})
     if not args.test:
+        result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_dependency_input.py'],
+                                cwd=ROOT, capture_output=True, text=True)
+        failures += int(result.returncode != 0)
+        records.append({'test':'test_dependency_input.py', 'status':'PASS' if result.returncode == 0 else 'FAIL',
+                        'runtime':'Python / disposable files', 'output':result.stdout + result.stderr})
         result = subprocess.run([sys.executable, 'scripts/test_active_hours.py'], cwd=ROOT,
                                 capture_output=True, text=True,
                                 env={**os.environ, 'B47_PROOF_LUA':'51'})
         failures += int(result.returncode != 0)
         records.append({'test':'test_active_hours.py', 'status':'PASS' if result.returncode == 0 else 'FAIL',
                         'runtime':'Lua 5.1 / Python', 'output':result.stdout + result.stderr})
-    report = {'version':(ROOT/'VERSION').read_text().strip(), 'environment':'Offline Lupa, NOT PZ runtime',
-              'syntax_files':count, 'tests':records, 'G7':'BLOCKED / NOT TESTED', 'G8':'BLOCKED'}
-    (ROOT / 'validation-results.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+    write_report(args, records, count, bool(args.dependency_evidence))
     for row in records:
         print(row['status'] + ': ' + row['test'] + (' - ' + row.get('error',row.get('reason','')) if 'error' in row or 'reason' in row else ''))
     return 1 if failures else 0

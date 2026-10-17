@@ -106,8 +106,19 @@ All Active Hours features belong in MORTIS as well as the maintained standalone 
 
 ## Transactional feeding follow-up
 
-M-05 coordination is implemented; [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md) defines the API 1.6.0 provider contract. The next consumer work is migrating Nightfall effigies from one-step consumption and verifying tissue/claim compensation. Preserve source IDs and authoritative sandbox rates. Actual native durability, contention, late join and restart remain G7 gates.
+M-05 coordination and Nightfall's effigy adapter are implemented and merged;
+[FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md) defines the API 1.6.0 provider contract.
+Nightfall 0.29.1 includes exclusive leases, reversible tissue/claim persistence
+and consumed tombstones. Next is native verification of compensation and source
+durability under contention, late join and restart. Preserve source IDs and
+authoritative sandbox rates. There is no remaining source migration TODO here.
 
 Development has started on the [offline weighted-range experiment](../experiments/active-hours/README.md). It implements proposed validation/CDF mathematics only, outside runtime/package roots. Production weighted selection, authoritative sandbox configuration, durable life/revision rolls and native gates remain open. The [current execution queue](MASTER_ROADMAP.md#current-execution-queue) distinguishes completed source corrections from these blockers.
+
+0.26.0-dev.2 adds a reviewed creator export fixture and isolated supplied-roll/
+phase experiments, with a [configuration, lifecycle and parity proposal](ACTIVE_HOURS_DESIGN.md).
+These complete preparation only: no final server validator, solar adapter,
+world persistence or production controller is installed. Native creator UI and
+storage checks are separate from gameplay authority/restoration tests.
 
 Dev.3 implements the [observed override recovery slice](LOCOMOTION_OVERRIDES.md). Consumer leases are not replayed after owner loss; cleanup requires coordination, and profile writes wait while overrides own movement. Full restoration/native MP gates remain open.

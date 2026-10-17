@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.26.0-dev.2 - creator export fixture and offline roadmap, 2026-10-16
+
+- Add a reviewed repository-only creator export with a golden-output regression through real registries: missing trait/behavior providers fail before registration, successful content keeps neutral defaults, and duplicate installation preserves the original.
+- Remove obsolete feeding-migration TODOs and prepare current test inputs, creator acceptance and the pre-runtime execution queue.
+- Document proposed server sandbox settings, phase boundaries, independent life identity, selection revision/persistence and standalone parity acceptance. Add isolated supplied-roll retention and phase-window experiments; no production options, solar adapter, RNG, world schema or controller is installed.
+- Preserve historical dependency fingerprints and add an exact committed-byte inventory plus opt-in validation preflight. The old 0.15.0 record differs only by CRLF in 46 files; reports now separate verified input from passing integration tests.
+- Compatible checkpoint within unreleased 0.26.0; public API 1.6.0 remains unchanged. Native creator UI/storage, authority/restoration and dedicated lifecycle remain NOT TESTED; G7 and stable G8 remain BLOCKED.
+
 ## 0.26.0-dev.1 - main-menu zombie creator, 2026-10-16
 
 - Add a release-mode main-menu Zombie Creator: identity, movement/durability, appearance and trait/behavior references, local draft management and read-only Lua preview/export.
