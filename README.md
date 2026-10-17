@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.4`
+- Version: `0.26.0-dev.5`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -121,5 +121,16 @@ the reviewed [feature overview](docs/MOD_OVERVIEW.json), and a
 [read-only preflight command](docs/PREFLIGHT.md). Normal validation checks the
 overview version/source digest. The [Nightfall audit](docs/NIGHTFALL_INTEGRATION_AUDIT.md)
 reproduces three P1 cleanup/identity defects and a diagnostics coverage gap;
-these consumer fixes remain open. No production Active Hours options/controller
+the subsequent merged Nightfall fixes have [separate source-closure evidence](docs/NIGHTFALL_INTEGRATION_CLOSURE.md). No production Active Hours options/controller
 or Nightfall gameplay changes are installed by this checkpoint.
+
+0.26.0-dev.5 closes the four Nightfall findings for corrected source with exact
+merged-input regressions and optional read-only Nightfall preflight checks.
+The isolated [Active Hours ownership/reconfiguration model](docs/ACTIVE_HOURS_OWNERSHIP_MODEL.md)
+retains cleanup, separates release/acquire checkpoints and freezes uncertain
+outcomes. It adds no runtime controller, native storage or new gameplay setting.
+
+Combined Nightfall regression checks run separately through
+`python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom <exact-dependency-root> --nightfall <exact-Nightfall-root>`.
+They are not part of unit-only CI. Exact merged-input evidence and the current
+candidate are reported separately in the source-closure and validation documents.

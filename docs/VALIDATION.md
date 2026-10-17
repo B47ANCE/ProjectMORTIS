@@ -1,5 +1,82 @@
 # Current validation
 
+Current development version: 0.26.0-dev.5
+
+[TESTED — offline Windows CPython 3.12.14 / Lupa 2.6, 2026-10-17]
+Based on merged MORTIS PR #9, f4ca76c99122f9d652325c5cda49bc14cfc2c02a.
+Final Git identity/CI results belong to the iteration PR. Runtime source differs
+only in three version mirrors; API 1.6.0 and world/creator/network schemas are
+unchanged. The ownership reducer and all new tooling stay outside runtime roots.
+
+Full local validation PASS: 65 Lua host files, 26 Active Hours diagnostic cases,
+19 Python cases, 130 runtime Lua compilations, 15 version mirrors and 87 JSON
+catalogs. The 120-file exact Knowledge input is verified before both actual-source
+consumer integrations. Unit-only CI excludes those two integrations; it does not
+run the separate optional Nightfall checker. Non-English fluency/native fallback
+and all native test cases remain unverified.
+
+[TESTED — combined host regression] All three selected Nightfall regression files
+PASS against both frozen merged MORTIS dev.4 and this dev.5 input, with real
+MORTIS/Knowledge modules, modeled native methods and identified production UV
+fragments. The full UV bootstrap and other family providers are not certified.
+Merged source closure is NF-M01–NF-M04 SOURCE FIXED / OFFLINE PASS; native consumer
+acceptance remains open. The original failing 0.30.0 audit is retained as history.
+See NIGHTFALL_INTEGRATION_CLOSURE.md and its portable merged-input report.
+
+Current MORTIS runtime/authoring inventory: 224 files, SHA-256
+`eb6511e3471e89796ad0c5973ba99bd0c28186abea302fe34d7e490532bb8601`.
+Frozen Nightfall 0.30.1-dev.1 / 5690021f6d6f5b87ba86e8c9964c527de6d168aa:
+159 source/selected-test inputs, inventory
+`13d990e03efee25eb52e750698f0f2a290a283f62a920fffdd44c0d878a62181`.
+Knowledge remains 0.16.0 / 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426.
+The reviewed overview digest/schema matches the installed shared hub algorithm.
+Different historical Contents layouts safely require review; no copy is rebuilt.
+
+[TESTED — pure ownership model] Pending targets, release-before-acquire,
+checkpoint declarations, safe cancellation, fresh-token explicit retry, stale/
+duplicate/wrong-context receipts, uncertain-result freeze/reload, life/session
+refusal, queued/reverted/skipped selection revisions, invalid/future records and
+detached inputs pass. Review caught a queued-selection reversion validity defect;
+the new regression failed before its correction and passes now. The model uses
+caller-supplied context/receipt declarations and implements no actual checkpoint,
+CAS, lifetime identity, native adapter, storage, transport or population policy.
+
+[TESTED — read-only local preflight] MORTIS/Knowledge/Nightfall exact inputs,
+reviewed contracts and overview PASS. Other Nightfall family installations are
+NOT CHECKED. Optional engine file inspection still returns BLOCKED (exit 2):
+custom launcher/classpath and two differing loose classes; packaged engine hash
+and explicit Steam build 25485521 match the selected baseline. The intentional
+Knowledge MP-storage implementation block remains. No clean effective next launch
+or runtime PASS is inferred. Malformed/changed/unsupported inputs refuse with
+redacted errors; native class data is inspected as bytes, never executed.
+
+Exact commands from MORTIS root using the configured Python and pinned requirements:
+
+```text
+python -B scripts/check_versions.py
+python -B scripts/check_overview.py
+python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json
+python -B scripts/check_nightfall_integration.py --mortis ../.mortis-merge-fixtures/mortis-f4ca76c --mortis-evidence docs/evidence/mortis-f4ca76c-runtime.json --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021
+python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021
+python -B scripts/preflight_runtime.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021 --game-root <explicit-local-game-root> --steam-manifest <explicit-local-appmanifest_108600.acf>
+python -B scripts/check_public.py --staged
+git diff --cached --check
+```
+
+All tests requiring an open game/server stay human-operated. Native creator
+UI/storage, dependency stage-1 review, full locomotion/animation/restoration,
+independent life identity, real lease/storage recovery, solar samples, observer/
+join/reconnect/restart, Linux dedicated and whole-family startup remain NOT TESTED.
+Production Active Hours and affected Knowledge MP persistence remain blocked.
+G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. No production package, deployment,
+game/server launch, Workshop upload, engine change or stable tag.
+
+---
+
+## Historical 0.26.0-dev.4 validation
+
+# Current validation
+
 Current development version: 0.26.0-dev.4
 
 [TESTED — offline Windows Python 3.12.14 / Lupa 2.6, 2026-10-17]
