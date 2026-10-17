@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.26.0-dev.1; public API 1.6.0.
+Canonical version: 0.26.0-dev.2; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
@@ -53,12 +53,19 @@ M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACT
 
 ## Current execution queue
 
-- IMPLEMENTED / OFFLINE: dev.2 rejects malformed source positions, invalid/no-effect quotes and unavailable target observations; quarantined providers cannot hide healthy providers. Native/provider compensation still needs runtime proof.
-- IMPLEMENTED / OFFLINE: all 37 sandbox options have English names/tooltips; JSON/catalog validation is part of the normal runner. Non-English translation quality and native fallback are not verified.
-- STARTED / OFFLINE EXPERIMENT: [weighted-range validation/CDF](../experiments/active-hours/README.md) covers inclusive categories, weight rules, exact sampling boundaries and stable supplied rolls. It is outside runtime/package roots, not a final validator/controller or native gate bypass.
-- NEXT / RUNTIME GATE: reviewed dependency stage-1 PASS, then the existing one-zombie/two-client passive/speed/owner/release experiment. Dev.3 implements an observed-field override journal and profile-writer exclusion; full animation/lunge restoration, live lease recovery and native durability remain unresolved.
-- IMPLEMENTED / OFFLINE: Nightfall 0.29.1-dev.1 effigy adapter, including exclusive leases, reversible tissue/claim persistence, post-success removal and inert consumed tombstones. Its full suite passes 63 Lua and 19 Python tests; native behavior remains unverified.
-- AFTER NATIVE PROOF: agree authoritative localized sandbox settings, solar API evidence, durable per-life/config-revision rolls, bounded lifecycle scheduling and standalone parity tests. Do not enable production policy ahead of those gates.
+| Priority / item | Current evidence | Next action |
+| --- | --- | --- |
+| Creator first scope | IMPLEMENTED / OFFLINE: local drafts, validation, export and reviewed [consumer fixture](../tests/fixtures/creator_export/README.md); no spawn manager or live import | Run the separate native menu/input/storage checklist in [ZOMBIE_CREATOR.md](ZOMBIE_CREATOR.md) |
+| Feeding M-05 and Nightfall adapter | IMPLEMENTED / MERGED / OFFLINE: API 1.6.0 coordination, input/quarantine safeguards, Nightfall 0.29.1 transaction adapter in merged PR #2 | Native contention, compensation, removal, persistence and dedicated lifecycle; no second migration TODO |
+| Active Hours preparation | IMPLEMENTED / OFFLINE DESIGN: CDF, supplied life/revision choices and phase intervals; [sandbox/lifecycle proposal and parity matrix](ACTIVE_HOURS_DESIGN.md) | Review against native findings; do not load experiments into runtime |
+| Dependency and locomotion proof | NEXT / RUNTIME GATE: handoff prepared; observed-field journal/profile exclusion implemented | Reviewed current Knowledge & Wisdom stage-1 PASS, SP baseline, then isolated one-zombie/two-client authority/motion/owner/release proof |
+| Active Hours production | BLOCKED: native authority/restoration, independent durable life identity, solar evidence and coordinated ownership contracts | After proof, implement server sandbox interpretation/localization, solar adapter, durable choices, bounded lifecycle and separate standalone parity in slices |
+| Wider native validation | NOT TESTED: anatomy/materials, research, groups/memory, Linux, load/save/rejoin/restart; English catalogs are offline only | Run scoped cases with exact build evidence; fluent translation review remains separate |
+
+The pre-runtime source slice is complete for 0.26.0-dev.2: reviewed creator
+fixture, corrected queue, proposed sandbox/lifecycle contract, isolated choice/
+phase regressions and current handoff inputs. Remaining gameplay work is not
+made safe by further mocks. No native gate or standalone parity is marked PASS.
 
 ## Dev.3 roadmap slice
 
@@ -71,3 +78,14 @@ The user requested preparation of the runtime tests. [RUNTIME_AUDIT_HANDOFF.md](
 ## Main-menu authoring slice - 0.26.0-dev.1
 
 IMPLEMENTED / OFFLINE: [zombie definition creator](ZOMBIE_CREATOR.md), available in the main-menu client source outside debug mode. Reusable drafts, validation, existing inline profiles, appearance/trait/behavior references, Lua preview/export, local alternating checkpoints, controller/focus/discard handling and localized English fallback. This is a content-authoring tool, not a spawn manager, 3D renderer, live registry editor or server import endpoint. Native main-menu activation/layout/file behavior remain NOT TESTED; production Active Hours and existing G7/G8 gates are unchanged.
+
+## Offline preparation - 0.26.0-dev.2
+
+The [reviewed export fixture](../tests/fixtures/creator_export/README.md) checks
+the actual generator against an explicit golden file and exercises provider and
+duplicate refusals before registration. It is outside runtime/package roots.
+[Active Hours design](ACTIVE_HOURS_DESIGN.md) specifies proposed server settings,
+phase boundaries, independent per-life identity, two retained rolls and revision
+refusals. Its pure experiments neither persist data nor read native astronomy.
+Existing assignment IDs can be cleared/regenerated and are not proven life IDs.
+Production schema, solar adapter, ownership recovery and all native gates stay open.

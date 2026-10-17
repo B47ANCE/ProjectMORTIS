@@ -8,9 +8,9 @@ Before testing, fetch/check each chosen branch without changing source, reconcil
 
 | Input | Prepared source | Required evidence |
 | --- | --- | --- |
-| Knowledge & Wisdom | 0.15.0, ca5b724c63d49ab224f96b2daea3e17ad7498e44 | Reviewed current stage-1 result; older handoff headings are not current proof |
-| MORTIS | 0.25.0-dev.4, API 1.6.0, protocol 2 | Record this handoff commit and artifact/input hashes; implementation baseline 2f9b03a376aaecc751e6c10ffcf399916f444400 |
-| Nightfall, only in the later consumer suite | 0.29.1 combined candidate, fix/effigy-food-transactions | 9a681a1f62df87a7eccf946b9796cee92ff8a798 ([PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2)); original provider snapshot in docs/audits/0.29.1-dev.1.dependencies.json; combined inputs in tests/dependencies.lock.json |
+| Knowledge & Wisdom | 0.15.0, ca5b724c63d49ab224f96b2daea3e17ad7498e44 | Reviewed current stage-1 result; offline input bytes in evidence/knowledge-dependency-ca5b724-git-bytes.json; older handoff headings are not current proof |
+| MORTIS | 0.26.0-dev.2 candidate, API 1.6.0, protocol 2 | Record the selected dev.2 commit and artifact/input hashes before testing. Merged creator baseline 19a5f1bac7d872008cb591259d12608d4be41e74 is 0.26.0-dev.1; dev.2 runtime diff contains version mirrors only |
+| Nightfall, only in the later consumer suite | 0.29.1, merged main | 0c4c902201c7125c56b2055fc78846b12c1b8306 ([merged PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2)); combined tested source head f2e9caeab1b34f7c934c71e01ea28d91cdfb1035; freeze dependencies from tests/dependencies.lock.json and record any later changes |
 | Later Nightfall dependencies | lightWorks, B47ANCEDPower, B47ANCEDHealthCare, B47ANCEDKnowledgeAndWisdom, ProjectMORTIS | Freeze their exact versions/commits/hashes. Spectrum was dirty during offline audit; its HEAD alone cannot identify tested bytes |
 | Engine | Locally inspected Steam build 25485521; executed SemVer UNKNOWN | Record actual full client and server versions/build IDs, OS and selected class/source provenance; stop on mismatch |
 
@@ -71,6 +71,23 @@ Record source ID/status/revision, source parts/calories/edible material, exact a
 | Save/reload, late join/rejoin, streaming and dedicated restart | Record source/tombstone, absence of duplicate stock/reward and hunger consistency on all peers; cross-resource crash atomicity is not implemented or certified |
 
 Fault injection/native inspection without a supported surface is BLOCKED. Offline tests already simulate these faults; they do not close the native rows. No real player saves or automatic repair scripts.
+
+## Separate creator acceptance suite
+
+Use [ZOMBIE_CREATOR.md](ZOMBIE_CREATOR.md#evidence-and-native-acceptance) for the
+local presentation/storage suite, separate from gameplay stage ordering. Record
+the selected MORTIS/dependency/engine commits and builds just as above. Cover
+release-mode entry, repeated navigation and another menu mod; every section,
+mouse/keyboard/controller/modal paths; 800x600/larger/scaled/too-small layouts;
+Unicode, save/reopen/delete/restart; disposable A/B corruption/future/stale/write
+failures; preview/export equality and existing-file preservation. Verify no
+world registration, assignment, spawning or network effect.
+
+The reviewed repository fixture tests generator/registry contracts offline; it
+does not prove main-menu loading or native file durability. A separately owned
+manual content fixture needs actual chosen dependencies and matching peer bytes;
+its in-world behavior retains the gameplay gates. Missing native observation or
+safe fault-injection surfaces are BLOCKED, not simulated PASS.
 
 ## Result record - copy once per case
 

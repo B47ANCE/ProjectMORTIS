@@ -1,6 +1,13 @@
 # Transactional food providers — M-05
 
-Current contract: API 1.6.0, `Mortis.FoodSources.TRANSACTION_VERSION == 1`. Project iteration: 0.25.0-dev.4. The old automatic path called destructive `consume` before `Hunger.feed` verified the native hunger setter. A rejected/ignored setter could therefore remove food without feeding the zombie. MORTIS now refuses that unsafe one-step automatic path.
+Current contract: API 1.6.0, `Mortis.FoodSources.TRANSACTION_VERSION == 1`.
+Introduced in project iteration 0.25.0-dev.1; current project version is root
+`VERSION`. The old automatic path called destructive `consume` before
+`Hunger.feed` verified the native hunger setter. A rejected/ignored setter could
+therefore remove food without feeding the zombie. MORTIS now refuses that unsafe
+one-step automatic path. Nightfall 0.29.1's migrated effigy adapter is merged in
+[PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2); native durability and
+compensation remain unverified.
 
 ## Provider registration and migration
 

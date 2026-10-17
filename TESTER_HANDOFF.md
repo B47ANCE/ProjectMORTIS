@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.26.0-dev.1 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.2 playtester handoff
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
@@ -30,3 +30,11 @@ Dev.3: follow docs/LOCOMOTION_OVERRIDES.md with a non-default original speed mod
 Dev.4: use the [complete runtime audit handoff](docs/RUNTIME_AUDIT_HANDOFF.md) for exact build records, dependency stage-1 review, isolated SP stage 2, the dedicated two-client experiment, Nightfall feeding and per-case result forms. It prepares tests; no game/server launch, installation or deployment was performed or authorized.
 
 For the local main-menu Zombie Creator, follow docs/ZOMBIE_CREATOR.md on disposable draft files. Verify release-mode entry/activation, repeated menu navigation, all fields, controller/keyboard/focus, scale/resize, save/load/delete, Unicode, preview/export, preservation on faults and no world/network effects. No 3D preview, spawning or automatic server import is included. Gameplay stage-1/stage-2 and dedicated gates remain separate.
+
+0.26.0-dev.2 adds the reviewed repository-only creator export fixture and isolated
+Active Hours life/revision/phase experiments. These are offline preparation,
+not installed gameplay or runtime evidence. The current input table and separate
+creator acceptance suite are in docs/RUNTIME_AUDIT_HANDOFF.md. Nightfall 0.29.1's
+feeding migration is merged; remaining feeding work is native verification.
+Proposed settings and the unresolved independent life-token/solar/owner contracts
+are in docs/ACTIVE_HOURS_DESIGN.md. Preserve G7/stable G8 BLOCKED.

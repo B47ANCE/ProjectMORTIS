@@ -39,5 +39,8 @@
   ],
   "offline_experiments": [
     "experiments/active-hours/"
+  ],
+  "offline_fixtures": [
+    "tests/fixtures/creator_export/"
   ]
 }

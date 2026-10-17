@@ -42,3 +42,22 @@ The exact-version assertion introduced in the initial consumer test was a test d
 ## Current dependency integration — 0.25.0-dev.3
 
 [TESTED offline] Both research/history integrations pass against Knowledge & Wisdom 0.15.0, clean commit `ca5b724c63d49ab224f96b2daea3e17ad7498e44`, matching its public feature branch. `evidence/knowledge-dependency-0.15.0.json` binds all 118 current source/metadata inputs. Prior fingerprints remain historical; no new minimum-version pin, native runtime proof or dependency edits are implied.
+
+## Exact committed input correction - 0.26.0-dev.2
+
+The previous 0.15.0 inventory is preserved as historical working-tree evidence.
+Comparison against exact ca5b724 Git blobs found 72 byte-identical files and 46
+CRLF-only differences; no semantic content difference was found. The isolated
+test fixture matches all 118 committed inputs, including the entire 42 source
+root plus canonical VERSION, info.txt and thumbnail metadata. The previous record
+must not be cited as the hash of that LF Git snapshot.
+
+[evidence/knowledge-dependency-ca5b724-git-bytes.json](evidence/knowledge-dependency-ca5b724-git-bytes.json)
+now records those committed bytes and inventory SHA-256
+`c036b4d85f0667942b8d7b78ae6abbbf16428c3979e8068e1a151ebfa0bb820e`.
+Full offline integrations pass with the explicit `--dependency-evidence` flag;
+the runner checks hashes, missing/extra source files, inventory digest and safe
+paths before testing. Disposable Python cases include changed line endings,
+missing/extra files, unsafe paths and future/corrupt/duplicate-key manifests.
+Input verification is recorded separately from test success. This is not a new
+minimum version, a dependency source edit or native load/save/MP evidence.

@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.26.0-dev.1. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.26.0-dev.2. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 
@@ -32,7 +32,7 @@ Automatic replication handlers require their multiplayer execution side. SP stil
 
 Resolved from the takeover audit at the source/offline level: M-01, M-02, M-03, M-04, M-06. Remaining items:
 
-- M-05 is corrected at the framework/offline boundary with the API 1.6.0 reserve/commit/rollback contract; see [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md). Consume-only providers fail closed at consumption range; Nightfall effigies still require a consumer migration. Native durability/compensation and dedicated evidence remain gated.
+- M-05 is corrected at the framework/offline boundary with the API 1.6.0 reserve/commit/rollback contract; see [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md). Consume-only providers fail closed at consumption range; Nightfall 0.29.1 includes the merged effigy adapter. Native durability/compensation and dedicated evidence remain gated.
 - Observable locomotion fields are now captured, checkpointed, and restored as described in [LOCOMOTION_RESTORATION.md](LOCOMOTION_RESTORATION.md). Missing legacy originals are refused. Dev.3 also journals/restores the override service's five observed fields and excludes competing profile writes; live owner leases, unobserved native animation/lunge bookkeeping and native durability remain open. See LOCOMOTION_OVERRIDES.md.
 - Dependency metadata, imports and harness now use B47ANCEDKnowledgeAndWisdom. Actual-source research/history integration passes offline against 0.15.0; native load/save/MP remains NOT TESTED. See DEPENDENCY_MIGRATION.md.
 - English names/tooltips now cover all 37 sandbox options and are catalog-checked offline. Actual non-English translation quality and native fallback remain unverified. The historical `Contents/` copy remains stale; no current package was generated.

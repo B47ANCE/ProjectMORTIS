@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.1`
+- Version: `0.26.0-dev.2`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -74,6 +74,13 @@ Root `VERSION` is canonical; see [version policy](docs/VERSION_POLICY.md) and [s
 
 Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --knowledge-and-wisdom <B47ANCEDKnowledgeAndWisdom-repository-root>`. CI runs `--unit-only` and explicitly omits both actual-source dependency integrations; run the full command locally. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
 
+For the pinned 0.15.0/ca5b724 dependency input, add
+`--dependency-evidence docs/evidence/knowledge-dependency-ca5b724-git-bytes.json`.
+This verifies all selected file hashes and the complete source inventory before
+running tests; line-ending differences are failures. Other deliberately selected
+dependency versions need their own reviewed input record. Without this flag the
+runner records dependency input verification as false, even when integrations pass.
+
 The authority/replication fixes and remaining limitations are described in [AUTHORITY_REPLICATION.md](docs/AUTHORITY_REPLICATION.md), with [current validation](docs/VALIDATION.md) and [GitHub onboarding provenance](docs/ONBOARDING.md). Client hunger reads no longer author state; assignment clears synchronize with stale-message protection; directed replies preserve pending broadcasts. All multiplayer peers must use the same build.
 
 Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata use B47ANCEDKnowledgeAndWisdom; current actual-source integration is tested against 0.15.0; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.
@@ -93,3 +100,11 @@ Dev.4 prepares the [runtime audit test handoff](docs/RUNTIME_AUDIT_HANDOFF.md), 
 ## Main-menu zombie creator
 
 The local Zombie Creator authors reusable definitions with identity, movement tier, durability, appearance and registered trait/behavior references. Save/load/delete drafts, inspect generated Lua and export a reviewed definition for a separate content mod. It works outside debug mode and does not spawn, assign or install gameplay content. [Creator guide and native test cases](docs/ZOMBIE_CREATOR.md). Native menu, focus and file behavior remain NOT TESTED.
+
+0.26.0-dev.2 adds a [reviewed export fixture](tests/fixtures/creator_export/README.md)
+and isolated Active Hours choice/phase experiments, with a
+[server configuration and lifecycle proposal](docs/ACTIVE_HOURS_DESIGN.md).
+They are outside runtime/package roots. Feeding coordination and Nightfall's
+adapter are merged source work; native validation is next. The
+[execution queue](docs/MASTER_ROADMAP.md#current-execution-queue) separates completed
+offline preparation from the native authority/restoration and identity blockers.

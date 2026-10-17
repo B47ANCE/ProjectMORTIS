@@ -51,6 +51,14 @@ The next milestone is manual passive loading/sampling of this integrated harness
 
 The [dev.2 weighted-range experiment](../experiments/active-hours/README.md) starts offline design work without adding a runtime validator or bypassing the archived speed-proof prerequisite. It has no hooks, RNG, gameplay settings, native writes or persisted state; its test explicitly loads it from outside `src/`. It does not establish standalone parity or complete per-life choice semantics.
 
+0.26.0-dev.2 extends isolated design with supplied life/revision choices and
+normal/endless phase intervals. [ACTIVE_HOURS_DESIGN.md](ACTIVE_HOURS_DESIGN.md)
+records proposed localized sandbox copy, existing-save/refusal behavior, identity
+and revision requirements and a parity acceptance matrix. No settings or
+controller are installed. Canonical assignment IDs are not proven lifetime IDs;
+the experiment requires an externally supplied life token, not an assumed native
+identity. Actual solar evidence, persistent lifecycle and native gates remain open.
+
 ## Human-operated dedicated experiment
 
 Stop before installation/launch in this development task. The following is preparation, not a claim it ran.
