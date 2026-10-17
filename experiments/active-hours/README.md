@@ -61,8 +61,16 @@ python scripts/validate.py --test test_active_hours_weighted_design
 python scripts/validate.py --test test_active_hours_life_design
 python scripts/validate.py --test test_active_hours_phase_design
 python scripts/validate.py --test test_active_hours_config_design
+python scripts/validate.py --test test_active_hours_ownership_design
 ```
 
 Host Lua evidence is offline only. The runtime syntax inventory excludes these
 experiments; their regressions explicitly load/compile them. The normal full and
-unit-only runners discover all four regressions.
+unit-only runners discover all five regressions.
+
+`ownership.lua` is a detached per-life/session reducer, documented in
+[the ownership model](../../docs/ACTIVE_HOURS_OWNERSHIP_MODEL.md). It retains one
+pending target, releases its own lease before replacement, preserves confirmed
+refusal for explicit retry, safely cancels unissued work and freezes uncertain
+outcomes. Inputs, checkpoint declarations and receipts are simulated; it installs
+no storage, API adapter, handler or native policy and never redraws life choices.

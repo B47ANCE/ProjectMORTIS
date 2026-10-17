@@ -14,9 +14,9 @@ Before testing, fetch/check each chosen branch without changing source, reconcil
 | Input | Prepared source | Required evidence |
 | --- | --- | --- |
 | Knowledge & Wisdom | 0.16.0, source head 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, merged dependency PR #1 | Reviewed current scoped SP stage-1 result; exact input in evidence/knowledge-dependency-6ba66c0-git-bytes.json. Affected MP APIs refuse storage; no guard bypass or downgrade |
-| MORTIS | 0.26.0-dev.3 candidate, API 1.6.0, protocol 2 | Record selected feat/human-runtime-test-handoff head and artifact/input hashes before testing. Merged creator baseline 19a5f1bac7d872008cb591259d12608d4be41e74 is 0.26.0-dev.1; later runtime diff contains version mirrors only |
-| Nightfall, only in the later consumer suite | 0.29.1, merged main | 0c4c902201c7125c56b2055fc78846b12c1b8306 ([merged PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2)); combined tested source head f2e9caeab1b34f7c934c71e01ea28d91cdfb1035; freeze dependencies from tests/dependencies.lock.json and record any later changes |
-| Later Nightfall dependencies | lightWorks, B47ANCEDPower, B47ANCEDHealthCare, B47ANCEDKnowledgeAndWisdom, ProjectMORTIS | Freeze their exact versions/commits/hashes. Spectrum was dirty during offline audit; its HEAD alone cannot identify tested bytes |
+| MORTIS | 0.26.0-dev.5 candidate, API 1.6.0, protocol 2 | Record selected feat/integration-ownership-model head and current mortis-runtime-input.json hashes; frozen merged dev.4 closure uses f4ca76c99122f9d652325c5cda49bc14cfc2c02a. Runtime diff since the creator baseline remains version mirrors only |
+| Nightfall, only in the later consumer suite | 0.30.1-dev.1, merged PR #6 | 5690021f6d6f5b87ba86e8c9964c527de6d168aa; source closure/regressions in NIGHTFALL_INTEGRATION_CLOSURE.md; native acceptance remains open |
+| Later Nightfall dependencies | B47ANCEDSPXTRM, B47ANCEDPower, B47ANCEDHealthCare, B47ANCEDKnowledgeAndWisdom, ProjectMORTIS | Freeze exact inputs and loader contracts. Optional Nightfall preflight verifies MORTIS/Knowledge pairing only; the other three installations remain NOT CHECKED. Historical dirty snapshots are not current proof |
 | Engine | Locally inspected Steam build 25485521; executed SemVer UNKNOWN | Record actual full client and server versions/build IDs, OS and selected class/source provenance; stop on mismatch |
 
 Record server profile/world ID (redacted), disposable save lineage, enabled Mod IDs/load order, full sandbox settings, client A/B roles and verified native simulation-owner observation method. A native owner must be observed through an established surface; proximity or MORTIS canonical authority is not proof of ownership. A text/RCON console is not assumed to evaluate Lua. If server Lua execution or native-owner observation is unavailable, mark the affected case BLOCKED and report the missing surface. Do not add Java, an injection agent, guessed commands or client setters.
@@ -73,7 +73,7 @@ Full animation/lunge/private-helper restoration has no verified complete inverse
 
 ## Stage 4 - migrated Nightfall feeding
 
-Only after prerequisite reviews, use a separate disposable full-family world with the frozen Nightfall fix and current dependencies. Follow Nightfall docs/EFFIGIES.md and docs/VALIDATION_0.29.1.md (the original provider report remains historical). Do not mix this consumer suite into the isolated speed proof.
+Only after prerequisite reviews, use a separate disposable full-family world with the frozen Nightfall fix and current dependencies. Follow Nightfall docs/EFFIGIES.md, docs/MORTIS_RECOVERY.md and docs/VALIDATION_0.30.1-dev.1.md (older provider/audit reports remain historical). Do not mix this consumer suite into the isolated speed proof.
 
 Record source ID/status/revision, source parts/calories/edible material, exact actor identity, native hunger/component hunger/starvation and event count before/after. Check canonical and material-less legacy sources, all source-signature reactions and the research requirement. A 600-calorie source at the default 2000 calories/full feed quotes .3 before the existing server multiplier and hunger clamp; elapsed advancement is separate. Attraction/avoidance/destruction must not grant feeding.
 

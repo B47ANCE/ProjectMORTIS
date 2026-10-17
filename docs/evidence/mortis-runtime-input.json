@@ -1,14 +1,14 @@
 {
   "manifest_version": 1,
   "dependency_mod_id": "ProjectMORTIS",
-  "version": "0.26.0-dev.4",
+  "version": "0.26.0-dev.5",
   "source_repository": "https://github.com/B47ANCE/ProjectMORTIS",
   "source_roots": [
     "src/ProjectMORTIS/42"
   ],
-  "evidence": "Exact runtime/authoring input for 0.26.0-dev.4, based on 6af5d141a2342179233db9131e749ee7b819383e with version mirrors only. Git commit is recorded by the iteration PR; this manifest does not self-pin tools or experiments. NOT PZ runtime proof.",
+  "evidence": "Exact current 0.26.0-dev.5 runtime/authoring input, based on merged f4ca76c99122f9d652325c5cda49bc14cfc2c02a with version mirrors only. Tools/experiments are outside this inventory; final Git identity is recorded by the iteration PR. NOT PZ runtime proof.",
   "inventory_algorithm": "SHA-256 of sorted UTF-8 relative-path + NUL + file-sha256 + LF rows",
-  "inventory_sha256": "6d760166c91b228750374af1ed247852827665f62d82402233f1ab3e8e080903",
+  "inventory_sha256": "eb6511e3471e89796ad0c5973ba99bd0c28186abea302fe34d7e490532bb8601",
   "files": {
     "src/ProjectMORTIS/42/icon.png": "e88b3eae98a9a499f67649c7739b366b060006161bab59a880ed1841a7bedb4f",
     "src/ProjectMORTIS/42/media/lua/client/Mortis/Creator/MainMenu.lua": "c17b0e537dfa99ac6ad31407d3bb88c3511901660c73687f3c5a67e963f747cf",
@@ -68,7 +68,7 @@
     "src/ProjectMORTIS/42/media/lua/shared/Mortis/Definitions/CorePileSupports.lua": "6f94015114200798defd7f432e8cca2b01690556b3ae23a1eb4074a1759e317b",
     "src/ProjectMORTIS/42/media/lua/shared/Mortis/Definitions/VerifiedVanillaWeapons.lua": "8850bbfd209e7e7b236967a8ba5dd84d1cda9be5aec6f7e869be2cfa1b61d36b",
     "src/ProjectMORTIS/42/media/lua/shared/Mortis/Diagnostics/ActiveHoursShared.lua": "ea0287ed889946138f6fb3a4ef88bcc5c81b3002f03eb52535b9bd53711b142f",
-    "src/ProjectMORTIS/42/media/lua/shared/Mortis/init.lua": "116d3f8f32ab84a0c46f50622db6aa3b6ca0427decd02d2f8fcc694abb2caf0a",
+    "src/ProjectMORTIS/42/media/lua/shared/Mortis/init.lua": "5dbbc2bc48fca15b766d68fb237134d25dfe443bfe00c2fa4967e8ff2ad3c6fa",
     "src/ProjectMORTIS/42/media/lua/shared/Mortis/Integrations/HistoryEvidence.lua": "680d381cbbef19d47643e468986c3610f54d60950888274fcb12c00054149247",
     "src/ProjectMORTIS/42/media/lua/shared/Mortis/Runtime/Adapters/AnimationAdapter.lua": "370c8339ce0c4df7e8deed6942b9528d32a87a72a93995e79e64815448f36d24",
     "src/ProjectMORTIS/42/media/lua/shared/Mortis/Runtime/Adapters/AppearanceAdapter.lua": "7580bcc4b3ada98c1341f2c5ae859d699e039955ffa1481129983af992375458",
@@ -230,9 +230,9 @@
     "src/ProjectMORTIS/42/media/lua/shared/Translate/UA/UI.json": "d5476981cea6a76a99f794c977eea2678926df954e9c56288338745b338c85ed",
     "src/ProjectMORTIS/42/media/sandbox-options.txt": "1d1ffe8d6388c8afdc0ec71779b7719b13101c3f8d521226037cafaa29a91541",
     "src/ProjectMORTIS/42/media/scripts/ProjectMORTIS_Research.txt": "37b78b0cf44e5bc332c0ab6eab353b520ced5cd0e91e917b8130b46981b3d3bd",
-    "src/ProjectMORTIS/42/mod.info": "4cd7a464079c8fa2f383e2256b86f27a1ee8500b896ccce46f3d55ade086779d",
-    "src/ProjectMORTIS/info.txt": "3664b504e8d4461fb36dba1d0812c58ed3dfabcdd66360a882b1b4c0f443cf91",
+    "src/ProjectMORTIS/42/mod.info": "73198ad0de2f202bbef8fc1983075f34a678512c3a4324451a0b15b7cb2bd7b4",
+    "src/ProjectMORTIS/info.txt": "7aef6f6b79ffbace8388c12d2b72f603c565307224c1aa5c4eb1cba6b5f47e3f",
     "src/ProjectMORTIS/thumbnail.png": "96fd1307ded1ed61e3616434a7311c97e7d623523287bded1518f108e82c6dbe",
-    "VERSION": "d38b93e5561606b6cc28b9bef86b6c078e9d0e993002daaedb4843e5c853254f"
+    "VERSION": "13ff5f3d388a5df0098bf9b38627beab0ae4c0c2ee20dd12ff8857fa6d87d28e"
   }
 }

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.26.0-dev.5 - integration closure and ownership model, 2026-10-17
+
+- Verify the exact merged MORTIS/Nightfall/Knowledge combination with pinned consumer regressions; preserve the original failing audit and add separate source-closure evidence.
+- Reconcile current roadmap, overview and human handoff with all four Nightfall source fixes; native acceptance remains unverified.
+- Extend read-only preflight with optional exact Nightfall input, loader/API/food/recovery contracts and explicit unverified remaining dependencies. It executes no Lua, launches no process and writes no report.
+- Add an isolated Active Hours ownership/reconfiguration reducer and failure/replay/lifecycle regressions outside runtime roots; no production policy, storage or controller is installed.
+- Compatible 0.26.0 development checkpoint; runtime changes are version mirrors only, API 1.6.0 unchanged. All native tests remain human-operated; G7/stable G8 BLOCKED.
+
 ## 0.26.0-dev.4 - offline configuration, overview and preflight, 2026-10-17
 
 - Normalize the proposed Active Hours configuration in an isolated experiment. Encode selected probabilities as reduced rational keys; equivalent distributions, ignored fields and phase/enablement changes retain choices. No production validator, options, RNG, persistence or controller is installed.

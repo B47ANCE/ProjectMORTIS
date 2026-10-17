@@ -21,7 +21,9 @@
     "SHA256SUMS.txt",
     "Contents/",
     "dist/",
-    "archive/active-hours-0.1.0-dev.4/"
+    "archive/active-hours-0.1.0-dev.4/",
+    "docs/evidence/mortis-f4ca76c-runtime.json",
+    "docs/evidence/nightfall-closure-merged-inputs.json"
   ],
   "notes": "Contents is a preserved stale 0.23.0 packaging copy, not a current mirror. dist includes the immutable 0.23.2 ZIP and staging backups. No current development package is declared; these local artifacts are excluded from Git, not deleted. Workshop descriptions are current authoring metadata; prior-version paragraphs are historical. Active Hours is absorbed; archive/active-hours-0.1.0-dev.4 is a frozen historical source snapshot, excluded from runtime packages and current version mirrors. ACTIVE_HOURS_IMPORT.json pins all imported bytes; ignored original native research is not redistributed. Active Hours remains independently maintained; MORTIS takes precedence when co-enabled. experiments/ contains offline design work, excluded from authoritative runtime roots and packaging inputs.",
   "validation": [
@@ -29,7 +31,8 @@
     "python scripts/validate.py --knowledge-and-wisdom <dependency-root>",
     "python scripts/test_active_hours.py",
     "python -B scripts/check_overview.py",
-    "python -B scripts/preflight_runtime.py --knowledge-and-wisdom <exact-dependency-root>"
+    "python -B scripts/preflight_runtime.py --knowledge-and-wisdom <exact-dependency-root>",
+    "python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom <exact-dependency-root> --nightfall <exact-Nightfall-root>"
   ],
   "authoring_assets": [
     "src/ProjectMORTIS/info.txt",

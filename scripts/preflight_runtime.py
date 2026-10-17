@@ -10,6 +10,7 @@ import re
 import zipfile
 from check_dependency_input import verify, _unique
 from check_overview import check as check_overview, linked, safe
+from check_nightfall_input import inspect as inspect_nightfall, EVIDENCE as NIGHTFALL_EVIDENCE
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,7 +38,8 @@ def sha(path, limit=512000000):
 
 
 def preflight(mortis, knowledge, mortis_evidence, dependency_evidence, game=None,
-              engine_evidence=None, steam_manifest=None, environment=None):
+              engine_evidence=None, steam_manifest=None, environment=None,
+              nightfall=None, nightfall_evidence=None):
     rows = []
     versions = {}
     def record(name, status, detail):
@@ -48,7 +50,10 @@ def preflight(mortis, knowledge, mortis_evidence, dependency_evidence, game=None
     ):
         try:
             manifest = read_json(evidence)
-            version = safe(root, 'VERSION').read_text(encoding='utf-8-sig').strip()
+            version_file = safe(root, 'VERSION')
+            if version_file.stat().st_size>256 or manifest.get('source_roots') != ['src/'+mod_id+'/42'] or 'VERSION' not in manifest.get('files', {}):
+                raise ValueError('incomplete runtime scope')
+            version = version_file.read_text(encoding='utf-8-sig').strip()
             if not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?', version):
                 raise ValueError('invalid-version')
             if manifest.get('version') != version or manifest.get('dependency_mod_id') != mod_id:
@@ -60,12 +65,29 @@ def preflight(mortis, knowledge, mortis_evidence, dependency_evidence, game=None
                 # This is a reviewed input contract, not code inference or an API call.
                 record('knowledge_mp_contract', 'BLOCKED' if manifest.get('multiplayer_status') else 'UNKNOWN',
                        'Selected input has an unresolved MP implementation contract; no bypass or downgrade.')
-        except (OSError, ValueError, TypeError, KeyError):
+        except (OSError, ValueError, TypeError, KeyError, RecursionError):
             record(name+'_input', 'ERROR', 'Selected input/manifest is missing, malformed or does not match; no file contents or local paths are printed.')
+    if nightfall is None:
+        if nightfall_evidence is not None:
+            record('nightfall_input', 'ERROR', 'Nightfall evidence requires an explicit Nightfall source selection.')
+        else:
+            record('nightfall_input', 'NOT SELECTED', 'Optional consumer excluded; no Nightfall acceptance implied.')
+    else:
+        try:
+            if 'mortis' not in versions or 'knowledge' not in versions:
+                raise ValueError('dependency input unavailable')
+            consumer = inspect_nightfall(mortis, nightfall, nightfall_evidence or NIGHTFALL_EVIDENCE)
+            versions['nightfall'] = consumer['version']
+            record('nightfall_input', 'PASS', consumer)
+            record('nightfall_remaining_dependencies', 'NOT CHECKED',
+                   {'mod_ids':['B47ANCEDSPXTRM','B47ANCEDPower','B47ANCEDHealthCare'],
+                    'scope':'Loader requirements reviewed; these other installations and native startup were not inspected.'})
+        except (OSError, ValueError, TypeError, KeyError, RecursionError):
+            record('nightfall_input', 'ERROR', 'Selected Nightfall input/manifest or reviewed dependency contract differs; no private paths or source contents printed.')
     try:
         check_overview(mortis)
         record('overview', 'PASS', 'Reviewed descriptor matches this checkout layout, version and source; source review only.')
-    except (OSError, ValueError, TypeError):
+    except (OSError, ValueError, TypeError, RecursionError):
         record('overview', 'ERROR', 'Descriptor/evidence is missing or stale for this checkout layout.')
     env = os.environ if environment is None else environment
     injected = [name for name in ('JAVA_TOOL_OPTIONS','JDK_JAVA_OPTIONS','_JAVA_OPTIONS','CLASSPATH') if env.get(name)]
@@ -152,9 +174,14 @@ def main():
     parser.add_argument('--game-root', type=Path)
     parser.add_argument('--steam-manifest', type=Path)
     parser.add_argument('--engine-evidence', type=Path, default=ROOT/'docs/evidence/native-test-preflight-25485521.json')
+    parser.add_argument('--nightfall', type=Path, help='Optional exact Nightfall source; never executes Lua')
+    parser.add_argument('--nightfall-evidence', type=Path, help='Explicit reviewed Nightfall input manifest')
     args = parser.parse_args()
+    if args.nightfall_evidence and not args.nightfall:
+        parser.error('--nightfall-evidence requires --nightfall')
     report = preflight(ROOT,args.knowledge_and_wisdom,args.mortis_evidence,args.dependency_evidence,
-                       args.game_root,args.engine_evidence,args.steam_manifest)
+                       args.game_root,args.engine_evidence,args.steam_manifest,
+                       nightfall=args.nightfall,nightfall_evidence=args.nightfall_evidence)
     print(json.dumps(report,indent=2))
     return {'ERROR':1,'BLOCKED':2,'INPUT_CHECKS_PASS':0}[report['status']]
 

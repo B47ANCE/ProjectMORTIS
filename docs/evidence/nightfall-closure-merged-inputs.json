@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "mortis_version": "0.26.0-dev.4",
+  "mortis_input": {
+    "commit": "f4ca76c99122f9d652325c5cda49bc14cfc2c02a",
+    "inventory_sha256": "6d760166c91b228750374af1ed247852827665f62d82402233f1ab3e8e080903"
+  },
+  "nightfall_input": {
+    "version": "0.30.1-dev.1",
+    "commit": "5690021f6d6f5b87ba86e8c9964c527de6d168aa",
+    "files": 159,
+    "inventory_sha256": "13d990e03efee25eb52e750698f0f2a290a283f62a920fffdd44c0d878a62181",
+    "mortis_api": "1.6.0",
+    "food_transaction_version": 1,
+    "recovery_record_version": 1,
+    "scope": "Exact input and reviewed source contracts only; other family mods and native execution NOT VERIFIED"
+  },
+  "knowledge_commit": "6ba66c0d8f246d438f2e2f3c974fee9f77fdb426",
+  "tests": [
+    {
+      "test": "test_mortis_recovery.lua",
+      "status": "PASS"
+    },
+    {
+      "test": "test_mortis_lifecycle_recovery.lua",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_diagnostics.lua",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Offline Lua 5.1; real modules, modeled native boundaries and identified production fragments; no whole UV bootstrap",
+  "native_tests": "HUMAN / NOT TESTED",
+  "G7": "BLOCKED / NOT TESTED",
+  "G8": "BLOCKED"
+}
