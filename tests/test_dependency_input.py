@@ -47,6 +47,15 @@ class DependencyInput(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'unsafe dependency path'):
                 verify(self.root, self.manifest)
 
+    def test_input_budgets(self):
+        self.manifest.write_text(' '*2000001)
+        with self.assertRaisesRegex(ValueError, 'unsafe dependency manifest'):
+            verify(self.root,self.manifest)
+        self.write()
+        (self.root/'src/API.lua').write_bytes(b'x'*10000001)
+        with self.assertRaisesRegex(ValueError, 'oversized'):
+            verify(self.root,self.manifest)
+
     def test_future_and_corrupt_manifest(self):
         for version in (2, True, 1.0, '1'):
             self.data['manifest_version'] = version

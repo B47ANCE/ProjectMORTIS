@@ -56,10 +56,36 @@ class Preflight(unittest.TestCase):
     def write_config(self):
         (self.game/'ProjectZomboid64.json').write_text(json.dumps(self.config))
 
-    def run_preflight(self,game=True,environment=None):
+    def run_preflight(self,game=True,environment=None,nightfall=None,nightfall_evidence=None):
         return preflight(self.mortis,self.knowledge,self.me,self.ke,
                          self.game if game else None,self.baseline,self.steam,
-                         {} if environment is None else environment)
+                         {} if environment is None else environment,
+                         nightfall,nightfall_evidence)
+
+    def refresh_manifest(self,path,root):
+        data=json.loads(path.read_text())
+        names=['VERSION']+[p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file()]
+        data['files']={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in names}
+        data['inventory_sha256']=hashlib.sha256(''.join(n+'\0'+h+'\n' for n,h in sorted(data['files'].items())).encode()).hexdigest()
+        path.write_text(json.dumps(data));return data
+
+    def prepare_nightfall(self):
+        nf=self.root/'nightfall'; evidence=self.prepare(nf,'ProjectNightfall','0.30.1-dev.1')
+        required=['B47ANCEDSPXTRM','ProjectMORTIS','B47ANCEDPower','B47ANCEDHealthCare','B47ANCEDKnowledgeAndWisdom']
+        source=nf/'src/ProjectNightfall/42'
+        (source/'mod.info').write_text('id=ProjectNightfall\nmodversion=0.30.1-dev.1\nrequire='+','.join(required)+'\n')
+        module=source/'media/lua/shared/ProjectNightfall';module.mkdir(parents=True)
+        (module/'PN_MortisIntegration.lua').write_text('function Integration.recoverAssignment()\n-- ProjectNightfallAssignmentRecovery overrides.releaseCeiling data[RECOVERY_KEY]=pending')
+        (module/'PN_DependencyDiagnostics.lua').write_text('minimum="1.6.0" MULTIPLAYER_STORAGE_UNAVAILABLE')
+        api=self.mortis/'src/ProjectMORTIS/42/media/lua/shared/Mortis/API';api.mkdir(parents=True)
+        (api/'Compatibility.lua').write_text('Compatibility.VERSION = "1.6.0"\n')
+        (api/'FoodSources.lua').write_text('local FoodSources={TRANSACTION_VERSION = 1}')
+        self.refresh_manifest(self.me,self.mortis)
+        self.descriptor['source_digest']=source_digest(self.mortis);self.write_overview()
+        data=self.refresh_manifest(evidence,nf)
+        data['git_commit']='a'*40
+        data['integration_contract']={'mortis_api_minimum':'1.6.0','food_transaction_version':1,'recovery_record_version':1,'required_mod_ids':required}
+        evidence.write_text(json.dumps(data));return nf,evidence
 
     @staticmethod
     def rows(report): return {r['check']:r for r in report['checks']}
@@ -127,6 +153,57 @@ class Preflight(unittest.TestCase):
         after={p.relative_to(self.root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                for p in self.root.rglob('*') if p.is_file()}
         self.assertEqual(before,after)
+
+    def test_optional_consumer_absent(self):
+        report=self.run_preflight()
+        self.assertEqual(self.rows(report)['nightfall_input']['status'],'NOT SELECTED')
+        self.assertNotIn('nightfall',report['versions'])
+        self.assertEqual(self.run_preflight(nightfall_evidence=self.me)['status'],'ERROR')
+
+    def test_optional_consumer_exact_source_only(self):
+        nf,evidence=self.prepare_nightfall()
+        report=self.run_preflight(nightfall=nf,nightfall_evidence=evidence)
+        self.assertEqual(self.rows(report)['nightfall_input']['status'],'PASS')
+        self.assertEqual(self.rows(report)['nightfall_remaining_dependencies']['status'],'NOT CHECKED')
+        self.assertEqual(report['native_tests'],'HUMAN / NOT TESTED')
+        self.assertEqual(report['status'],'BLOCKED')
+
+    def test_optional_consumer_mismatch_and_redaction(self):
+        nf,evidence=self.prepare_nightfall()
+        (nf/'src/ProjectNightfall/42/mod.info').write_text('PRIVATE_CANARY_DO_NOT_PRINT')
+        report=self.run_preflight(nightfall=nf,nightfall_evidence=evidence)
+        self.assertEqual(self.rows(report)['nightfall_input']['status'],'ERROR')
+        self.assertNotIn('PRIVATE_CANARY_DO_NOT_PRINT',json.dumps(report))
+        self.assertNotIn(str(nf),json.dumps(report))
+
+    def test_optional_consumer_contract_and_api_refusal(self):
+        nf,evidence=self.prepare_nightfall()
+        api=self.mortis/'src/ProjectMORTIS/42/media/lua/shared/Mortis/API/Compatibility.lua'
+        api.write_text('Compatibility.VERSION = "1.5.0"\n')
+        self.refresh_manifest(self.me,self.mortis)
+        self.assertEqual(self.rows(self.run_preflight(nightfall=nf,nightfall_evidence=evidence))['nightfall_input']['status'],'ERROR')
+        api.write_text('Compatibility.VERSION = "1.6.0"\n');self.refresh_manifest(self.me,self.mortis)
+        data=json.loads(evidence.read_text());data['integration_contract']['recovery_record_version']=2;evidence.write_text(json.dumps(data))
+        self.assertEqual(self.rows(self.run_preflight(nightfall=nf,nightfall_evidence=evidence))['nightfall_input']['status'],'ERROR')
+        data['integration_contract']['recovery_record_version']=True;evidence.write_text(json.dumps(data))
+        self.assertEqual(self.rows(self.run_preflight(nightfall=nf,nightfall_evidence=evidence))['nightfall_input']['status'],'ERROR')
+
+    def test_optional_consumer_wrong_identity_and_scope(self):
+        nf,evidence=self.prepare_nightfall()
+        data=json.loads(evidence.read_text());data['dependency_mod_id']='Other';evidence.write_text(json.dumps(data))
+        self.assertEqual(self.rows(self.run_preflight(nightfall=nf,nightfall_evidence=evidence))['nightfall_input']['status'],'ERROR')
+        data['dependency_mod_id']='ProjectNightfall';data['source_roots']=['../private'];evidence.write_text(json.dumps(data))
+        self.assertEqual(self.rows(self.run_preflight(nightfall=nf,nightfall_evidence=evidence))['nightfall_input']['status'],'ERROR')
+        evidence.write_text('{"nested":'*1500+'{}'+'}'*1500)
+        self.assertEqual(self.rows(self.run_preflight(nightfall=nf,nightfall_evidence=evidence))['nightfall_input']['status'],'ERROR')
+
+    def test_optional_consumer_inspection_is_read_only(self):
+        nf,evidence=self.prepare_nightfall()
+        def snapshot():return {p.relative_to(self.root).as_posix():p.read_bytes() for p in self.root.rglob('*') if p.is_file()}
+        before=snapshot()
+        with patch('subprocess.Popen',side_effect=AssertionError('process launch forbidden')):
+            self.run_preflight(nightfall=nf,nightfall_evidence=evidence)
+        self.assertEqual(before,snapshot())
 
 
 if __name__=='__main__': unittest.main()

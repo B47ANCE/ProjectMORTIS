@@ -1,4 +1,8 @@
-# Nightfall integration audit — 2026-10-17
+# Historical Nightfall integration audit — 2026-10-17
+
+This record describes the original 0.30.0 input. For corrected merged 0.30.1-dev.1
+source and separate passing regressions, see [current closure](NIGHTFALL_INTEGRATION_CLOSURE.md).
+Original observations and their source versions remain unchanged below.
 
 [VERIFIED] First-party source audit against Nightfall 0.30.0 commit
 `6988b57b81ff0dbb859857eb79aace81c2e65c8f`, Knowledge & Wisdom 0.16.0 commit

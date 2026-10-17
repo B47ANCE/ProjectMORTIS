@@ -44,3 +44,19 @@ therefore requires review; never delete historical files to force a pass.
 
 Follow [the human queue](HUMAN_RUNTIME_TESTS.md) after reviewing results. All native
 cases remain HUMAN / NOT TESTED. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+
+## Optional Nightfall source
+
+Add `--nightfall <exact-Nightfall-source-root>` to either command. The default
+manifest pins merged 0.30.1-dev.1 / 5690021; `--nightfall-evidence <reviewed-json>`
+is available for a deliberately reviewed alternative. Supplying evidence without
+selecting Nightfall is an error. Omitted Nightfall is explicitly NOT SELECTED.
+
+The optional check verifies all selected bytes, VERSION/Mod ID/requirements and
+reviewed MORTIS API 1.6, food transaction v1 and recovery-record-v1 source contracts.
+It never executes the consumer tests or loads Lua. Source markers are not native
+capability observations. SPXTRM, Power and Health Care installations are explicitly
+NOT CHECKED; this command cannot certify the whole family. Guarded Knowledge MP
+storage and native gates remain blocked even when Nightfall source checks pass.
+Run the separate combined regression command in NIGHTFALL_INTEGRATION_CLOSURE.md
+for scoped actual-module host coverage. Preserve old source manifests as history.

@@ -1,6 +1,6 @@
 # Human runtime test queue
 
-Current candidate: 0.26.0-dev.4; API 1.6.0; replication protocol 2.
+Current candidate: 0.26.0-dev.5; API 1.6.0; replication protocol 2.
 The user clarified that tests requiring an open game are human-operated.
 Automated work here is offline/source preflight only. **No game/server was
 opened, mod deployed, save modified or native result collected.**
@@ -8,8 +8,8 @@ opened, mod deployed, save modified or native result collected.**
 Run the [read-only preflight](PREFLIGHT.md) before selecting a test scope. It
 checks exact input bytes and optional engine files without opening the game.
 A BLOCKED result identifies prerequisites; it is never native test evidence.
-Nightfall has [three state defects and a diagnostics gap](NIGHTFALL_INTEGRATION_AUDIT.md)
-to resolve before affected consumer acceptance.
+Nightfall has [source fixes and merged-combination regressions](NIGHTFALL_INTEGRATION_CLOSURE.md)
+for all four findings. Its native consumer acceptance remains a separate human suite.
 
 ## Resolve the client baseline first
 
@@ -31,7 +31,7 @@ Freeze these exact inputs; a source PR is not an installed/merged release:
 
 | Input | Candidate | Status |
 | --- | --- | --- |
-| MORTIS | Selected 0.26.0-dev.4 commit on feat/offline-config-preflight; record its SHA and match mortis-runtime-input.json | Development source, native NOT TESTED |
+| MORTIS | Selected 0.26.0-dev.5 commit on feat/integration-ownership-model; record its SHA and match mortis-runtime-input.json | Development source, native NOT TESTED |
 | Knowledge & Wisdom | 0.16.0, source head 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, merged dependency PR #1 | Clean public source; affected multiplayer APIs intentionally blocked |
 | Nightfall | Exclude from creator, dependency baseline, MORTIS baseline and isolated locomotion | Consumer feeding is a later separate suite |
 

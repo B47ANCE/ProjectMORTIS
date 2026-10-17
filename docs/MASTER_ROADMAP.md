@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.26.0-dev.4; public API 1.6.0.
+Canonical version: 0.26.0-dev.5; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
@@ -57,9 +57,9 @@ M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACT
 | --- | --- | --- |
 | Creator first scope | IMPLEMENTED / OFFLINE: local drafts, validation, export and reviewed [consumer fixture](../tests/fixtures/creator_export/README.md); no spawn manager or live import | Run the separate native menu/input/storage checklist in [ZOMBIE_CREATOR.md](ZOMBIE_CREATOR.md) |
 | Feeding M-05 and Nightfall adapter | IMPLEMENTED / MERGED / OFFLINE: API 1.6.0 coordination, input/quarantine safeguards, Nightfall 0.29.1 transaction adapter in merged PR #2 | Native contention, compensation, removal, persistence and dedicated lifecycle; no second migration TODO |
-| Active Hours preparation | IMPLEMENTED / OFFLINE DESIGN: CDF, supplied life/revision choices, phase intervals and configuration/key normalization; [sandbox/lifecycle proposal and parity matrix](ACTIVE_HOURS_DESIGN.md) | Review against native findings; do not load experiments into runtime |
-| Nightfall state integration | OPEN / OFFLINE: [three P1 defects and a P2 readiness gap](NIGHTFALL_INTEGRATION_AUDIT.md), exact pinned host reproduction | Correct disable/clear ownership, busy UV release bookkeeping and failed initial-assignment compensation; expose capability readiness, then repeat probes and human lifecycle tests |
-| Offline overview / preflight | IMPLEMENTED: reviewed version/source descriptor and [read-only input command](PREFLIGHT.md) | Recheck exact candidate before human test selection; no runtime PASS implied |
+| Active Hours preparation | IMPLEMENTED / OFFLINE DESIGN: CDF, supplied life/revision choices, phase intervals, configuration/key normalization and [isolated ownership/reconfiguration](ACTIVE_HOURS_OWNERSHIP_MODEL.md); [sandbox/lifecycle proposal and parity matrix](ACTIVE_HOURS_DESIGN.md) | Review against native findings; do not load experiments into runtime |
+| Nightfall state integration | SOURCE FIXED / MERGED / OFFLINE: [all four findings closed for the corrected source](NIGHTFALL_INTEGRATION_CLOSURE.md), exact merged-combination regressions | Human ownership/cleanup, compensation, observer and save/restart acceptance; Knowledge MP guard remains blocked |
+| Offline overview / preflight | IMPLEMENTED: reviewed version/source descriptor and [read-only input command with optional Nightfall](PREFLIGHT.md) | Recheck exact candidate before human test selection; no runtime PASS implied |
 | Dependency and locomotion proof | HUMAN / RUNTIME GATE: [current queue](HUMAN_RUNTIME_TESTS.md), clean-client prerequisite and 0.16.0 MP implementation guard recorded | Reviewed current scoped Knowledge & Wisdom stage-1 PASS, SP baseline, then isolated one-zombie/two-client proof only if no affected dependency MP API is needed |
 | Active Hours production | BLOCKED: native authority/restoration, independent durable life identity, solar evidence and coordinated ownership contracts | After proof, implement server sandbox interpretation/localization, solar adapter, durable choices, bounded lifecycle and separate standalone parity in slices |
 | Wider native validation | NOT TESTED: anatomy/materials, research, groups/memory, Linux, load/save/rejoin/restart; English catalogs are offline only | Run scoped cases with exact build evidence; fluent translation review remains separate |
@@ -112,3 +112,14 @@ The bounded Nightfall audit adds concrete source fixes ahead of its consumer
 acceptance; it does not undo the merged feeding adapter or enable production
 Active Hours. Human creator/dependency/locomotion sequence and all native gates
 remain unchanged. See NIGHTFALL_INTEGRATION_AUDIT.md and PREFLIGHT.md.
+
+## Integration closure and ownership model - 0.26.0-dev.5
+
+Completed offline: exact merged-combination Nightfall checks, all-four-findings
+source closure and optional Nightfall input/contract preflight. The original
+failing 0.30.0 audit stays historical. The isolated Active Hours reducer covers
+queued configuration, own-owner release before replacement, safe cancellation,
+explicit refusal retry and unknown-result/session freeze with choice retention.
+It writes no native state and implements no storage/controller. See
+ACTIVE_HOURS_OWNERSHIP_MODEL.md for checkpoints, tests and adapter prerequisites.
+Human clean-baseline, dependency review, creator and locomotion gates remain next.

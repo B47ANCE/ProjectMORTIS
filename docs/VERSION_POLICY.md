@@ -40,3 +40,10 @@ Runtime differences remain version mirrors only; API 1.6.0 and all runtime/save/
 network schemas are unchanged. The offline AHC1 selection-key format is not a
 production contract. Reviewed overview and exact runtime-input evidence become
 current mirrors; historical records retain their original versions.
+
+0.26.0-dev.5 is a compatible integration/tooling/design checkpoint within the
+unreleased 0.26.0 target. Runtime source differences are version mirrors only;
+API 1.6.0, creator/world/network schemas are unchanged. Ownership-model record
+version 1 is experimental and unregistered. Frozen merged MORTIS dev.4 input,
+Nightfall manifests and combined closure records are historical scoped evidence,
+not current MORTIS version mirrors or native proof.
