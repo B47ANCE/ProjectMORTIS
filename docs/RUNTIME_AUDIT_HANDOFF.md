@@ -2,14 +2,19 @@
 
 Prepared at the user's request. **No test below has run.** This document does not authorize installation, packaging, deployment, game/server launch or publication. A human must arrange each environment separately. Use disposable backed-up saves and private raw logs. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. Production Active Hours remains stopped at its native authority/restoration gate.
 
+The user's current instruction leaves tests requiring an open game to humans.
+Start with [HUMAN_RUNTIME_TESTS.md](HUMAN_RUNTIME_TESTS.md): it records the current
+clean-client blocker, 0.16.0 dependency guard, exact source inputs and case queue.
+Automation has not opened PZ/server or collected native UI/storage evidence.
+
 ## Freeze the build set and record the environment
 
 Before testing, fetch/check each chosen branch without changing source, reconcile unrelated dirty work, record exact commit and source/package SHA-256, then put identical bytes on every participant. Pending PRs are source branches, not merged main or uploaded Workshop builds. Never use the historical Contents trees or published old Active Hours proof as the new build.
 
 | Input | Prepared source | Required evidence |
 | --- | --- | --- |
-| Knowledge & Wisdom | 0.15.0, ca5b724c63d49ab224f96b2daea3e17ad7498e44 | Reviewed current stage-1 result; offline input bytes in evidence/knowledge-dependency-ca5b724-git-bytes.json; older handoff headings are not current proof |
-| MORTIS | 0.26.0-dev.2 candidate, API 1.6.0, protocol 2 | Record the selected dev.2 commit and artifact/input hashes before testing. Merged creator baseline 19a5f1bac7d872008cb591259d12608d4be41e74 is 0.26.0-dev.1; dev.2 runtime diff contains version mirrors only |
+| Knowledge & Wisdom | 0.16.0, source head 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, merged dependency PR #1 | Reviewed current scoped SP stage-1 result; exact input in evidence/knowledge-dependency-6ba66c0-git-bytes.json. Affected MP APIs refuse storage; no guard bypass or downgrade |
+| MORTIS | 0.26.0-dev.3 candidate, API 1.6.0, protocol 2 | Record selected feat/human-runtime-test-handoff head and artifact/input hashes before testing. Merged creator baseline 19a5f1bac7d872008cb591259d12608d4be41e74 is 0.26.0-dev.1; later runtime diff contains version mirrors only |
 | Nightfall, only in the later consumer suite | 0.29.1, merged main | 0c4c902201c7125c56b2055fc78846b12c1b8306 ([merged PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2)); combined tested source head f2e9caeab1b34f7c934c71e01ea28d91cdfb1035; freeze dependencies from tests/dependencies.lock.json and record any later changes |
 | Later Nightfall dependencies | lightWorks, B47ANCEDPower, B47ANCEDHealthCare, B47ANCEDKnowledgeAndWisdom, ProjectMORTIS | Freeze their exact versions/commits/hashes. Spectrum was dirty during offline audit; its HEAD alone cannot identify tested bytes |
 | Engine | Locally inspected Steam build 25485521; executed SemVer UNKNOWN | Record actual full client and server versions/build IDs, OS and selected class/source provenance; stop on mismatch |
@@ -18,11 +23,23 @@ Record server profile/world ID (redacted), disposable save lineage, enabled Mod 
 
 ## Stage 1 - Knowledge & Wisdom alone
 
-Use its current TESTER_HANDOFF.md, docs/RUNTIME_VALIDATION_0_14_0.md and docs/AUDIT_0_15_0.md together. The old procedure is reusable, but results must identify 0.15.0 and the frozen current bytes. On a disposable SP character, `B47ANCEDKnowledgeAndWisdomTestStart(true)` starts the existing kit; finish with `B47ANCEDKnowledgeAndWisdomTestReport()`.
+Use its current docs/IN_GAME_TESTING.md, docs/VALIDATION_0_16_0.md and
+docs/MP_AUTHORITY_PLAN.md with TESTER_HANDOFF.md and the reusable
+docs/RUNTIME_VALIDATION_0_14_0.md procedure. Results must identify 0.16.0 and
+the frozen current bytes. On a disposable SP debug character,
+`B47ANCEDKnowledgeAndWisdomTestStart(true)` starts the existing kit; finish with
+`B47ANCEDKnowledgeAndWisdomTestReport()`.
 
 Capture prerequisite denial before/after learning, viewer/redaction, one-time progression, journal save/reload and disabled inspection behavior. Add current 0.15.0 cases: malformed/unknown prerequisites deny, rejected journal operations preserve data, missing/corrupt journals do not expose actions, split-screen viewport/scroll/buttons and keyboard/controller. Native authoritative writing/capture, exact raw XP restoration and recipe/media capabilities remain separately blocked unless an actual supported path exists; do not invent a successful action to complete a row.
 
 Return the generated Knowledge & Wisdom report plus redacted errors/screenshots. Have it reviewed as PASS for the selected stage-1 scope before MORTIS stage 2. A scoped SP PASS does not close the dependency's dedicated/privacy/late-join/restart gates. If a prerequisite fails, stop dependent testing and retain the failed fixture.
+
+0.16.0 intentionally refuses affected multiplayer APIs with
+`MULTIPLAYER_STORAGE_UNAVAILABLE`. Missing server-private persistence is an
+implementation blocker, not merely missing test evidence. An isolated MORTIS
+locomotion experiment may proceed only after prerequisite review establishes
+that its setup needs no affected API; otherwise stop. Never infer dependency MP
+gameplay/privacy PASS from locomotion observations or restore unsafe 0.15.0 behavior.
 
 ## Stage 2 - MORTIS SP baseline
 

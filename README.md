@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.2`
+- Version: `0.26.0-dev.3`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -74,8 +74,8 @@ Root `VERSION` is canonical; see [version policy](docs/VERSION_POLICY.md) and [s
 
 Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --knowledge-and-wisdom <B47ANCEDKnowledgeAndWisdom-repository-root>`. CI runs `--unit-only` and explicitly omits both actual-source dependency integrations; run the full command locally. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
 
-For the pinned 0.15.0/ca5b724 dependency input, add
-`--dependency-evidence docs/evidence/knowledge-dependency-ca5b724-git-bytes.json`.
+For the current 0.16.0/6ba66c0 dependency candidate, add
+`--dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json`.
 This verifies all selected file hashes and the complete source inventory before
 running tests; line-ending differences are failures. Other deliberately selected
 dependency versions need their own reviewed input record. Without this flag the
@@ -83,7 +83,7 @@ runner records dependency input verification as false, even when integrations pa
 
 The authority/replication fixes and remaining limitations are described in [AUTHORITY_REPLICATION.md](docs/AUTHORITY_REPLICATION.md), with [current validation](docs/VALIDATION.md) and [GitHub onboarding provenance](docs/ONBOARDING.md). Client hunger reads no longer author state; assignment clears synchronize with stale-message protection; directed replies preserve pending broadcasts. All multiplayer peers must use the same build.
 
-Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata use B47ANCEDKnowledgeAndWisdom; current actual-source integration is tested against 0.15.0; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.
+Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata use B47ANCEDKnowledgeAndWisdom; current actual-source integration is tested against 0.16.0 with explicit SP and guarded MP-refusal coverage; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.
 
 ## Active Hours features and standalone compatibility
 
@@ -108,3 +108,10 @@ They are outside runtime/package roots. Feeding coordination and Nightfall's
 adapter are merged source work; native validation is next. The
 [execution queue](docs/MASTER_ROADMAP.md#current-execution-queue) separates completed
 offline preparation from the native authority/restoration and identity blockers.
+
+Tests requiring an open game are human-operated. The
+[human test queue](docs/HUMAN_RUNTIME_TESTS.md) records clean-client prerequisites,
+creator UI/storage cases, current dependency review and the SP/dedicated order.
+The normal local launcher has custom Java/loose-class contamination; no game or
+server was opened, mod deployed or native PASS recorded. Knowledge & Wisdom
+0.16.0 intentionally blocks affected MP storage APIs; no bypass or downgrade.

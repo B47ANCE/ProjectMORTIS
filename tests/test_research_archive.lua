@@ -8,6 +8,10 @@ assert(rawget(_G,"experienceWorks")==nil,"no legacy public alias is needed")
 assert(Archive.getDocument("MORTIS-93-001").project=="Project M.O.R.T.I.S.")
 assert(Archive.getDocumentForItem("ProjectMORTIS.Research_MORTIS_ANAT_012").id=="MORTIS-ANAT-012")
 local character={modData={}};function character:getModData()return self.modData end
+local admitted,why=Archive.learn(character,"MORTIS-93-001",{worldAgeHours=1})
+assert(admitted==false and why=="REALM_UNAVAILABLE" and next(character.modData)==nil)
+-- Explicit modeled SP role; the repaired dependency refuses an unknown realm.
+isClient=function()return false end;isServer=function()return false end
 assert(not Archive.learn(character,"MORTIS-ANAT-012"));assert(Archive.learn(character,"MORTIS-93-001",{worldAgeHours=1}));assert(Archive.learn(character,"MORTIS-ANAT-012",{worldAgeHours=2}));assert(Archive.learn(character,"MORTIS-MET-021",{worldAgeHours=3}));assert(Archive.learn(character,"MORTIS-MECH-008",{worldAgeHours=4}))
 assert(Archive.hasKnowledge(character,"Mortis.AnatomicalFunction")and Archive.hasKnowledge(character,"Mortis.StarvationDesiccation")and Archive.hasKnowledge(character,"Mortis.PhysicalFailureModes"))
 local distributions={list={LaboratoryBooks={items={}},TestingLab={items={}},ArmyStorageMedical={items={}},MedicalOfficeBooks={items={}}}}
@@ -26,5 +30,9 @@ local documents=0;for _ in pairs(Archive.allDocuments())do documents=documents+1
 isClient=function()return true end;isServer=function()return false end
 local denied,reason=Archive.learn(prior,"MORTIS-ANAT-012")
 assert(denied==false and reason=="non-authority" and saved.documents["MORTIS-ANAT-012"]==nil)
+isClient=function()return false end;isServer=function()return true end
+denied,reason=Archive.learn(prior,"MORTIS-ANAT-012")
+assert(denied==false and reason=="MULTIPLAYER_STORAGE_UNAVAILABLE")
+assert(saved.documents["MORTIS-ANAT-012"]==nil and prior.modData[Archive.ROOT_KEY]==saved)
 assert(rawget(_G,"experienceWorks")==nil)
-print("Project M.O.R.T.I.S. infected-research archive checks passed")
+print("MORTIS SP archive integration and unknown/client/server refusal contract passed offline")

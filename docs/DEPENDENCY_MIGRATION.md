@@ -61,3 +61,29 @@ paths before testing. Disposable Python cases include changed line endings,
 missing/extra files, unsafe paths and future/corrupt/duplicate-key manifests.
 Input verification is recorded separately from test success. This is not a new
 minimum version, a dependency source edit or native load/save/MP evidence.
+
+## Current guarded dependency input - 0.26.0-dev.3
+
+Selected Knowledge & Wisdom 0.16.0 public candidate
+`6ba66c0d8f246d438f2e2f3c974fee9f77fdb426` was merged via dependency PR #1 as
+`0f20ad2c070941038e274c72bd91eb4db5b82ed3` during preparation. The selected source
+head's exact snapshot has 120 source/metadata files, pinned in
+[knowledge-dependency-6ba66c0-git-bytes.json](evidence/knowledge-dependency-6ba66c0-git-bytes.json),
+inventory `83338349470cd8a9f194156dc9baffee29f947173d7e37bf5eb8db5e5e4813e0`.
+No dependency source or live mod installation was changed.
+
+The first full run failed both actual-source consumer fixtures with
+`REALM_UNAVAILABLE`: the old fixtures omitted native role functions. They now
+establish explicit modeled SP and assert unknown-role/client refusal and
+`MULTIPLAYER_STORAGE_UNAVAILABLE` on the server, preserving existing data.
+Research learn/persistence and history provider/replay/reload work in that SP
+model; no production guard, backend or MORTIS runtime behavior was changed.
+The full suite passes on the exact 0.16.0 input. The stronger behavioral tests
+must not be weakened to recover old unsafe 0.15.0 server behavior; its earlier
+passing reports are preserved as historical.
+
+0.16.0 refuses affected MP storage until its private-authority contract exists.
+That is an implementation blocker in addition to native evidence gates. A
+locomotion-only experiment cannot certify dependency research/history MP, and
+must stop if its setup needs an affected API. See HUMAN_RUNTIME_TESTS.md. The
+user owns tests that require an open game; no native pass or launch is claimed.

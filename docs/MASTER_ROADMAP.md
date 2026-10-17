@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.26.0-dev.2; public API 1.6.0.
+Canonical version: 0.26.0-dev.3; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
@@ -58,7 +58,7 @@ M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACT
 | Creator first scope | IMPLEMENTED / OFFLINE: local drafts, validation, export and reviewed [consumer fixture](../tests/fixtures/creator_export/README.md); no spawn manager or live import | Run the separate native menu/input/storage checklist in [ZOMBIE_CREATOR.md](ZOMBIE_CREATOR.md) |
 | Feeding M-05 and Nightfall adapter | IMPLEMENTED / MERGED / OFFLINE: API 1.6.0 coordination, input/quarantine safeguards, Nightfall 0.29.1 transaction adapter in merged PR #2 | Native contention, compensation, removal, persistence and dedicated lifecycle; no second migration TODO |
 | Active Hours preparation | IMPLEMENTED / OFFLINE DESIGN: CDF, supplied life/revision choices and phase intervals; [sandbox/lifecycle proposal and parity matrix](ACTIVE_HOURS_DESIGN.md) | Review against native findings; do not load experiments into runtime |
-| Dependency and locomotion proof | NEXT / RUNTIME GATE: handoff prepared; observed-field journal/profile exclusion implemented | Reviewed current Knowledge & Wisdom stage-1 PASS, SP baseline, then isolated one-zombie/two-client authority/motion/owner/release proof |
+| Dependency and locomotion proof | HUMAN / RUNTIME GATE: [current queue](HUMAN_RUNTIME_TESTS.md), clean-client prerequisite and 0.16.0 MP implementation guard recorded | Reviewed current scoped Knowledge & Wisdom stage-1 PASS, SP baseline, then isolated one-zombie/two-client proof only if no affected dependency MP API is needed |
 | Active Hours production | BLOCKED: native authority/restoration, independent durable life identity, solar evidence and coordinated ownership contracts | After proof, implement server sandbox interpretation/localization, solar adapter, durable choices, bounded lifecycle and separate standalone parity in slices |
 | Wider native validation | NOT TESTED: anatomy/materials, research, groups/memory, Linux, load/save/rejoin/restart; English catalogs are offline only | Run scoped cases with exact build evidence; fluent translation review remains separate |
 
@@ -89,3 +89,14 @@ phase boundaries, independent per-life identity, two retained rolls and revision
 refusals. Its pure experiments neither persist data nor read native astronomy.
 Existing assignment IDs can be cleared/regenerated and are not proven life IDs.
 Production schema, solar adapter, ownership recovery and all native gates stay open.
+
+## Human test preparation - 0.26.0-dev.3
+
+Automated consumer checks now select exact Knowledge & Wisdom 0.16.0 candidate
+6ba66c0d8f246d438f2e2f3c974fee9f77fdb426. Fixtures explicitly model SP and test
+unknown/client/guarded-server refusal. They do not bypass MP storage gates.
+The user leaves any test requiring an open game to humans; the
+[human queue](HUMAN_RUNTIME_TESTS.md) records the contaminated launcher/loose-class
+baseline, clean client/profile prerequisite and exact test order. Native creator
+UI/storage remains NOT TESTED. Dependency MP private-storage implementation,
+native authority/restoration and dedicated G7/stable G8 remain BLOCKED.

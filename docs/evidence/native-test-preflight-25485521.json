@@ -1,0 +1,30 @@
+{
+  "evidence": "READ-ONLY preflight; no engine execution, UI/storage test or gate PASS",
+  "steam_build": "25485521",
+  "saved_version_marker": "42.21.0 4a0e9546ec",
+  "executed_version_this_session": "NOT TESTED",
+  "packaged_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "launcher_json_sha256": "d9042d298dace3faa63e0a217a6caae69a39ff1bba0dc91a37b28bb08fe800e0",
+  "launcher_has_custom_java_agent": true,
+  "launcher_has_external_mod_jar": true,
+  "launcher_searches_loose_classes_first": true,
+  "selected_classes": {
+    "zombie/gameStates/MainScreenState.class": {
+      "packaged_sha256": "2c30ecd1c0aa3ab5adb7ee1a088672b919e0df45e9ca4b168f9a31ab44f7f7bd",
+      "loose_sha256": "eb7035226569fa3eff29859f71f6b38bb24c698ab522e1104366460f7748df4e",
+      "equal": false
+    },
+    "zombie/ZomboidFileSystem.class": {
+      "packaged_sha256": "c4e5a5123bc43d03f2585c40f37544c50c1e702eebceb78bec94069e410b6750",
+      "loose_sha256": null,
+      "equal": null
+    },
+    "zombie/characters/IsoGameCharacter.class": {
+      "packaged_sha256": "29040e19c3e420499f73bc0ea0d5b86d7f7d38655acdc13d0107df736eb54c0b",
+      "loose_sha256": "d8554b2a4012f381731da9c91fe605b17e3ba15cd429609607fbf496ad6bbdfa",
+      "equal": false
+    }
+  },
+  "decision": "Normal launcher is unsuitable for a Lua-only acceptance baseline. Human must establish a clean vanilla client and isolated disposable profile. Existing installation/configuration was not changed.",
+  "runtime_owner": "Human; automated checks must not open PZ/server or drive native UI unless user changes this instruction."
+}

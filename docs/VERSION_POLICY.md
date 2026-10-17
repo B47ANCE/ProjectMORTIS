@@ -27,3 +27,9 @@ The 0.25.0-dev.4 documentation/metadata checkpoint prepares the user-requested n
 0.26.0-dev.1 is an additive development MINOR for the main-menu local zombie-definition editor. Public gameplay API remains 1.6.0; world/component/network schemas and runtime policy are unchanged. Creator draft/library version 1 is a separate local authoring format, never a world migration. Existing packages and validation records remain historical.
 
 0.26.0-dev.2 is a compatible authoring/test/documentation checkpoint within the unreleased 0.26.0 target. Runtime changes are version mirrors only; API 1.6.0, creator draft format 1, world/component/network schemas and gameplay are unchanged. Life-choice version 1 is an isolated experimental record, not a registered persistence schema. Fixtures and experiments remain outside runtime/package roots.
+
+0.26.0-dev.3 is a compatible human-test preflight and consumer-fixture checkpoint.
+The selected test dependency is 0.16.0; its intentional MP refusal is not bypassed
+and its version is separate from MORTIS. Runtime changes remain version mirrors
+only; public API 1.6.0, creator format and world/component/network schemas are
+unchanged. New source-only engine fingerprints do not establish runtime evidence.
