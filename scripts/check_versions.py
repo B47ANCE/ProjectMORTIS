@@ -21,6 +21,8 @@ MIRRORS = {
     'WORKSHOP_DESCRIPTION.txt': r'\[b\]Mod Version:\[/b\] (\S+)',
     'docs/STEAM_WORKSHOP_DESCRIPTION.txt': r'\[b\]Mod Version:\[/b\] (\S+)',
     'WORKSHOP_CHANGE_NOTE.txt': r'\[b\]Version ([^\[]+)\[/b\]',
+    'docs/MOD_OVERVIEW.json': r'"version": "([^"]+)"',
+    'docs/evidence/mortis-runtime-input.json': r'"version": "([^"]+)"',
 }
 
 def check(release=False):

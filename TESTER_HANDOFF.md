@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.26.0-dev.3 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.4 playtester handoff
 
 Human-operated native queue: [docs/HUMAN_RUNTIME_TESTS.md](docs/HUMAN_RUNTIME_TESTS.md).
 Start with its clean vanilla-client prerequisite and exact Knowledge & Wisdom
@@ -44,3 +44,9 @@ creator acceptance suite are in docs/RUNTIME_AUDIT_HANDOFF.md. Nightfall 0.29.1'
 feeding migration is merged; remaining feeding work is native verification.
 Proposed settings and the unresolved independent life-token/solar/owner contracts
 are in docs/ACTIVE_HOURS_DESIGN.md. Preserve G7/stable G8 BLOCKED.
+
+0.26.0-dev.4: run [the read-only preflight](docs/PREFLIGHT.md) and freeze its exact
+source inventories before human testing. The current Nightfall audit identifies
+three P1 state/cleanup defects plus a readiness diagnostics gap; see
+[the scoped findings](docs/NIGHTFALL_INTEGRATION_AUDIT.md) before consumer acceptance.
+The configuration/key experiment is offline only and installs no sandbox option.
