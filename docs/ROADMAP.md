@@ -102,4 +102,4 @@ the current Nightfall 1.0 dependency closure.
 
 ## Active Hours
 
-The entire Active Hours project is consolidated here. Follow [ACTIVE_HOURS.md](ACTIVE_HOURS.md): validate the dormant one-zombie diagnostic first; then develop optional solar, profile and weighted-range behavior with authoritative sandbox settings after the affected native gates. No standalone Core/Night/Day product remains planned.
+All Active Hours features belong in MORTIS as well as the maintained standalone project. When co-enabled, standalone execution is disabled and MORTIS takes precedence. Follow [ACTIVE_HOURS.md](ACTIVE_HOURS.md): validate the dormant one-zombie diagnostic first; then develop optional solar, profile and weighted-range behavior with authoritative sandbox settings after the affected native gates. The standalone project continues separately; future feature parity must be tested in both implementations.

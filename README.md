@@ -78,6 +78,6 @@ The authority/replication fixes and remaining limitations are described in [AUTH
 
 Profile removal and assignment clearing now restore saved observable locomotion fields; see [capture, legacy limits and native gates](docs/LOCOMOTION_RESTORATION.md). Dependency imports and metadata use B47ANCEDKnowledgeAndWisdom; current actual-source integration is tested against 0.14.0; see [migration and offline integration evidence](docs/DEPENDENCY_MIGRATION.md). Existing saves/server mod lists must select the new Mod ID, with only one dependency identity enabled.
 
-## Active Hours consolidation
+## Active Hours features and standalone compatibility
 
-B47ANCE'd Active Hours is now developed inside M.O.R.T.I.S., including its speed diagnostic, solar/profile/configuration roadmap and research history. The integrated diagnostic is dormant until explicitly started; no production day/night behavior is enabled. See [scope, preserved evidence, blockers and manual experiment](docs/ACTIVE_HOURS.md). Do not enable the old standalone proofs alongside it. G2/G6/G7/G8 retain their existing blocked/untested statuses.
+B47ANCE'd Active Hours remains maintained as a standalone mod; M.O.R.T.I.S. includes its complete feature scope. The implementations are incompatible: when ProjectMORTIS is enabled, standalone Active Hours disables its own execution and MORTIS takes precedence. Neither requires the other. Included features still in design are not claimed as completed. The integrated diagnostic is dormant until explicitly started; no production day/night behavior is enabled. See [scope, preserved evidence, blockers and manual experiment](docs/ACTIVE_HOURS.md). Do not enable the old standalone proofs alongside it. G2/G6/G7/G8 retain their existing blocked/untested statuses.

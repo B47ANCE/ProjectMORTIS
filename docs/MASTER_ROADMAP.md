@@ -43,8 +43,8 @@ Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.
 
 - Project Remnants support, detection, adapters, patches, or generic integration.
 
-## Absorbed Active Hours project
+## Included Active Hours features; standalone retained
 
-MORTIS now owns the complete Active Hours development scope, not just a consumer adapter. [ACTIVE_HOURS.md](ACTIVE_HOURS.md) is the controlling scope/runbook. Current delivery is an explicitly started server-side one-zombie speed diagnostic plus a 64-file historical import. Seasonal solar progression, optional Night/Day/Both policy, active/inactive profiles, weighted selection, sandbox configuration and bounded population lifecycle remain planned here, not a separate mod. Native speed/owner/observer/restoration evidence is required before affected production work; G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
+Active Hours remains maintained independently; MORTIS includes the complete feature scope in its own implementation. They are incompatible: standalone Active Hours disables its own execution whenever ProjectMORTIS is enabled, leaving MORTIS authoritative. [ACTIVE_HOURS.md](ACTIVE_HOURS.md) is the controlling scope/runbook. Current delivery is an explicitly started server-side one-zombie speed diagnostic plus a 64-file historical import. Seasonal solar progression, optional Night/Day/Both policy, active/inactive profiles, weighted selection, sandbox configuration and bounded population lifecycle remain planned for MORTIS and independently for the standalone mod; full parity is required, not yet implemented. Native speed/owner/observer/restoration evidence is required before affected production work; G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED, G8 BLOCKED.
 
 The dev.3 audit corrections are implemented: behavior-based dependency integration on 0.14.0, standing/busy-state mutation admission, and no assumed baseline category after diagnostic owner release. Native MP and full restoration gates remain open.
