@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.25.0-dev.4 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.1 playtester handoff
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
@@ -28,3 +28,5 @@ Dev.2 adds discovery/quarantine/no-effect safeguards. In a disposable migrated-p
 Dev.3: follow docs/LOCOMOTION_OVERRIDES.md with a non-default original speed modifier. Confirm higher-priority owner/ceiling composition, last release restores all five observed fields, profile writes/assignment clear refuse while owned, and coordinated release permits a clean retry. For a disposable saved journal after owner loss, load components, verify individual re-enrollment/release refuse, then coordinate explicit server clear; do not promote this to automatic session recovery. Native animation/ownership/observer/restart behavior remains NOT TESTED.
 
 Dev.4: use the [complete runtime audit handoff](docs/RUNTIME_AUDIT_HANDOFF.md) for exact build records, dependency stage-1 review, isolated SP stage 2, the dedicated two-client experiment, Nightfall feeding and per-case result forms. It prepares tests; no game/server launch, installation or deployment was performed or authorized.
+
+For the local main-menu Zombie Creator, follow docs/ZOMBIE_CREATOR.md on disposable draft files. Verify release-mode entry/activation, repeated menu navigation, all fields, controller/keyboard/focus, scale/resize, save/load/delete, Unicode, preview/export, preservation on faults and no world/network effects. No 3D preview, spawning or automatic server import is included. Gameplay stage-1/stage-2 and dedicated gates remain separate.

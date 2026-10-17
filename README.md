@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.25.0-dev.4`
+- Version: `0.26.0-dev.1`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -89,3 +89,7 @@ Development checkpoint dev.2 hardens discovery/quarantine and rejects food value
 Development checkpoint dev.3 extends [observed restoration to the owner stack](docs/LOCOMOTION_OVERRIDES.md): saved five-field baselines, verified cleanup, busy-state refusal and explicit recovery after owner loss. Profile writers wait while an override owns movement; release/clear owners before retrying profile or assignment changes. Full native animation/lunge restoration and MP remain unverified. See the [current audit and roadmap gates](docs/AUDIT_2026-10-16.md).
 
 Dev.4 prepares the [runtime audit test handoff](docs/RUNTIME_AUDIT_HANDOFF.md), including dependency review, exact build records, isolated speed/owner/release proof, consumer feeding and failure/lifecycle result forms. Source work cannot close native authority/restoration gates.
+
+## Main-menu zombie creator
+
+The local Zombie Creator authors reusable definitions with identity, movement tier, durability, appearance and registered trait/behavior references. Save/load/delete drafts, inspect generated Lua and export a reviewed definition for a separate content mod. It works outside debug mode and does not spawn, assign or install gameplay content. [Creator guide and native test cases](docs/ZOMBIE_CREATOR.md). Native menu, focus and file behavior remain NOT TESTED.

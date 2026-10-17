@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.26.0-dev.1 - main-menu zombie creator, 2026-10-16
+
+- Add a release-mode main-menu Zombie Creator: identity, movement/durability, appearance and trait/behavior references, local draft management and read-only Lua preview/export.
+- Preserve local drafts with alternating checksummed checkpoints, expected revisions, readback and future/corrupt-data refusal. Quote export strings and reject duplicate registered IDs/missing providers at manual installation. No live registration, spawning, network command or world mutation.
+- Add three actual-module host regressions and 29 UI catalogs with explicit English fallback. Native menu/controller/file behavior remains NOT TESTED; public API 1.6.0 and existing gameplay gates are unchanged.
+
 ## 0.25.0-dev.4 - runtime audit handoff and consumer checkpoint, 2026-10-16
 
 - Prepare the requested exact staged runtime handoff: current dependency review, SP baseline, one-zombie/two-client locomotion proof, release/owner-loss/profile cases, migrated Nightfall feeding and per-case evidence forms.

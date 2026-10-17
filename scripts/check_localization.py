@@ -35,6 +35,16 @@ def check():
         required.update(('Sandbox_' + name, 'Sandbox_' + name + '_tooltip'))
     for key in sorted(required - english.keys()):
         errors.append('English sandbox fallback missing: ' + key)
+    creator_text = SOURCE / 'media/lua/client/Mortis/Creator/Text.lua'
+    if creator_text.is_file():
+        creator_keys = {'UI_MORTIS_Creator_' + name for name in
+                        re.findall(r'^\s*\["([^"]+)"\]=', creator_text.read_text(encoding='utf-8-sig'), re.M)}
+        creator_english = catalogs.get(('EN', 'UI.json'), {})
+        if not creator_keys or creator_keys != set(creator_english):
+            errors.append('Creator English catalog/fallback key mismatch')
+        for language in sorted({language for language, _ in catalogs}):
+            if set(catalogs.get((language, 'UI.json'), {})) != creator_keys:
+                errors.append('Creator UI key parity: ' + language)
     for error in errors:
         print('FAIL: ' + error)
     print(('FAIL' if errors else 'PASS') + ': ' + str(len(catalogs)) + ' JSON catalogs; English names/tooltips for '
