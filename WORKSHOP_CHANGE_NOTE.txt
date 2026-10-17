@@ -1,3 +1,6 @@
+[b]Version 0.25.0-dev.4[/b]
+Development source checkpoint: runtime audit test handoff and migrated Nightfall consumer evidence. Gameplay/API unchanged. Native ownership, restoration, durability and dedicated multiplayer NOT TESTED; production Active Hours remains gated. No package or upload performed.
+
 [b]Version 0.25.0-dev.3[/b]
 Development source checkpoint: observed locomotion override restoration, baseline journaling, fail-closed owner-loss recovery and profile-writer exclusion. Production Active Hours remains deferred. Dedicated multiplayer NOT TESTED; no upload performed.
 

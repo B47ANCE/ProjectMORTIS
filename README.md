@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.25.0-dev.3`
+- Version: `0.25.0-dev.4`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -82,8 +82,10 @@ Profile removal and assignment clearing now restore saved observable locomotion 
 
 B47ANCE'd Active Hours remains maintained as a standalone mod; M.O.R.T.I.S. includes its complete feature scope. The implementations are incompatible: when ProjectMORTIS is enabled, standalone Active Hours disables its own execution and MORTIS takes precedence. Neither requires the other. Included features still in design are not claimed as completed. The integrated diagnostic is dormant until explicitly started; no production day/night behavior is enabled. See [scope, preserved evidence, blockers and manual experiment](docs/ACTIVE_HOURS.md). Do not enable the old standalone proofs alongside it. G2/G6/G7/G8 retain their existing blocked/untested statuses.
 
-Food providers now use the API 1.6.0 [transaction contract](docs/FOOD_TRANSACTIONS.md). Unsafe consume-only callbacks are never called automatically; existing consumers such as Nightfall effigies require migration before automatic consumption resumes.
+Food providers now use the API 1.6.0 [transaction contract](docs/FOOD_TRANSACTIONS.md). Unsafe consume-only callbacks are never called automatically; Nightfall 0.29.1-dev.1 implements the migrated effigy adapter with actual-coordinator host tests; native consumption, persistence and replication still require validation.
 
 Development checkpoint dev.2 hardens discovery/quarantine and rejects food values that produce no hunger relief. All 37 sandbox options now have English tooltips, checked with JSON catalog integrity by the normal offline runner; non-English fluency and native fallback remain unverified. Roadmap work has begun on an [offline weighted-range/CDF experiment](experiments/active-hours/README.md), outside the runtime/package source. See the [execution queue and remaining gates](docs/MASTER_ROADMAP.md#current-execution-queue).
 
 Development checkpoint dev.3 extends [observed restoration to the owner stack](docs/LOCOMOTION_OVERRIDES.md): saved five-field baselines, verified cleanup, busy-state refusal and explicit recovery after owner loss. Profile writers wait while an override owns movement; release/clear owners before retrying profile or assignment changes. Full native animation/lunge restoration and MP remain unverified. See the [current audit and roadmap gates](docs/AUDIT_2026-10-16.md).
+
+Dev.4 prepares the [runtime audit test handoff](docs/RUNTIME_AUDIT_HANDOFF.md), including dependency review, exact build records, isolated speed/owner/release proof, consumer feeding and failure/lifecycle result forms. Source work cannot close native authority/restoration gates.

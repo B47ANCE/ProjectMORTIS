@@ -1,8 +1,8 @@
 # Observed override restoration and recovery
 
-Development iteration 0.25.0-dev.3 retains public API 1.6.0. The existing
+Current development iteration 0.25.0-dev.4 retains public API 1.6.0. The existing
 `Mortis.LocomotionOverrides` methods still compose owner priorities and tier
-ceilings. This correction changes their safety and restoration behavior; it
+ceilings. The dev.3 correction changed their safety and restoration behavior; it
 does not implement production Active Hours or complete native movement recovery.
 
 ## Authority and admission

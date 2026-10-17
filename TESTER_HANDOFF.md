@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.25.0-dev.3 playtester handoff
+# Project M.O.R.T.I.S. 0.25.0-dev.4 playtester handoff
 
 Begin only after the B47ANCEDKnowledgeAndWisdom stage-1 report is reviewed as PASS. Enable
 only `B47ANCEDKnowledgeAndWisdom` and `ProjectMORTIS` on a disposable single-player save,
@@ -21,8 +21,10 @@ Nightfall dependencies until this stage is reviewed.
 
 Active Hours is now a MORTIS subsystem in development. Its separate opt-in one-zombie/two-client experiment is in [docs/ACTIVE_HOURS.md](docs/ACTIVE_HOURS.md). Do not start it during the general stage-2 sequence above or enable either historical standalone proof. Native client/server activation and locomotion remain NOT TESTED.
 
-M-05 changes the food-provider contract to API 1.6.0. Do not treat Nightfall effigy consumption as available until its provider has migrated; follow docs/FOOD_TRANSACTIONS.md on a disposable fixture for compensation/persistence tests.
+M-05 uses food-provider API 1.6.0. Nightfall 0.29.1-dev.1 now implements reserve/commit/rollback with actual-coordinator host coverage; native compensation and persistence remain unverified. Follow docs/FOOD_TRANSACTIONS.md on disposable fixtures only.
 
 Dev.2 adds discovery/quarantine/no-effect safeguards. In a disposable migrated-provider fixture, an ignored/rounded native write or invalid quote must not remove stock; a quarantined provider must not hide a healthy source for another zombie. Confirm all 37 English sandbox option names/tooltips in the native settings UI; other-language fallback remains untested. The weighted-range experiment is offline only and supplies no new gameplay option.
 
 Dev.3: follow docs/LOCOMOTION_OVERRIDES.md with a non-default original speed modifier. Confirm higher-priority owner/ceiling composition, last release restores all five observed fields, profile writes/assignment clear refuse while owned, and coordinated release permits a clean retry. For a disposable saved journal after owner loss, load components, verify individual re-enrollment/release refuse, then coordinate explicit server clear; do not promote this to automatic session recovery. Native animation/ownership/observer/restart behavior remains NOT TESTED.
+
+Dev.4: use the [complete runtime audit handoff](docs/RUNTIME_AUDIT_HANDOFF.md) for exact build records, dependency stage-1 review, isolated SP stage 2, the dedicated two-client experiment, Nightfall feeding and per-case result forms. It prepares tests; no game/server launch, installation or deployment was performed or authorized.

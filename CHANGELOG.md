@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.25.0-dev.4 - runtime audit handoff and consumer checkpoint, 2026-10-16
+
+- Prepare the requested exact staged runtime handoff: current dependency review, SP baseline, one-zombie/two-client locomotion proof, release/owner-loss/profile cases, migrated Nightfall feeding and per-case evidence forms.
+- Record Nightfall 0.29.1-dev.1 transaction adapter and actual MORTIS host integration as implemented offline; preserve native durability/replication and full restoration gates.
+- Documentation/metadata checkpoint only; API 1.6.0, schemas, protocol and gameplay unchanged. No automatic controller, recovery, package, deployment, launch or upload. G7/stable G8 BLOCKED.
+
 ## 0.25.0-dev.3 - observed override recovery, 2026-10-16
 
 - Restore all five observed locomotion fields on last-owner/ceiling release and explicit clear; verify requested walk/class instead of treating native method acceptance as success.

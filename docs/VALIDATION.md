@@ -1,5 +1,23 @@
 # Current validation
 
+Current development version: 0.25.0-dev.4
+
+Documentation/metadata checkpoint on clean baseline 2f9b03a376aaecc751e6c10ffcf399916f444400, fix/locomotion-override-recovery, matching upstream and ahead 3/behind 0 of origin/main. The requested [runtime audit handoff](RUNTIME_AUDIT_HANDOFF.md) is prepared. API 1.6.0, schemas, protocol and gameplay are unchanged. The previous source correction and results are preserved below as historical evidence.
+
+[TESTED: offline] Current full command: `python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'`; environment Windows, bundled Python 3.12.14/Lupa 2.6. PASS: 125 runtime Lua files compile, 57/57 host cases pass and 26/26 Active Hours cases pass. Catalog integrity passes for 58 JSON files and all 37 English option names/tooltips. `python scripts/check_versions.py` checks 13 current mirrors. No host check proves PZ Kahlua or dedicated behavior.
+
+Nightfall 0.29.1-dev.1, commit 9a681a1f62df87a7eccf946b9796cee92ff8a798, [consumer PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2), implements the real consumer migration with actual MORTIS coordinator/model/event-bus integration and mocked native boundaries: all 63 Lua and 19 Python tests pass. Its dependency snapshot identifies MORTIS 0.25.0-dev.3 at the exact baseline above and Knowledge & Wisdom 0.15.0 at ca5b724c63d49ab224f96b2daea3e17ad7498e44. Spectrum has unrelated local changes; the recorded source-tree hash identifies that input, not its commit alone. No sibling source except the authorized Nightfall adapter was changed.
+
+Pre-push checks: `python scripts/check_public.py --staged` and `git diff --cached --check`. Protected takeover-ledger comparison PASS: Contents 128, dist 8811, compatibility-template 2 and examples 6 files are byte-identical. The runtime/source diff is exactly three declared version mirrors, with no gameplay changes. The new handoff records prerequisites, exact existing command/hotkey surfaces, native observation/fault-injection blockers and per-case result forms. No new runtime test harness, writer or recovery policy is introduced.
+
+[RUNTIME GATE] Current dependency stage-1 review, native ownership/observer/animation/restoration, source persistence/replication, save/rejoin/restart, non-English fluency/fallback and Linux execution remain unverified. Production Active Hours G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED and stable G8 BLOCKED. No package, deployment, publication, game/server launch, stable tag or main merge.
+
+---
+
+## Historical record - 0.25.0-dev.3 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.25.0-dev.3
 
 [TESTED offline] Windows bundled Python / Lupa 2.6: 125 runtime Lua files compile; all 57 host cases pass (56 Lua 5.1, one Lua 5.4) plus all 26 Active Hours diagnostic cases. Unit mode passes 55 host cases and explicitly omits two dependency integrations. All 26 diagnostics additionally pass under Lua 5.4, as do the actual-service override recovery and profile restoration cases. These results are host/native mocks, not PZ execution.
