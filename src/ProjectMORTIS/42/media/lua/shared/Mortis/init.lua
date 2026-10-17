@@ -99,7 +99,7 @@ local PileObservations = require "Mortis/Runtime/PileObservationRuntime"
 local PileTraversalLinks = require "Mortis/Runtime/PileTraversalLinks"
 
 local Mortis = rawget(_G, "Mortis") or {}
-Mortis.VERSION = "0.25.0-dev.2"
+Mortis.VERSION = "0.25.0-dev.4"
 Mortis.Types = Types
 Mortis.Traits = Traits
 Mortis.Behaviors = Behaviors
@@ -271,6 +271,15 @@ if not ComponentSchemas.has("Mortis.RandomState") then
         persistence = "save",
         replication = "none",
         defaults = {},
+    })
+end
+
+if not ComponentSchemas.has("Mortis.LocomotionOverrideBaseline") then
+    ComponentSchemas.register({
+        id = "Mortis.LocomotionOverrideBaseline",
+        version = 1,
+        persistence = "save",
+        replication = "none",
     })
 end
 

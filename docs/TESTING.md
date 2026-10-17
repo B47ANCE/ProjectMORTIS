@@ -176,3 +176,7 @@ Dev.2 adds `test_food_source_discovery.lua` for malformed scalar/native position
 Run `python scripts/validate.py --test test_active_hours_weighted_design` for the offline weighted-range/CDF experiment. This explicitly loads a non-runtime file and tests normalization, rejection, zero buckets, exact interval boundaries and repeated supplied rolls. No native/controller/persistence behavior is exercised.
 
 Run `python scripts/validate.py --test test_food_source_transactions`. The host fixture verifies native/cache/source compensation, rollback despite callback disablement, invalid values, legacy refusal, contention, reentrancy and observer failure. Test the real migrated provider and native persistence in disposable SP/dedicated environments using FOOD_TRANSACTIONS.md; a passing host callback does not prove game durability.
+
+## Observed override recovery
+
+Run `python scripts/validate.py --test test_locomotion_override_recovery` and `python scripts/validate.py --test test_locomotion_profile_restore`. The first uses actual component/persistence/baseline/stack code with native boundaries mocked; the second covers forced busy-state refusal as well as profile restoration. Checkpoint, cleanup, saved-wrapper, priority/ceiling, failure and writer-exclusion cases are described in LOCOMOTION_OVERRIDES.md. Run Active Hours under both supported host Lua versions; none supplies native restoration or MP evidence.

@@ -1,5 +1,56 @@
 # Current validation
 
+Current development version: 0.25.0-dev.4
+
+Documentation/metadata checkpoint on clean baseline 2f9b03a376aaecc751e6c10ffcf399916f444400, fix/locomotion-override-recovery, matching upstream and ahead 3/behind 0 of origin/main. The requested [runtime audit handoff](RUNTIME_AUDIT_HANDOFF.md) is prepared. API 1.6.0, schemas, protocol and gameplay are unchanged. The previous source correction and results are preserved below as historical evidence.
+
+[TESTED: offline] Current full command: `python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'`; environment Windows, bundled Python 3.12.14/Lupa 2.6. PASS: 125 runtime Lua files compile, 57/57 host cases pass and 26/26 Active Hours cases pass. Catalog integrity passes for 58 JSON files and all 37 English option names/tooltips. `python scripts/check_versions.py` checks 13 current mirrors. No host check proves PZ Kahlua or dedicated behavior.
+
+Nightfall 0.29.1-dev.1, commit 9a681a1f62df87a7eccf946b9796cee92ff8a798, [consumer PR #2](https://github.com/B47ANCE/ProjectNightfall/pull/2), implements the real consumer migration with actual MORTIS coordinator/model/event-bus integration and mocked native boundaries: all 63 Lua and 19 Python tests pass. Its dependency snapshot identifies MORTIS 0.25.0-dev.3 at the exact baseline above and Knowledge & Wisdom 0.15.0 at ca5b724c63d49ab224f96b2daea3e17ad7498e44. Spectrum has unrelated local changes; the recorded source-tree hash identifies that input, not its commit alone. No sibling source except the authorized Nightfall adapter was changed.
+
+Pre-push checks: `python scripts/check_public.py --staged` and `git diff --cached --check`. Protected takeover-ledger comparison PASS: Contents 128, dist 8811, compatibility-template 2 and examples 6 files are byte-identical. The runtime/source diff is exactly three declared version mirrors, with no gameplay changes. The new handoff records prerequisites, exact existing command/hotkey surfaces, native observation/fault-injection blockers and per-case result forms. No new runtime test harness, writer or recovery policy is introduced.
+
+[RUNTIME GATE] Current dependency stage-1 review, native ownership/observer/animation/restoration, source persistence/replication, save/rejoin/restart, non-English fluency/fallback and Linux execution remain unverified. Production Active Hours G2 BLOCKED, G6 NOT TESTED, G7 BLOCKED / NOT TESTED and stable G8 BLOCKED. No package, deployment, publication, game/server launch, stable tag or main merge.
+
+---
+
+## Historical record - 0.25.0-dev.3 (unchanged original text)
+
+# Current validation
+
+Current development version: 0.25.0-dev.3
+
+[TESTED offline] Windows bundled Python / Lupa 2.6: 125 runtime Lua files compile; all 57 host cases pass (56 Lua 5.1, one Lua 5.4) plus all 26 Active Hours diagnostic cases. Unit mode passes 55 host cases and explicitly omits two dependency integrations. All 26 diagnostics additionally pass under Lua 5.4, as do the actual-service override recovery and profile restoration cases. These results are host/native mocks, not PZ execution.
+
+The new regression reproduced missing pre-write checkpoints on the audit baseline. Separate cases reproduced profile overwrite and forced-busy bypass before those corrections. Coverage includes five-field restoration/readback, priorities/ceilings, passive leases, unchanged-request deduplication, failed serialization/deletion, ignored/partially throwing setters, unavailable/busy state, preserved unrelated components, client refusal, corrupt/newer records, and saved component/wrapper/module replacement. Consumer leases are not persisted or inferred; recovery requires explicit coordination.
+
+Actual-source dependency input: Knowledge & Wisdom 0.15.0, clean public commit `ca5b724c63d49ab224f96b2daea3e17ad7498e44`, 118 files pinned in `evidence/knowledge-dependency-0.15.0.json`. Earlier fingerprints remain historical. Installed Steam build remains 25485521; selected JAR/packaged/loose class bytes match the prior observation evidence, API helper SOURCE_HASH_MATCH / runtime NOT_TESTED. Full executed game version remains UNKNOWN.
+
+Commands from this root with the bundled interpreter `C:\Users\willi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`:
+
+```powershell
+python scripts/check_versions.py
+python scripts/validate.py --test test_locomotion_override_recovery
+python scripts/validate.py --test test_locomotion_profile_restore
+python scripts/validate.py --knowledge-and-wisdom '../B47ANCEDKnowledgeAndWisdom'
+python scripts/validate.py --unit-only
+$env:B47_PROOF_LUA='54'
+python scripts/test_active_hours.py
+Remove-Item Env:B47_PROOF_LUA
+python scripts/check_public.py --staged
+git diff --cached --check
+```
+
+The two additional Lua 5.4 cases explicitly execute their test files with current shared/client/server package paths. Catalog checks validate 58 JSON files and English names/tooltips for all 37 sandbox options; non-English fluency/native fallback remain unverified. The 13 current version mirrors pass. Archive/source boundary and protected-artifact SHA-256 checks are recorded with this iteration; none was packaged or deployed. Baseline audit input: clean branch fix/transactional-feeding, commit b3cd73f43526d1399bb6c4810b461cb3b774ef84, ahead 0 / behind 0 of its upstream and ahead 2 / behind 0 of origin/main. This feature branch is stacked on that pending work, not a main merge. Source, offline and native evidence remain separate.
+
+The source correction adds internal Mortis.LocomotionOverrideBaseline version 1, preserving public API 1.6.0, existing component schemas and replication protocol. It does not persist/replay consumer policy or certify native disk durability. See LOCOMOTION_OVERRIDES.md and AUDIT_2026-10-16.md for scope and open gates. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED; Active Hours G2/G6 unchanged.
+
+---
+
+## Historical record — 0.25.0-dev.2 (unchanged original text)
+
+# Current validation
+
 Current development version: 0.25.0-dev.2
 
 [TESTED offline] Windows bundled Python / Lupa 2.6: 124 runtime Lua files compile; all 56 host cases pass (55 Lua 5.1, one Lua 5.4), plus all 26 Active Hours diagnostic cases. Unit mode passes 54 host cases plus those diagnostics and explicitly omits two dependency integrations. Food discovery, transaction and weighted-design cases additionally pass under Lua 5.4. New discovery and transaction edge-case regressions failed on dev.1 before their fixes. An additional malformed lazy-quote regression reproduced an exception after reservation before raw-field validation was added; it now verifies compensation. The catalog check found 27 missing tooltips before additions and now passes: 58 JSON catalogs, English page/name/tooltip coverage for all 37 sandbox options. No native PZ runtime evidence was produced.

@@ -1,6 +1,6 @@
 # Transactional food providers — M-05
 
-Current contract: API 1.6.0, `Mortis.FoodSources.TRANSACTION_VERSION == 1`. Project iteration: 0.25.0-dev.2. The old automatic path called destructive `consume` before `Hunger.feed` verified the native hunger setter. A rejected/ignored setter could therefore remove food without feeding the zombie. MORTIS now refuses that unsafe one-step automatic path.
+Current contract: API 1.6.0, `Mortis.FoodSources.TRANSACTION_VERSION == 1`. Project iteration: 0.25.0-dev.4. The old automatic path called destructive `consume` before `Hunger.feed` verified the native hunger setter. A rejected/ignored setter could therefore remove food without feeding the zombie. MORTIS now refuses that unsafe one-step automatic path.
 
 ## Provider registration and migration
 
@@ -25,7 +25,7 @@ Provider code owns source-specific validation, locks, revision/claim bindings, p
 
 Existing consume-only providers still register and can be discovered/path toward. At consumption range they return `food-source-transaction-required` without calling `consume`, with one bounded upgrade warning per provider. Providers implementing the new contract may retain an old `consume` member for their own compatibility; MORTIS will not call it. Find-only attraction providers continue their existing pathing behavior. Incomplete/unknown transaction declarations fail at registration.
 
-Concrete consumer: the inspected `ProjectNightfall.effigies` registration still has a one-step `consume` callback that changes tissue/claim state before returning. It requires a separately authorized Nightfall provider migration and tests. This change edits no Nightfall source, source IDs, effigy claims or player saves. Automatic effigy consumption remains safely blocked until that migration; discovery/pathing remains available.
+Concrete consumer: Nightfall 0.29.1-dev.1 now implements this contract for ProjectNightfall.effigies. The separate consumer branch preserves IDs, reactions and nutrition, uses an exclusive revision-bound lease, stages tissue/claim/tombstone writes reversibly, and removes native objects only after successful ZombieFed. Failure can restore before-images; foreign revisions refuse uncertain compensation. Consumed tombstones cannot be re-registered. Actual MORTIS coordinator/model/event-bus host integration passes with native boundaries mocked. Native persistence/removal/replication and crash recovery remain unverified; see [runtime handoff](RUNTIME_AUDIT_HANDOFF.md). This MORTIS documentation checkpoint changes no provider runtime.
 
 ## Framework sequence and authority
 

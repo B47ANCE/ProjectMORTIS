@@ -194,11 +194,20 @@ class MortisProofTests(unittest.TestCase):
             function Z:doSprinter() self:setWalkType('sprint1');self.category=1;self.scalar=.75 end
             function Z:doFastShambler() self:setWalkType('1');self.category=2;self.scalar=.75 end
             function Z:doShambler() self:setWalkType('slow1');self.category=3;self.scalar=.75 end
+            function Z:getCrawlerType() return self.crawlerType or 0 end
+            function Z:setCrawlerType(v) self.crawlerType=v end
+            function Z:setCrawler(v) self.crawling=v end
+            IsoZombie={getSpeedTypeFromWalkType=function(walk) return ({sprint1=1,['1']=2,slow1=3})[walk] end}
             loadedModules={['Mortis/API/Capabilities']={has=function() return true end}}
+            loadedModules['Mortis/Runtime/Adapters/StateAdapter']=Mortis.State
+            -- This test covers composition/native boundaries. The separate Lua
+            -- recovery regression uses actual components + persistence + store.
+            loadedModules['Mortis/Runtime/LocomotionOverrideStore']={read=function() end,
+                write=function() return true end,clear=function() return true end}
             function require(name) return loadedModules[name] end
         ''')
         for name in ('Runtime/Authority', 'Runtime/Adapters/GameAdapter',
-                     'Runtime/Adapters/LocomotionAdapter', 'Runtime/LocomotionOverrides'):
+                     'Runtime/LocomotionBaseline', 'Runtime/Adapters/LocomotionAdapter', 'Runtime/LocomotionOverrides'):
             module = lua.execute((LUA/'shared/Mortis'/ (name+'.lua')).read_text())
             lua.globals().loadedModules['Mortis/'+name] = module
         lua.globals().Mortis.LocomotionOverrides = lua.globals().loadedModules['Mortis/Runtime/LocomotionOverrides']
@@ -212,7 +221,7 @@ class MortisProofTests(unittest.TestCase):
         self.assertIsNone(self.server().expectedCategory)
         lua.execute('assert(Mortis.LocomotionOverrides.release(Z,"other-consumer"))')
         self.assertEqual(lua.globals().Z.category, 3)
-        self.assertEqual(lua.globals().Z.scalar, .75)  # Deliberately not full restoration.
+        self.assertEqual(lua.globals().Z.scalar, .60)  # Observed scalar restored; full native behavior still unverified.
 
     def test_three_tiers_use_server_api_only(self):
         for tier, category in [('fastShambler', 2), ('sprinter', 1), ('shambler', 3)]:

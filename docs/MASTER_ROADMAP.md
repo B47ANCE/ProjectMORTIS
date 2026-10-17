@@ -1,8 +1,8 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.25.0-dev.2; public API 1.6.0.
+Canonical version: 0.25.0-dev.4; public API 1.6.0.
 
-Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; consumer migration and full native animation/lunge restoration remain follow-ups; native dependency load/save/MP tests are still required.
+Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
 ## Implemented
 
@@ -49,13 +49,21 @@ Active Hours remains maintained independently; MORTIS includes the complete feat
 
 The dev.3 audit corrections are implemented: behavior-based dependency integration on 0.14.0, standing/busy-state mutation admission, and no assumed baseline category after diagnostic owner release. Native MP and full restoration gates remain open.
 
-M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md): API 1.6.0 reserve/commit/rollback, verified hunger writes, compensation and quarantine. Migrate real consume-only providers (including Nightfall effigies), then validate source durability and dedicated lifecycle; no production consumer is silently rewritten.
+M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACTIONS.md): API 1.6.0 reserve/commit/rollback, verified hunger writes, compensation and quarantine. Nightfall 0.29.1-dev.1 now supplies real effigy reservation/commit/rollback with actual MORTIS coordinator/model host tests. Validate native source durability and dedicated lifecycle before claiming runtime consumption.
 
 ## Current execution queue
 
 - IMPLEMENTED / OFFLINE: dev.2 rejects malformed source positions, invalid/no-effect quotes and unavailable target observations; quarantined providers cannot hide healthy providers. Native/provider compensation still needs runtime proof.
 - IMPLEMENTED / OFFLINE: all 37 sandbox options have English names/tooltips; JSON/catalog validation is part of the normal runner. Non-English translation quality and native fallback are not verified.
 - STARTED / OFFLINE EXPERIMENT: [weighted-range validation/CDF](../experiments/active-hours/README.md) covers inclusive categories, weight rules, exact sampling boundaries and stable supplied rolls. It is outside runtime/package roots, not a final validator/controller or native gate bypass.
-- NEXT / RUNTIME GATE: reviewed dependency stage-1 PASS, then the existing one-zombie/two-client passive/speed/owner/release experiment. Full animation/lunge restoration and override-stack durability remain unresolved.
-- NEXT / CONSUMER SCOPE: migrate Nightfall's real effigy reservation/commit/compensation contract in that project before claiming automatic consumption works there.
+- NEXT / RUNTIME GATE: reviewed dependency stage-1 PASS, then the existing one-zombie/two-client passive/speed/owner/release experiment. Dev.3 implements an observed-field override journal and profile-writer exclusion; full animation/lunge restoration, live lease recovery and native durability remain unresolved.
+- IMPLEMENTED / OFFLINE: Nightfall 0.29.1-dev.1 effigy adapter, including exclusive leases, reversible tissue/claim persistence, post-success removal and inert consumed tombstones. Its full suite passes 63 Lua and 19 Python tests; native behavior remains unverified.
 - AFTER NATIVE PROOF: agree authoritative localized sandbox settings, solar API evidence, durable per-life/config-revision rolls, bounded lifecycle scheduling and standalone parity tests. Do not enable production policy ahead of those gates.
+
+## Dev.3 roadmap slice
+
+Implemented offline: [observed override recovery](LOCOMOTION_OVERRIDES.md), dedicated baseline checkpoint, native readback, failure retention, passive-ceiling ownership and profile-writer exclusion. Forced profile application no longer bypasses known native busy states. The [current audit](AUDIT_2026-10-16.md) records resolved source issues and remaining gates. Next is the existing human native speed/owner/observer/release experiment; solar/profile population controllers and real persisted policy resume remain deferred until that proof.
+
+## Dev.4 audit handoff
+
+The user requested preparation of the runtime tests. [RUNTIME_AUDIT_HANDOFF.md](RUNTIME_AUDIT_HANDOFF.md) specifies staged build/environment records, current Knowledge & Wisdom review, SP baseline, the dedicated two-client proof, consumer feeding and per-case acceptance/evidence forms. No affected production controller is enabled ahead of native authority/restoration proof. Live lease recovery still needs coordinated consumer policy. Non-English fluency and native/Linux evidence remain separate.
