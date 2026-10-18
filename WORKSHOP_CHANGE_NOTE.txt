@@ -1,3 +1,7 @@
+[b]Version 0.26.0-dev.7[/b]
+MP testing build - dedicated multiplayer NOT TESTED
+New owner-supplied project thumbnail and Workshop preview. Gameplay/API unchanged; native UI and dedicated validation remain NOT TESTED. This source artwork update has not been packaged or uploaded.
+
 [b]Version 0.26.0-dev.6[/b]
 MP testing build - dedicated multiplayer NOT TESTED
 

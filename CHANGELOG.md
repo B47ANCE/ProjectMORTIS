@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.26.0-dev.7 - supplied project thumbnail, 2026-10-17
+
+- Use the owner-supplied artwork for the 512x512 project/mod thumbnail and Workshop preview; preserve the original 1254x1254 PNG as an authoring source.
+- Keep the small UI icon, gameplay, public API and runtime/save/network schemas unchanged. Update current version/input/overview mirrors; retain prior publication/package evidence.
+- Asset/development source update only; no package, deployment, Workshop upload or native tests.
+
 ## 0.26.0-dev.6 - offline CI, API audit and recovery safeguards, 2026-10-17
 
 - Publication preparation for this version adds the required MP-test label, explicit native/dependency limits, public source link and isolated package/provenance checks. Runtime source and canonical version are unchanged; upload status is recorded separately, never inferred from preparation.

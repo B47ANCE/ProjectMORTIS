@@ -14,7 +14,7 @@ description=[url=https://github.com/B47ANCE/ProjectMORTIS]GitHub - Source Code &
 description=
 description=⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 description=
-description=[b]Mod Version:[/b] 0.26.0-dev.6
+description=[b]Mod Version:[/b] 0.26.0-dev.7
 description=
 description=This mod is currently under active development and is NOT in a playable or release-ready state.
 description=

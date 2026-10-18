@@ -10,7 +10,7 @@ Knowledge & Wisdom 0.16.0 intentionally refuses affected multiplayer storage API
 
 ⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 
-[b]Mod Version:[/b] 0.26.0-dev.6
+[b]Mod Version:[/b] 0.26.0-dev.7
 
 This mod is currently under active development and is NOT in a playable or release-ready state.
 

@@ -27,7 +27,7 @@
     "docs/evidence/nightfall-closure-merged-inputs.json",
     "docs/evidence/nightfall-5690021-git-bytes.json"
   ],
-  "notes": "Contents is a preserved stale 0.23.0 packaging copy, not a current mirror. dist includes the immutable 0.23.2 ZIP and staging backups. No current development package is declared; these local artifacts are excluded from Git, not deleted. Workshop descriptions are current authoring metadata; prior-version paragraphs are historical. Active Hours is absorbed; archive/active-hours-0.1.0-dev.4 is a frozen historical source snapshot, excluded from runtime packages and current version mirrors. ACTIVE_HOURS_IMPORT.json pins all imported bytes; ignored original native research is not redistributed. Active Hours remains independently maintained; MORTIS takes precedence when co-enabled. experiments/ contains offline design work, excluded from authoritative runtime roots and packaging inputs. MP-test packaging uses authoritative runtime bytes and an empty common/.keep generated marker; publication metadata is committed for this version. Never rebuild historical Contents or overwrite prior packages.",
+  "notes": "Contents is a preserved stale 0.23.0 packaging copy, not a current mirror. dist includes the immutable 0.23.2 ZIP and staging backups. No current development package is declared; these local artifacts are excluded from Git, not deleted. Workshop descriptions are current authoring metadata; prior-version paragraphs are historical. Active Hours is absorbed; archive/active-hours-0.1.0-dev.4 is a frozen historical source snapshot, excluded from runtime packages and current version mirrors. ACTIVE_HOURS_IMPORT.json pins all imported bytes; ignored original native research is not redistributed. Active Hours remains independently maintained; MORTIS takes precedence when co-enabled. experiments/ contains offline design work, excluded from authoritative runtime roots and packaging inputs. MP-test packaging uses authoritative runtime bytes and an empty common/.keep generated marker; publication metadata is committed for this version. Never rebuild historical Contents or overwrite prior packages. Owner-supplied full-size thumbnail is an authoring source under assets/branding, excluded from runtime packaging; preview.png and src/ProjectMORTIS/thumbnail.png are derived exports. Previous publication receipts remain historical.",
   "validation": [
     "python scripts/check_versions.py",
     "python scripts/validate.py --knowledge-and-wisdom <dependency-root>",
@@ -45,7 +45,8 @@
     "preview.png",
     "workshop.txt",
     "WORKSHOP_DESCRIPTION.txt",
-    "WORKSHOP_CHANGE_NOTE.txt"
+    "WORKSHOP_CHANGE_NOTE.txt",
+    "assets/branding/mortis-thumbnail-original.png"
   ],
   "offline_experiments": [
     "experiments/active-hours/",

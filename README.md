@@ -2,9 +2,11 @@
 
 **More Original Reanimated Threats Injection System**
 
+![Project M.O.R.T.I.S.](preview.png)
+
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.6`
+- Version: `0.26.0-dev.7`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -147,3 +149,7 @@ and isolated `scripts/prepare_workshop.py` staging. A publish request authorizes
 the labelled MP-testing upload to the existing item; package preparation alone
 does not upload, deploy or restart Steam. G7/stable G8 remain blocked until their
 required native evidence is reviewed.
+
+Artwork checkpoint 0.26.0-dev.7 adopts the owner-supplied project thumbnail;
+see [original and export provenance](assets/branding/README.md). The small UI
+icon and gameplay are unchanged. No Workshop update or package was made.
