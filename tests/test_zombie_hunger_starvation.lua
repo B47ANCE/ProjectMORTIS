@@ -106,3 +106,10 @@ states[partial]={hunger=0.5,hungerBackend=Hunger.BACKEND,lastWorldAgeHours=age-0
 assert(Hunger.feed(partial,0.1))
 assert(math.abs(fractional-(0.5+0.5/168-0.1))<0.000001,'feeding settles even a partial hourly batch')
 assert(states[partial].lastWorldAgeHours==age)
+local initial=0
+local firstPoll={getStats=function()return {
+    get=function()return initial end,set=function(_,_,value)initial=value end,
+}end}
+assert(Hunger.advance(firstPoll,nil,age-84))
+assert(math.abs(initial-0.875)<0.000001,'first queued initialization catches up from its known observation')
+assert(states[firstPoll].lastWorldAgeHours==age)

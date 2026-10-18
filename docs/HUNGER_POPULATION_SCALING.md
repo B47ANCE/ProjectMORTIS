@@ -39,7 +39,11 @@ actors are skipped. Native stream-out lifecycle behavior still needs observation
 ## Time, feeding and persistence
 
 Hunger advances from elapsed world age, not the number of queue visits. A delayed
-visit catches up in one calculation. Ordinary polls keep the existing hourly
+visit catches up in one calculation. Admission records a shared per-frame world-
+age observation, so a previously uninitialized actor can also account for its
+known queue delay at its first visit. This adds at most one observation-clock
+query per admission frame, not one per actor; unknown/future anchors never
+manufacture elapsed time. Ordinary polls keep the existing hourly
 write batching; no per-tick rewrite of every actor is added. Before either direct
 feeding or a transactional source meal, `advance(zombie, true)` settles the entire
 pre-meal interval, including a partial hour. This fixes stale direct feeding and

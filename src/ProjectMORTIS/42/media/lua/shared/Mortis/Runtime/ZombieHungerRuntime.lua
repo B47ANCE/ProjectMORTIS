@@ -210,19 +210,21 @@ function Hunger.feed(zombie, amount, metadata)
     return true, state
 end
 
-function Hunger.advance(zombie, settleForFeeding)
+function Hunger.advance(zombie, settleForFeeding, firstObservedAtHours)
     if not Authority.canWriteCanonicalState(zombie) then return false, "non-authority" end
     if pendingFood[zombie] then return false,"food-transaction-pending" end
     local now = worldAgeHours()
     if not now then return false, "world age unavailable" end
     local state = stateFor(zombie)
     if state.lastWorldAgeHours < 0 then
-        state.lastWorldAgeHours = now
+        -- Trusted scheduler observation is a transient time anchor, never a
+        -- client fact. Initial queue delay must not erase known elapsed time.
+        local observed=finite(firstObservedAtHours)
+        state.lastWorldAgeHours=(observed and observed>=0 and observed<=now) and observed or now
         if state.hunger >= 1 and state.starvingSinceWorldAgeHours == nil then
-            state.starvingSinceWorldAgeHours = now
+            state.starvingSinceWorldAgeHours = state.lastWorldAgeHours
         end
         Components.set(zombie, COMPONENT, state)
-        return true, state
     end
     local elapsed = math.max(0, now - state.lastWorldAgeHours)
     -- Avoid rewriting every loaded zombie's ModData on each behavior poll.
@@ -427,11 +429,11 @@ local function feedFromSource(zombie,candidate,provider)
     return true,after
 end
 
-function Hunger.updateFoodSeeking(zombie, radius)
+function Hunger.updateFoodSeeking(zombie, radius, firstObservedAtHours)
     if not Settings.bool("EnableZombieHunger") then return false,"disabled" end
     if not Authority.canRunCanonicalAI(zombie) then return false, "non-authority" end
     if pendingFood[zombie] then return false,"food-transaction-pending" end
-    local advanced,advanceError=Hunger.advance(zombie)
+    local advanced,advanceError=Hunger.advance(zombie,nil,firstObservedAtHours)
     if not advanced then return false,advanceError end
     if not Hunger.isHungry(zombie,Settings.number("FoodSeekingMinimumHunger")) then
         return false,"not-hungry"

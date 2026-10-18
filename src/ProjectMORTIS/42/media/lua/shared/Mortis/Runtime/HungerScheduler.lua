@@ -7,6 +7,18 @@ local Work={}
 local head,tail,count=nil,nil,0
 local pending=setmetatable({},{__mode="k"})
 local working=false
+local observedFrame,observedHours=nil,nil
+local function observationTime()
+    if observedFrame~=Scheduler.frame then
+        observedFrame=Scheduler.frame;observedHours=nil
+        if type(getGameTime)=="function" then
+            local ok,hours=pcall(function()return getGameTime():getWorldAgeHours()end)
+            hours=ok and tonumber(hours) or nil
+            if hours and hours==hours and hours>=0 and hours<math.huge then observedHours=hours end
+        end
+    end
+    return observedHours
+end
 -- Metadata safety ceiling, not population/balance tuning. Rejected requests can
 -- return on the next staggered poll; accepted work is never evicted or reordered.
 local MAX_QUEUED=131072
@@ -23,7 +35,8 @@ function Work.enqueue(actor)
         or not Authority.canRunCanonicalAI(actor) then return false end
     if pending[actor] then stats.duplicates=stats.duplicates+1;return true end
     if count>=MAX_QUEUED then stats.overflow=stats.overflow+1;return false end
-    local node={actor=setmetatable({actor},{__mode="v"}),previous=tail,queued=true,enqueuedFrame=Scheduler.frame}
+    local node={actor=setmetatable({actor},{__mode="v"}),previous=tail,queued=true,
+        enqueuedFrame=Scheduler.frame,observedAtHours=observationTime()}
     if tail then tail.next=node else head=node end
     tail=node;pending[actor]=node;count=count+1
     stats.enqueued=stats.enqueued+1;stats.peakQueued=math.max(stats.peakQueued,count)
@@ -57,7 +70,7 @@ function Work.update(process)
         local observed,eligible=pcall(live,actor)
         if Settings.bool("EnableZombieHunger") and observed and eligible then
             attempted=attempted+1;stats.attempted=stats.attempted+1
-            local called,ok,result=pcall(process,actor)
+            local called,ok,result=pcall(process,actor,node.observedAtHours)
             if called then
                 stats.checked=stats.checked+1
                 if ok==true and result=="seeking" then stats.seeking=stats.seeking+1

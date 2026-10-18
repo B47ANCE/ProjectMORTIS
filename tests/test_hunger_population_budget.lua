@@ -7,13 +7,17 @@ local function actor(id)
     return {id=id,getSquare=function()return true end,isDead=function(self)return self.dead==true end}
 end
 local zombie=actor(0)
+local timeQueries=0
+getGameTime=function()timeQueries=timeQueries+1;return {getWorldAgeHours=function()return 100 end}end
 assert(not Work.enqueue(zombie),'no population fallback without a global clock')
 Scheduler.useExternalClock(true)
 local population,visited={},{}
 for i=1,100000 do population[i]=actor(i);assert(Work.enqueue(population[i])) end
 for i=1,#population do assert(Work.enqueue(population[i])) end
 assert(Work.getDiagnostics().queued==100000,'one queue record per actor')
-local function process(z)
+assert(timeQueries==1,'one shared observation clock query, not one per actor')
+local function process(z,observedAt)
+    assert(observedAt==100,'initial observation survives queue delay')
     assert(not visited[z.id],'one accepted poll cannot execute twice')
     visited[z.id]=true
     assert(Work.enqueue(z),'callback re-entry must deduplicate the in-flight actor')

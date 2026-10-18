@@ -507,8 +507,8 @@ function Engine.update(zombie)
     end
 end
 
-local function processHunger(zombie)
-    local ok,result=ZombieHunger.updateFoodSeeking(zombie,SystemSettings.number("FoodSearchRadius"))
+local function processHunger(zombie,observedAtHours)
+    local ok,result=ZombieHunger.updateFoodSeeking(zombie,SystemSettings.number("FoodSearchRadius"),observedAtHours)
     -- This work now runs outside Engine.update. Flush its component changes
     -- before a delayed actor can stream out; network replication stays separate.
     if Components.isDirty(zombie) then Persistence.flushComponents(zombie,false) end
