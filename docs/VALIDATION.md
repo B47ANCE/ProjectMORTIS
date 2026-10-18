@@ -2,6 +2,13 @@
 
 Current development version: 0.26.0-dev.7
 
+Publication preparation follows the explicit merge-and-publish request. Source
+includes merged PR #13 / da769ee. The outgoing note describes the current
+thumbnail update; fixed-item VDF omits title/visibility/tags. An isolated new
+package must pass current source/hash/CRC/path/case checks before SteamCMD.
+Existing dev.6 packages and receipt are preserved. Current public identity is
+verified before the attempt; no upload success is inferred from preparation.
+
 Artwork-only source checkpoint based on merged PR #12 / 436f8c0.
 The user-supplied 1254x1254 PNG is preserved byte for byte in assets/branding/;
 preview.png and src/ProjectMORTIS/thumbnail.png are the same 512x512 PNG export.

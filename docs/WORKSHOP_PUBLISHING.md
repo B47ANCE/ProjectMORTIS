@@ -1,5 +1,16 @@
 # MORTIS Workshop MP-test distribution
 
+## Dev.7 upload selection
+
+The user explicitly requested merging PR #13 and publishing its new thumbnail.
+The artwork PR is merged as da769eef6bb2d2761ecf958a0f1ee7c857a01552.
+Select 0.26.0-dev.7, fixed item 3788592827 / App ID 108600, and preserve all prior
+packages. The public API returns result 1 and public visibility before this
+attempt. The outgoing changenote selects only the current section; prior notes
+are historical. No gameplay change or native acceptance is inferred. Record the
+actual upload and public preview verification below after completion. A new
+Steam desktop restart still requires a separate confirmation after success.
+
 ## Observed dev.6 publication
 
 SteamCMD exited 0 and confirmed `Committing update...Success.` for the fixed
