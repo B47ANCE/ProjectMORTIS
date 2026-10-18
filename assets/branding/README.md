@@ -1,5 +1,25 @@
 # MORTIS supplied thumbnail
 
+## Current branded revision - 0.26.0-dev.8
+
+The owner supplied the branded revision in the same thumbnail conversation.
+It adds the B47ANCE's heading. Use it for the same requested thumbnail role;
+no additional artist/licensing claims are inferred.
+
+- Original: `mortis-thumbnail-branded-original.png`, PNG, 1254x1254,
+  1,626,849 bytes, SHA-256 `b6665fd6a2e777e00657d4a05e6a5ac337a6357e42f72b79372dbd7a31e3b911`.
+- Exports: root `preview.png` and `src/ProjectMORTIS/thumbnail.png`, identical
+  512x512 PNGs, 439,120 bytes, SHA-256 `2a9832fb909c2cf9e26066152d8feb4040a81986e4d7bf3589b905d311cff03c`.
+- Export uses the same Windows System.Drawing settings described below,
+  preserving the full canvas without crop/redraw. Both decode; visual review
+  confirms the branded heading and complete composition remain visible.
+- Original matches the supplied attachment byte for byte. Previous full-size
+  original remains here; previous exports remain in Git and the dev.7 package.
+- This revision has no package/upload/native-test evidence. The dev.7 Workshop
+  receipt records the previous thumbnail, never this replacement.
+
+## Historical first supplied thumbnail - 0.26.0-dev.7
+
 The project owner supplied this artwork in chat and requested its use as the
 new project thumbnail. This records permission for that requested use; no
 additional artist attribution or third-party licensing claim is asserted.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.26.0-dev.8 - branded thumbnail revision, 2026-10-17
+
+- Replace the project/mod thumbnail and Workshop preview authoring assets with the newly supplied artwork carrying the B47ANCE's heading. Preserve both full-size originals and the dev.7 publication receipt.
+- Export the complete image at 512x512 without cropping or redrawing; leave the small UI icon and gameplay/API/save/network behavior unchanged.
+- Compatible asset checkpoint within the unreleased 0.26.0 target. Offline asset/source checks only; no packaging, deployment, merge or Workshop upload. Native testing remains human-operated; G7/stable G8 remain blocked.
+
 ## 0.26.0-dev.7 - supplied project thumbnail, 2026-10-17
 
 - Use the owner-supplied artwork for the 512x512 project/mod thumbnail and Workshop preview; preserve the original 1254x1254 PNG as an authoring source.

@@ -1,6 +1,12 @@
 # MORTIS Workshop MP-test distribution
 
-## Dev.7 upload selection
+## Current dev.8 authoring status
+
+The branded thumbnail source checkpoint 0.26.0-dev.8 is not packaged or uploaded.
+The latest observed Workshop distribution remains dev.7 with the previous
+thumbnail, recorded below. A new explicit publish request is required.
+
+## Historical dev.7 upload selection
 
 The user explicitly requested merging PR #13 and publishing its new thumbnail.
 The artwork PR is merged as da769eef6bb2d2761ecf958a0f1ee7c857a01552.

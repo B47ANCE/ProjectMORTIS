@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.26.0-dev.7; public API 1.6.0.
+Canonical version: 0.26.0-dev.8; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
