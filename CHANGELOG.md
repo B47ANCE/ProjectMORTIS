@@ -4,7 +4,7 @@
 
 - Use the approved transparent specimen-jar artwork for the mod icon at 64x64; preserve the generated 1254x1254 RGBA master and original generation prompt. No text, backdrop, books or background fill.
 - Keep preview.png and the mod thumbnail byte for byte unchanged. Preserve the merged dev.9 hunger fixes, matching dependency contracts, all historical packages and receipts; gameplay/API/save/network behavior is unchanged.
-- Compatible asset checkpoint within unreleased 0.26.0; version mirrors and current input/overview bindings synchronized. Native icon display stays human-operated / NOT TESTED; G7/stable G8 blocked. Explicit merge/publish authorized; actual upload is recorded separately after success.
+- Compatible asset checkpoint within unreleased 0.26.0; version mirrors and current input/overview bindings synchronized. Native icon display stays human-operated / NOT TESTED; G7/stable G8 blocked. Merged reconciled #16 and icon #20 after checks, then published source bfa70e8 to existing Workshop item 3788592827. SteamCMD success and public version verified; public thumbnail remains exactly unchanged. Receipt binds the new packaged icon and exact source/package hashes.
 
 ## 0.26.0-dev.9 - bounded hunger population work, 2026-10-17
 

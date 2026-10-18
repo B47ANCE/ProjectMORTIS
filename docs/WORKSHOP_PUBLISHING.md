@@ -13,6 +13,22 @@ G7/stable G8 blocked. Steam restart requires separate post-upload approval.
 The dev.9 build-set inventory below is historical exact input; current MORTIS
 version/icon/input hashes are bound by its current manifest and upload receipt.
 
+## Observed dev.10 icon publication
+
+SteamCMD exited 0 and confirmed `Committing update...Success.` on 2026-10-18
+America/Phoenix, from merged source bfa70e8bd406b19dfcc29918048203c51ad72828.
+Icon push/PR checks and merged-main CI passed before upload. The 227-file ZIP
+SHA-256 is 38779cd55b9162f241d05ddff8d36e753912b85baf9eb9a68d761e086589074b.
+The new 64x64 RGBA icon is bound in the [portable receipt](publications/0.26.0-dev.10-workshop-3788592827.json).
+Public API result 1 confirms the canonical dev.10 description and preserved
+item title/public visibility. The preview is unchanged before/after, SHA-256
+2a9832fb909c2cf9e26066152d8feb4040a81986e4d7bf3589b905d311cff03c;
+both local thumbnail slots retain the same bytes. No title/visibility/tag
+fields were submitted. The previous dev.9 recovery package is hash-verified
+and preserved. Native icon display/subscription acceptance remains human /
+NOT TESTED; G7/stable G8 blocked. The user declined the separate Steam
+restart; Steam was left unchanged. No local deployment, game/server launch or stable tag.
+
 ## Historical dev.9 matching MP-test selection
 
 The user authorized merged Knowledge 0.17.0 / MORTIS 0.26.0-dev.9 / Nightfall 0.31.0-dev.8 distribution. Follow [current preparation/evidence](WORKSHOP_0.26.0-dev.9.md) and [exact runtime inventory](MP_TEST_BUILD_SET.json). Historical dev.7 receipts and dev.8 authoring checkpoint are retained. Upload outcome is recorded separately. G7/stable G8 BLOCKED.
