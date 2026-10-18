@@ -3,7 +3,7 @@
   "id": "mortis",
   "name": "M.O.R.T.I.S.",
   "version": "0.26.0-dev.6",
-  "source_digest": "d2ebe26b7930dbd7f3b172c52825dcfc7f98d7b923c04ff7cb0258fc44ff5934",
+  "source_digest": "3ec5ddc71e5741cc66af25993bbf31517c06d3bf36c0220b7e3f7b246e36fea1",
   "reviewed": true,
   "features": [
     {
@@ -59,7 +59,8 @@
     "docs/NIGHTFALL_INTEGRATION_CLOSURE.md",
     "docs/ACTIVE_HOURS_OWNERSHIP_MODEL.md",
     "docs/ACTIVE_HOURS_API_AUDIT.md",
-    "docs/RUNTIME_RESULT_FORMAT.md"
+    "docs/RUNTIME_RESULT_FORMAT.md",
+    "docs/WORKSHOP_PUBLISHING.md"
   ],
   "relations": []
 }

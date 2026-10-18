@@ -2,6 +2,38 @@
 
 Current development version: 0.26.0-dev.6
 
+## Publication preparation for dev.6
+
+[VERIFIED - distribution only] Source e96b56ee50ad6aae46d10d98cc8662f5a34fb215
+was uploaded to existing item 3788592827: SteamCMD exit 0 plus committed-update
+success marker. Public API result 1, App ID 108600, public visibility and exact
+canonical description were verified afterward. Both CI jobs passed for push
+and PR before upload. The user declined restart; Steam stayed unchanged.
+Package SHA-256 is `626a9e8762c26fe3b64d9285f1b2c0f82b2772ef0bf02e8920812bb493703d76`.
+See publications/0.26.0-dev.6-workshop-3788592827.json for hashes/provenance.
+No subscription/download, game/server or native acceptance result is implied.
+
+The explicit publish request authorizes a labelled test distribution, not stable
+G8. Runtime source/input remains identical to merged d5cfb21; changes are authoring
+metadata, offline packaging/checking and documentation. Four disposable ZIP/VDF
+regressions verify source/inventory/CRC, duplicate/case/path rejection, MP-test
+text and existing-item/visibility preservation. The full local host suite now
+includes 32 Python tests; other host counts below are unchanged. Exact commands:
+
+```text
+python -B -m unittest discover -s tests -p test_workshop_package.py
+python -B scripts/prepare_workshop.py --output dist/workshop-mp-test/<selected-version-commit>
+python -B scripts/prepare_workshop.py --output dist/workshop-mp-test/<selected-version-commit> --verify
+```
+
+Source/staging/ZIP hashes, safe paths, unique case, CRC, Lua-only payload and
+current version are required for this test distribution. Stable `--release`
+still rejects the prerelease; no stable PASS is claimed. The anonymous Steam
+metadata API returns result 9 for 3788592827; the user reconfirmed that exact URL.
+Title/visibility/tags are omitted from the VDF, and the existing ID is fixed.
+Package creation grants no upload or native proof; record SteamCMD's actual
+result separately. All runtime tests remain human-operated.
+
 [TESTED - offline Windows CPython 3.12.14 / Lupa 2.6, 2026-10-17]
 Based on merged PR #10, 21051190c36b187cc6f594df4ecbfd99fd426845.
 Final Git identity and CI results belong to this iteration PR. Runtime source
