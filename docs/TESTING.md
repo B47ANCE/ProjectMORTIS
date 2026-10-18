@@ -7,6 +7,9 @@ the full host suite plus the three scoped Nightfall regressions. Missing or
 changed inputs fail; no default-branch fallback or credentials are used.
 Input updates require manifest/source review in the same PR. Console results
 and the job summary record source identities; no native gate is granted.
+The first Linux run caught the older Nightfall CRLF fixture's incorrect Git-byte
+attribution; current checks use `nightfall-5690021-git-lf.json`, while the former
+manifest/report remain historical. See NIGHTFALL_INTEGRATION_CLOSURE.md.
 See [human-result validation](RUNTIME_RESULT_FORMAT.md) and the
 [installed API/crash-boundary audit](ACTIVE_HOURS_API_AUDIT.md).
 

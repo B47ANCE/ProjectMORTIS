@@ -21,6 +21,13 @@ Read-only token/actions, no secrets/deploy/game; source identities recorded in
 job logs/summary. Unit-only stays separate. Actual remote outcomes are recorded
 on the PR; workflow presence is not a check PASS or branch-protection change.
 
+The first Linux integration run correctly rejected the older Nightfall fixture:
+153/159 selected files used CRLF despite its Git-byte label. All selected content
+matches committed blobs after newline normalization. Historical input/results
+remain unchanged; current checks use the new true-Git manifest and continue to
+reject newline drift. Current Nightfall inventory is
+`83db444c78e73fbd1db882991c80d858c18bb79f2a62ed99d39476217b5af8d4`.
+
 Human-result validator regressions cover every suite/status, missing/duplicate/
 unknown/future records, wrong commits/versions/hashes, missing evidence/baseline/
 roles, dependency MP contradictions, suite mod lists, private references,
@@ -55,9 +62,9 @@ Exact commands (configured Python; pinned scripts/requirements.txt):
 python -B scripts/check_versions.py
 python -B scripts/check_overview.py
 python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json
-python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021
+python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021-git-lf
 python -B scripts/audit_active_hours_api.py --game-root <verified-local-game-root> --steam-manifest <verified-appmanifest_108600.acf>
-python -B scripts/preflight_runtime.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021 --game-root <verified-local-game-root> --steam-manifest <verified-appmanifest_108600.acf>
+python -B scripts/preflight_runtime.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021-git-lf --game-root <verified-local-game-root> --steam-manifest <verified-appmanifest_108600.acf>
 python -B scripts/check_public.py --staged
 git diff --cached --check
 ```

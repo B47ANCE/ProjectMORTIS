@@ -67,9 +67,11 @@ if __name__ == '__main__':
     parser.add_argument('--mortis-evidence', type=Path, default=ROOT/'docs/evidence/mortis-runtime-input.json')
     parser.add_argument('--knowledge-and-wisdom', type=Path, required=True)
     parser.add_argument('--nightfall', type=Path, required=True)
+    parser.add_argument('--nightfall-evidence', type=Path, default=EVIDENCE,
+                        help='Explicit reviewed bytes; old CRLF fixtures remain historical')
     args = parser.parse_args()
     try:
-        result = check(args.mortis,args.knowledge_and_wisdom,args.nightfall,args.mortis_evidence)
+        result = check(args.mortis,args.knowledge_and_wisdom,args.nightfall,args.mortis_evidence,args.nightfall_evidence)
         print(json.dumps(result,indent=2));sys.exit(0 if result['status']=='PASS' else 1)
     except Exception as error:
         print(json.dumps({'status':'ERROR','error_type':type(error).__name__,'detail':'Pinned input/probe unavailable; no native test performed.'}));sys.exit(2)

@@ -16,7 +16,7 @@ def fixture(suite='creator', status='NOT TESTED'):
     inputs = {}
     for name, filename in [('mortis', 'mortis-runtime-input.json'),
                             ('knowledge', 'knowledge-dependency-6ba66c0-git-bytes.json')] + (
-                            [('nightfall', 'nightfall-5690021-git-bytes.json')] if suite == 'nightfall' else []):
+                            [('nightfall', 'nightfall-5690021-git-lf.json')] if suite == 'nightfall' else []):
         manifest = read(ROOT/'docs/evidence'/filename)
         inputs[name] = {'version': manifest['version'], 'commit': 'a'*40 if name == 'mortis' else manifest['git_commit'],
                         'inventory_sha256': manifest['inventory_sha256']}
@@ -27,7 +27,7 @@ def fixture(suite='creator', status='NOT TESTED'):
     if suite == 'dependency':
         mods = ['B47ANCEDKnowledgeAndWisdom']
     if suite == 'nightfall':
-        mods = ['ProjectNightfall'] + read(ROOT/'docs/evidence/nightfall-5690021-git-bytes.json')['integration_contract']['required_mod_ids']
+        mods = ['ProjectNightfall'] + read(ROOT/'docs/evidence/nightfall-5690021-git-lf.json')['integration_contract']['required_mod_ids']
     return {'schema': 1, 'suite': suite, 'inputs': inputs,
             'environment': {'steam_build': '12345', 'client_version': 'synthetic', 'server_version': 'synthetic',
                             'clean_baseline': status in {'PASS', 'FAIL', 'PARTIAL'}, 'mod_ids': mods},

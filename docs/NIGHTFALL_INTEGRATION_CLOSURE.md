@@ -1,5 +1,24 @@
 # Nightfall integration source closure
 
+## Dev.6 input-provenance correction
+
+The first Linux integration CI run correctly rejected the older Nightfall
+`nightfall-5690021-git-bytes.json` fixture. Despite its name, 153 of its 159 files
+used Windows CRLF bytes different from the selected committed Git blobs. All
+selected content compares equal after newline normalization. Preserve that
+manifest and the original closure report as historical fixture evidence; their
+prior exact-Git-byte attribution was incorrect. Those results are not relabelled.
+
+Current checks default to [true Git blob bytes](evidence/nightfall-5690021-git-lf.json),
+inventory `83db444c78e73fbd1db882991c80d858c18bb79f2a62ed99d39476217b5af8d4`.
+The same source commit remains selected; no Nightfall code changed. Strict byte
+verification is retained, not replaced by newline normalization. The existing
+line-ending mismatch regression continues to enforce this boundary. CI checks
+these bytes from a clean Linux checkout. Native gates remain unchanged.
+
+The following dev.5 result describes its original Windows fixture. Reproducing
+it with today's checker requires `--nightfall-evidence docs/evidence/nightfall-5690021-git-bytes.json`.
+
 NF-M01 through NF-M04 are **SOURCE FIXED / OFFLINE REGRESSIONS PASS** in merged
 [Nightfall PR #6](https://github.com/B47ANCE/ProjectNightfall/pull/6).
 Native acceptance is still HUMAN / NOT TESTED. The original
@@ -29,18 +48,20 @@ Frozen merged inputs:
 
 The portable result is [nightfall-closure-merged-inputs.json](evidence/nightfall-closure-merged-inputs.json).
 Its manifests pin 224 MORTIS runtime/authoring files, 159 Nightfall source/selected
-test inputs and 120 Knowledge source/metadata files. Git-archive bytes are
-intentional: line-ending differences fail exact verification. This is not an
-installed mod list or a claim that a PR merge deployed content.
+test inputs and 120 Knowledge source/metadata files. The older Nightfall fixture's
+line-ending attribution is corrected above. Exact verification still applies to
+whichever manifest is explicitly selected. This is not an installed mod list or
+a claim that a PR merge deployed content.
 
 From this MORTIS checkout, reproduce the frozen result:
 
 ```text
-python -B scripts/check_nightfall_integration.py --mortis <merged-MORTIS-snapshot> --mortis-evidence docs/evidence/mortis-f4ca76c-runtime.json --knowledge-and-wisdom <exact-Knowledge-snapshot> --nightfall <exact-Nightfall-snapshot>
+python -B scripts/check_nightfall_integration.py --mortis <merged-MORTIS-snapshot> --mortis-evidence docs/evidence/mortis-f4ca76c-runtime.json --knowledge-and-wisdom <exact-Knowledge-snapshot> --nightfall <historical-Nightfall-CRLF-snapshot> --nightfall-evidence docs/evidence/nightfall-5690021-git-bytes.json
 ```
 
-Omit `--mortis` and `--mortis-evidence` to check the current development runtime
-input instead. This executes pinned first-party Lua tests in isolated host VMs;
+Omit `--mortis`, `--mortis-evidence` and the historical `--nightfall-evidence` to
+check current MORTIS with a true Git-byte Nightfall checkout instead. This
+executes pinned first-party Lua tests in isolated host VMs;
 it is separate from [preflight](PREFLIGHT.md), which never executes Lua.
 The dev.6 integration CI job runs this checker against exact pinned first-party
 inputs as well as the full MORTIS suite; unit-only remains a separate job.

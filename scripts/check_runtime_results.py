@@ -57,7 +57,7 @@ def check(data, suite, mortis_commit, root=ROOT):
         raise ValueError('wrong input set')
     manifests = {'mortis': 'mortis-runtime-input.json',
                  'knowledge': 'knowledge-dependency-6ba66c0-git-bytes.json',
-                 'nightfall': 'nightfall-5690021-git-bytes.json'}
+                 'nightfall': 'nightfall-5690021-git-lf.json'}
     for name in names:
         record = data['inputs'][name]
         exact(record, 'version commit inventory_sha256')

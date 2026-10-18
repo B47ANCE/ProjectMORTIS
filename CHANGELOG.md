@@ -3,6 +3,7 @@
 ## 0.26.0-dev.6 - offline CI, API audit and recovery safeguards, 2026-10-17
 
 - Run exact pinned Knowledge integrations and Nightfall regressions in a separate read-only CI job.
+- Correct the older Nightfall CRLF fixture's Git-byte attribution after strict Linux CI rejection; preserve historical evidence and select a new true-Git manifest without weakening byte checks.
 - Validate private human-result records for case coverage, candidate identities and contradictions; never grant runtime gates automatically.
 - Audit installed seasonal API callers, life-identity candidates and persistence boundaries; record additional differing loose classes without modifying the game.
 - Fix isolated ownership checkpoint admission and outcome sequence headroom, with failing-before/fixed-after regressions and crash-cutpoint coverage.

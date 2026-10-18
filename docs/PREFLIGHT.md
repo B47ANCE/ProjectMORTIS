@@ -66,3 +66,7 @@ additional differing loose GameTime/IsoZombie/IsoObject classes. The older
 preflight baseline is preserved as historical evidence; its selected checks
 are not an exhaustive clean-install audit. Establish the effective clean
 client/server baseline through human review before native acceptance.
+
+Nightfall now defaults to the true committed-byte `nightfall-5690021-git-lf.json`
+manifest. The older misleadingly named `git-bytes` CRLF fixture remains historical;
+see NIGHTFALL_INTEGRATION_CLOSURE.md. Default checks intentionally reject it.
