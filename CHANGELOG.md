@@ -4,7 +4,7 @@
 
 - Use the owner-supplied artwork for the 512x512 project/mod thumbnail and Workshop preview; preserve the original 1254x1254 PNG as an authoring source.
 - Keep the small UI icon, gameplay, public API and runtime/save/network schemas unchanged. Update current version/input/overview mirrors; retain prior publication/package evidence.
-- Asset/development source update only; no package, deployment, Workshop upload or native tests.
+- Published the explicitly authorized MP test update from 3122532 to existing Workshop item 3788592827. SteamCMD success, canonical public description and exact thumbnail bytes verified; prior packages preserved. No deployment or native tests; G7/stable G8 remain blocked. See the versioned publication receipt.
 
 ## 0.26.0-dev.6 - offline CI, API audit and recovery safeguards, 2026-10-17
 

@@ -7,7 +7,13 @@ includes merged PR #13 / da769ee. The outgoing note describes the current
 thumbnail update; fixed-item VDF omits title/visibility/tags. An isolated new
 package must pass current source/hash/CRC/path/case checks before SteamCMD.
 Existing dev.6 packages and receipt are preserved. Current public identity is
-verified before the attempt; no upload success is inferred from preparation.
+verified before the attempt. SteamCMD subsequently exited 0 with the committed
+update success marker, from source 31225326635b810ff108ef46b750fe9cb1f358d3.
+Public API result 1 confirms the canonical description and preserved visibility;
+Steam preview SHA-256 equals the exact local export. The isolated 226-file
+package passes CRC/path/case/hash/inventory checks; all four push/PR CI checks
+passed before upload. See docs/publications/0.26.0-dev.7-workshop-3788592827.json
+for immutable published source/package/file hashes and actual observations.
 
 Artwork-only source checkpoint based on merged PR #12 / 436f8c0.
 The user-supplied 1254x1254 PNG is preserved byte for byte in assets/branding/;
@@ -24,10 +30,15 @@ original hash matches the supplied attachment. No new tests mirror this simple
 asset replacement; existing checks and direct image inspection cover the change.
 
 Runtime code differences are version mirrors only; API 1.6.0 and runtime/save/
-network schemas are unchanged. No new package, deployment or Workshop upload.
+network schemas are unchanged. A new isolated MP-test package was uploaded as
+recorded above; no local deployment occurred.
 Native menu/thumbnail display remains HUMAN / NOT TESTED. Existing gameplay G7
 BLOCKED / NOT TESTED; stable G8 BLOCKED. Prior publication and test evidence
 below retains its original version/environment and is historical.
+
+Publication checks: python -B scripts/prepare_workshop.py --output
+dist/workshop-mp-test/0.26.0-dev.7-3122532 [then --verify] at published commit;
+python -B scripts/check_public.py --staged; exact CI head verified with gh pr view.
 
 Commands: python -B scripts/check_versions.py; python -B scripts/check_overview.py;
 python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json.

@@ -8,8 +8,25 @@ Select 0.26.0-dev.7, fixed item 3788592827 / App ID 108600, and preserve all pri
 packages. The public API returns result 1 and public visibility before this
 attempt. The outgoing changenote selects only the current section; prior notes
 are historical. No gameplay change or native acceptance is inferred. Record the
-actual upload and public preview verification below after completion. A new
+actual upload and public preview verification below. A new
 Steam desktop restart still requires a separate confirmation after success.
+
+## Observed dev.7 publication
+
+SteamCMD exited 0 with `Committing update...Success.` on 2026-10-18 UTC
+(2026-10-17 America/Phoenix), from committed/pushed source
+31225326635b810ff108ef46b750fe9cb1f358d3. Both push/PR offline and integration
+checks passed before upload. The 226-file package SHA-256 is
+773c424a4e894c35d3c29b828567318a8bf8885aeab3ad94f83cbf49c102018a.
+The fixed existing item remains public, with its title preserved and no
+visibility/title/tag fields submitted. Public API result 1 confirms the exact
+canonical description. Downloaded Steam preview bytes match preview.png:
+e1ec7377f34883f3c0ecb496a74ff2e48386d29e6580cf68400e9bcc834399f0.
+The [portable receipt](publications/0.26.0-dev.7-workshop-3788592827.json)
+records all staged file hashes and the actual upload/public verification.
+Dev.6 package/receipt are preserved. The user declined the separate Steam
+desktop restart; Steam was left unchanged. Subscription/download and native display/acceptance
+remain HUMAN / NOT TESTED; G7 and stable G8 stay blocked.
 
 ## Observed dev.6 publication
 
