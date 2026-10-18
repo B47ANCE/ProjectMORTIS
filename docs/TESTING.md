@@ -1,5 +1,15 @@
 # Project M.O.R.T.I.S. Testing
 
+Dev.6 CI uses separate `offline` and `integration` jobs with read-only token
+permissions and pinned actions. Integration checks out immutable public
+Knowledge 6ba66c0 and Nightfall 5690021, verifies their exact manifests and runs
+the full host suite plus the three scoped Nightfall regressions. Missing or
+changed inputs fail; no default-branch fallback or credentials are used.
+Input updates require manifest/source review in the same PR. Console results
+and the job summary record source identities; no native gate is granted.
+See [human-result validation](RUNTIME_RESULT_FORMAT.md) and the
+[installed API/crash-boundary audit](ACTIVE_HOURS_API_AUDIT.md).
+
 The native assumptions behind biological-material work are recorded in
 `NATIVE_BIOLOGICAL_MATERIAL_AUDIT.md`. Its runtime validation gates are release
 tests, not claims inferred from source inspection.

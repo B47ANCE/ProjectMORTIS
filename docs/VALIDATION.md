@@ -1,5 +1,79 @@
 # Current validation
 
+Current development version: 0.26.0-dev.6
+
+[TESTED - offline Windows CPython 3.12.14 / Lupa 2.6, 2026-10-17]
+Based on merged PR #10, 21051190c36b187cc6f594df4ecbfd99fd426845.
+Final Git identity and CI results belong to this iteration PR. Runtime source
+diff is exactly three version mirrors; API 1.6.0 and runtime/save/network schemas
+are unchanged. No game, server, native UI or real save was opened or changed.
+
+Full host suite PASS: 66 Lua test files, 28 Python tests, 26 Active Hours diagnostic
+cases, 130 runtime Lua compilations, 15 version mirrors and 87 JSON catalogs.
+Both real-source Knowledge integrations verify the pinned 120-file input first.
+All three exact-input Nightfall regressions PASS against this candidate, the
+159-file Nightfall 5690021 and Knowledge 6ba66c0 inputs. Native methods remain
+modeled; no full family bootstrap or native behavior is certified.
+
+CI now has a separate integration job: immutable first-party source checkouts,
+exact manifests, full MORTIS host suite and selected Nightfall regressions.
+Read-only token/actions, no secrets/deploy/game; source identities recorded in
+job logs/summary. Unit-only stays separate. Actual remote outcomes are recorded
+on the PR; workflow presence is not a check PASS or branch-protection change.
+
+Human-result validator regressions cover every suite/status, missing/duplicate/
+unknown/future records, wrong commits/versions/hashes, missing evidence/baseline/
+roles, dependency MP contradictions, suite mod lists, private references,
+duplicate/oversized/nonfinite JSON and redacted CLI error/incomplete exits.
+VALID means structural coverage only; all gates stay blocked pending human review.
+
+Ownership regressions reproduced AH-CR01 (uncheckpointed acknowledgement/retry)
+and AH-CR02 (dispatch consumed the last sequence) before correction and PASS now.
+Crash cutpoints retain issued/uncertain records and refuse every modeled new-
+session transition; no replay/reset/CAS/storage adapter is installed. Record 1
+remains experimental. See ACTIVE_HOURS_API_AUDIT.md and OWNERSHIP model guidance.
+
+[VERIFIED - installed source/member metadata, NOT runtime]
+Steam build 25485521 and packaged jar hash match the recorded baseline. Seasonal
+Lua callers are identified; headless/seasonal behavior, durable life identity,
+corpse continuity and disk/native atomicity remain UNKNOWN/RUNTIME GATE.
+Additional differing loose GameTime/IsoZombie/IsoObject hashes are recorded in
+active-hours-api-25485521.json. No engine/launcher file was altered.
+
+[TESTED - read-only input preflight] Exact MORTIS/Knowledge/Nightfall inputs,
+overview and packaged engine/build checks PASS. Overall BLOCKED as expected:
+Knowledge's intentional MP guard, launcher overrides and two selected loose-class
+mismatches; the separate API audit expands the differing-class inventory. Other
+family installations remain NOT CHECKED. No bypass or runtime claim.
+
+Current MORTIS input: 224 files, inventory SHA-256
+`0a3545ffe6979dea7355a550b5df83657d6cc25815c29abc6182231091f3d7f8`.
+
+Exact commands (configured Python; pinned scripts/requirements.txt):
+
+```text
+python -B scripts/check_versions.py
+python -B scripts/check_overview.py
+python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json
+python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021
+python -B scripts/audit_active_hours_api.py --game-root <verified-local-game-root> --steam-manifest <verified-appmanifest_108600.acf>
+python -B scripts/preflight_runtime.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021 --game-root <verified-local-game-root> --steam-manifest <verified-appmanifest_108600.acf>
+python -B scripts/check_public.py --staged
+git diff --cached --check
+```
+
+All native tests remain HUMAN / NOT TESTED. Clean-client baseline, dependency
+stage-1 review, creator UI/storage, server solar/life/storage and locomotion
+owner/observer/restoration, join/reconnect/restart remain open. Production Active
+Hours and affected Knowledge MP storage remain blocked. G7 BLOCKED / NOT TESTED;
+stable G8 BLOCKED. No package, deploy, upload, game/server launch or stable tag.
+
+---
+
+## Historical dev.5 evidence (unchanged)
+
+# Current validation
+
 Current development version: 0.26.0-dev.5
 
 [TESTED — offline Windows CPython 3.12.14 / Lupa 2.6, 2026-10-17]

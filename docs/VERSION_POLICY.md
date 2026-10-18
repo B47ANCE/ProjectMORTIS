@@ -47,3 +47,10 @@ API 1.6.0, creator/world/network schemas are unchanged. Ownership-model record
 version 1 is experimental and unregistered. Frozen merged MORTIS dev.4 input,
 Nightfall manifests and combined closure records are historical scoped evidence,
 not current MORTIS version mirrors or native proof.
+
+0.26.0-dev.6 is a compatible tooling/audit/model-fix checkpoint within the
+unreleased 0.26.0 target. Runtime changes remain three version mirrors only;
+API 1.6.0, creator/world/network schemas and experimental ownership format 1
+are unchanged. Human-result JSON schema 1 is an offline review format, not a
+runtime save schema or automated acceptance contract. Prior validation remains
+historical; the API audit grants no runtime evidence.

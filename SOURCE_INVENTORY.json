@@ -32,7 +32,9 @@
     "python scripts/test_active_hours.py",
     "python -B scripts/check_overview.py",
     "python -B scripts/preflight_runtime.py --knowledge-and-wisdom <exact-dependency-root>",
-    "python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom <exact-dependency-root> --nightfall <exact-Nightfall-root>"
+    "python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom <exact-dependency-root> --nightfall <exact-Nightfall-root>",
+    "python -B scripts/check_runtime_results.py <private-result.json> --suite <selected-suite> --mortis-commit <reviewed-full-SHA>",
+    "python -B scripts/audit_active_hours_api.py --game-root <verified-game-root> --steam-manifest <verified-appmanifest_108600.acf>"
   ],
   "authoring_assets": [
     "src/ProjectMORTIS/info.txt",

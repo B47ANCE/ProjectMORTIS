@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.26.0-dev.6 - offline CI, API audit and recovery safeguards, 2026-10-17
+
+- Run exact pinned Knowledge integrations and Nightfall regressions in a separate read-only CI job.
+- Validate private human-result records for case coverage, candidate identities and contradictions; never grant runtime gates automatically.
+- Audit installed seasonal API callers, life-identity candidates and persistence boundaries; record additional differing loose classes without modifying the game.
+- Fix isolated ownership checkpoint admission and outcome sequence headroom, with failing-before/fixed-after regressions and crash-cutpoint coverage.
+- Runtime changes are version mirrors only; API 1.6.0 and runtime/save/network schemas unchanged. Runtime testing remains human-operated; G7/stable G8 BLOCKED.
+
 ## 0.26.0-dev.5 - integration closure and ownership model, 2026-10-17
 
 - Verify the exact merged MORTIS/Nightfall/Knowledge combination with pinned consumer regressions; preserve the original failing audit and add separate source-closure evidence.

@@ -60,3 +60,9 @@ NOT CHECKED; this command cannot certify the whole family. Guarded Knowledge MP
 storage and native gates remain blocked even when Nightfall source checks pass.
 Run the separate combined regression command in NIGHTFALL_INTEGRATION_CLOSURE.md
 for scoped actual-module host coverage. Preserve old source manifests as history.
+
+The dev.6 [installed API audit](ACTIVE_HOURS_API_AUDIT.md) separately fingerprints
+additional differing loose GameTime/IsoZombie/IsoObject classes. The older
+preflight baseline is preserved as historical evidence; its selected checks
+are not an exhaustive clean-install audit. Establish the effective clean
+client/server baseline through human review before native acceptance.

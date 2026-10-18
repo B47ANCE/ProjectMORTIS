@@ -116,6 +116,8 @@ function Model.dispatch(saved,ctx)
     local s,err=context(saved,ctx);if not s then return nil,err end
     if ctx.checkpointed~=true then return nil,'checkpoint-required' end
     if s.pending==false or s.pending.status~='ready' then return nil,'not-dispatchable' end
+    -- Issuing must leave room to checkpoint applied/refused/unknown outcome.
+    if s.sequence>=MAX-1 then return nil,'outcome-sequence-exhausted' end
     if not advance(s) then return nil,'sequence-exhausted' end
     local p=s.pending;p.status='issued';p.attempt=s.sequence
     local command={owner=OWNER,operation=p.kind,token=token(s,p)}
@@ -127,6 +129,7 @@ end
 -- A partially applied/unknown failure must be classified "unknown" and frozen.
 function Model.acknowledge(saved,ctx,receipt)
     local s,err=context(saved,ctx);if not s then return nil,err end
+    if ctx.checkpointed~=true then return nil,'checkpoint-required' end
     local p=s.pending
     if p==false or p.status~='issued' then return nil,'no-confirmable-operation' end
     if not exact(receipt,{token=true,outcome=true}) or receipt.token~=token(s,p)
@@ -148,6 +151,7 @@ function Model.acknowledge(saved,ctx,receipt)
 end
 function Model.retry(saved,ctx)
     local s,err=context(saved,ctx);if not s then return nil,err end
+    if ctx.checkpointed~=true then return nil,'checkpoint-required' end
     if s.pending==false or s.pending.status~='refused' then return nil,'retry-not-safe' end
     if not advance(s) then return nil,'sequence-exhausted' end
     s.pending.status='ready'

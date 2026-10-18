@@ -42,6 +42,8 @@ python -B scripts/check_nightfall_integration.py --mortis <merged-MORTIS-snapsho
 Omit `--mortis` and `--mortis-evidence` to check the current development runtime
 input instead. This executes pinned first-party Lua tests in isolated host VMs;
 it is separate from [preflight](PREFLIGHT.md), which never executes Lua.
+The dev.6 integration CI job runs this checker against exact pinned first-party
+inputs as well as the full MORTIS suite; unit-only remains a separate job.
 Exit 0 = scoped offline PASS; 1 = regression FAIL; 2 = input/tool ERROR.
 Native file access in the selected fragment test is supplied by a read-only
 string fixture for its one reviewed source file; no game or save is opened.

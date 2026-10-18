@@ -1,6 +1,6 @@
 # Human runtime test queue
 
-Current candidate: 0.26.0-dev.5; API 1.6.0; replication protocol 2.
+Current candidate: 0.26.0-dev.6; API 1.6.0; replication protocol 2.
 The user clarified that tests requiring an open game are human-operated.
 Automated work here is offline/source preflight only. **No game/server was
 opened, mod deployed, save modified or native result collected.**
@@ -19,6 +19,9 @@ loose MainScreen/IsoGameCharacter classes differ from packaged bytes. Disabling
 Lua mods alone does not establish a vanilla baseline. A human must establish a
 clean vanilla client and isolated disposable test profile before acceptance.
 No existing launcher, engine file, mod set or save was changed by this preflight.
+The [dev.6 API audit](ACTIVE_HOURS_API_AUDIT.md) additionally fingerprints differing
+loose GameTime, IsoZombie and IsoObject classes. These reinforce this prerequisite;
+they are not behavioral attribution or proof of a clean packaged-engine runtime.
 
 [Portable provenance](evidence/native-test-preflight-25485521.json) records
 Steam build 25485521 and hashes. The existing version.txt says
@@ -31,7 +34,7 @@ Freeze these exact inputs; a source PR is not an installed/merged release:
 
 | Input | Candidate | Status |
 | --- | --- | --- |
-| MORTIS | Selected 0.26.0-dev.5 commit on feat/integration-ownership-model; record its SHA and match mortis-runtime-input.json | Development source, native NOT TESTED |
+| MORTIS | Selected 0.26.0-dev.6 commit on feat/offline-ci-api-recovery; record its SHA and match mortis-runtime-input.json | Development source, native NOT TESTED |
 | Knowledge & Wisdom | 0.16.0, source head 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, merged dependency PR #1 | Clean public source; affected multiplayer APIs intentionally blocked |
 | Nightfall | Exclude from creator, dependency baseline, MORTIS baseline and isolated locomotion | Consumer feeding is a later separate suite |
 
@@ -96,3 +99,8 @@ privately; do not commit credentials, connection/player identifiers or journals.
 Return the generated dependency and MORTIS reports when exercised, plus relevant
 redacted console excerpts/screenshots. A harness summary needs human review and
 does not upgrade other environments. G7 and stable G8 remain BLOCKED.
+
+For machine-readable review preparation use [the private result format and
+validator](RUNTIME_RESULT_FORMAT.md). It checks declarations/coverage only; it
+never opens evidence, grants stage acceptance or upgrades G7/G8. Record one suite
+at a time and preserve untested/blocked cases instead of manufacturing PASS.

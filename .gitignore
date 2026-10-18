@@ -5,6 +5,8 @@
 /docs/audits/
 /.steamcmd-last-upload.sha256
 /validation-results.json
+/.ci-inputs/
+/human-runtime-results.json
 __pycache__/
 *.pyc
 *.zip
