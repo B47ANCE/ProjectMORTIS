@@ -40,3 +40,9 @@ loose engine classes, so it is not a clean Lua-only acceptance baseline.
 Knowledge & Wisdom 0.16.0 intentionally refuses affected MP storage; never bypass
 the guard or downgrade to claim success. Native testing itself grants no deploy,
 package, Workshop upload or stable-release permission.
+
+## Hunger population scheduling
+
+Current 0.26.0-dev.9: read docs/HUNGER_POPULATION_SCALING.md. Keep the global authority-local work budget, weak deduplicated FIFO, bounded stale processing and explicit death cancellation. Never restore direct per-zombie food searches or a no-clock population fallback. Settle elapsed time before feeding; retain transaction and native/persistence guards. Diagnostics must distinguish attempts/checks/actual feeds/errors and client-local versus authoritative counters. The queue is transient; no hunger schema/protocol change. Native high-population G7 remains NOT TESTED / BLOCKED.
+
+Authorized 2026-10-18 matching MP-test publication: read docs/WORKSHOP_0.26.0-dev.9.md and docs/MP_TEST_BUILD_SET.json. Source PRs are merged; earlier no-package/upload statements are historical task limits. Preserve merged runtime bytes, fixed existing item identity/visibility and all prior artifacts. G7/stable G8 remain blocked. Never run a wrapper that restarts Steam; ask separately after successful uploads.

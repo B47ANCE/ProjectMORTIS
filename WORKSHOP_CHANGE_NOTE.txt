@@ -1,3 +1,11 @@
+[b]Version 0.26.0-dev.9[/b]
+MP testing build - dedicated multiplayer NOT TESTED
+
+Globally budgeted automatic hunger/food seeking with a fair weak FIFO, default 32 work units/tick (server integer 1–512), elapsed-time catch-up and corrected pre-meal settlement. Updated branded thumbnail retained. Server authority, transaction/native/persistence guards, API 1.6 and saved schemas remain intact.
+
+Matching Knowledge 0.17.0 and Nightfall 0.31.0-dev.8 are required for this test set. Knowledge private documents support fresh dedicated lives only; other guards and migration limits remain closed. Native Insane-population timing, observer, feeding and save/rejoin/restart are NOT TESTED. G7/stable G8 BLOCKED.
+
+[b]Earlier development notes (historical)[/b]
 [b]Version 0.26.0-dev.8[/b]
 MP testing build - dedicated multiplayer NOT TESTED
 

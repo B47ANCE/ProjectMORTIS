@@ -84,3 +84,32 @@ age=age+2*365*24;assert(Hunger.advance(terminal));assert(Hunger.getDesiccation(t
 age=age+24;assert(Hunger.advance(terminal));assert(terminalEvents==1,"terminal event must be emitted once")
 normalized=Hunger.serializeState(states[terminal]);assert(normalized.terminalWithering and normalized.terminalEventEmitted and normalized.terminalWitheringApplied)
 print("M.O.R.T.I.S. continuous zombie-starvation checks passed")
+
+-- Public feeding may arrive between scheduled polls. Account for the old
+-- interval before relief; never charge pre-feed time again after the meal.
+Mortis=nil
+local delayedValue=0.75
+local delayed={getStats=function()return {
+    get=function()return delayedValue end,set=function(_,_,value)delayedValue=value end,
+}end}
+states[delayed]={hunger=0.75,hungerBackend=Hunger.BACKEND,lastWorldAgeHours=age-84,desiccation=0}
+assert(Hunger.feed(delayed,0.25))
+assert(math.abs(delayedValue-0.75)<0.000001,'delayed feeding must catch up hunger before relief')
+assert(states[delayed].lastWorldAgeHours==age and Hunger.getStarvationHours(delayed)==0)
+age=age+42;assert(Hunger.advance(delayed));assert(Hunger.getStarvationHours(delayed)==0)
+age=age+168;assert(Hunger.hasStarvedFor(delayed,7),'continuous starvation still uses elapsed world time')
+local fractional=0.5
+local partial={getStats=function()return {
+    get=function()return fractional end,set=function(_,_,value)fractional=value end,
+}end}
+states[partial]={hunger=0.5,hungerBackend=Hunger.BACKEND,lastWorldAgeHours=age-0.5,desiccation=0}
+assert(Hunger.feed(partial,0.1))
+assert(math.abs(fractional-(0.5+0.5/168-0.1))<0.000001,'feeding settles even a partial hourly batch')
+assert(states[partial].lastWorldAgeHours==age)
+local initial=0
+local firstPoll={getStats=function()return {
+    get=function()return initial end,set=function(_,_,value)initial=value end,
+}end}
+assert(Hunger.advance(firstPoll,nil,age-84))
+assert(math.abs(initial-0.875)<0.000001,'first queued initialization catches up from its known observation')
+assert(states[firstPoll].lastWorldAgeHours==age)

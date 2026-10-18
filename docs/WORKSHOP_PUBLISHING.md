@@ -1,6 +1,10 @@
 # MORTIS Workshop MP-test distribution
 
-## Dev.8 upload selection
+## Current dev.9 matching MP-test selection
+
+The user authorized merged Knowledge 0.17.0 / MORTIS 0.26.0-dev.9 / Nightfall 0.31.0-dev.8 distribution. Follow [current preparation/evidence](WORKSHOP_0.26.0-dev.9.md) and [exact runtime inventory](MP_TEST_BUILD_SET.json). Historical dev.7 receipts and dev.8 authoring checkpoint are retained. Upload outcome is recorded separately. G7/stable G8 BLOCKED.
+
+## Historical dev.8 upload selection
 
 The user explicitly requested merging #14 then #15 and publishing the branded
 thumbnail. They merged as af7c02bbef419d9fb967cdb1a4ad92802036edf4 and
@@ -135,3 +139,7 @@ If Steam refuses the existing item/account, stop without creating a replacement.
 After successful upload, ask the user about a Steam desktop restart and wait for
 that specific confirmation. Do not restart after failure/unverified upload.
 No Workshop distribution result grants native acceptance or confirms downloads.
+
+## Observed dev.9 publication
+
+SteamCMD exit 0 / `Committing update...Success.` from `249198a76e72cb038a03d85cba6b9ecd6f798a60`, package `4551a7db6555b803974e963972344006d65a1739e352919db709f2fac177c73c` with 227 staged files. Public exact description/title/visibility match; no visibility changes or desktop restart. [Current result and receipt](WORKSHOP_0.26.0-dev.9.md). G7/stable G8 BLOCKED; subscription/native acceptance remains human / NOT TESTED. Prior dev.6/dev.7 receipts are unchanged.

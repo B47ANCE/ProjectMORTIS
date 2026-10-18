@@ -30,6 +30,7 @@ end
 
 local onTickBound = bind("OnTick", function()
     Mortis.Scheduler.advance()
+    Mortis.Engine.updateHungerBudget()
     if Mortis.Scheduler.frame % 2 == 0 then
         Mortis.CollisionRuntime.update(Mortis.Engine.takeTrackedBatch(
             "collision", Mortis.SystemSettings.number("CollisionRuntimeBatchSize")))
@@ -123,7 +124,7 @@ bind("OnPostSave", function()
 end)
 
 if not onTickBound then
-    Mortis.Log.warn("Events.OnTick unavailable; scheduler using per-zombie fallback counters")
+    Mortis.Log.warn("Events.OnTick unavailable; behavior scheduler using fallback counters; automatic hunger work disabled")
 end
 
 return Mortis

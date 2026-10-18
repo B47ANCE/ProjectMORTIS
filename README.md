@@ -6,7 +6,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.8`
+- Version: `0.26.0-dev.9`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -153,3 +153,9 @@ required native evidence is reviewed.
 Artwork checkpoint 0.26.0-dev.7 adopts the owner-supplied project thumbnail;
 see [original and export provenance](assets/branding/README.md). The small UI
 icon and gameplay are unchanged. No Workshop update or package was made.
+
+0.26.0-dev.9 adds [bounded automatic hunger work](docs/HUNGER_POPULATION_SCALING.md): a fair weak FIFO under server MORTISSystems.HungerWorkPerTick (32, 1–512), with queue/actual-result/error/wait diagnostics. Time catch-up and pre-feed settlement preserve starvation across delayed work. Public API 1.6.0 and save/network schemas remain unchanged. Source/offline only; native Insane-population and dedicated performance NOT TESTED. No package/deploy/upload; G7/stable G8 BLOCKED.
+
+Authorized matching MP-test publication preparation for 0.26.0-dev.9: see [inputs, package and human gates](docs/WORKSHOP_0.26.0-dev.9.md). Knowledge 0.17.0, MORTIS 0.26.0-dev.9 and Nightfall 0.31.0-dev.8 are the selected set. No dedicated PASS or stable approval; publication outcome is recorded separately.
+
+Published the matching MP testing build **0.26.0-dev.9** to existing Workshop item **3788592827** on 2026-10-18. [Upload receipt and limits](docs/WORKSHOP_0.26.0-dev.9.md). G7/stable G8 remain blocked; no native multiplayer proof from distribution.

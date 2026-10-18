@@ -3,14 +3,14 @@
 This is a development test distribution for Build 42. Offline host checks pass; native single-player, creator UI/storage and dedicated multiplayer acceptance remain NOT TESTED. G7 and stable-release G8 remain BLOCKED. Use a clean vanilla installation and disposable backed-up saves; do not use this build on a production world.
 
 [b]Known limitations[/b]
-Knowledge & Wisdom 0.16.0 intentionally refuses affected multiplayer storage APIs with MULTIPLAYER_STORAGE_UNAVAILABLE. This build does not bypass that guard. Complete its scoped stage-1 review before the MORTIS gameplay baseline. Native locomotion ownership, observer synchronization, full animation/lunge restoration, save/rejoin/restart and creator file behavior require human validation. Active Hours production seasonal/profile policy remains disabled; its diagnostic is opt-in only. The old standalone Active Hours proof must not run alongside MORTIS. Existing save/mod lists must select B47ANCEDKnowledgeAndWisdom instead of the old experienceWorks dependency identity. Save rollback/downgrade is not certified.
+The matching Knowledge 0.17.0 build provides private document/knowledge storage only for fresh dedicated test worlds and server-created lives. Existing-world migration, progression, claims, journals/recovery, XP and history remain guarded; this build does not bypass those limits. Native dedicated acceptance remains NOT TESTED. Native locomotion ownership, observer synchronization, full animation/lunge restoration, save/rejoin/restart and creator file behavior require human validation. Active Hours production seasonal/profile policy remains disabled; its diagnostic is opt-in only. The old standalone Active Hours proof must not run alongside MORTIS. Existing save/mod lists must select B47ANCEDKnowledgeAndWisdom instead of the old experienceWorks dependency identity. Save rollback/downgrade is not certified.
 
 [b]Source Code & Development[/b]
 [url=https://github.com/B47ANCE/ProjectMORTIS]GitHub - Source Code & Issues[/url]
 
 ⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 
-[b]Mod Version:[/b] 0.26.0-dev.8
+[b]Mod Version:[/b] 0.26.0-dev.9
 
 This mod is currently under active development and is NOT in a playable or release-ready state.
 
@@ -141,3 +141,6 @@ Technical Writer and Documentation Maintainer
 
 [b]Development scope: Active Hours[/b]
 Active Hours remains maintained standalone while MORTIS includes the same complete feature scope. The two implementations are incompatible; Active Hours disables its own execution when ProjectMORTIS is enabled, leaving MORTIS in control. Current MORTIS source contains an explicitly started experimental speed diagnostic; seasonal policy is not enabled. Dedicated multiplayer NOT TESTED. Published standalone test content is historical, not this source build.
+
+[b]Matching MP testing builds[/b]
+Knowledge 0.17.0; M.O.R.T.I.S. 0.26.0-dev.9; Nightfall 0.31.0-dev.8. Automatic hunger work uses a fair weak FIFO and a server budget (default 32, integer 1–512); elapsed hunger and pre-meal time are settled without a population scan. Offline 100,000-actor counts are not native FPS or dedicated proof.

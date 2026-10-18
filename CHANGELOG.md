@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.26.0-dev.9 - bounded hunger population work, 2026-10-17
+
+- Replace per-zombie direct hunger/food searches with a deduplicated authority-local FIFO, drained by the existing global tick under server HungerWorkPerTick (default 32, 1–512). Keep staggered admission, shared-frame observation anchors and elapsed-time catch-up; starvation, nutrition and transaction schemas are unchanged.
+- Weak actor ownership, constant-time cancellation, bounded stale inspection, re-entry/invalid-config protection and accurate queue/work/error diagnostics. Persist worker changes outside the per-zombie update. Native/dedicated population performance remains NOT TESTED; G7/stable G8 BLOCKED. No build/deploy/upload.
+
 ## 0.26.0-dev.8 - branded thumbnail revision, 2026-10-17
 
 - Replace the project/mod thumbnail and Workshop preview authoring assets with the newly supplied artwork carrying the B47ANCE's heading. Preserve both full-size originals and the dev.7 publication receipt.
@@ -136,3 +141,5 @@
 - [TESTED offline] Syntax and host regressions only. G7 BLOCKED / NOT TESTED; stable-release G8 BLOCKED. Historical partial experienceWorks runtime evidence is not current validation.
 
 Earlier release notes remain in WORKSHOP_CHANGE_NOTE.txt and existing design documents; importing source does not certify prior releases.
+
+Publication preparation 0.26.0-dev.9 (2026-10-18): merged matching dependency set, current MP-test labels/known limits and source links, isolated validated packaging and fixed-item provenance. No runtime change or native validation claim. Upload outcome recorded separately.

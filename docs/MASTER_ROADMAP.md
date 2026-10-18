@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.26.0-dev.8; public API 1.6.0.
+Canonical version: 0.26.0-dev.9; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
@@ -136,3 +136,7 @@ ordering remain unresolved. Additional loose GameTime/IsoZombie/IsoObject hashes
 reinforce the clean-client prerequisite. Further mocks cannot certify these
 contracts; the next critical path remains the human queue, not a population
 controller. No runtime gate is closed by this checkpoint.
+
+Current dev.9: globally budgeted hunger/food work and precise pre-feed time settlement are implemented in source. Next: paired Nightfall source validation, then human dedicated Insane-population operation/latency/frame-time and persistence acceptance. See [hunger performance contract](HUNGER_POPULATION_SCALING.md); no native performance PASS is claimed.
+
+Authorized 0.26.0-dev.9 matching MP-test distribution preparation: source merged in dependency order; exact build-set inventory and package/provenance gates precede upload. Next: human fresh-world dedicated startup, two-client research/feeding, Insane-population timing, save/rejoin/restart. G7/stable G8 BLOCKED.

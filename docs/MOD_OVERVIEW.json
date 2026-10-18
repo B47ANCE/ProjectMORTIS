@@ -2,8 +2,8 @@
   "schema": 1,
   "id": "mortis",
   "name": "M.O.R.T.I.S.",
-  "version": "0.26.0-dev.8",
-  "source_digest": "9dbcf063acc78e9fafeb89c68ad790580d1db0bd534b3e9d339ed3d09c52e49d",
+  "version": "0.26.0-dev.9",
+  "source_digest": "fdffe1dacacf978eb7ff6704442a4e72898fcd8453072dbae52ea2bef1c5c9fc",
   "reviewed": true,
   "features": [
     {
@@ -41,9 +41,17 @@
     {
       "status": "Source",
       "text": "Read-only CI runs exact pinned Knowledge/Nightfall host integrations. Private human-result record validation checks declarations and coverage without authenticating evidence or granting native acceptance."
+    },
+    {
+      "status": "Source",
+      "text": "Globally budgeted authority-local hunger FIFO with weak ownership, fair admission, cancellation and actual-result/wait/error diagnostics; pre-feed elapsed-time settlement. Offline 100000-actor operation-count coverage, no native FPS claim."
+    },
+    {
+      "status": "Source",
+      "text": "Matching Knowledge 0.17.0 / MORTIS 0.26.0-dev.9 / Nightfall 0.31.0-dev.8 Workshop uploads verified through cached-account SteamCMD in dependency order. Public metadata matches for MORTIS/Nightfall; Knowledge anonymous page unavailable. Distribution is not native dedicated proof."
     }
   ],
-  "limits": "Source review only. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. Runtime testing requiring an open game is human-operated. Lua-only runtime; no Project Remnants integration. Standalone Active Hours remains maintained and yields when MORTIS is enabled. Digest follows the shared generator, including historical Contents/mods when present; another layout safely requires review. All four Nightfall findings are source-fixed in merged 0.30.1-dev.1 with exact-combination offline regressions; native consumer acceptance remains open.",
+  "limits": "Source review only. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. Runtime testing requiring an open game is human-operated. Lua-only runtime; no Project Remnants integration. Standalone Active Hours remains maintained and yields when MORTIS is enabled. Digest follows the shared generator, including historical Contents/mods when present; another layout safely requires review. All four Nightfall findings are source-fixed in merged 0.30.1-dev.1 with exact-combination offline regressions; native consumer acceptance remains open. Authorized matching MP-test publication preparation; earlier source-only/merged descriptions are historical checkpoints. G7/stable G8 remain blocked. All three authorized MP-test uploads succeeded on 2026-10-18. Exact receipts retain native/dedicated gates; Knowledge anonymous page result 9.",
   "evidence": [
     "README.md",
     "docs/MASTER_ROADMAP.md",
@@ -61,7 +69,13 @@
     "docs/ACTIVE_HOURS_API_AUDIT.md",
     "docs/RUNTIME_RESULT_FORMAT.md",
     "docs/WORKSHOP_PUBLISHING.md",
-    "assets/branding/README.md"
+    "assets/branding/README.md",
+    "docs/HUNGER_POPULATION_SCALING.md",
+    "tests/test_hunger_population_budget.lua",
+    "tests/test_hunger_engine_budget.lua",
+    "docs/MP_TEST_BUILD_SET.json",
+    "docs/WORKSHOP_0.26.0-dev.9.md",
+    "docs/publications/0.26.0-dev.9-workshop-3788592827.json"
   ],
   "relations": []
 }
