@@ -7,7 +7,12 @@ request. Both PRs are merged; source includes main 3c403c3. The outgoing note
 selects dev.8 only and retains MP/dependency limits. Isolated packaging must
 verify source/inventory/hash/CRC/path/case and fixed existing-item VDF before
 upload. Prior packages and receipts are preserved; no upload result is inferred
-from preparation.
+from preparation. SteamCMD subsequently exited 0 with the committed-update
+success marker, from e8454b69e138fe7ebc12823d1848fb2e7d725a3c. Public API
+result 1 confirms the canonical description, preserved title/public visibility
+and exact branded preview bytes. The 226-file package passes source/hash/CRC/
+path/case/inventory checks. All four push/PR CI checks passed before upload.
+See docs/publications/0.26.0-dev.8-workshop-3788592827.json for exact evidence.
 
 [VERIFIED - source] Compatible branded-artwork iteration based on c51c2ba,
 following the dev.7 publication receipt (PR #14). Preserve that immutable receipt
@@ -22,9 +27,15 @@ overview binding PASS. Full host suite PASS: 66 Lua test files, 32 Python cases,
 26 diagnostic cases, 130 syntax files, 15 version mirrors and 87 translation
 catalogs; 120 exact Knowledge input files verified. All three exact-input
 Nightfall regressions PASS; 224 current MORTIS input files verified. No native
-runtime evidence is inferred. No package, deployment or Workshop upload.
+runtime evidence is inferred. The subsequent authorized isolated MP-test
+package/upload is recorded above; no local deployment occurred.
 Native thumbnail display stays HUMAN / NOT TESTED; existing gameplay G7
 BLOCKED / NOT TESTED and stable G8 BLOCKED.
+
+Publication checks at published commit: python -B scripts/prepare_workshop.py
+--output dist/workshop-mp-test/0.26.0-dev.8-e8454b6 [then --verify];
+python -B scripts/check_public.py --staged. Steam public API/CDN exact comparison
+confirms the canonical description and SHA-256 of the downloaded preview.
 
 Commands: python -B scripts/check_versions.py; python -B scripts/check_overview.py;
 python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json;

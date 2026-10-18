@@ -15,8 +15,10 @@ no additional artist/licensing claims are inferred.
   confirms the branded heading and complete composition remain visible.
 - Original matches the supplied attachment byte for byte. Previous full-size
   original remains here; previous exports remain in Git and the dev.7 package.
-- This revision has no package/upload/native-test evidence. The dev.7 Workshop
-  receipt records the previous thumbnail, never this replacement.
+- The initial source checkpoint had no upload/native evidence. The subsequent
+  authorized dev.8 publication receipt records SteamCMD success and exact public
+  preview bytes in `../../docs/publications/0.26.0-dev.8-workshop-3788592827.json`.
+  Native display remains NOT TESTED. The dev.7 receipt stays historical.
 
 ## Historical first supplied thumbnail - 0.26.0-dev.7
 

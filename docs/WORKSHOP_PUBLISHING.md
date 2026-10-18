@@ -8,8 +8,26 @@ thumbnail. They merged as af7c02bbef419d9fb967cdb1a4ad92802036edf4 and
 checked thumbnail tree. Select 0.26.0-dev.8, existing item 3788592827 / App ID
 108600. Build an isolated package only from committed/pushed fresh source.
 Preserve prior packages/receipts, title, visibility and tags. No gameplay or
-native acceptance changes. Actual upload/public preview proof will be recorded
-separately after completion. Steam desktop restart requires a new confirmation.
+native acceptance changes. Actual upload/public preview proof is recorded
+below. Steam desktop restart requires a new confirmation.
+
+## Observed dev.8 publication
+
+SteamCMD exited 0 with `Committing update...Success.` on 2026-10-18 UTC
+(2026-10-17 America/Phoenix), from committed/pushed source
+e8454b69e138fe7ebc12823d1848fb2e7d725a3c. Both push/PR offline and integration
+checks passed before upload. The 226-file package SHA-256 is
+bf998af4a5863e3849389d8d5714ce02727b90fbb3f222baf610a4e4716f9855.
+The existing item remains public with the same title; no title/visibility/tag
+fields were submitted. Public API result 1 confirms the canonical dev.8
+description. Downloaded Steam preview bytes exactly match the branded export:
+2a9832fb909c2cf9e26066152d8feb4040a81986e4d7bf3589b905d311cff03c.
+The [portable receipt](publications/0.26.0-dev.8-workshop-3788592827.json)
+records immutable published source, package, staged-file hashes and observed
+upload/public verification. The previous dev.7 package/receipt are preserved.
+The user declined the separate Steam desktop restart; Steam was left unchanged.
+Subscription/download
+and native display/acceptance stay HUMAN / NOT TESTED; G7/stable G8 blocked.
 
 ## Historical dev.7 upload selection
 
