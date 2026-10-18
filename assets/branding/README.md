@@ -21,6 +21,9 @@ attribution/licensing claims are made.
   `2a9832fb909c2cf9e26066152d8feb4040a81986e4d7bf3589b905d311cff03c`.
   Their full-size originals and all historical packages/receipts are preserved.
 
+The dev.10 publication receipt records this exact packaged icon and an unchanged
+public thumbnail. Native icon display remains NOT TESTED.
+
 ## Current branded revision - 0.26.0-dev.8
 
 The owner supplied the branded revision in the same thumbnail conversation.

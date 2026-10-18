@@ -2,6 +2,17 @@
 
 Current development version: 0.26.0-dev.10
 
+[TESTED - publication 2026-10-18 America/Phoenix] SteamCMD exited 0 and
+confirmed `Committing update...Success.` from merged source
+bfa70e8bd406b19dfcc29918048203c51ad72828. All icon push/PR and merged-main CI
+checks passed before upload. The 227-file isolated package passes exact source/
+inventory/hash/CRC/path/case checks and includes the approved transparent icon.
+Public API result 1 confirms the canonical dev.10 description, preserved title/
+public visibility, and unchanged thumbnail SHA-256. Subscription/download and
+native icon display remain HUMAN / NOT TESTED; G7/stable G8 remain blocked.
+See docs/publications/0.26.0-dev.10-workshop-3788592827.json. No deployment or
+native launch. Prior dev.9 recovery ZIP and all receipts preserved.
+
 [VERIFIED - source] Transparent specimen mod icon, based on merged 8dbb648.
 Runtime differences from that base are icon.png and two version mirrors only;
 preview.png and src/ProjectMORTIS/thumbnail.png retain identical approved bytes.
