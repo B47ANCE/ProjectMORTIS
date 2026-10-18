@@ -1,4 +1,25 @@
-# MORTIS supplied thumbnail
+# MORTIS supplied thumbnail and mod icon
+
+## Approved specimen mod icon - 0.26.0-dev.10
+
+The user approved the generated specimen-jar cutout as the mod icon, with
+no text or background fill. The original branded thumbnail was the edit target;
+only the jar/tag are retained. Built-in image_gen produced the RGBA master;
+`mortis-specimen-icon-prompt.txt` preserves the exact prompt. No additional
+attribution/licensing claims are made.
+
+- Master: `mortis-specimen-icon-master.png`, 1254x1254 RGBA PNG,
+  SHA-256 `e1691be4d86d6ac8ac6cc44528d76db92fdea1553e15f5b8d7e09e91ad4a63ff`; preserved byte for byte.
+- Runtime: `../../src/ProjectMORTIS/42/icon.png`, 64x64 RGBA PNG,
+  SHA-256 `b7d835d8167c51d4d52e74676417e2b1491b1c118f23b493661f73eb8166d169`, 8,577 bytes. Existing `icon=icon.png` selects it.
+- Deterministic export: Windows System.Drawing, transparent Format32bppArgb
+  canvas, SourceCopy/HighQuality compositing, HighQualityBicubic interpolation
+  and HighQuality pixel offset. Full source canvas mapped to full destination.
+- Source/export decode and PNG structure/CRC/dimensions/alpha are checked;
+  visual review is offline. Native UI display remains HUMAN / NOT TESTED.
+- Root preview.png and mod thumbnail retain SHA-256
+  `2a9832fb909c2cf9e26066152d8feb4040a81986e4d7bf3589b905d311cff03c`.
+  Their full-size originals and all historical packages/receipts are preserved.
 
 ## Current branded revision - 0.26.0-dev.8
 

@@ -1,3 +1,11 @@
+[b]Version 0.26.0-dev.10[/b]
+MP testing build - dedicated multiplayer NOT TESTED
+
+New transparent specimen-jar mod icon, without text or background fill. The branded project/Workshop thumbnail is unchanged. Gameplay and hunger scheduling remain unchanged from dev.9; public API 1.6 and saved/network schemas are intact.
+
+Matching Knowledge 0.17.0 and Nightfall 0.31.0-dev.8 retain their documented contracts and limits. Knowledge private documents support fresh dedicated lives only; other guards/migration limits remain closed. Native icon/menu display, Insane-population timing, observer, feeding and save/rejoin/restart are NOT TESTED. G7/stable G8 BLOCKED.
+
+[b]Earlier development notes (historical)[/b]
 [b]Version 0.26.0-dev.9[/b]
 MP testing build - dedicated multiplayer NOT TESTED
 

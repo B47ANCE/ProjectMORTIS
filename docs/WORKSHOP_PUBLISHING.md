@@ -1,6 +1,19 @@
 # MORTIS Workshop MP-test distribution
 
-## Current dev.9 matching MP-test selection
+## Current dev.10 icon publication selection
+
+The user authorizes the transparent specimen mod icon, unchanged thumbnail,
+merge of all open MORTIS PRs after checks, and publication. The current source
+is based on reconciled PR #16 / 8dbb648; dev.9 hunger fixes and dependency
+contracts are preserved. Use the existing isolated-package verifier and fixed
+item 3788592827 / App 108600; omit title/visibility/tags. Preserve earlier
+packages and receipts. Current actual source/package/upload results belong in
+the dev.10 receipt after success. Native tests remain human / NOT TESTED;
+G7/stable G8 blocked. Steam restart requires separate post-upload approval.
+The dev.9 build-set inventory below is historical exact input; current MORTIS
+version/icon/input hashes are bound by its current manifest and upload receipt.
+
+## Historical dev.9 matching MP-test selection
 
 The user authorized merged Knowledge 0.17.0 / MORTIS 0.26.0-dev.9 / Nightfall 0.31.0-dev.8 distribution. Follow [current preparation/evidence](WORKSHOP_0.26.0-dev.9.md) and [exact runtime inventory](MP_TEST_BUILD_SET.json). Historical dev.7 receipts and dev.8 authoring checkpoint are retained. Upload outcome is recorded separately. G7/stable G8 BLOCKED.
 

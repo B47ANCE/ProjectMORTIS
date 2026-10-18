@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.26.0-dev.9 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.10 playtester handoff
 
 Dev.6 adds [private result-record validation](docs/RUNTIME_RESULT_FORMAT.md),
 exact-input offline integration CI and [API/crash-boundary findings](docs/ACTIVE_HOURS_API_AUDIT.md).

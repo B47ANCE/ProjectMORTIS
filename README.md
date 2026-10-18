@@ -6,9 +6,10 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.9`
+- Version: `0.26.0-dev.10`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
+- Mod icon: transparent specimen jar; branded thumbnail unchanged.
 - Minimum game version: `42.20.3`
 - Required Mod ID: `B47ANCEDKnowledgeAndWisdom`
 

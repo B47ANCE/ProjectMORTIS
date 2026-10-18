@@ -1,6 +1,35 @@
 # Current validation
 
-Current development version: 0.26.0-dev.9
+Current development version: 0.26.0-dev.10
+
+[VERIFIED - source] Transparent specimen mod icon, based on merged 8dbb648.
+Runtime differences from that base are icon.png and two version mirrors only;
+preview.png and src/ProjectMORTIS/thumbnail.png retain identical approved bytes.
+The 1254x1254 RGBA master and prompt are preserved under assets/branding.
+Export: 64x64 RGBA, full canvas, no fill/crop/redraw; transparent corner alpha
+and visible subject verified. Native icon display remains HUMAN / NOT TESTED.
+
+[TESTED - offline Windows CPython / Lupa Lua 5.1] Full suite PASS:
+68 Lua regression files, 32 Python cases, 26 Active Hours diagnostics,
+131 syntax files, 15 version mirrors, 87 catalogs and 120 exact historical
+Knowledge input files. All three pinned Nightfall regressions PASS.
+
+The user authorizes merging all open MORTIS PRs after checks and publishing
+this MP test update to fixed existing item 3788592827 / App 108600. Existing
+title/visibility/tags, runtime/dependency contracts and prior packages/receipts
+must be preserved. G7/stable G8 remain blocked. Actual upload is recorded only
+after success, separately from preparation and offline evidence.
+
+Validation commands: python -B scripts/check_versions.py;
+python -B scripts/check_overview.py;
+python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json;
+python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021-git-lf;
+python -B scripts/prepare_workshop.py --output <isolated-version-commit-dir> [then --verify];
+python -B scripts/check_public.py --staged. Legacy pinned integrations retain
+historical refusal coverage; they do not claim matching Knowledge 0.17.0 or
+Nightfall 0.31.0-dev.8 native acceptance. All runtime tests stay human-operated.
+
+## Historical dev.9 hunger scheduling source evidence
 
 Current scope: hunger population scheduling and pre-feed clock settlement. See
 [design, bounds and evidence](HUNGER_POPULATION_SCALING.md). Targeted offline tests
