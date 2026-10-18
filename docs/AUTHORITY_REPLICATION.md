@@ -1,6 +1,6 @@
 # Authority and replication correction
 
-Current development iteration: 0.26.0-dev.5. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
+Current development iteration: 0.26.0-dev.6. Public API 1.6.0, replication protocol 2, and existing component schemas remain separate. All peers must run this same mod build: old clients do not implement assignment-clear messages. There is no rolling mixed-build compatibility claim.
 
 ## State ownership and transitions
 

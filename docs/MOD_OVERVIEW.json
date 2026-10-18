@@ -2,8 +2,8 @@
   "schema": 1,
   "id": "mortis",
   "name": "M.O.R.T.I.S.",
-  "version": "0.26.0-dev.5",
-  "source_digest": "5379b418f0237b97850093d5575981585d9d34dd29e6b454026224b89d855d45",
+  "version": "0.26.0-dev.6",
+  "source_digest": "d2ebe26b7930dbd7f3b172c52825dcfc7f98d7b923c04ff7cb0258fc44ff5934",
   "reviewed": true,
   "features": [
     {
@@ -24,7 +24,7 @@
     },
     {
       "status": "Source",
-      "text": "Dormant explicit Active Hours locomotion diagnostic and isolated offline weighted, phase, life-choice and configuration/key and ownership/reconfiguration experiments. No population controller or production options are installed."
+      "text": "Dormant explicit Active Hours locomotion diagnostic and isolated offline weighted, phase, life-choice and configuration/key and ownership/reconfiguration experiments. No population controller or production options are installed. Isolated crash-boundary safeguards require checkpoint declarations and outcome sequence headroom."
     },
     {
       "status": "Foundation",
@@ -37,6 +37,10 @@
     {
       "status": "Blocked",
       "text": "Human native creator UI/storage, dependency/SP review and dedicated locomotion/lifecycle evidence; full animation/lunge restoration and affected dependency private MP persistence remain open."
+    },
+    {
+      "status": "Source",
+      "text": "Read-only CI runs exact pinned Knowledge/Nightfall host integrations. Private human-result record validation checks declarations and coverage without authenticating evidence or granting native acceptance."
     }
   ],
   "limits": "Source review only. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. Runtime testing requiring an open game is human-operated. Lua-only runtime; no Project Remnants integration. Standalone Active Hours remains maintained and yields when MORTIS is enabled. Digest follows the shared generator, including historical Contents/mods when present; another layout safely requires review. All four Nightfall findings are source-fixed in merged 0.30.1-dev.1 with exact-combination offline regressions; native consumer acceptance remains open.",
@@ -53,7 +57,9 @@
     "docs/NIGHTFALL_INTEGRATION_AUDIT.md",
     "docs/PREFLIGHT.md",
     "docs/NIGHTFALL_INTEGRATION_CLOSURE.md",
-    "docs/ACTIVE_HOURS_OWNERSHIP_MODEL.md"
+    "docs/ACTIVE_HOURS_OWNERSHIP_MODEL.md",
+    "docs/ACTIVE_HOURS_API_AUDIT.md",
+    "docs/RUNTIME_RESULT_FORMAT.md"
   ],
   "relations": []
 }

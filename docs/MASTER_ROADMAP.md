@@ -1,6 +1,6 @@
 # Project M.O.R.T.I.S. Master Roadmap
 
-Canonical version: 0.26.0-dev.5; public API 1.6.0.
+Canonical version: 0.26.0-dev.6; public API 1.6.0.
 
 Authority/replication source corrections are recorded in [AUTHORITY_REPLICATION.md](AUTHORITY_REPLICATION.md); native verification remains open. Observed locomotion baseline capture/restoration is implemented; see [native scope and limits](LOCOMOTION_RESTORATION.md). Dependency identity migration is implemented with offline archive/history integration coverage. Food-provider transaction coordination is implemented offline; Nightfall consumer migration is implemented offline; full native animation/lunge restoration remains a follow-up; native dependency load/save/MP tests are still required.
 
@@ -59,7 +59,8 @@ M-05 framework correction is implemented in [FOOD_TRANSACTIONS.md](FOOD_TRANSACT
 | Feeding M-05 and Nightfall adapter | IMPLEMENTED / MERGED / OFFLINE: API 1.6.0 coordination, input/quarantine safeguards, Nightfall 0.29.1 transaction adapter in merged PR #2 | Native contention, compensation, removal, persistence and dedicated lifecycle; no second migration TODO |
 | Active Hours preparation | IMPLEMENTED / OFFLINE DESIGN: CDF, supplied life/revision choices, phase intervals, configuration/key normalization and [isolated ownership/reconfiguration](ACTIVE_HOURS_OWNERSHIP_MODEL.md); [sandbox/lifecycle proposal and parity matrix](ACTIVE_HOURS_DESIGN.md) | Review against native findings; do not load experiments into runtime |
 | Nightfall state integration | SOURCE FIXED / MERGED / OFFLINE: [all four findings closed for the corrected source](NIGHTFALL_INTEGRATION_CLOSURE.md), exact merged-combination regressions | Human ownership/cleanup, compensation, observer and save/restart acceptance; Knowledge MP guard remains blocked |
-| Offline overview / preflight | IMPLEMENTED: reviewed version/source descriptor and [read-only input command with optional Nightfall](PREFLIGHT.md) | Recheck exact candidate before human test selection; no runtime PASS implied |
+| Offline overview / preflight / CI | IMPLEMENTED: reviewed descriptor, [input preflight](PREFLIGHT.md), exact-input integration CI and [human-result structure validation](RUNTIME_RESULT_FORMAT.md) | Recheck exact candidate; validate submitted records then review their actual evidence; no automatic runtime PASS |
+| Active Hours API/recovery audit | SOURCE AUDITED: [seasonal call forms, identity/storage limits and two isolated model fixes](ACTIVE_HOURS_API_AUDIT.md) | Human server seasonal/life/storage evidence; no production adapter or crash-durability claim |
 | Dependency and locomotion proof | HUMAN / RUNTIME GATE: [current queue](HUMAN_RUNTIME_TESTS.md), clean-client prerequisite and 0.16.0 MP implementation guard recorded | Reviewed current scoped Knowledge & Wisdom stage-1 PASS, SP baseline, then isolated one-zombie/two-client proof only if no affected dependency MP API is needed |
 | Active Hours production | BLOCKED: native authority/restoration, independent durable life identity, solar evidence and coordinated ownership contracts | After proof, implement server sandbox interpretation/localization, solar adapter, durable choices, bounded lifecycle and separate standalone parity in slices |
 | Wider native validation | NOT TESTED: anatomy/materials, research, groups/memory, Linux, load/save/rejoin/restart; English catalogs are offline only | Run scoped cases with exact build evidence; fluent translation review remains separate |
@@ -123,3 +124,15 @@ explicit refusal retry and unknown-result/session freeze with choice retention.
 It writes no native state and implements no storage/controller. See
 ACTIVE_HOURS_OWNERSHIP_MODEL.md for checkpoints, tests and adapter prerequisites.
 Human clean-baseline, dependency review, creator and locomotion gates remain next.
+
+## Offline CI and API/recovery audit - 0.26.0-dev.6
+
+Completed offline: pinned Knowledge and Nightfall integration CI, strict private
+human-result schema/coverage checks, installed-source seasonal/identity/storage
+audit and isolated crash-cutpoint regressions. AH-CR01 checkpoint admission and
+AH-CR02 outcome-sequence exhaustion are fixed outside runtime. Native seasonal
+server semantics, independent durable life identity and cross-store/native crash
+ordering remain unresolved. Additional loose GameTime/IsoZombie/IsoObject hashes
+reinforce the clean-client prerequisite. Further mocks cannot certify these
+contracts; the next critical path remains the human queue, not a population
+controller. No runtime gate is closed by this checkpoint.

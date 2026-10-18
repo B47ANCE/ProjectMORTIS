@@ -101,3 +101,10 @@ Production remains blocked on native authority/restoration, durable life identit
 solar evidence, concrete storage/lease recovery and bounded population scheduling.
 All runtime testing stays human-operated. G2 BLOCKED; G6 NOT TESTED;
 G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+
+Dev.6 audit corrections: acknowledge/retry now require the input checkpoint
+declaration too, and dispatch must reserve a sequence slot for its outcome.
+`test_active_hours_crash_design.lua` reproduced both gaps before correction and
+covers restart refusal at all modeled checkpoint phases. These are internal
+model safeguards; format 1 stays unchanged. No durable write, CAS or recovery
+adapter is added. See [source and crash-boundary audit](ACTIVE_HOURS_API_AUDIT.md).

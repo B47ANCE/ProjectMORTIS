@@ -1,4 +1,9 @@
-# Project M.O.R.T.I.S. 0.26.0-dev.5 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.6 playtester handoff
+
+Dev.6 adds [private result-record validation](docs/RUNTIME_RESULT_FORMAT.md),
+exact-input offline integration CI and [API/crash-boundary findings](docs/ACTIVE_HOURS_API_AUDIT.md).
+These do not grant runtime acceptance. Additional differing loose engine classes
+reinforce the clean-baseline prerequisite. Humans operate and review every native case.
 
 Human-operated native queue: [docs/HUMAN_RUNTIME_TESTS.md](docs/HUMAN_RUNTIME_TESTS.md).
 Start with its clean vanilla-client prerequisite and exact Knowledge & Wisdom

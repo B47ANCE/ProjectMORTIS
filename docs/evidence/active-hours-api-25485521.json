@@ -1,0 +1,354 @@
+{
+  "scope": "READ-ONLY source/member metadata, NOT PZ runtime; no Lua binding/durability guarantee",
+  "steam_build": "25485521",
+  "executed_game_version": "UNKNOWN / NOT TESTED",
+  "packaged_jar_sha256": "e1a69eb743ede60b213a0fe7f8b83d4fcab773036d256cc4543a336f3b058a33",
+  "lua": {
+    "media/lua/shared/Foraging/forageSystem.lua": {
+      "sha256": "74b3a75ab959e95320aa4f022e43b533ef03ef4a5f32ae37a1528ce26b42038e",
+      "lines": [
+        [
+          1944,
+          1951
+        ]
+      ]
+    },
+    "media/lua/client/Foraging/ISZoneDisplay.lua": {
+      "sha256": "27924ddb6b2a99f7b5acdbc49489a39cf6079d46aa4c7ce7ddd655e7d5019a3f",
+      "lines": [
+        [
+          273,
+          285
+        ],
+        [
+          310,
+          321
+        ],
+        [
+          713,
+          723
+        ]
+      ]
+    },
+    "media/lua/server/Foraging/forageServer.lua": {
+      "sha256": "f4e6dd2f419dee8692defcf96207b71dc67f73f8af805d71c394c486e1d489ce",
+      "lines": [
+        [
+          1,
+          3
+        ],
+        [
+          26,
+          49
+        ]
+      ]
+    },
+    "media/lua/shared/TimedActions/ISGrabCorpseAction.lua": {
+      "sha256": "815d24aa4b1f8478a7c81ed4ec706e49912c6580be9d1834d3908ff79b498e96",
+      "lines": [
+        [
+          80,
+          91
+        ]
+      ]
+    }
+  },
+  "classes": {
+    "zombie/GameTime.class": {
+      "packaged_sha256": "ec030ac26790d8c06712c3e1d5935bb29cc816ac3b6f1ea55b06ebeccb7e7125",
+      "loose_sha256": "3996064c908602780345837dc1f6afc78e302f96fe15ff4af62e6845c1595837",
+      "selected_declared_methods": [
+        {
+          "name": "getTimeOfDay",
+          "descriptor": "()F",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "isEndlessDay",
+          "descriptor": "()Z",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "isEndlessNight",
+          "descriptor": "()Z",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [],
+      "absent_selected_declarations": [],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/iso/weather/ClimateManager.class": {
+      "packaged_sha256": "cd26aa5dd8502b43c8458452276b1a959a964940b03dcd14eb1318f1ce7db2f4",
+      "loose_sha256": null,
+      "selected_declared_methods": [
+        {
+          "name": "getDayLightStrength",
+          "descriptor": "()F",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "getSeason",
+          "descriptor": "()Lzombie/erosion/season/ErosionSeason;",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [],
+      "absent_selected_declarations": [],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/erosion/season/ErosionSeason.class": {
+      "packaged_sha256": "1f547d285b82f3d49954efd6e8e3cb36f4b924a1b83df2bcaaa1b3d3475192ba",
+      "loose_sha256": null,
+      "selected_declared_methods": [
+        {
+          "name": "getDusk",
+          "descriptor": "()F",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "getDawn",
+          "descriptor": "()F",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "setDay",
+          "descriptor": "(III)V",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [],
+      "absent_selected_declarations": [],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/characters/IsoZombie.class": {
+      "packaged_sha256": "9dd82f9e5022c27d64bb3c64ebc4a061f37393e1fc865f2919a18e1d07673bb2",
+      "loose_sha256": "338b5c3b3261b7cafeac707da1b5e2fc6932dd9f00a93d07ac460b90e627ffca",
+      "selected_declared_methods": [
+        {
+          "name": "getOnlineID",
+          "descriptor": "()S",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "load",
+          "descriptor": "(Ljava/nio/ByteBuffer;IZ)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "save",
+          "descriptor": "(Ljava/nio/ByteBuffer;Z)V",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [
+        {
+          "name": "onlineId",
+          "descriptor": "S",
+          "public": true,
+          "static": false
+        }
+      ],
+      "absent_selected_declarations": [
+        "getModData",
+        "getPersistentOutfitID",
+        "setOnlineID"
+      ],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/characters/IsoGameCharacter.class": {
+      "packaged_sha256": "29040e19c3e420499f73bc0ea0d5b86d7f7d38655acdc13d0107df736eb54c0b",
+      "loose_sha256": "d8554b2a4012f381731da9c91fe605b17e3ba15cd429609607fbf496ad6bbdfa",
+      "selected_declared_methods": [
+        {
+          "name": "load",
+          "descriptor": "(Ljava/nio/ByteBuffer;IZ)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "save",
+          "descriptor": "(Ljava/nio/ByteBuffer;Z)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "setPersistentOutfitID",
+          "descriptor": "(I)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "setPersistentOutfitID",
+          "descriptor": "(IZ)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "getPersistentOutfitID",
+          "descriptor": "()I",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [
+        {
+          "name": "persistentOutfitId",
+          "descriptor": "I",
+          "public": false,
+          "static": false
+        },
+        {
+          "name": "persistentOutfitInit",
+          "descriptor": "Z",
+          "public": false,
+          "static": false
+        }
+      ],
+      "absent_selected_declarations": [
+        "getModData"
+      ],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/iso/IsoObject.class": {
+      "packaged_sha256": "22387ecf47c1cf9aac192466de6298067f27584160c76a72baee38c6ad36dff2",
+      "loose_sha256": "78e9c2248c12bb8d230fa790c4b0cd11539ced3c4542f59901badc8b6297f0a4",
+      "selected_declared_methods": [
+        {
+          "name": "getModData",
+          "descriptor": "()Lse/krka/kahlua/vm/KahluaTable;",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "load",
+          "descriptor": "(Ljava/nio/ByteBuffer;I)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "load",
+          "descriptor": "(Ljava/nio/ByteBuffer;IZ)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "save",
+          "descriptor": "(Ljava/nio/ByteBuffer;)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "save",
+          "descriptor": "(Ljava/nio/ByteBuffer;Z)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "transmitModData",
+          "descriptor": "()V",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [],
+      "absent_selected_declarations": [],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/iso/objects/IsoDeadBody.class": {
+      "packaged_sha256": "09f2aaf80526c97a2f05e8abbedaf758e7c17d86aea03074fdb5e118eef1ef96",
+      "loose_sha256": null,
+      "selected_declared_methods": [
+        {
+          "name": "load",
+          "descriptor": "(Ljava/nio/ByteBuffer;IZ)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "save",
+          "descriptor": "(Ljava/nio/ByteBuffer;Z)V",
+          "public": true,
+          "static": false
+        },
+        {
+          "name": "reanimate",
+          "descriptor": "()Lzombie/characters/IsoGameCharacter;",
+          "public": true,
+          "static": false
+        }
+      ],
+      "identity_field_metadata": [
+        {
+          "name": "persistentOutfitId",
+          "descriptor": "I",
+          "public": false,
+          "static": false
+        },
+        {
+          "name": "characterOnlineId",
+          "descriptor": "S",
+          "public": false,
+          "static": false
+        }
+      ],
+      "absent_selected_declarations": [
+        "getModData",
+        "getPersistentOutfitID"
+      ],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    },
+    "zombie/world/moddata/ModData.class": {
+      "packaged_sha256": "5a19f07f06db59c8e2c074e303c3eb9a08e860b09e54e2bba2598f154a1cb808",
+      "loose_sha256": null,
+      "selected_declared_methods": [
+        {
+          "name": "getOrCreate",
+          "descriptor": "(Ljava/lang/String;)Lse/krka/kahlua/vm/KahluaTable;",
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "get",
+          "descriptor": "(Ljava/lang/String;)Lse/krka/kahlua/vm/KahluaTable;",
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "add",
+          "descriptor": "(Ljava/lang/String;Lse/krka/kahlua/vm/KahluaTable;)V",
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "transmit",
+          "descriptor": "(Ljava/lang/String;)V",
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "request",
+          "descriptor": "(Ljava/lang/String;)V",
+          "public": true,
+          "static": true
+        }
+      ],
+      "identity_field_metadata": [],
+      "absent_selected_declarations": [
+        "save"
+      ],
+      "limits": "Absence here does not rule out inheritance; member presence is not Lua invocation, life uniqueness, persistence or atomicity proof."
+    }
+  }
+}

@@ -6,7 +6,7 @@ from check_dependency_input import verify, _unique
 from check_overview import safe, linked
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT/'docs/evidence/nightfall-5690021-git-bytes.json'
+EVIDENCE = ROOT/'docs/evidence/nightfall-5690021-git-lf.json'
 
 
 def text(root, name):

@@ -4,7 +4,7 @@
 
 Project M.O.R.T.I.S. is a public custom-zombie API and framework for Project Zomboid Build 42.
 
-- Version: `0.26.0-dev.5`
+- Version: `0.26.0-dev.6`
 - Mod ID: `ProjectMORTIS`
 - Author: B47ANCE
 - Minimum game version: `42.20.3`
@@ -72,7 +72,7 @@ The authoritative mod source is `src/ProjectMORTIS/42/`. `Contents/mods` is a pr
 
 Root `VERSION` is canonical; see [version policy](docs/VERSION_POLICY.md) and [source inventory](SOURCE_INVENTORY.json). `Contents/` and existing `dist/` are historical local artifacts, preserved and excluded from Git.
 
-Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --knowledge-and-wisdom <B47ANCEDKnowledgeAndWisdom-repository-root>`. CI runs `--unit-only` and explicitly omits both actual-source dependency integrations; run the full command locally. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
+Install Python development dependencies with `python -m pip install -r scripts/requirements.txt`, then run `python scripts/check_versions.py` and `python scripts/validate.py --knowledge-and-wisdom <B47ANCEDKnowledgeAndWisdom-repository-root>`. CI has a unit-only job plus a separate exact-input integration job for Knowledge and Nightfall. Host tests are not PZ runtime evidence: G7 BLOCKED / NOT TESTED; stable G8 BLOCKED.
 
 For the current 0.16.0/6ba66c0 dependency candidate, add
 `--dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json`.
@@ -132,5 +132,12 @@ outcomes. It adds no runtime controller, native storage or new gameplay setting.
 
 Combined Nightfall regression checks run separately through
 `python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom <exact-dependency-root> --nightfall <exact-Nightfall-root>`.
-They are not part of unit-only CI. Exact merged-input evidence and the current
+They run in the separate integration CI job. Exact merged-input evidence and the current
 candidate are reported separately in the source-closure and validation documents.
+
+0.26.0-dev.6 adds [human-result record validation](docs/RUNTIME_RESULT_FORMAT.md)
+without granting native acceptance. The [installed API audit](docs/ACTIVE_HOURS_API_AUDIT.md)
+records seasonal call forms, unresolved independent life identity/durable storage,
+and additional loose-class mismatches. Isolated ownership fixes require checkpoint
+admission for receipts/retries and reserve an outcome sequence before dispatch.
+No production Active Hours adapter/controller, option or storage is installed.

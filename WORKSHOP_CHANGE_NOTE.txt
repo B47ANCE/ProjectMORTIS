@@ -1,3 +1,6 @@
+[b]Version 0.26.0-dev.6[/b]
+Offline integration CI, human-result structure validation, installed API audit and isolated crash-recovery safeguards. Dedicated multiplayer NOT TESTED; G7/stable G8 BLOCKED. No package/deploy/upload.
+
 [b]Version 0.26.0-dev.5[/b]
 Offline integration closure, optional Nightfall preflight and isolated Active Hours ownership/reconfiguration design. Native dedicated multiplayer NOT TESTED; G7/stable G8 BLOCKED. No package/deploy/upload.
 
