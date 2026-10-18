@@ -9,7 +9,7 @@
 
 - Replace the project/mod thumbnail and Workshop preview authoring assets with the newly supplied artwork carrying the B47ANCE's heading. Preserve both full-size originals and the dev.7 publication receipt.
 - Export the complete image at 512x512 without cropping or redrawing; leave the small UI icon and gameplay/API/save/network behavior unchanged.
-- Compatible asset checkpoint within the unreleased 0.26.0 target. Offline asset/source checks only; no packaging, deployment, merge or Workshop upload. Native testing remains human-operated; G7/stable G8 remain blocked.
+- Compatible asset checkpoint within the unreleased 0.26.0 target. Subsequently merged #14 then #15 and published the explicitly authorized MP test update from e8454b6 to existing item 3788592827. SteamCMD success, canonical public description and exact branded thumbnail bytes verified; prior packages/receipts preserved. No local deployment or native tests; G7/stable G8 remain blocked.
 
 ## 0.26.0-dev.7 - supplied project thumbnail, 2026-10-17
 
