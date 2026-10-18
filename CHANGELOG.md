@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.26.0-dev.9 - bounded hunger population work, 2026-10-17
+
+- Replace per-zombie direct hunger/food searches with a deduplicated authority-local FIFO, drained by the existing global tick under server HungerWorkPerTick (default 32, 1–512). Keep staggered admission, shared-frame observation anchors and elapsed-time catch-up; starvation, nutrition and transaction schemas are unchanged.
+- Weak actor ownership, constant-time cancellation, bounded stale inspection, re-entry/invalid-config protection and accurate queue/work/error diagnostics. Persist worker changes outside the per-zombie update. Native/dedicated population performance remains NOT TESTED; G7/stable G8 BLOCKED. No build/deploy/upload.
+
 ## 0.26.0-dev.8 - branded thumbnail revision, 2026-10-17
 
 - Replace the project/mod thumbnail and Workshop preview authoring assets with the newly supplied artwork carrying the B47ANCE's heading. Preserve both full-size originals and the dev.7 publication receipt.

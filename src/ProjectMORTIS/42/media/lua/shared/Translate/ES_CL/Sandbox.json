@@ -47,5 +47,7 @@
   "Sandbox_MORTISSystems_CollisionRuntimeBatchSize": "Collision zombies processed per pass",
   "Sandbox_MORTISSystems_CollisionRuntimeBatchSize_tooltip": "Higher values react to dense crowds sooner but cost more CPU. Work rotates fairly through loaded zombies.",
   "Sandbox_MORTISSystems_MovementRuntimeBatchSize": "Movement-balance zombies processed per pass",
-  "Sandbox_MORTISSystems_MovementRuntimeBatchSize_tooltip": "Higher values check trip hazards sooner but cost more CPU. Work rotates fairly through loaded zombies."
+  "Sandbox_MORTISSystems_MovementRuntimeBatchSize_tooltip": "Higher values check trip hazards sooner but cost more CPU. Work rotates fairly through loaded zombies.",
+  "Sandbox_MORTISSystems_HungerWorkPerTick": "Hunger checks per tick",
+  "Sandbox_MORTISSystems_HungerWorkPerTick_tooltip": "Server-wide maximum automatic zombie hunger/food checks per tick (1-512, default 32). Lower values reduce peak work but increase queue delay at high populations. Elapsed hunger time is retained; existing saves use 32 when absent."
 }

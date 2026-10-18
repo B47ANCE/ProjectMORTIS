@@ -191,6 +191,8 @@ end
 function Hunger.feed(zombie, amount, metadata)
     if not Authority.canWriteCanonicalState(zombie) then return false, "non-authority" end
     if pendingFood[zombie] then return false,"food-transaction-pending" end
+    local advanced,reason=Hunger.advance(zombie,true)
+    if not advanced then return false,reason end
     local state = stateFor(zombie)
     local before = state.hunger
     local nextHunger=clamp01(before - math.max(0, finite(amount) or 0))
@@ -208,24 +210,28 @@ function Hunger.feed(zombie, amount, metadata)
     return true, state
 end
 
-function Hunger.advance(zombie)
+function Hunger.advance(zombie, settleForFeeding, firstObservedAtHours)
     if not Authority.canWriteCanonicalState(zombie) then return false, "non-authority" end
     if pendingFood[zombie] then return false,"food-transaction-pending" end
     local now = worldAgeHours()
     if not now then return false, "world age unavailable" end
     local state = stateFor(zombie)
     if state.lastWorldAgeHours < 0 then
-        state.lastWorldAgeHours = now
+        -- Trusted scheduler observation is a transient time anchor, never a
+        -- client fact. Initial queue delay must not erase known elapsed time.
+        local observed=finite(firstObservedAtHours)
+        state.lastWorldAgeHours=(observed and observed>=0 and observed<=now) and observed or now
         if state.hunger >= 1 and state.starvingSinceWorldAgeHours == nil then
-            state.starvingSinceWorldAgeHours = now
+            state.starvingSinceWorldAgeHours = state.lastWorldAgeHours
         end
         Components.set(zombie, COMPONENT, state)
-        return true, state
     end
     local elapsed = math.max(0, now - state.lastWorldAgeHours)
     -- Avoid rewriting every loaded zombie's ModData on each behavior poll.
     -- Hourly world-age batches are more than precise enough for this resource.
-    if elapsed < 1 then return true, state end
+    -- Meals must settle all pre-feed elapsed time, including a partial hourly
+    -- batch. Ordinary polling still avoids repeated component/native writes.
+    if elapsed<=0 or (elapsed<1 and settleForFeeding~=true) then return true, state end
     local previousAge = state.lastWorldAgeHours
     -- Initial behavior stays simple: zombies become hungry over one in-game
     -- week. Years-scale irreversible desiccation is intentionally a later,
@@ -355,6 +361,8 @@ local function feedFromSource(zombie,candidate,provider)
     if quarantinedFood[provider.id] then return false,"food-provider-quarantined" end
     local multiplier=finite(Settings.number("FoodValueMultiplier"))
     if not multiplier or multiplier<=0 then return false,"invalid-food-value-multiplier" end
+    local advanced,reason=Hunger.advance(zombie,true)
+    if not advanced then return false,reason end
     local before=Util.deepCopy(stateFor(zombie))
     if before.hunger<=0 then return false,"not-hungry" end
     local entry={before=before,context={}}
@@ -421,11 +429,11 @@ local function feedFromSource(zombie,candidate,provider)
     return true,after
 end
 
-function Hunger.updateFoodSeeking(zombie, radius)
+function Hunger.updateFoodSeeking(zombie, radius, firstObservedAtHours)
     if not Settings.bool("EnableZombieHunger") then return false,"disabled" end
     if not Authority.canRunCanonicalAI(zombie) then return false, "non-authority" end
     if pendingFood[zombie] then return false,"food-transaction-pending" end
-    local advanced,advanceError=Hunger.advance(zombie)
+    local advanced,advanceError=Hunger.advance(zombie,nil,firstObservedAtHours)
     if not advanced then return false,advanceError end
     if not Hunger.isHungry(zombie,Settings.number("FoodSeekingMinimumHunger")) then
         return false,"not-hungry"

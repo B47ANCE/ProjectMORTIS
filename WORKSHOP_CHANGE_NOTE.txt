@@ -1,3 +1,7 @@
+[b]Version 0.26.0-dev.9[/b]
+Development hunger scheduling
+Bound automatic hunger/food seeking globally with a fair weak FIFO and server sandbox budget. Preserve resource/feeding/save contracts. Offline stress only; dedicated multiplayer NOT TESTED. No upload.
+
 [b]Version 0.26.0-dev.8[/b]
 MP testing build - dedicated multiplayer NOT TESTED
 

@@ -17,6 +17,7 @@ local DamageRuntime = require "Mortis/Runtime/DamageRuntime"
 local StateAdapter = require "Mortis/Runtime/Adapters/StateAdapter"
 local HitTraumaRuntime = require "Mortis/Runtime/HitTraumaRuntime"
 local ZombieHunger = require "Mortis/Runtime/ZombieHungerRuntime"
+local HungerScheduler = require "Mortis/Runtime/HungerScheduler"
 local SystemSettings = require "Mortis/Runtime/SystemSettings"
 local DetachedParts = require "Mortis/API/DetachedParts"
 
@@ -378,6 +379,7 @@ function Engine.onDead(zombie)
     Replication.release(zombie)
     Replication.forgetApplied(stableIdAtDeath)
     Scheduler.release(zombie)
+    HungerScheduler.release(zombie)
     behaviorState[zombie] = nil
     recentHit[zombie] = nil
     HitTraumaRuntime.clear(zombie)
@@ -455,7 +457,7 @@ end
 function Engine.update(zombie)
     refreshIndexes(zombie)
     if SystemSettings.bool("EnableZombieHunger") and Scheduler.shouldRun(zombie, "hunger", 300) then
-        ZombieHunger.updateFoodSeeking(zombie,SystemSettings.number("FoodSearchRadius"))
+        HungerScheduler.enqueue(zombie)
     end
     if Components.isDirty(zombie) then Persistence.flushComponents(zombie, false) end
 
@@ -504,6 +506,16 @@ function Engine.update(zombie)
         Persistence.flushComponents(zombie, false)
     end
 end
+
+local function processHunger(zombie,observedAtHours)
+    local ok,result=ZombieHunger.updateFoodSeeking(zombie,SystemSettings.number("FoodSearchRadius"),observedAtHours)
+    -- This work now runs outside Engine.update. Flush its component changes
+    -- before a delayed actor can stream out; network replication stays separate.
+    if Components.isDirty(zombie) then Persistence.flushComponents(zombie,false) end
+    return ok,result
+end
+function Engine.updateHungerBudget() return HungerScheduler.update(processHunger) end
+function Engine.getHungerSchedulingDiagnostics() return HungerScheduler.getDiagnostics() end
 
 function Engine.onReplicated(zombie, previousTypeId)
     indexZombie(zombie)

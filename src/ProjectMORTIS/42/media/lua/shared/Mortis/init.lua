@@ -99,7 +99,7 @@ local PileObservations = require "Mortis/Runtime/PileObservationRuntime"
 local PileTraversalLinks = require "Mortis/Runtime/PileTraversalLinks"
 
 local Mortis = rawget(_G, "Mortis") or {}
-Mortis.VERSION = "0.26.0-dev.8"
+Mortis.VERSION = "0.26.0-dev.9"
 Mortis.Types = Types
 Mortis.Traits = Traits
 Mortis.Behaviors = Behaviors

@@ -1,6 +1,15 @@
 # Current validation
 
-Current development version: 0.26.0-dev.8
+Current development version: 0.26.0-dev.9
+
+Current scope: hunger population scheduling and pre-feed clock settlement. See
+[design, bounds and evidence](HUNGER_POPULATION_SCALING.md). Targeted offline tests
+PASS: 100000 queued actors served in 3125 ticks at a strict 32-unit budget; 10000
+Engine callbacks perform zero direct searches; stale/fractional feeding regressions
+fail before correction and pass after. Full-suite results recorded below. Native
+Insane-population/dedicated NOT TESTED; G7/stable G8 BLOCKED. No build/deploy/upload.
+
+## Historical dev.8 artwork checkpoint
 
 [VERIFIED - source] Compatible branded-artwork iteration based on c51c2ba,
 following the dev.7 publication receipt (PR #14). Preserve that immutable receipt
@@ -707,3 +716,23 @@ Historical 0.23.3-dev.2 compiled 121 files and passed 51 unit cases, with its fu
 Canonical versions pass all 13 current mirrors. `python scripts/check_versions.py --release` remains expected FAIL: development prerelease, no current package. Historical ZIP/Contents are preserved. Staged whitespace and bounded public-file secret/artifact checks are required before push.
 
 G7 BLOCKED / NOT TESTED. Stable G8 BLOCKED. No current human SP/hosted/dedicated proof exists. The renamed dependency itself has no Git metadata/public remote; local source hashes are not a GitHub backup. Native mod-list migration, physical research reading, old-save loading, history evidence/privacy/replay, reconnect and restart require disposable runtime fixtures after dependency stage-1 review. Unobserved animation/lunge bookkeeping, external consumer override-stack persistence, food transactions and translations remain open. No main merge, stable tag, packaging, deployment, publication or game/server launch is part of this iteration.
+
+## Dev.9 final offline validation
+
+Windows / Python 3.12.14 / Lupa 2.6 Lua 5.1. Full validation PASS: 131 source
+Lua parses, 68 Lua regression files, 32 Python tests and the Active Hours offline
+experiment suite; exact Knowledge 0.16.0 dependency input verified (120 files).
+87 translation catalogs pass, including English fallback for the new server budget.
+No native game/server was executed. Historical native results are not current proof.
+
+```text
+python scripts/check_versions.py
+python scripts/validate.py --knowledge-and-wisdom ../nightfall-effigy-container/.local/ci-dependencies/B47ANCEDKnowledgeAndWisdom --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json
+python -B scripts/check_overview.py
+python scripts/check_public.py --staged
+git -c core.autocrlf=false diff --cached --check
+```
+
+Exact-head public CI and paired current Nightfall validation are recorded in the
+feature PRs. G7 BLOCKED / NOT TESTED; stable G8 BLOCKED. This is source/offline
+operation-count evidence, not an Insane-population FPS or dedicated PASS.
