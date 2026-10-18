@@ -1,5 +1,18 @@
 # MORTIS Workshop MP-test distribution
 
+## Observed dev.6 publication
+
+SteamCMD exited 0 and confirmed `Committing update...Success.` for the fixed
+existing-item VDF from source e96b56ee50ad6aae46d10d98cc8662f5a34fb215.
+The public API then returned result 1, App ID 108600, item 3788592827, public
+visibility and the exact canonical description; its public page was accessible.
+The [portable receipt](publications/0.26.0-dev.6-workshop-3788592827.json) binds
+226 file hashes and package SHA-256. Before upload both push/PR CI jobs passed.
+The user declined a Steam desktop restart; Steam was left unchanged.
+Subscription/download and all native acceptance remain human / NOT TESTED.
+The procedure below records the preparation boundary; it does not relabel
+upload success as dedicated validation or stable-release approval.
+
 The user's publish request authorizes updating existing item 3788592827 with
 0.26.0-dev.6, not a new item, visibility change or stable release. The user
 reconfirmed that exact URL after anonymous API result 9 and an inaccessible

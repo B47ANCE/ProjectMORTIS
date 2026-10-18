@@ -3,6 +3,7 @@
 ## 0.26.0-dev.6 - offline CI, API audit and recovery safeguards, 2026-10-17
 
 - Publication preparation for this version adds the required MP-test label, explicit native/dependency limits, public source link and isolated package/provenance checks. Runtime source and canonical version are unchanged; upload status is recorded separately, never inferred from preparation.
+- Published the explicitly authorized MP test distribution from e96b56e to existing Workshop item 3788592827; SteamCMD success and public description verified. Steam restart declined; native tests and G7/stable G8 remain blocked. See the versioned publication receipt.
 
 - Run exact pinned Knowledge integrations and Nightfall regressions in a separate read-only CI job.
 - Correct the older Nightfall CRLF fixture's Git-byte attribution after strict Linux CI rejection; preserve historical evidence and select a new true-Git manifest without weakening byte checks.
