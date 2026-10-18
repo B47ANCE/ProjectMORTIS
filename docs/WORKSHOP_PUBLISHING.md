@@ -1,6 +1,10 @@
 # MORTIS Workshop MP-test distribution
 
-## Current dev.8 authoring status
+## Current dev.9 matching MP-test selection
+
+The user authorized merged Knowledge 0.17.0 / MORTIS 0.26.0-dev.9 / Nightfall 0.31.0-dev.8 distribution. Follow [current preparation/evidence](WORKSHOP_0.26.0-dev.9.md) and [exact runtime inventory](MP_TEST_BUILD_SET.json). Historical dev.7 receipts and dev.8 authoring checkpoint are retained. Upload outcome is recorded separately. G7/stable G8 BLOCKED.
+
+## Historical dev.8 authoring status
 
 The branded thumbnail source checkpoint 0.26.0-dev.8 is not packaged or uploaded.
 The latest observed Workshop distribution remains dev.7 with the previous
