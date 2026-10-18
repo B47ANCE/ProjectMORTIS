@@ -140,7 +140,7 @@ def prepare(output):
               'source_evidence_steam_build': '25485521', 'executed_build': 'NOT TESTED',
               'validation': 'Offline host/source checks; see owning commit docs/VALIDATION.md',
               'G7': 'BLOCKED / NOT TESTED', 'G8': 'BLOCKED', 'upload_verified': False,
-              'identity_access': 'Public API returned result 9; user reconfirmed exact existing URL. Omit visibility changes. Upload success must be verified separately.'}
+              'identity_access': 'Fixed existing repository item identity. Verify current access and upload outcome separately for each attempt; omit visibility changes.'}
     for name, text in [('provenance.json', json.dumps(record, indent=2)+'\n'),
                        ('description.bbcode', description), ('changenote.txt', note), ('upload.vdf', vdf(output, description, note))]:
         (output/name).write_bytes(text.encode('utf-8'))
