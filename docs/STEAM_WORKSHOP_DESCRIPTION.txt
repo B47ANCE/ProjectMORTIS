@@ -10,7 +10,7 @@ The matching Knowledge 0.17.0 build provides private document/knowledge storage 
 
 ⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 
-[b]Mod Version:[/b] 0.26.0-dev.9
+[b]Mod Version:[/b] 0.26.0-dev.10
 
 This mod is currently under active development and is NOT in a playable or release-ready state.
 

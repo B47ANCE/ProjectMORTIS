@@ -71,3 +71,9 @@ separate publish request; this asset change grants no native acceptance.
 0.26.0-dev.9 is a compatible hunger scheduling/time-accounting fix within the existing MINOR prerelease. Additive server budget and internal Engine diagnostics; public gameplay API 1.6.0, food transaction version, component schemas and replication protocol stay unchanged. The optional settleForFeeding argument to hunger advance is used by trusted meal paths; existing calls retain hourly batching. No stable tag or artifact rebuild.
 
 The authorized 0.26.0-dev.9 MP-test publication preparation keeps the existing version because no runtime/schema changes or immutable package for this iteration precede it. Current metadata mirrors remain synchronized; historical artifacts are not rewritten. Packaging/metadata changes and exact upload evidence are recorded separately. No stable tag or G7/G8 PASS is implied.
+
+0.26.0-dev.10 is a compatible icon-only checkpoint within unreleased 0.26.0.
+The transparent mod icon and version mirrors change; thumbnail, gameplay,
+API 1.6.0, save/network schemas and matching dependency contracts are preserved.
+The dev.9 matching-build inventory and all prior receipts remain historical
+exact evidence; the dev.10 upload receipt binds its current source/artifact.
