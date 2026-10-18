@@ -1,10 +1,15 @@
 # MORTIS Workshop MP-test distribution
 
-## Current dev.8 authoring status
+## Dev.8 upload selection
 
-The branded thumbnail source checkpoint 0.26.0-dev.8 is not packaged or uploaded.
-The latest observed Workshop distribution remains dev.7 with the previous
-thumbnail, recorded below. A new explicit publish request is required.
+The user explicitly requested merging #14 then #15 and publishing the branded
+thumbnail. They merged as af7c02bbef419d9fb967cdb1a4ad92802036edf4 and
+3c403c307e724add19622e4a66a3865886d39c95 respectively; main matches the
+checked thumbnail tree. Select 0.26.0-dev.8, existing item 3788592827 / App ID
+108600. Build an isolated package only from committed/pushed fresh source.
+Preserve prior packages/receipts, title, visibility and tags. No gameplay or
+native acceptance changes. Actual upload/public preview proof will be recorded
+separately after completion. Steam desktop restart requires a new confirmation.
 
 ## Historical dev.7 upload selection
 

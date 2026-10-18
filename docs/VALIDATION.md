@@ -2,6 +2,13 @@
 
 Current development version: 0.26.0-dev.8
 
+Publication preparation follows the explicit dependency-order merge/publish
+request. Both PRs are merged; source includes main 3c403c3. The outgoing note
+selects dev.8 only and retains MP/dependency limits. Isolated packaging must
+verify source/inventory/hash/CRC/path/case and fixed existing-item VDF before
+upload. Prior packages and receipts are preserved; no upload result is inferred
+from preparation.
+
 [VERIFIED - source] Compatible branded-artwork iteration based on c51c2ba,
 following the dev.7 publication receipt (PR #14). Preserve that immutable receipt
 and both full-size original PNGs. Current preview.png and mod thumbnail are
