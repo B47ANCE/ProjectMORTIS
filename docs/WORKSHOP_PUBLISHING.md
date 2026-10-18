@@ -116,3 +116,7 @@ If Steam refuses the existing item/account, stop without creating a replacement.
 After successful upload, ask the user about a Steam desktop restart and wait for
 that specific confirmation. Do not restart after failure/unverified upload.
 No Workshop distribution result grants native acceptance or confirms downloads.
+
+## Observed dev.9 publication
+
+SteamCMD exit 0 / `Committing update...Success.` from `249198a76e72cb038a03d85cba6b9ecd6f798a60`, package `4551a7db6555b803974e963972344006d65a1739e352919db709f2fac177c73c` with 227 staged files. Public exact description/title/visibility match; no visibility changes or desktop restart. [Current result and receipt](WORKSHOP_0.26.0-dev.9.md). G7/stable G8 BLOCKED; subscription/native acceptance remains human / NOT TESTED. Prior dev.6/dev.7 receipts are unchanged.

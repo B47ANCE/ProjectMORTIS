@@ -57,3 +57,9 @@ git -c core.autocrlf=false diff --cached --check
 ```
 
 Packaging verification and actual upload success are recorded only after execution. Exact-head CI results and final SHA are recorded in the publication PR. All G7/stable G8 native gates remain blocked.
+
+## Verified upload — 2026-10-18 America/Phoenix
+
+SteamCMD exited 0 and reported `Committing update...Success.` for existing item **3788592827**, after all required offline and exact-head CI checks passed. Release commit: `249198a76e72cb038a03d85cba6b9ecd6f798a60`. Package SHA-256: `4551a7db6555b803974e963972344006d65a1739e352919db709f2fac177c73c`; 227 exact staged files. Public API description, identity/title and public visibility match.
+
+[Portable upload receipt](publications/0.26.0-dev.9-workshop-3788592827.json) binds the exact release/source commit, all package file hashes, publication text/VDF hashes, validation and actual result. No title, visibility or tags were submitted. Knowledge, MORTIS and Nightfall uploads completed in that order. No deployment, server changes, native launch or Steam desktop restart. Steam restart confirmation was requested separately and remains pending at receipt time. Subscriber download, dedicated startup/two-client synchronization, persistence/restart and native Insane-population timing remain HUMAN / NOT TESTED; G7/stable G8 BLOCKED.
