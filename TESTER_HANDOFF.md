@@ -1,4 +1,4 @@
-# Project M.O.R.T.I.S. 0.26.0-dev.8 playtester handoff
+# Project M.O.R.T.I.S. 0.26.0-dev.9 playtester handoff
 
 Dev.6 adds [private result-record validation](docs/RUNTIME_RESULT_FORMAT.md),
 exact-input offline integration CI and [API/crash-boundary findings](docs/ACTIVE_HOURS_API_AUDIT.md).
@@ -62,3 +62,5 @@ reviewed contracts without loading Lua; other family installations stay NOT CHEC
 Keep Nightfall excluded from creator and isolated baseline/locomotion suites.
 The ownership/reconfiguration experiment is repository-only; do not load it into
 PZ or treat its simulated context/receipt flags as native proof.
+
+Dev.9 population case: use the exact paired builds and disposable dedicated worlds under separate launch/deploy authorization. Capture authority-local hunger queue depth, wait, attempted/checked/fed/seeking/errors, server tick time, time-accelerated starvation and feeding reset across rejoin/restart. Client counters are not server evidence. See docs/HUNGER_POPULATION_SCALING.md. Native G7/stable G8 remain BLOCKED.

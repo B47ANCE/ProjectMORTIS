@@ -74,5 +74,7 @@
   "Sandbox_MORTISPhysical_CorpseTripChanceMultiplier_tooltip": "Scale the base chance of corpse trips. 1 keeps the profile value; other balance modifiers still apply.",
   "Sandbox_MORTISPhysical_StairTripChanceMultiplier_tooltip": "Scale the base chance of stair trips. 1 keeps the profile value; other balance modifiers still apply.",
   "Sandbox_MORTISPhysical_LungeTripChanceMultiplier_tooltip": "Scale the base chance of lunge trips. 1 keeps the profile value; other balance modifiers still apply.",
-  "Sandbox_MORTISPhysical_ShoveTripChanceMultiplier_tooltip": "Scale the base chance of shove and shove-chain trips. 1 keeps the profile value; other balance modifiers still apply."
+  "Sandbox_MORTISPhysical_ShoveTripChanceMultiplier_tooltip": "Scale the base chance of shove and shove-chain trips. 1 keeps the profile value; other balance modifiers still apply.",
+  "Sandbox_MORTISSystems_HungerWorkPerTick": "Hunger checks per tick",
+  "Sandbox_MORTISSystems_HungerWorkPerTick_tooltip": "Server-wide maximum automatic zombie hunger/food checks per tick (1-512, default 32). Lower values reduce peak work but increase queue delay at high populations. Elapsed hunger time is retained; existing saves use 32 when absent."
 }

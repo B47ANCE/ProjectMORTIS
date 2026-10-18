@@ -67,3 +67,5 @@ its subsequent publication is recorded separately in the immutable receipt.
 API 1.6.0, local creator format and world/network schemas stay unchanged. The
 dev.7 publication receipt remains historical and exact. New upload requires a
 separate publish request; this asset change grants no native acceptance.
+
+0.26.0-dev.9 is a compatible hunger scheduling/time-accounting fix within the existing MINOR prerelease. Additive server budget and internal Engine diagnostics; public gameplay API 1.6.0, food transaction version, component schemas and replication protocol stay unchanged. The optional settleForFeeding argument to hunger advance is used by trusted meal paths; existing calls retain hourly batching. No stable tag or artifact rebuild.
