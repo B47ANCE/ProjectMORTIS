@@ -141,3 +141,5 @@
 - [TESTED offline] Syntax and host regressions only. G7 BLOCKED / NOT TESTED; stable-release G8 BLOCKED. Historical partial experienceWorks runtime evidence is not current validation.
 
 Earlier release notes remain in WORKSHOP_CHANGE_NOTE.txt and existing design documents; importing source does not certify prior releases.
+
+Publication preparation 0.26.0-dev.9 (2026-10-18): merged matching dependency set, current MP-test labels/known limits and source links, isolated validated packaging and fixed-item provenance. No runtime change or native validation claim. Upload outcome recorded separately.

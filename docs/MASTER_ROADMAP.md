@@ -138,3 +138,5 @@ contracts; the next critical path remains the human queue, not a population
 controller. No runtime gate is closed by this checkpoint.
 
 Current dev.9: globally budgeted hunger/food work and precise pre-feed time settlement are implemented in source. Next: paired Nightfall source validation, then human dedicated Insane-population operation/latency/frame-time and persistence acceptance. See [hunger performance contract](HUNGER_POPULATION_SCALING.md); no native performance PASS is claimed.
+
+Authorized 0.26.0-dev.9 matching MP-test distribution preparation: source merged in dependency order; exact build-set inventory and package/provenance gates precede upload. Next: human fresh-world dedicated startup, two-client research/feeding, Insane-population timing, save/rejoin/restart. G7/stable G8 BLOCKED.
