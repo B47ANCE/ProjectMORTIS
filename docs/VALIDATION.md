@@ -1,6 +1,32 @@
 # Current validation
 
-Current development version: 0.26.0-dev.7
+Current development version: 0.26.0-dev.8
+
+[VERIFIED - source] Compatible branded-artwork iteration based on c51c2ba,
+following the dev.7 publication receipt (PR #14). Preserve that immutable receipt
+and both full-size original PNGs. Current preview.png and mod thumbnail are
+identical 512x512 full-canvas exports of the new supplied branded image.
+The small icon and gameplay/API/save/network behavior are unchanged; runtime
+Lua changes are version mirrors only.
+
+[TESTED - offline Windows] PNG decode/dimensions/hash/CRC checks, exact source
+preservation, visual inspection, version mirrors, runtime-input inventory and
+overview binding PASS. Full host suite PASS: 66 Lua test files, 32 Python cases,
+26 diagnostic cases, 130 syntax files, 15 version mirrors and 87 translation
+catalogs; 120 exact Knowledge input files verified. All three exact-input
+Nightfall regressions PASS; 224 current MORTIS input files verified. No native
+runtime evidence is inferred. No package, deployment or Workshop upload.
+Native thumbnail display stays HUMAN / NOT TESTED; existing gameplay G7
+BLOCKED / NOT TESTED and stable G8 BLOCKED.
+
+Commands: python -B scripts/check_versions.py; python -B scripts/check_overview.py;
+python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json;
+python -B scripts/check_nightfall_integration.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --nightfall ../.mortis-merge-fixtures/nightfall-5690021-git-lf.
+Asset validation: Windows System.Drawing full-canvas export and decode;
+standard Python PNG chunk/CRC/dimension/SHA-256 checks. Provenance in
+assets/branding/README.md.
+
+## Historical 0.26.0-dev.7 source and publication evidence
 
 Publication preparation follows the explicit merge-and-publish request. Source
 includes merged PR #13 / da769ee. The outgoing note describes the current

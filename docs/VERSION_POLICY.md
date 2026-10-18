@@ -59,4 +59,11 @@ historical; the API audit grants no runtime evidence.
 The owner-supplied thumbnail replaces the current authoring PNGs; previous Git
 artwork and immutable packages/publication records retain their original bytes.
 Runtime changes are version mirrors only; public API and save/network schemas
-are unchanged. No current dev.7 package or Workshop upload is declared.
+are unchanged. The initial dev.7 asset checkpoint declared no package/upload;
+its subsequent publication is recorded separately in the immutable receipt.
+
+0.26.0-dev.8 is a compatible supplied-artwork revision within the unreleased
+0.26.0 target. Only branding exports, version mirrors and their evidence change;
+API 1.6.0, local creator format and world/network schemas stay unchanged. The
+dev.7 publication receipt remains historical and exact. New upload requires a
+separate publish request; this asset change grants no native acceptance.

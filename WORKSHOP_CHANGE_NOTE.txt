@@ -1,3 +1,11 @@
+[b]Version 0.26.0-dev.8[/b]
+MP testing build - dedicated multiplayer NOT TESTED
+
+Updated the project thumbnail artwork with the supplied B47ANCE's branding.
+Gameplay and public APIs are unchanged. Native menu/display acceptance remains human-operated and NOT TESTED; dedicated multiplayer and stable-release approval remain blocked.
+This source checkpoint has not been packaged or uploaded.
+
+[b]Earlier development notes (historical)[/b]
 [b]Version 0.26.0-dev.7[/b]
 MP testing build - dedicated multiplayer NOT TESTED
 

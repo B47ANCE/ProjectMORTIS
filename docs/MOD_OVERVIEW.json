@@ -2,8 +2,8 @@
   "schema": 1,
   "id": "mortis",
   "name": "M.O.R.T.I.S.",
-  "version": "0.26.0-dev.7",
-  "source_digest": "c77ab9abca8668990dc220755e0498aa9c6e6f491f9f0eba9d3eb7f1206e778a",
+  "version": "0.26.0-dev.8",
+  "source_digest": "9dbcf063acc78e9fafeb89c68ad790580d1db0bd534b3e9d339ed3d09c52e49d",
   "reviewed": true,
   "features": [
     {
