@@ -1,4 +1,13 @@
 [b]Version 0.26.0-dev.6[/b]
+MP testing build - dedicated multiplayer NOT TESTED
+
+Development test distribution: local main-menu zombie definition creator; transactional feeding/API 1.6.0 safeguards; observed locomotion baseline/owner cleanup; current Knowledge & Wisdom dependency identity; dormant opt-in Active Hours diagnostic. Pinned cross-project regressions pass offline. Production Active Hours solar/population policy is not enabled.
+
+Native creator UI/storage, dependency stage-1, SP acceptance, locomotion/observer/animation/restoration, feeding durability, late join/reconnect and dedicated restarts remain NOT TESTED. Knowledge & Wisdom 0.16.0 blocks affected multiplayer storage APIs; no bypass. Use a clean vanilla baseline and disposable backed-up saves. G7 and stable-release G8 remain BLOCKED. Source: https://github.com/B47ANCE/ProjectMORTIS
+
+[b]Earlier development notes (historical)[/b]
+
+[b]Version 0.26.0-dev.6[/b]
 Offline integration CI, human-result structure validation, installed API audit and isolated crash-recovery safeguards. Dedicated multiplayer NOT TESTED; G7/stable G8 BLOCKED. No package/deploy/upload.
 
 [b]Version 0.26.0-dev.5[/b]

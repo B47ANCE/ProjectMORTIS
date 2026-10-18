@@ -2,6 +2,16 @@ version=1
 title=Project M.O.R.T.I.S.
 tags=Build 42;Framework
 visibility=public
+description=[b]MP testing build - dedicated multiplayer NOT TESTED[/b]
+description=
+description=This is a development test distribution for Build 42. Offline host checks pass; native single-player, creator UI/storage and dedicated multiplayer acceptance remain NOT TESTED. G7 and stable-release G8 remain BLOCKED. Use a clean vanilla installation and disposable backed-up saves; do not use this build on a production world.
+description=
+description=[b]Known limitations[/b]
+description=Knowledge & Wisdom 0.16.0 intentionally refuses affected multiplayer storage APIs with MULTIPLAYER_STORAGE_UNAVAILABLE. This build does not bypass that guard. Complete its scoped stage-1 review before the MORTIS gameplay baseline. Native locomotion ownership, observer synchronization, full animation/lunge restoration, save/rejoin/restart and creator file behavior require human validation. Active Hours production seasonal/profile policy remains disabled; its diagnostic is opt-in only. The old standalone Active Hours proof must not run alongside MORTIS. Existing save/mod lists must select B47ANCEDKnowledgeAndWisdom instead of the old experienceWorks dependency identity. Save rollback/downgrade is not certified.
+description=
+description=[b]Source Code & Development[/b]
+description=[url=https://github.com/B47ANCE/ProjectMORTIS]GitHub - Source Code & Issues[/url]
+description=
 description=⚠ DEVELOPMENT BUILD — NOT YET PLAYABLE ⚠
 description=
 description=[b]Mod Version:[/b] 0.26.0-dev.6
@@ -132,6 +142,6 @@ description=Technical Designer
 description=Compatibility Engineer
 description=QA Automation Developer
 description=Technical Writer and Documentation Maintainer
-
+description=
 description=[b]Development scope: Active Hours[/b]
 description=Active Hours remains maintained standalone while MORTIS includes the same complete feature scope. The two implementations are incompatible; Active Hours disables its own execution when ProjectMORTIS is enabled, leaving MORTIS in control. Current MORTIS source contains an explicitly started experimental speed diagnostic; seasonal policy is not enabled. Dedicated multiplayer NOT TESTED. Published standalone test content is historical, not this source build.

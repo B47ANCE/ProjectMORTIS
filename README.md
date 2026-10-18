@@ -141,3 +141,9 @@ records seasonal call forms, unresolved independent life identity/durable storag
 and additional loose-class mismatches. Isolated ownership fixes require checkpoint
 admission for receipts/retries and reserve an outcome sequence before dispatch.
 No production Active Hours adapter/controller, option or storage is installed.
+
+Workshop test distributions use the explicit [publication procedure](docs/WORKSHOP_PUBLISHING.md)
+and isolated `scripts/prepare_workshop.py` staging. A publish request authorizes
+the labelled MP-testing upload to the existing item; package preparation alone
+does not upload, deploy or restart Steam. G7/stable G8 remain blocked until their
+required native evidence is reviewed.
