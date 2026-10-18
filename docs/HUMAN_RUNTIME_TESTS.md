@@ -1,6 +1,6 @@
 # Human runtime test queue
 
-Current candidate: 0.26.0-dev.6; API 1.6.0; replication protocol 2.
+Current candidate: 0.26.0-dev.7; API 1.6.0; replication protocol 2.
 The user clarified that tests requiring an open game are human-operated.
 Automated work here is offline/source preflight only. **No game/server was
 opened, mod deployed, save modified or native result collected.**
@@ -34,7 +34,7 @@ Freeze these exact inputs; a source PR is not an installed/merged release:
 
 | Input | Candidate | Status |
 | --- | --- | --- |
-| MORTIS | Selected 0.26.0-dev.6 commit on feat/offline-ci-api-recovery; record its SHA and match mortis-runtime-input.json | Development source, native NOT TESTED |
+| MORTIS | Selected 0.26.0-dev.7 commit on feat/mortis-thumbnail; record its SHA and match mortis-runtime-input.json | Development source, native NOT TESTED |
 | Knowledge & Wisdom | 0.16.0, source head 6ba66c0d8f246d438f2e2f3c974fee9f77fdb426, merged dependency PR #1 | Clean public source; affected multiplayer APIs intentionally blocked |
 | Nightfall | Exclude from creator, dependency baseline, MORTIS baseline and isolated locomotion | Consumer feeding is a later separate suite |
 

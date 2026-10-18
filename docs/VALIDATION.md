@@ -1,5 +1,38 @@
 # Current validation
 
+Current development version: 0.26.0-dev.7
+
+Artwork-only source checkpoint based on merged PR #12 / 436f8c0.
+The user-supplied 1254x1254 PNG is preserved byte for byte in assets/branding/;
+preview.png and src/ProjectMORTIS/thumbnail.png are the same 512x512 PNG export.
+The small icon is unchanged. Visual review confirms the complete composition is
+retained without cropping/redrawing. PNG decode, dimensions, export/source hashes,
+preview size and version/overview/input consistency are checked offline.
+
+[TESTED - offline Windows CPython 3.12 / Lupa 2.6] Full host validation PASS:
+66 Lua test files, 32 Python cases, 26 diagnostic cases, 130 runtime Lua syntax
+checks, 15 version mirrors and 87 catalogs. The selected 120-file Knowledge
+input is verified. Both 512x512 exports are 431,429 bytes and identical; the
+original hash matches the supplied attachment. No new tests mirror this simple
+asset replacement; existing checks and direct image inspection cover the change.
+
+Runtime code differences are version mirrors only; API 1.6.0 and runtime/save/
+network schemas are unchanged. No new package, deployment or Workshop upload.
+Native menu/thumbnail display remains HUMAN / NOT TESTED. Existing gameplay G7
+BLOCKED / NOT TESTED; stable G8 BLOCKED. Prior publication and test evidence
+below retains its original version/environment and is historical.
+
+Commands: python -B scripts/check_versions.py; python -B scripts/check_overview.py;
+python -B scripts/validate.py --knowledge-and-wisdom ../.mortis-merge-fixtures/knowledge-6ba66c0 --dependency-evidence docs/evidence/knowledge-dependency-6ba66c0-git-bytes.json.
+PNG structure/hash/dimension and image-export inspection uses standard offline
+byte checks and Windows System.Drawing, with results in assets/branding/README.md.
+
+---
+
+## Historical dev.6 validation and publication (unchanged)
+
+# Current validation
+
 Current development version: 0.26.0-dev.6
 
 ## Publication preparation for dev.6

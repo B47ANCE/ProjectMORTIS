@@ -2,8 +2,8 @@
   "schema": 1,
   "id": "mortis",
   "name": "M.O.R.T.I.S.",
-  "version": "0.26.0-dev.6",
-  "source_digest": "3ec5ddc71e5741cc66af25993bbf31517c06d3bf36c0220b7e3f7b246e36fea1",
+  "version": "0.26.0-dev.7",
+  "source_digest": "c77ab9abca8668990dc220755e0498aa9c6e6f491f9f0eba9d3eb7f1206e778a",
   "reviewed": true,
   "features": [
     {
@@ -60,7 +60,8 @@
     "docs/ACTIVE_HOURS_OWNERSHIP_MODEL.md",
     "docs/ACTIVE_HOURS_API_AUDIT.md",
     "docs/RUNTIME_RESULT_FORMAT.md",
-    "docs/WORKSHOP_PUBLISHING.md"
+    "docs/WORKSHOP_PUBLISHING.md",
+    "assets/branding/README.md"
   ],
   "relations": []
 }

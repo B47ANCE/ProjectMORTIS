@@ -54,3 +54,9 @@ API 1.6.0, creator/world/network schemas and experimental ownership format 1
 are unchanged. Human-result JSON schema 1 is an offline review format, not a
 runtime save schema or automated acceptance contract. Prior validation remains
 historical; the API audit grants no runtime evidence.
+
+0.26.0-dev.7 is a compatible artwork-only checkpoint within unreleased 0.26.0.
+The owner-supplied thumbnail replaces the current authoring PNGs; previous Git
+artwork and immutable packages/publication records retain their original bytes.
+Runtime changes are version mirrors only; public API and save/network schemas
+are unchanged. No current dev.7 package or Workshop upload is declared.
